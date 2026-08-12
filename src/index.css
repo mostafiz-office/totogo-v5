@@ -7,16 +7,15 @@
 @layer base {
   :root {
     /* ============================================================
-       totooGO palette: Heritage Brown + Electric Green
-       Two brand colors only. Brown from the HQ building,
-       green from the CTA button and logo plug.
+       totooGO palette: Electric Green, straight from the logo.
+       One brand color + neutral greys. No brown anywhere.
        ============================================================ */
 
-    /* Brand primary (brown) */
-    --c-primary-brand:        26 51% 27%;   /* #6B4423 HQ brown */
-    --c-primary-brand-deep:   24 53% 19%;   /* #4A2E17 hover / deeper */
-    --c-primary-brand-warm:   26 53% 36%;   /* #8B5A2B secondary surfaces */
-    --c-primary-brand-soft:   32 40% 88%;   /* #EBDDCB tint */
+    /* Brand primary (green) */
+    --c-primary-brand:        155 100% 40%; /* #00CE7E logo green */
+    --c-primary-brand-deep:   157 100% 20%; /* #006638 hover / deeper */
+    --c-primary-brand-warm:   155 100% 33%; /* #00A866 secondary surfaces */
+    --c-primary-brand-soft:   152 65% 88%;  /* #CFF1DF tint */
 
     /* Brand action (green) */
     --c-green:        155 100% 40%; /* #00CE7E CTA */
@@ -24,12 +23,12 @@
     --c-green-soft:   152 65% 88%;  /* #CFF1DF tint */
     --c-green-tree:   158 62% 45%;  /* #2DBA88 hero tree leaves */
 
-    /* Neutrals (warm, brown-tinted) */
-    --c-ink:          30 40% 6%;    /* #1A1208 body ink */
-    --c-muted:        27 15% 37%;   /* #6B5D50 secondary copy */
-    --c-surface:      36 43% 97%;   /* #FAF7F2 page bg */
-    --c-surface-alt:  36 40% 90%;   /* #F0E8DC section band */
-    --c-border:       33 39% 84%;   /* #E4D8C6 hairline */
+    /* Neutrals (cool, faintly green-tinted) */
+    --c-ink:          160 20% 7%;   /* #0E1613 body ink */
+    --c-muted:        160 8% 38%;   /* #5A6864 secondary copy */
+    --c-surface:      150 25% 98%;  /* #F8FBF9 page bg */
+    --c-surface-alt:  150 28% 93%;  /* #E8F3EE section band */
+    --c-border:       150 20% 86%;  /* #D7E4DE hairline */
 
     /* Legacy alias, keeps existing components readable while we transition */
     --c-blue:         var(--c-primary-brand);
