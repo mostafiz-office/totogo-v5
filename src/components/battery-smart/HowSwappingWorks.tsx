@@ -200,7 +200,7 @@ export default function HowSwappingWorks() {
           --c-faint: #0E161399;
           --c-border: hsl(0 0% 0% / 0.18);
           --c-hover: #00CE7E;
-          --c-tile-bg: #006638;
+          --c-tile-bg: #002366;
           --c-tile-icon: #ffffff;
 
           background: var(--c-bg);
@@ -230,14 +230,14 @@ export default function HowSwappingWorks() {
           --c-tile-icon: #ffffff;
         }
         .sss-card[data-step="4"] {
-          --c-bg: #006638;
+          --c-bg: #002366;
           --c-text: #ffffff;
           --c-mute: hsl(0 0% 100% / 0.82);
           --c-faint: hsl(0 0% 100% / 0.6);
           --c-border: hsl(0 0% 100% / 0.25);
           --c-hover: #00CE7E;
           --c-tile-bg: #F8FBF9;
-          --c-tile-icon: #006638;
+          --c-tile-icon: #002366;
         }
 
         .sss-card-content { display: flex; flex-direction: column; gap: 1rem; align-self: center; }

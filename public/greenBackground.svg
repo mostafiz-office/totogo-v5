@@ -7,25 +7,25 @@
   -->
   <defs>
     <linearGradient id="uev-bg-wing-left" x1="0" y1="0" x2="0" y2="628" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#E8D4B8" stop-opacity="0.35"/>
-      <stop offset="0.16" stop-color="#EADAC2" stop-opacity="0.66"/>
-      <stop offset="0.55" stop-color="#EFE2D0" stop-opacity="0.50"/>
-      <stop offset="1" stop-color="#F3E9DB" stop-opacity="0.35"/>
+      <stop offset="0" stop-color="#CFF1DF" stop-opacity="0.35"/>
+      <stop offset="0.16" stop-color="#D8F4E6" stop-opacity="0.66"/>
+      <stop offset="0.55" stop-color="#E4F7EE" stop-opacity="0.50"/>
+      <stop offset="1" stop-color="#EDFAF4" stop-opacity="0.35"/>
     </linearGradient>
 
     <linearGradient id="uev-bg-wing-right" x1="1920" y1="0" x2="1920" y2="628" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#E8D4B8" stop-opacity="0.31"/>
-      <stop offset="0.16" stop-color="#EADAC2" stop-opacity="0.63"/>
-      <stop offset="0.55" stop-color="#EFE2D0" stop-opacity="0.50"/>
-      <stop offset="1" stop-color="#F3E9DB" stop-opacity="0.36"/>
+      <stop offset="0" stop-color="#CFF1DF" stop-opacity="0.31"/>
+      <stop offset="0.16" stop-color="#D8F4E6" stop-opacity="0.63"/>
+      <stop offset="0.55" stop-color="#E4F7EE" stop-opacity="0.50"/>
+      <stop offset="1" stop-color="#EDFAF4" stop-opacity="0.36"/>
     </linearGradient>
 
     <linearGradient id="uev-bg-panel" x1="0" y1="628" x2="0" y2="1251" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F3E9DB" stop-opacity="0.35"/>
-      <stop offset="0.08" stop-color="#F5ECDF" stop-opacity="0.32"/>
-      <stop offset="0.30" stop-color="#F7EFE6" stop-opacity="0.24"/>
-      <stop offset="0.56" stop-color="#F9F3EC" stop-opacity="0.16"/>
-      <stop offset="0.82" stop-color="#FCF8F3" stop-opacity="0.06"/>
+      <stop offset="0" stop-color="#EDFAF4" stop-opacity="0.35"/>
+      <stop offset="0.08" stop-color="#F0FBF6" stop-opacity="0.32"/>
+      <stop offset="0.30" stop-color="#F3FCF8" stop-opacity="0.24"/>
+      <stop offset="0.56" stop-color="#F6FDFA" stop-opacity="0.16"/>
+      <stop offset="0.82" stop-color="#FAFEFC" stop-opacity="0.06"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
   </defs>
