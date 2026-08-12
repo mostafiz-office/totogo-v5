@@ -29,6 +29,9 @@
     --c-surface:      150 25% 98%;  /* #F8FBF9 page bg */
     --c-surface-alt:  150 28% 93%;  /* #E8F3EE section band */
     --c-border:       150 20% 86%;  /* #D7E4DE hairline */
+    --c-navy:         220 100% 20%; /* #002366 logo navy */
+
+
 
     /* Legacy alias, keeps existing components readable while we transition */
     --c-blue:         var(--c-primary-brand);
