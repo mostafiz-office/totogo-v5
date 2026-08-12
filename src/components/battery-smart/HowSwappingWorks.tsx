@@ -96,18 +96,19 @@ export default function HowSwappingWorks() {
       ref={sectionRef}
       className="sss-section totoogo"
       id="how-swapping-works"
-      aria-label="How totooGO battery swapping works in five steps"
+      aria-label="How totooGO works in four steps"
     >
       <div className="container max-w-[1248px] mx-auto px-6 py-14 md:py-20 lg:py-28">
         <div className="sss-head-wrap text-center mb-14 md:mb-20 max-w-3xl mx-auto">
-          <p className="sss-eyebrow">How It Works</p>
+          <p className="sss-eyebrow">HOW IT WORKS</p>
           <h2 className="sss-heading">
-            Swap, drive, earn, in <em>five simple steps</em>
+            Own &amp; earn your freedom, buy, swap, earn, in <em>four simple steps</em>
           </h2>
           <p className="sss-intro mt-5">
-            totooGO replaces slow charging with a <strong>90-second battery swap</strong>{" "}
-            built for Bangladesh's <strong>CNG &amp; EV drivers</strong>. Here's the full ride, from pulling in to{" "}
-            <strong>tracking your savings</strong>.
+            totooGO helps CNG three-wheeler drivers own an electric three-wheeler with easy,
+            affordable financing. Our battery subscription removes the worry of costly battery
+            replacement, while lower operating costs and higher earnings help drivers achieve
+            financial freedom.
           </p>
         </div>
 
@@ -121,9 +122,7 @@ export default function HowSwappingWorks() {
               <article className="sss-card" data-step={c.step}>
                 <div className="sss-card-content">
                   <span className="sss-category">{c.category}</span>
-                  <h3 className="sss-card-title">
-                    <a className="sss-card-title-link" href="#">{c.title}</a>
-                  </h3>
+                  <h3 className="sss-card-title">{c.title}</h3>
                   <p className="sss-card-desc">{c.body}</p>
                   <div className="sss-stats">
                     {c.stats.map((s, idx) => (
@@ -133,9 +132,6 @@ export default function HowSwappingWorks() {
                       </div>
                     ))}
                   </div>
-                  <a className="sss-cta" href="#">
-                    {c.cta} <ArrowRight className="sss-cta-icon" aria-hidden />
-                  </a>
                 </div>
                 <div className="sss-card-media" aria-hidden>
                   <div className="sss-icon-tile">
@@ -147,7 +143,10 @@ export default function HowSwappingWorks() {
             </div>
           ))}
         </div>
+
+        <p className="sss-closing">Drive with TOTOOGO and earn your freedom.</p>
       </div>
+
 
       <style>{`
         .sss-section.totoogo {
