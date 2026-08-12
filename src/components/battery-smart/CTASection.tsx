@@ -48,7 +48,7 @@ const CTASection = () => {
       <div className="mx-auto max-w-[1200px]">
         <div
           className="relative overflow-hidden rounded-[2rem]"
-          style={{ backgroundColor: "#E8D4A8" }}
+          style={{ backgroundColor: "#CFF1DF" }}
         >
           {/* Ambient glow */}
           <div
@@ -58,7 +58,7 @@ const CTASection = () => {
           />
           <div
             className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full opacity-25 blur-[120px]"
-            style={{ background: "#C9A876" }}
+            style={{ background: "#00A866" }}
             aria-hidden="true"
           />
 
@@ -150,7 +150,7 @@ const CTASection = () => {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, #E8D4A8 0%, rgba(232,212,168,0.4) 25%, transparent 60%)",
+                    "linear-gradient(90deg, #CFF1DF 0%, rgba(207,241,223,0.4) 25%, transparent 60%)",
                 }}
                 aria-hidden="true"
               />
@@ -162,7 +162,7 @@ const CTASection = () => {
             className="absolute bottom-0 left-0 h-1 w-full"
             style={{
               background:
-                "linear-gradient(90deg, hsl(var(--c-green)), #006638, hsl(var(--c-green)))",
+                "linear-gradient(90deg, hsl(var(--c-green)), #002366, hsl(var(--c-green)))",
             }}
             aria-hidden="true"
           />

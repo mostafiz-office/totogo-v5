@@ -13,7 +13,7 @@
 
     /* Brand primary (green) */
     --c-primary-brand:        155 100% 40%; /* #00CE7E logo green */
-    --c-primary-brand-deep:   157 100% 20%; /* #006638 hover / deeper */
+    --c-primary-brand-deep:   220 100% 20%; /* #002366 logo navy */
     --c-primary-brand-warm:   155 100% 33%; /* #00A866 secondary surfaces */
     --c-primary-brand-soft:   152 65% 88%;  /* #CFF1DF tint */
 
@@ -102,7 +102,7 @@
 
     /* Heading hover tokens */
     --primary-darker:    var(--c-primary-brand-deep);
-    --hover-shadow-ink:  0 102 56;  /* #006638 as RGB triplet */
+    --hover-shadow-ink:  0 35 102;  /* #002366 as RGB triplet */
   }
 
 }

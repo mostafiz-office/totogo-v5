@@ -179,7 +179,7 @@
   .site-dual-cta-book > * { vertical-align: middle; }
 
   .site-dual-cta-call {
-    background-color: #006638;
+    background-color: #002366;
     color: #ffffff;
     border-radius: 10px 0 0 10px;
   }
@@ -199,7 +199,7 @@
   }
   .site-dual-cta:hover .site-dual-cta-book,
   .site-dual-cta:focus-within .site-dual-cta-book {
-    background-color: #006638;
+    background-color: #002366;
     color: #ffffff;
   }
 

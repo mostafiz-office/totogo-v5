@@ -5,7 +5,7 @@
     <stop offset="100%" stop-color="#066D45"/>
   </linearGradient>
   <linearGradient id="bsTrunkGrad" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#006638"/>
+    <stop offset="0%" stop-color="#002366"/>
     <stop offset="55%" stop-color="#00A866"/>
     <stop offset="100%" stop-color="#5A3617"/>
   </linearGradient>
