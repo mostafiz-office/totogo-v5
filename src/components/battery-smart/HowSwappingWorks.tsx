@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { MapPin, QrCode, BatteryCharging, Truck, TrendingUp, ArrowRight } from "lucide-react";
+import { ListChecks, Wallet, BatteryCharging, TrendingUp } from "lucide-react";
 
 type Card = {
   step: number;
@@ -7,104 +7,56 @@ type Card = {
   title: string;
   body: React.ReactNode;
   stats: [{ value: string; label: string }, { value: string; label: string }];
-  cta: string;
   Icon: React.ComponentType<{ className?: string }>;
 };
 
 const CARDS: Card[] = [
   {
     step: 1,
-    category: "Locate",
-    Icon: MapPin,
-    title: "Pull into a totooGO swap point",
-    body: (
-      <>
-        Find the nearest swap station from the totooGO app, already live across{" "}
-        <a className="sss-desc-link" href="#"><strong>Dhaka, Chattogram &amp; Sylhet</strong></a>{" "}
-        with new points opening every week along the busiest{" "}
-        <a className="sss-desc-link" href="#"><strong>EV corridors</strong></a>.
-      </>
-    ),
+    category: "CHOOSE",
+    Icon: ListChecks,
+    title: "Choose your E3W, Start your ELECTRIC journey!",
+    body: "Select a totooGO electric three-wheeler built for affordable, efficient everyday driving.",
     stats: [
-      { value: "120+", label: "SWAP POINTS" },
-      { value: "<2 km", label: "AVG DISTANCE" },
+      { value: "3-5 kW Motor", label: "Built for low-cost, efficient mobility." },
+      { value: "Comfortable Ride", label: "Designed for the real needs of CNG & EV drivers." },
     ],
-    cta: "See station map",
   },
   {
     step: 2,
-    category: "Identify",
-    Icon: QrCode,
-    title: "Scan, unlock, and queue your slot",
-    body: (
-      <>
-        Tap your driver QR, the cabinet recognises your{" "}
-        <a className="sss-desc-link" href="#"><strong>totooGO ID</strong></a>, releases a charged battery, and reserves your slot. No paperwork, no waiting in line, no{" "}
-        <a className="sss-desc-link" href="#"><strong>cash hassle</strong></a>.
-      </>
-    ),
+    category: "BUY",
+    Icon: Wallet,
+    title: "Own your vehicle! Own Your Future!",
+    body: "Get your TOTOOGO E3W with easy, pocket-friendly financing and start building your own asset!",
     stats: [
-      { value: "1 tap", label: "TO UNLOCK" },
-      { value: "100%", label: "CASHLESS" },
+      { value: "Tk. 20,000", label: "Downpayment starts from" },
+      { value: "Tk 600-900", label: "Daily installment, less than CNG rent." },
     ],
-    cta: "How the app works",
   },
   {
     step: 3,
-    category: "Swap",
+    category: "SWAP",
     Icon: BatteryCharging,
-    title: "Swap empty for full in 90 seconds",
-    body: (
-      <>
-        Slide the depleted pack in, lift a freshly charged one out, lock, done.{" "}
-        <a className="sss-desc-link" href="#"><strong>90-second swap</strong></a>{" "}
-        beats every fast charger on the road, and you never gamble on a{" "}
-        <a className="sss-desc-link" href="#"><strong>weak battery</strong></a>.
-      </>
-    ),
+    title: "Swap & Drive, No Expensive Battery Replacement!",
+    body: "With totooGO, you don't pay for costly battery replacement—only a simple subscription that keeps you on the road.",
     stats: [
-      { value: "90 sec", label: "PER SWAP" },
-      { value: "100%", label: "CHARGED" },
+      { value: "24/7 On Road", label: "Keep driving anytime with uninterrupted battery access." },
+      {
+        value: "30-Second Quick Swap",
+        label: "Swap your battery in seconds and get back to earning. Stay moving and pay only for what you use.",
+      },
     ],
-    cta: "Inside the swap",
   },
   {
     step: 4,
-    category: "Drive",
-    Icon: Truck,
-    title: "Drive out and keep earning all day",
-    body: (
-      <>
-        A full pack means more trips, more fares, more deliveries, without the{" "}
-        <a className="sss-desc-link" href="#"><strong>downtime</strong></a> of plug-in charging. Drivers report up to{" "}
-        <a className="sss-desc-link" href="#"><strong>৳600 extra per day</strong></a>{" "}
-        after switching.
-      </>
-    ),
-    stats: [
-      { value: "৳600+", label: "EXTRA / DAY" },
-      { value: "3×", label: "MORE TRIPS" },
-    ],
-    cta: "Driver stories",
-  },
-  {
-    step: 5,
-    category: "Track",
+    category: "Earn",
     Icon: TrendingUp,
-    title: "Track your savings in the app",
-    body: (
-      <>
-        Every swap is logged. See your fuel savings, kilometres driven, and{" "}
-        <a className="sss-desc-link" href="#"><strong>CO₂ avoided</strong></a>{" "}
-        in real time, proof that totooGO pays you back while cleaning the{" "}
-        <a className="sss-desc-link" href="#"><strong>Bangladesh air</strong></a>.
-      </>
-    ),
+    title: "Drive More. Earn More. Build Your Freedom!",
+    body: "With lower running costs and more time on the road, totooGO helps you keep more of what you earn and build towards financial freedom.",
     stats: [
-      { value: "৳18k+", label: "AVG SAVED / MO" },
-      { value: "1.2 t", label: "CO₂ AVOIDED / YR" },
+      { value: "70% Lower Costs", label: "Save on everyday operating expenses." },
+      { value: "30% Higher Earnings", label: "Spend more time earning and keep more of your income." },
     ],
-    cta: "Open the dashboard",
   },
 ];
 
