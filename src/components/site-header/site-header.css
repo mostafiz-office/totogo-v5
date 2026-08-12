@@ -1,0 +1,312 @@
+/* ===== SiteHeader, design-system-wired, no hardcoded colors =====
+   All values resolve through CSS variables defined in src/index.css. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+  transition: box-shadow 0.2s var(--ease-out);
+  animation: site-header-mount 200ms var(--ease-out) both;
+}
+.site-header[data-scrolled="true"] { box-shadow: var(--shadow-nav); }
+
+.site-header[data-transparent="true"] {
+  position: absolute;
+  inset-inline: 0;
+  background-color: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+}
+.site-header[data-transparent="true"] .site-nav-item {
+  color: hsl(var(--background) / 0.92);
+}
+
+@keyframes site-header-mount {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Nav item ---- */
+.site-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground) / 0.8);
+  transition: color 300ms var(--ease-out), background-color 300ms var(--ease-out);
+}
+.site-nav-item:hover,
+.site-nav-item[data-open="true"] {
+  color: hsl(var(--primary));
+  background-color: hsl(var(--secondary));
+}
+.site-nav-item[data-active="true"] { color: hsl(var(--primary)); }
+.site-nav-item svg { transition: transform 250ms var(--ease-out); }
+.site-nav-item[data-open="true"] svg { transform: rotate(180deg); }
+
+/* ---- Dropdown panel ---- */
+.site-dropdown,
+.site-mega-panel {
+  position: absolute;
+  top: 100%;
+  background-color: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid hsl(var(--border));
+  transform-origin: top center;
+  animation: site-dropdown-in 180ms var(--ease-out) both;
+}
+.site-dropdown {
+  width: min(20rem, calc(100vw - 32px));
+  padding: 8px;
+}
+.site-mega-panel {
+  width: min(720px, calc(100vw - 32px));
+  padding: 16px;
+}
+@keyframes site-dropdown-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Mega cards ---- */
+.site-mega-card {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--radius);
+  text-align: left;
+  transition: background-color 200ms var(--ease-out);
+}
+.site-mega-card:hover { background-color: hsl(var(--c-green-soft) / 0.45); }
+.site-mega-card-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--primary));
+  transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+.site-mega-card:hover .site-mega-card-icon {
+  background-color: hsl(var(--c-blue));
+  color: #ffffff;
+  transform: scale(1.05);
+}
+.site-mega-card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--popover-foreground));
+}
+.site-mega-card-desc {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: hsl(var(--muted-foreground));
+  margin-top: 2px;
+}
+
+.site-mega-popular-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.site-mega-popular-link {
+  display: block;
+  padding: 6px 8px;
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+  color: hsl(var(--foreground) / 0.8);
+  transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+.site-mega-popular-link:hover {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--primary));
+}
+.site-mega-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+  margin-top: 8px;
+  border-top: 1px solid hsl(var(--border));
+}
+.site-mega-footer a {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: hsl(var(--primary));
+  transition: color 200ms var(--ease-out);
+}
+.site-mega-footer a:hover { color: hsl(var(--c-blue-deep)); }
+
+/* ---- Dual CTA pill (totogo brand colors, seam-centered Or) ---- */
+  .site-dual-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-dual-cta-call,
+  .site-dual-cta-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    padding: 12px 25px;
+    font-family: "Poppins", "Manrope", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    opacity: 1;
+    filter: none;
+    -webkit-text-fill-color: currentColor;
+    transition: background-color 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+  }
+  .site-dual-cta-call > *,
+  .site-dual-cta-book > * { vertical-align: middle; }
+
+  .site-dual-cta-call {
+    background-color: #6B4423;
+    color: #ffffff;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .site-dual-cta-book {
+    background-color: hsl(var(--c-green));
+    color: #ffffff;
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* Color swap: hovering/focusing either button swaps both colors.
+     call (brown -> green), book (green -> brown). */
+  .site-dual-cta:hover .site-dual-cta-call,
+  .site-dual-cta:focus-within .site-dual-cta-call {
+    background-color: hsl(var(--c-green));
+    color: #ffffff;
+  }
+  .site-dual-cta:hover .site-dual-cta-book,
+  .site-dual-cta:focus-within .site-dual-cta-book {
+    background-color: #6B4423;
+    color: #ffffff;
+  }
+
+  /* Or coin: rendered as an inline flex item between the two buttons with
+     symmetric negative margins so it sits exactly on the seam regardless of
+     each button's individual width. */
+  .site-dual-cta-or {
+    position: relative;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    margin: 0 -10px;
+    border-radius: 50px;
+    background: #fafaf8;
+    color: #444444;
+    font-family: "Poppins", "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+  }
+
+
+
+
+/* ---- Mobile drawer ---- */
+.site-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: hsl(var(--c-text) / 0.55);
+  animation: site-fade 220ms var(--ease-out);
+}
+.site-mobile-panel {
+  position: fixed;
+  inset: 0;
+  top: 70px;
+  background-color: hsl(var(--background));
+  overflow-y: auto;
+  animation: site-mobile-in 220ms var(--ease-out);
+}
+@keyframes site-fade {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes site-mobile-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.site-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  border-radius: var(--radius);
+  transition: background-color 200ms var(--ease-out);
+}
+.site-mobile-link:hover,
+.site-mobile-link[data-open="true"] { background-color: hsl(var(--secondary)); }
+.site-mobile-link[data-active="true"] { color: hsl(var(--primary)); }
+.site-mobile-link svg { transition: transform 250ms var(--ease-out); }
+.site-mobile-link[data-open="true"] svg.chev { transform: rotate(180deg); }
+
+.site-mobile-children {
+  padding-left: 12px;
+  margin: 4px 0 8px;
+  border-left: 1px solid hsl(var(--border));
+  display: grid;
+  gap: 2px;
+}
+.site-mobile-children a {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  transition: background-color 200ms var(--ease-out);
+}
+.site-mobile-children a:hover { background-color: hsl(var(--secondary)); }
+.site-mobile-children a[data-active="true"] {
+  border-left: 3px solid hsl(var(--primary));
+  margin-left: -3px;
+  padding-left: 9px;
+}
+.site-mobile-children .site-mobile-child-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+.site-mobile-children .site-mobile-child-desc {
+  font-size: 0.8125rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 2px;
+}
+
+/* Focus rings, visible on every interactive surface */
+.site-header :focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: 6px;
+}

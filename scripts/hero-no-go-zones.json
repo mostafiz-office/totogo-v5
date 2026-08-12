@@ -1,0 +1,36 @@
+{
+  "_comment": "No-go rectangles in viewBox coords (0 0 1922 2083) for src/assets/battery-smart-hero.svg. Trees overlapping these are flagged. Refine by inspecting the rendered scene and adjusting coords. Categories: road | vehicle | label | building | swap-bay.",
+  "zones": [
+    { "name": "road-diamond-NE",      "category": "road",     "x1": 900,  "y1": 700,  "x2": 1600, "y2": 1100 },
+    { "name": "road-diamond-NW",      "category": "road",     "x1": 320,  "y1": 750,  "x2": 1000, "y2": 1150 },
+    { "name": "road-diamond-SW",      "category": "road",     "x1": 280,  "y1": 1100, "x2": 1000, "y2": 1500 },
+    { "name": "road-diamond-SE",      "category": "road",     "x1": 950,  "y1": 1100, "x2": 1620, "y2": 1500 },
+    { "name": "road-spur-bottom",     "category": "road",     "x1": 800,  "y1": 1500, "x2": 1300, "y2": 1900 },
+
+    { "name": "vehicle-cluster-center","category": "vehicle", "x1": 850,  "y1": 1050, "x2": 1280, "y2": 1300 },
+    { "name": "vehicle-2wheeler-left", "category": "vehicle", "x1": 380,  "y1": 850,  "x2": 620,  "y2": 1080 },
+    { "name": "vehicle-rickshaw-back", "category": "vehicle", "x1": 520,  "y1": 580,  "x2": 720,  "y2": 750 },
+
+    { "name": "label-2min-swap",      "category": "label",    "x1": 850,  "y1": 380,  "x2": 1080, "y2": 470 },
+    { "name": "label-247-support",    "category": "label",    "x1": 650,  "y1": 540,  "x2": 920,  "y2": 640 },
+    { "name": "label-battery-perf",   "category": "label",    "x1": 1050, "y1": 620,  "x2": 1330, "y2": 720 },
+    { "name": "label-dense-network",  "category": "label",    "x1": 1430, "y1": 700,  "x2": 1700, "y2": 800 },
+    { "name": "label-compatible",     "category": "label",    "x1": 420,  "y1": 920,  "x2": 700,  "y2": 1020 },
+    { "name": "label-partner-app",    "category": "label",    "x1": 220,  "y1": 680,  "x2": 410,  "y2": 760 },
+    { "name": "label-driver-app",     "category": "label",    "x1": 1240, "y1": 1130, "x2": 1430, "y2": 1230 },
+
+    { "name": "building-hq",          "category": "building", "x1": 750,  "y1": 600,  "x2": 1280, "y2": 1100 },
+    { "name": "building-cyl-tower",   "category": "building", "x1": 1620, "y1": 580,  "x2": 1880, "y2": 1280 },
+    { "name": "building-residential-fl","category":"building","x1": 30,   "y1": 1000, "x2": 290,  "y2": 1280 },
+    { "name": "building-back-right",  "category": "building", "x1": 1380, "y1": 480,  "x2": 1620, "y2": 700 },
+    { "name": "building-back-far-right","category":"building","x1": 1380, "y1": 800,  "x2": 1700, "y2": 1080 },
+    { "name": "building-bottom-tower","category": "building", "x1": 980,  "y1": 1500, "x2": 1380, "y2": 1900 },
+    { "name": "kiosk-partner-app",    "category": "building", "x1": 220,  "y1": 760,  "x2": 420,  "y2": 980 },
+    { "name": "kiosk-driver-app",     "category": "building", "x1": 1140, "y1": 1200, "x2": 1340, "y2": 1480 },
+    { "name": "shelter-bus",          "category": "building", "x1": 470,  "y1": 560,  "x2": 660,  "y2": 740 },
+
+    { "name": "swap-bay-row",         "category": "swap-bay", "x1": 720,  "y1": 700,  "x2": 1280, "y2": 1080 },
+
+    { "name": "solar-panels",         "category": "building", "x1": 650,  "y1": 1300, "x2": 1080, "y2": 1620 }
+  ]
+}

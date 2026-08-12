@@ -1,0 +1,701 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600&family=Rubik:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ============================================================
+       totooGO palette: Heritage Brown + Electric Green
+       Two brand colors only. Brown from the HQ building,
+       green from the CTA button and logo plug.
+       ============================================================ */
+
+    /* Brand primary (brown) */
+    --c-brown:        26 51% 27%;   /* #6B4423 HQ brown */
+    --c-brown-deep:   24 53% 19%;   /* #4A2E17 hover / deeper */
+    --c-brown-warm:   26 53% 36%;   /* #8B5A2B secondary surfaces */
+    --c-brown-soft:   32 40% 88%;   /* #EBDDCB tint */
+
+    /* Brand action (green) */
+    --c-green:        155 100% 40%; /* #00CE7E CTA */
+    --c-green-deep:   155 100% 33%; /* #00A866 CTA hover */
+    --c-green-soft:   152 65% 88%;  /* #CFF1DF tint */
+    --c-green-tree:   158 62% 45%;  /* #2DBA88 hero tree leaves */
+
+    /* Neutrals (warm, brown-tinted) */
+    --c-ink:          30 40% 6%;    /* #1A1208 body ink */
+    --c-muted:        27 15% 37%;   /* #6B5D50 secondary copy */
+    --c-surface:      36 43% 97%;   /* #FAF7F2 page bg */
+    --c-surface-alt:  36 40% 90%;   /* #F0E8DC section band */
+    --c-border:       33 39% 84%;   /* #E4D8C6 hairline */
+
+    /* Legacy alias, keeps existing components readable while we transition */
+    --c-blue:         var(--c-brown);
+    --c-blue-deep:    var(--c-brown-deep);
+    --c-green-bright: var(--c-green);
+    --c-bg-grad-1:    var(--c-surface);
+    --c-bg-grad-2:    var(--c-surface-alt);
+    --c-grass:        var(--c-green-soft);
+    --c-text:         var(--c-ink);
+    --c-card-border:  var(--c-border);
+
+    /* shadcn tokens remapped to brand */
+    --background: var(--c-surface);
+    --foreground: var(--c-ink);
+    --card: 0 0% 100%;
+    --card-foreground: var(--c-ink);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--c-ink);
+    --primary: var(--c-brown);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--c-surface-alt);
+    --secondary-foreground: var(--c-ink);
+    --muted: var(--c-surface-alt);
+    --muted-foreground: var(--c-muted);
+    --accent: var(--c-green);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--c-border);
+    --input: var(--c-border);
+    --ring: var(--c-brown);
+    --radius: 0.5rem;
+
+    /* Site-header tokens */
+    --background-deepest: var(--c-brown-deep);
+
+    /* Site-footer ramp (deep brown-black, no navy) */
+    --footer-row-main-bg:      26 43% 12%;  /* #2A1D10 */
+    --footer-row-specialty-bg: 26 40% 8%;   /* #1C130A */
+    --footer-row-copyright-bg: 0 0% 6%;     /* #101010 */
+    --footer-heading: 0 0% 100%;
+    --footer-body:    0 0% 100%;
+    --footer-meta:    0 0% 100%;
+    --primary-light:  155 80% 55%;          /* accessible brand-green on dark footer */
+
+    /* How It Works section tokens (warm brown/green) */
+    --hiw-bg:        36 43% 95%;
+    --hiw-ink:       var(--c-ink);
+    --hiw-ink-soft:  var(--c-muted);
+    --hiw-teal:      var(--c-green-deep);
+    --hiw-rail:      var(--c-brown);
+
+    /* Hero-Below "Unleashing EV Potential" section */
+    --ev-navy:        var(--c-brown-deep);
+    --ev-green:       var(--c-green);
+    --ev-green-soft:  var(--c-green-soft);
+    --ev-green-bg:    36 40% 93%;
+    --ev-sky:         36 43% 97%;
+    --ev-card-border: var(--c-border);
+
+    --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-brown) / 0.08);
+    --shadow-nav:  0 2px 12px hsl(var(--c-brown) / 0.08);
+
+    --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
+
+    --pad-x: clamp(16px, 4vw, 64px);
+
+    /* Heading hover tokens */
+    --primary-darker:    var(--c-brown-deep);
+    --hover-shadow-ink:  74 46 23;  /* #4A2E17 as RGB triplet */
+  }
+
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  main { overflow-x: hidden; max-width: 100vw; }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', 'Manrope', system-ui, sans-serif;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--c-blue));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---- Heading: persistent directional ink shadow; darker text on hover ----
+     Drop shadow is always visible. On hover, text color deepens to navy. */
+  h1, h2, h3 {
+    text-shadow: rgb(var(--hover-shadow-ink)) 1px 0.7px 0px;
+    transition: color 0.3s ease;
+  }
+  h1:hover, h2:hover, h3:hover,
+  h1:focus-within, h2:focus-within, h3:focus-within {
+    color: hsl(var(--primary-darker));
+  }
+  /* Opt-out for headings on dark backgrounds where navy hover would vanish */
+  .cta-heading,
+  .cta-heading:hover,
+  .cta-heading:focus-within {
+    color: #fff !important;
+    text-shadow: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    h1, h2, h3 { transition: none; }
+  }
+
+  /* ---- Hide legacy Battery Smart branded marks inside the hero SVG ----
+     - `#loader` group: BS-branded animated loader vehicle.
+     - `#battery` group: BS-branded pillar reveal (pulse rings + bolt glyph).
+     - `#Union*` paths: scattered BS logo glyphs on vehicles and ground tiles.
+       (Union_6/8/9/10 were already hidden via tailwind arbitrary variants on
+       the wrapper div; this rule extends coverage to the remaining ones.) */
+  #bannerContainer svg #battery,
+  #bannerContainer svg #batteryIcon,
+  #bannerContainer svg #Union,
+  #bannerContainer svg [id^="Union_"],
+  /* Pulse-mark squiggles (BS-branded ~~ glyph used as callout anchors) */
+  #bannerContainer svg #partnerAppHighlight,
+  #bannerContainer svg #denseHighlight,
+  #bannerContainer svg #driverAppHighlight,
+  #bannerContainer svg #twoWheelerHighlight,
+  #bannerContainer svg #threeWheelerHighlight,
+  /* Hide the two perimeter trees (bottom-left + bottom-right) per design */
+  #bannerContainer svg #extraTree2,
+  #bannerContainer svg #extraTree6,
+  /* Hide BS-branded logo decals on each vehicle (13 instances) */
+  #bannerContainer svg [id^="Group 238804"] {
+    display: none !important;
+  }
+
+  /* Wind turbine rotors are animated in HeroBannerSVG.tsx with bbox-centered
+     GSAP origins. Keep CSS off to avoid double-transform jitter. */
+  #bannerContainer svg #turbineRotor1,
+  #bannerContainer svg #turbineRotor2,
+  #bannerContainer svg #turbineRotor3,
+  #bannerContainer svg #turbineRotor4 {
+    animation: none;
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #bannerContainer svg [id^="turbineRotor"] { animation: none; }
+  }
+
+  /* ---- Arch callout label ("Dense Battery Swapping Stations Network"):
+     keep the original white pill (dark navy text on white reads fine) and
+     just add a soft drop shadow so the callout separates cleanly from the
+     buildings behind it without turning into a heavy dark block. */
+  #bannerContainer svg [id="networkContainer"] {
+    filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.25));
+  }
+
+  /* Small station front signboard near the "Dense Battery Swapping
+     Stations Network" callout. The actual banner plate is Vector 184,
+     not the station wall behind it. Repaint only that plate dark brown
+     so the light lettering reads clearly. */
+  #bannerContainer svg [id="Vector 184"] {
+    fill: #3a1e14;
+  }
+
+
+
+
+}
+
+@layer components {
+  /* ===== Hero (Battery Smart spec, vw-scaled) =====
+     Source: live CSS chunks 32f7e6a4007c4c3e.css + 23d241854e0729b8.css
+     Title: TT Firs Neue Trl 600 (substituted with Manrope), centered, line-height 1.6, capitalize
+     Title size desktop: 3.333vw; mobile: 9.6vw
+     Word height desktop: 4.0625vw; mobile: 10.667vw
+     Hero container desktop: width 63.333vw, margin auto, height 100vw
+     Banner desktop: position absolute, top -16.667vw (relative to Home), -23.4375vw (relative to hero) */
+
+  /* ─── Hero stacking contract ─────────────────────────────────────────────
+     Every hero layer below pins `position` AND `z-index` explicitly so a
+     future change to one layer can't silently re-order the stack. The hero
+     container uses `isolation: isolate` to create a local stacking context , 
+     this guarantees the inner z-index ladder is self-contained and can never
+     be inverted by an ancestor's z-index or transform.
+
+     Layer order (back → front):
+       0  .bs-greenbg          , decorative V-shape (pointer-events: none)
+       1  .Home_bannerDesktop  , animated city SVG  (pointer-events: none)
+       3  .Home_HomeTitle      , h1 title text       (interactive: links/etc.)
+
+     Gaps in the ladder (no z:2) are intentional, they leave room for future
+     mid-layer additions without renumbering.
+  ───────────────────────────────────────────────────────────────────────── */
+  .Home_Home__r7pEu {
+    position: relative;
+    padding-top: 6.25vw;
+    isolation: isolate;
+  }
+  .Home_Home__r7pEu .Home_hero__B0w79 {
+    /* Title column stays at the original 63.33vw width for typography */
+    width: 63.3333vw;
+    margin-inline: auto;
+    /* SVG is 108.4vw tall at 100vw width, but banner is pulled up by -32vw
+       so the visible artwork ends ~76.4vw below the hero top. Match that
+       height so the section below (Marquee/Potential) sits flush against
+       the bottom of the city scene with no empty gap. */
+    height: 70.4vw;
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+  }
+  .Home_Home__r7pEu .Home_HomeTitle__hXEBP {
+    line-height: 1.4;
+    position: relative;
+    z-index: 3;
+  }
+  /* Banner: span the full viewport width, centered behind the title.
+     Pulled up so the title sits over the SVG's sky region. */
+  .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP {
+    position: absolute;
+    /* The SVG's top half is mostly empty sky, pull it up so the city
+       (bottom half of the artwork) sits just under the title. */
+    top: -38vw;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 100vw;
+    /* Initial state, GSAP reveals it on mount */
+    opacity: 0;
+    pointer-events: none;
+  }
+  .Hero_bannerDesktop__vIq5r {
+    position: relative;
+    z-index: 0; /* nested inside banner; stays at base of banner's local stack */
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
+  /* Force the raw SVG (which ships with intrinsic width="1922" height="2083"
+     attributes) to fill the 100vw banner container and scale height by aspect
+     ratio. Without this rule the SVG renders at its attribute size on desktop
+     (1922px wide, overflowing viewport and pushing the artwork sideways). */
+  .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP svg,
+  .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP .Hero_bannerDesktop__vIq5r svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  .Title_Title__h9OBl {
+    line-height: 1.6;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 2;
+  }
+  .Title_Title__h9OBl,
+  .Title_Title__h9OBl * { font-family: 'Rubik', 'Manrope', 'TT Firs Neue Trl', sans-serif; }
+
+  /* Rotating headline, appear, hold, disappear, next one fires on remount. */
+  @keyframes bsHeadlineIn {
+    0%   { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+    20%  { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    78%  { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    100% { opacity: 0; transform: translateY(-12px); filter: blur(4px); }
+  }
+  @keyframes bsHeadlineInHold {
+    0%   { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+    100% { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  }
+  .bs-rotating-title {
+    animation: bsHeadlineIn 2.4s ease-in-out forwards;
+    will-change: transform, opacity, filter;
+  }
+  .bs-rotating-title.bs-rt-uplift {
+    animation: bsHeadlineUplift 2.5s ease-in-out forwards;
+  }
+  .bs-rotating-title.bs-rt-final {
+    animation: bsHeadlineInHold 0.9s ease-out forwards;
+  }
+  @keyframes bsHeadlineUplift {
+    0%   { opacity: 0; transform: translateY(24px); filter: blur(8px); }
+    16%  { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    72%  { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    100% { opacity: 0; transform: translateY(-80px); filter: blur(6px); }
+  }
+  .bs-rotating-title .bs-rt-line { display: inline-block; }
+  .bs-rotating-title .bs-rt-lead  { color: #6B4423; margin-right: 0.2em; }
+  .bs-rotating-title .bs-rt-accent {
+    color: hsl(var(--c-green-tree));
+    transition: color 0.3s ease;
+  }
+  .bs-rotating-title:hover .bs-rt-accent,
+  .bs-rotating-title .bs-rt-accent:hover {
+    color: hsl(var(--c-green-bright));
+  }
+  /* Override the legacy per-span fixed height so the rotating headline
+     wraps naturally without clipping. */
+  .Title_Title__h9OBl.Title_l1__MDOub.bs-rotating-title span {
+    height: auto;
+    line-height: 1.15;
+  }
+  /* Original rule: every span inside l1 gets these. Inner-word spans need
+     the height for clip; outer .Title_word__BoWST gets it via display:inline-flex
+     so its child fills it correctly. */
+  .Title_Title__h9OBl.Title_l1__MDOub span { font-size: 3.3333vw; height: 4.0625vw; }
+  .Title_Title__h9OBl .Title_word__BoWST {
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: bottom;
+    /* inline-flex eats inter-element whitespace; restore natural word-spacing */
+    margin-right: 0.25em;
+  }
+  .Title_Title__h9OBl .Title_word__BoWST:last-child { margin-right: 0; }
+  .Title_Title__h9OBl .Title_word__BoWST > span {
+    display: inline-block;
+    transform: translateY(105%) translateZ(0);
+    will-change: transform;
+  }
+  /* Color tokens applied per-word via inline style, no wrapper span needed,
+     so the original "span { font-size; height }" rule doesn't cascade onto
+     a layout-breaking wrapper. */
+
+  @media (max-width: 768px) {
+    /* Mobile hero: collapse to fit content. No forced 100svh, title + SVG
+       decide the height naturally so there's no large white gap before the
+       next section. */
+    .Home_Home__r7pEu {
+      padding-top: 16px;
+      padding-bottom: 8px;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .Home_Home__r7pEu .Home_hero__B0w79 {
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover;
+      height: auto;
+      min-height: 0;
+      width: unset !important;
+    }
+    /* Banner: full-bleed, natural aspect, NO crop, NO zoom. SVG renders at
+       its real proportions so nothing is cut off on any phone size. */
+    .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP {
+      display: block;
+      position: relative;
+      /* Pull the SVG up under the title, the top ~30% of the SVG viewBox
+         is empty sky, so without this there's a large white gap. */
+      margin-top: -28vw;
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: -50vw;
+      aspect-ratio: auto;
+      overflow: hidden;
+      transform: none;
+      opacity: 1;
+    }
+    /* Force the React wrapper, the dangerouslySetInnerHTML div, and the SVG
+       to fill 100vw, the SVG ships without width/height attrs so without
+       this it falls back to the 300x150 user-agent default. */
+    .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP > .Hero_bannerDesktop__vIq5r {
+      width: 100% !important;
+      max-width: 100% !important;
+      transform: none !important;
+      display: block;
+    }
+    .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP .Hero_bannerDesktop__vIq5r > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block;
+    }
+    .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP svg.Hero_bannerDesktop__vIq5r,
+    .Home_Home__r7pEu .Home_hero__B0w79 .Home_bannerDesktop__IJBqP .Hero_bannerDesktop__vIq5r svg {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+    }
+    .Hero_bannerDesktop__vIq5r {
+      position: relative;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+    .Home_Home__r7pEu .Home_HomeTitle__hXEBP {
+      margin: 0 auto;
+      width: 92vw !important;
+      font-size: clamp(1.9rem, 8.5vw, 2.6rem) !important;
+      line-height: 1.15 !important;
+      text-wrap: balance;
+    }
+    .Title_Title__h9OBl.Title_l1__MDOub span {
+      font-size: inherit;
+      height: auto;
+      display: inline;
+    }
+    .Title_Title__h9OBl.Title_l1__MDOub span > span { display: inline; }
+    .bs-rt-lead::after { content: " "; white-space: pre; }
+    .bs-greenbg {
+      top: 4vw;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .bs-greenbg img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  /* Mint green V-shape background sits behind the banner, full viewport width.
+     z-index:0 keeps it below the banner (z:1) and title (z:3); pointer-events:none
+     ensures it never blocks clicks on the navbar or any interactive hero element. */
+  .bs-greenbg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    top: calc(-38vw - 40px);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  .bs-greenbg img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    /* Source asset is mint green (~hsl 154 100% 40%); tint to totooGO teal
+       (~hsl 158 50% 50% / #3FBF95) without regenerating the webp. */
+    filter: hue-rotate(4deg) saturate(0.55) brightness(1.08);
+  }
+
+  /* A11y safety net: even if a future edit drops the `aria-hidden` /
+     `tabindex="-1"` attributes, force the decorative hero layers out of
+     the focus order and suppress any focus ring. The interactive title
+     and navbar live OUTSIDE these wrappers, so this can't hide them. */
+  .bs-greenbg,
+  .bs-greenbg *,
+  #bannerContainer,
+  #bannerContainer * {
+    outline: none !important;
+  }
+  .bs-greenbg:focus,
+  .bs-greenbg :focus,
+  #bannerContainer:focus,
+  #bannerContainer :focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ===== Tooltip (exact spec from live CSS, vw-scaled) ===== */
+  .bs-tip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 11.1979vw;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms var(--ease-out);
+    z-index: 5;
+  }
+  .bs-tip.is-on { opacity: 1; }
+  .bs-tip__card {
+    border-radius: 0.5208vw;
+    border: 0.1042vw solid #00ce7e;
+    background: #d4f3e7;
+    padding: 1.0417vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .bs-tip__title {
+    color: #4A2E17;
+    font-family: 'Manrope', 'TT Firs Neue Trl', sans-serif;
+    font-size: 1.6667vw;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.3vw 0;
+  }
+  .bs-tip__desc {
+    color: #101d30;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.0417vw;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .bs-tip__line {
+    height: 2.6042vw;
+    width: 0.1042vw;
+    background-color: #00ce7e;
+  }
+
+  @media (max-width: 768px) {
+    .bs-tip { width: 29.8667vw; }
+    .bs-tip__card {
+      border-radius: 1.3333vw;
+      border-width: 0.2667vw;
+      padding: 2.6667vw;
+    }
+    .bs-tip__title { font-size: 3.7333vw; }
+    .bs-tip__desc { font-size: 2.6667vw; }
+    .bs-tip__line { height: 13.3333vw; width: 0.5333vw; }
+  }
+
+
+  /* ===== Scene gentle motion ===== */
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes pulseTop { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+  #g-vehicles-cluster { transform-box: fill-box; transform-origin: center; animation: floatY 5s ease-in-out infinite; }
+  /* Trees must stay rooted, do NOT float the whole tree group. */
+  #g-trees { animation: none !important; transform: none !important; }
+  #g-station-left .top, #g-station-right .top { animation: pulseTop 2.4s ease-in-out infinite; }
+
+  /* ===== Stylized trees, leaves-only rustle =====
+     JS animates the individual ellipse leaves. Keep the tree group, canopy
+     wrapper, trunk and ground shadow static so every tree stays rooted. */
+  @keyframes bsTreeRustle {
+    0%   { transform: rotate( 0.0deg) scale(1.000); }
+    25%  { transform: rotate(-1.4deg) scale(1.006); }
+    50%  { transform: rotate( 0.2deg) scale(0.996); }
+    75%  { transform: rotate( 1.6deg) scale(1.008); }
+    100% { transform: rotate( 0.0deg) scale(1.000); }
+  }
+  /* Whole tree + trunk: locked in place. */
+  .bs-tree { transform: none !important; animation: none !important; }
+  .bs-tree-trunk { transform: none !important; animation: none !important; }
+  /* The wrapper does not animate; individual leaf ellipses are animated in JS. */
+  .bs-tree-canopy {
+    transform-box: fill-box;
+    transform-origin: 50% 98%;
+    animation: none !important;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bs-tree-canopy { animation: none !important; }
+  }
+
+
+  /* ===== Reveal on scroll ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .pcard.reveal { transition-delay: calc(var(--i, 0) * 120ms); }
+
+  /* ===== Y path draw ===== */
+  .ypath path {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    transition: stroke-dashoffset 1400ms var(--ease-in-out);
+  }
+  .ypath.is-in path { stroke-dashoffset: 0; }
+
+  /* ===== Cards ===== */
+  .pcard {
+    background: #fff;
+    border: 1px solid hsl(var(--c-card-border));
+    border-radius: 12px;
+    padding: 56px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out), border-color 300ms var(--ease-out);
+  }
+  .pcard:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+    border-color: hsl(var(--c-green));
+  }
+  .pcard h3 { font-size: 20px; font-weight: 500; color: hsl(var(--c-text)); margin: 0; }
+  .pcard img, .pcard svg { width: 96px; height: auto; }
+
+  /* ===== Nav link underline ===== */
+  .nav-link {
+    position: relative;
+    color: hsl(var(--c-blue));
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 2px;
+    background: hsl(var(--c-blue));
+    transition: width 200ms var(--ease-out);
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .btn-contact {
+    background: hsl(var(--c-blue));
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+  .btn-contact:hover { background: hsl(var(--c-blue-deep)); transform: translateY(-1px); }
+
+  /* ===== Marquee benefits strip ===== */
+  .marquee-strip {
+    background: hsl(var(--c-blue));
+    overflow: hidden;
+    padding: 22px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    width: max-content;
+    animation: marqueeScroll 28s linear infinite;
+  }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: hsl(var(--c-green));
+    font-size: 22px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding-right: 32px;
+  }
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-25%); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .bs-word > span { transform: none !important; }
+  .bs-title, .bs-banner-wrap { opacity: 1 !important; transform: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .ypath path { stroke-dashoffset: 0 !important; }
+  .bs-tip { opacity: 0.9 !important; }
+}
+

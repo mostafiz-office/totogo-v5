@@ -1,0 +1,159 @@
+/* Unleash EV Potential, top-portion only (city → Y-fork → 3 vehicle cards). */
+
+.uev-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 24px 160px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* ---------- Background city + flow line ---------- */
+.uev-line-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  aspect-ratio: 1109 / 1700;
+}
+
+.uev-green-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.uev-flow-line-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease-out 0.15s;
+}
+.uev-flow-line-container.is-in { opacity: 1; }
+
+.uev-flow-line {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 16px rgba(0, 206, 126, 0.25));
+}
+
+/* ---------- Heading ---------- */
+.uev-heading {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translate(-50%, 12px);
+  text-align: center;
+  font-family: "Rubik", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.uev-heading.is-in { opacity: 1; transform: translate(-50%, 0); }
+
+.uev-title {
+  font-size: clamp(36px, 5vw, 72px);
+}
+
+/* ---------- Vehicle cards row ---------- */
+.uev-vehicles {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 0 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.uev-vehicle {
+  flex: 1 1 0;
+  max-width: 320px;
+  background: #ffffff;
+  border: 2px solid #6B4423;
+  border-radius: 24px;
+  padding: 28px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 18px 40px -20px rgba(0, 16, 158, 0.35),
+              0 6px 18px -8px rgba(0, 206, 126, 0.18);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+.uev-vehicle.is-in { opacity: 1; transform: translateY(0); }
+
+.uev-vehicle:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px -22px rgba(0, 16, 158, 0.45),
+              0 10px 24px -10px rgba(0, 206, 126, 0.28);
+}
+
+.uev-vehicle-icon {
+  width: 100%;
+  max-width: 220px;
+  display: flex;
+  justify-content: center;
+}
+.uev-vehicle-icon svg { width: 100%; height: auto; display: block; }
+
+.uev-vehicle-label {
+  font-family: "Rubik", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #6B4423;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .uev-section { padding: 56px 16px 80px; }
+  .uev-line-container { aspect-ratio: 900 / 1700; }
+  .uev-heading {
+    top: 24px;
+    width: calc(100% - 24px);
+    padding: 0 4px;
+  }
+  .uev-title {
+    font-size: clamp(14px, 3.6vw, 20px);
+    line-height: 1.15;
+    word-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .uev-title span {
+    white-space: nowrap;
+  }
+  /* Guarantee a visible space between the two coloured spans even if the
+     JSX trailing whitespace is collapsed by the layout. */
+  .uev-title span + span::before {
+    content: " ";
+    white-space: pre;
+  }
+  .uev-vehicles {
+    position: relative;
+    bottom: auto;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 32px;
+    gap: 18px;
+  }
+  .uev-vehicle { max-width: 100%; }
+}

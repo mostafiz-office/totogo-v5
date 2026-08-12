@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  totooGO HQ — isometric SVG v2
+  Built per SVG-Creator/GAP-SPEC.md.
+  v5-pure-vector: editable Figma vector only, no raster image embedding.
+  Iso helper: screen(x,y,z) = ( 512 + (x-y)*40, 560 + (x+y)*20 - z*30 )
+  Wing  footprint: x[3..10], y[0..3], z[0..3]
+  Tower footprint: x[0..3],  y[0..3], z[0..9]
+-->
+<svg xmlns="http://www.w3.org/2000/svg" id="totoogo-hq-scene-v2"
+     viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid meet">
+  <rect id="scene-bg" width="1024" height="1024" fill="#FFFFFF"/><defs>
+    <style>
+      #totoogo-hq-scene-v2{
+        --wall-primary:#244EA0;
+        --wall-shade:#103781;
+        --wall-shade-2:#0E3379;
+        --trim-white:#E9ECED;
+        --totoogo-green:#929393;
+        --totoogo-green-dark:#1E4997;
+        --glass:#9DCBF3;
+        --glass-dark:#244EA0;
+        --mullion:#E9ECED;
+        --solar-frame:#D5D8E0;
+        --solar-dark:#0E3379;
+        --solar-cell:#103781;
+        --solar-grid:#244EA0;
+        --shadow:#0E3379;
+        --shrub:#929393;
+        --shrub-hi:#929393;
+        --planter:#E9ECED;
+      }
+      .win{fill:var(--glass);opacity:.9}
+      .mullion{stroke:var(--mullion);stroke-width:1.5;fill:none}
+    </style>
+  </defs>
+
+  <g id="scene">
+    <!-- soft drop shadow under L-footprint -->
+    <polygon id="shadow-building" fill="var(--shadow)" opacity=".16"
+      points="410,660 940,800 820,880 300,720"/>
+
+    <g id="building">
+
+      <!-- ================= TOWER (back-left, 3 storeys) ================= -->
+      <g id="tower">
+        <!-- base slab (white plinth ring) -->
+        <polygon id="tower-base-slab" fill="var(--trim-white)"
+          points="392,620 512,680 632,620 512,560"/>
+
+        <!-- Front face (y=3), floors 0..3, visible as front-left face -->
+        <g id="tower-wall-front">
+          <polygon id="tower-front-face" fill="var(--wall-primary)"
+            points="392,620 512,680 512,410 392,350"/>
+
+          <!-- Ribbon window - floor 3 -->
+          <g id="tower-ribbon-window-floor-3">
+            <polygon class="win" points="404,388 500,436 500,468 404,420"/>
+            <g class="mullion">
+              <line x1="428" y1="400" x2="428" y2="432"/>
+              <line x1="452" y1="412" x2="452" y2="444"/>
+              <line x1="476" y1="424" x2="476" y2="456"/>
+            </g>
+          </g>
+          <!-- Ribbon window - floor 2 -->
+          <g id="tower-ribbon-window-floor-2">
+            <polygon class="win" points="404,478 500,526 500,558 404,510"/>
+            <g class="mullion">
+              <line x1="428" y1="490" x2="428" y2="522"/>
+              <line x1="452" y1="502" x2="452" y2="534"/>
+              <line x1="476" y1="514" x2="476" y2="546"/>
+            </g>
+          </g>
+
+          <!-- Entrance canopy (small white awning above door) -->
+          <g id="tower-entrance-canopy">
+            <polygon fill="var(--trim-white)"
+              points="398,580 512,637 512,648 398,591"/>
+          </g>
+
+          <!-- totooGO green signboard on canopy front -->
+          <g id="tower-signboard-totoogo">
+            <polygon fill="var(--totoogo-green)"
+              points="418,566 496,605 496,626 418,587"/>
+            <polygon fill="var(--totoogo-green-dark)"
+              points="418,587 496,626 496,631 418,592"/>
+            <text x="422" y="597" font-family="Ubuntu, sans-serif"
+                  font-weight="700" font-size="14" fill="#fff"
+                  transform="skewY(26.57)">totooGO</text>
+          </g>
+
+          <!-- Garage-style entrance opening + inner green sign -->
+          <g id="tower-entrance-opening">
+            <polygon id="entrance-interior" fill="var(--wall-shade-2)"
+              points="420,600 490,635 490,678 420,643"/>
+            <polygon fill="#334155"
+              points="420,643 490,678 490,680 420,645"/>
+            <polygon id="entrance-sign-totoogo-inner" fill="var(--totoogo-green)"
+              points="438,624 476,643 476,652 438,633"/>
+          </g>
+        </g>
+
+        <!-- Right face of tower, only visible ABOVE wing roof (z>=3) -->
+        <g id="tower-wall-right">
+          <polygon id="tower-right-face" fill="var(--wall-shade)"
+            points="512,410 632,350 632,530 512,590"/>
+          <!-- ribbon window floor 3 (above wing) -->
+          <g id="tower-right-ribbon-window-floor-3">
+            <polygon class="win" points="524,398 620,362 620,394 524,430"/>
+            <g class="mullion">
+              <line x1="548" y1="386" x2="548" y2="418"/>
+              <line x1="572" y1="374" x2="572" y2="406"/>
+              <line x1="596" y1="362" x2="596" y2="394"/>
+            </g>
+          </g>
+          <!-- ribbon window floor 2 (partially above wing roof) -->
+          <g id="tower-right-ribbon-window-floor-2">
+            <polygon class="win" points="524,488 620,452 620,484 524,520"/>
+            <g class="mullion">
+              <line x1="548" y1="476" x2="548" y2="508"/>
+              <line x1="572" y1="464" x2="572" y2="496"/>
+              <line x1="596" y1="452" x2="596" y2="484"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Tower roof slab with thin green accent line -->
+        <g id="tower-roof">
+          <polygon id="tower-roof-slab" fill="var(--trim-white)"
+            points="392,350 512,290 632,350 512,410"/>
+          <polygon fill="var(--totoogo-green)"
+            points="392,350 512,410 512,414 392,354"/>
+          <polygon fill="var(--totoogo-green-dark)"
+            points="512,410 632,350 632,354 512,414"/>
+        </g>
+      </g>
+
+      <!-- ================= WING (front-right, 1 storey) ================= -->
+      <g id="wing">
+        <polygon id="wing-base-slab" fill="var(--trim-white)"
+          points="512,680 792,820 912,760 632,620"/>
+
+        <!-- Front face (y=3) -->
+        <g id="wing-wall-front">
+          <polygon id="wing-front-face" fill="var(--wall-primary)"
+            points="512,680 792,820 792,730 512,590"/>
+
+          <!-- 3 white fascia stripes near parapet -->
+          <g id="wing-fascia-stripes" fill="var(--trim-white)">
+            <polygon points="512,595 792,735 792,742 512,602"/>
+            <polygon points="512,610 792,750 792,757 512,617"/>
+            <polygon points="512,625 792,765 792,772 512,632"/>
+          </g>
+
+          <!-- Green BATTERY SWAP STATION banner (below fascia) -->
+          <g id="wing-banner-battery-swap">
+            <polygon fill="var(--totoogo-green)"
+              points="520,640 788,774 788,790 520,656"/>
+            <polygon fill="var(--totoogo-green-dark)"
+              points="520,656 788,790 788,795 520,661"/>
+            <text font-family="Ubuntu, sans-serif" font-weight="700"
+                  font-size="16" fill="#fff" letter-spacing="1"
+                  transform="translate(540,668) rotate(26.57)">BATTERY SWAP STATION</text>
+          </g>
+
+          <!-- Clerestory windows above banner -->
+          <g id="wing-clerestory-windows">
+            <polygon class="win" points="540,608 600,638 600,624 540,594"/>
+            <polygon class="win" points="620,648 680,678 680,664 620,634"/>
+            <polygon class="win" points="700,688 760,718 760,704 700,674"/>
+          </g>
+
+          <!-- Three bay openings cut into wall (below banner) -->
+          <g id="wing-front-openings">
+            <!-- Bay 1 -->
+            <g id="bay-1">
+              <polygon fill="var(--wall-shade-2)"
+                points="540,676 608,710 608,776 540,742"/>
+              <polygon fill="#334155"
+                points="540,742 608,776 608,780 540,746"/>
+              <!-- green locker cabinet 2x4 slots -->
+              <g id="bay-1-locker">
+                <polygon fill="var(--totoogo-green-dark)"
+                  points="558,700 596,719 596,762 558,743"/>
+                <g fill="var(--totoogo-green)">
+                  <polygon points="562,706 576,713 576,720 562,713"/>
+                  <polygon points="578,714 592,721 592,728 578,721"/>
+                  <polygon points="562,722 576,729 576,736 562,729"/>
+                  <polygon points="578,730 592,737 592,744 578,737"/>
+                  <polygon points="562,738 576,745 576,752 562,745"/>
+                  <polygon points="578,746 592,753 592,760 578,753"/>
+                </g>
+              </g>
+              <!-- screen -->
+              <rect id="bay-1-screen" x="546" y="716" width="8" height="10"
+                    fill="var(--glass-dark)" transform="skewY(26.57)"/>
+              <g id="bay-1-scooter" transform="translate(606,760)">
+                <ellipse cx="0" cy="7" rx="16" ry="4" fill="var(--shadow)" opacity=".28"/>
+                <circle id="bay-1-scooter-wheel-back" cx="-10" cy="2" r="5" fill="#0F172A"/>
+                <circle id="bay-1-scooter-wheel-front" cx="10" cy="2" r="5" fill="#0F172A"/>
+                <path id="bay-1-scooter-frame" d="M-10,2 L-3,-8 L8,-8 L10,2 L-2,-2 Z" fill="var(--totoogo-green)"/>
+                <rect id="bay-1-scooter-battery" x="-4" y="-13" width="9" height="7" fill="var(--totoogo-green-dark)"/>
+                <line id="bay-1-scooter-handle" x1="8" y1="-8" x2="15" y2="-17" stroke="#0F172A" stroke-width="2"/>
+                <rect id="bay-1-scooter-seat" x="-8" y="-11" width="10" height="3" rx="1" fill="#0F172A"/>
+              </g>
+            </g>
+            <!-- Bay 2 -->
+            <g id="bay-2">
+              <polygon fill="var(--wall-shade-2)"
+                points="628,720 696,754 696,820 628,786"/>
+              <polygon fill="#334155"
+                points="628,786 696,820 696,824 628,790"/>
+              <g id="bay-2-locker">
+                <polygon fill="var(--totoogo-green-dark)"
+                  points="646,744 684,763 684,806 646,787"/>
+                <g fill="var(--totoogo-green)">
+                  <polygon points="650,750 664,757 664,764 650,757"/>
+                  <polygon points="666,758 680,765 680,772 666,765"/>
+                  <polygon points="650,766 664,773 664,780 650,773"/>
+                  <polygon points="666,774 680,781 680,788 666,781"/>
+                  <polygon points="650,782 664,789 664,796 650,789"/>
+                  <polygon points="666,790 680,797 680,804 666,797"/>
+                </g>
+              </g>
+              <!-- scooter (simple iso) -->
+              <g id="bay-2-scooter" transform="translate(696,796)">
+                <ellipse cx="0" cy="6" rx="16" ry="4" fill="var(--shadow)" opacity=".3"/>
+                <circle id="bay-2-scooter-wheel-back" cx="-9" cy="2" r="5" fill="#0F172A"/>
+                <circle id="bay-2-scooter-wheel-front" cx="9" cy="2" r="5" fill="#0F172A"/>
+                <path id="bay-2-scooter-frame" d="M-9,2 L-2,-8 L8,-8 L9,2 Z" fill="var(--totoogo-green)"/>
+                <rect id="bay-2-scooter-battery" x="-3" y="-14" width="8" height="7" fill="var(--totoogo-green-dark)"/>
+                <line id="bay-2-scooter-handle" x1="8" y1="-8" x2="15" y2="-17" stroke="#0F172A" stroke-width="2"/>
+                <rect id="bay-2-scooter-seat" x="-8" y="-11" width="10" height="3" rx="1" fill="#0F172A"/>
+              </g>
+            </g>
+            <!-- Bay 3 -->
+            <g id="bay-3">
+              <polygon fill="var(--wall-shade-2)"
+                points="716,764 784,798 784,864 716,830"/>
+              <polygon fill="#334155"
+                points="716,830 784,864 784,868 716,834"/>
+              <g id="bay-3-locker">
+                <polygon fill="var(--totoogo-green-dark)"
+                  points="734,788 772,807 772,850 734,831"/>
+                <g fill="var(--totoogo-green)">
+                  <polygon points="738,794 752,801 752,808 738,801"/>
+                  <polygon points="754,802 768,809 768,816 754,809"/>
+                  <polygon points="738,810 752,817 752,824 738,817"/>
+                  <polygon points="754,818 768,825 768,832 754,825"/>
+                  <polygon points="738,826 752,833 752,840 738,833"/>
+                  <polygon points="754,834 768,841 768,848 754,841"/>
+                </g>
+              </g>
+              <rect id="bay-3-screen" x="724" y="808" width="8" height="10"
+                    fill="var(--glass-dark)" transform="skewY(26.57)"/>
+              <g id="bay-3-scooter" transform="translate(785,838)">
+                <ellipse cx="0" cy="7" rx="16" ry="4" fill="var(--shadow)" opacity=".28"/>
+                <circle id="bay-3-scooter-wheel-back" cx="-10" cy="2" r="5" fill="#0F172A"/>
+                <circle id="bay-3-scooter-wheel-front" cx="10" cy="2" r="5" fill="#0F172A"/>
+                <path id="bay-3-scooter-frame" d="M-10,2 L-3,-8 L8,-8 L10,2 L-2,-2 Z" fill="var(--totoogo-green)"/>
+                <rect id="bay-3-scooter-battery" x="-4" y="-13" width="9" height="7" fill="var(--totoogo-green-dark)"/>
+                <line id="bay-3-scooter-handle" x1="8" y1="-8" x2="15" y2="-17" stroke="#0F172A" stroke-width="2"/>
+                <rect id="bay-3-scooter-seat" x="-8" y="-11" width="10" height="3" rx="1" fill="#0F172A"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- Wing right face (x=10) -->
+        <g id="wing-wall-right">
+          <polygon id="wing-right-face" fill="var(--wall-shade)"
+            points="792,730 912,670 912,760 792,820"/>
+          <g id="wing-right-fascia-stripes" fill="var(--trim-white)">
+            <polygon points="792,735 912,675 912,682 792,742"/>
+            <polygon points="792,750 912,690 912,697 792,757"/>
+            <polygon points="792,765 912,705 912,712 792,772"/>
+          </g>
+          <g id="wing-right-window">
+            <polygon class="win" points="812,740 892,700 892,745 812,785"/>
+            <g class="mullion">
+              <line x1="832" y1="730" x2="832" y2="775"/>
+              <line x1="852" y1="720" x2="852" y2="765"/>
+              <line x1="872" y1="710" x2="872" y2="755"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- Wing roof + 2x4 solar panel array -->
+        <g id="wing-roof">
+          <polygon id="wing-roof-slab" fill="var(--trim-white)"
+            points="632,620 912,760 792,820 512,680"/>
+          <!-- thin dark parapet edge -->
+          <polygon fill="var(--wall-shade-2)"
+            points="632,620 912,760 912,764 632,624"/>
+
+          <g id="wing-roof-solar">
+            <!-- Panel factory: each panel = frame + inner cell grid.
+                 Panel size in world: 1.3 x 1.0 (x,y). Rows at y=0.4 and y=1.9.
+                 Cols at x=3.6, 5.1, 6.6, 8.1. Panels raised z=3 (on roof). -->
+
+            <!-- ROW 1 (y=0.4..1.4) -->
+            <g id="solar-row-1">
+              <!-- panel (x0=3.6..4.9, y0=0.4..1.4) -->
+              <g id="panel-1-1">
+                <polygon fill="var(--solar-frame)" points="656,538 708,564 688,614 636,588"/>
+                <polygon fill="var(--solar-dark)" points="659,540 706,564 687,610 640,586"/>
+                <g stroke="var(--solar-grid)" stroke-width=".6" fill="none" opacity=".8">
+                  <line x1="659" y1="540" x2="640" y2="586"/>
+                  <line x1="671" y1="546" x2="652" y2="592"/>
+                  <line x1="683" y1="552" x2="664" y2="598"/>
+                  <line x1="695" y1="558" x2="676" y2="604"/>
+                  <line x1="706" y1="564" x2="687" y2="610"/>
+                  <line x1="659" y1="540" x2="706" y2="564"/>
+                  <line x1="653" y1="552" x2="700" y2="576"/>
+                  <line x1="646" y1="564" x2="694" y2="588"/>
+                  <line x1="640" y1="586" x2="687" y2="610"/>
+                </g>
+              </g>
+              <g id="panel-1-2" transform="translate(60,30)"><use href="#panel-1-1"/></g>
+              <g id="panel-1-3" transform="translate(120,60)"><use href="#panel-1-1"/></g>
+              <g id="panel-1-4" transform="translate(180,90)"><use href="#panel-1-1"/></g>
+            </g>
+
+            <!-- ROW 2 (y=1.9..2.9, shifted along -y axis on screen: (+left,+down) = (-40,+20) per unit y) -->
+            <g id="solar-row-2" transform="translate(-60,30)">
+              <g id="panel-2-1"><use href="#panel-1-1"/></g>
+              <g id="panel-2-2" transform="translate(60,30)"><use href="#panel-1-1"/></g>
+              <g id="panel-2-3" transform="translate(120,60)"><use href="#panel-1-1"/></g>
+              <g id="panel-2-4" transform="translate(180,90)"><use href="#panel-1-1"/></g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <!-- ============= PLANTERS (corner shrubs only) ============= -->
+      <g id="planters">
+        <g id="planter-front-left" transform="translate(390,660)">
+          <polygon fill="var(--planter)" points="-18,6 0,15 22,6 4,-3"/>
+          <ellipse cx="0" cy="0" rx="14" ry="8" fill="var(--shrub)"/>
+          <ellipse cx="-2" cy="-4" rx="10" ry="6" fill="var(--shrub-hi)"/>
+        </g>
+        <g id="planter-front-right" transform="translate(820,860)">
+          <polygon fill="var(--planter)" points="-18,6 0,15 22,6 4,-3"/>
+          <ellipse cx="0" cy="0" rx="14" ry="8" fill="var(--shrub)"/>
+          <ellipse cx="-2" cy="-4" rx="10" ry="6" fill="var(--shrub-hi)"/>
+        </g>
+        <g id="planter-corner" transform="translate(520,700)">
+          <polygon fill="var(--planter)" points="-18,6 0,15 22,6 4,-3"/>
+          <ellipse cx="0" cy="0" rx="14" ry="8" fill="var(--shrub)"/>
+          <ellipse cx="-2" cy="-4" rx="10" ry="6" fill="var(--shrub-hi)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

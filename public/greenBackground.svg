@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1402" viewBox="0 0 1920 1402" preserveAspectRatio="none" aria-hidden="true">
+  <!--
+    Editable replica of greenBackground.webp.
+    Transparent SVG with only mint chevron wings and a soft lower fade.
+    No radial bloom or overlay rectangles, so it does not create a visible
+    white circle, square boundary, or center artifact.
+  -->
+  <defs>
+    <linearGradient id="uev-bg-wing-left" x1="0" y1="0" x2="0" y2="628" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8D4B8" stop-opacity="0.35"/>
+      <stop offset="0.16" stop-color="#EADAC2" stop-opacity="0.66"/>
+      <stop offset="0.55" stop-color="#EFE2D0" stop-opacity="0.50"/>
+      <stop offset="1" stop-color="#F3E9DB" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="uev-bg-wing-right" x1="1920" y1="0" x2="1920" y2="628" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8D4B8" stop-opacity="0.31"/>
+      <stop offset="0.16" stop-color="#EADAC2" stop-opacity="0.63"/>
+      <stop offset="0.55" stop-color="#EFE2D0" stop-opacity="0.50"/>
+      <stop offset="1" stop-color="#F3E9DB" stop-opacity="0.36"/>
+    </linearGradient>
+
+    <linearGradient id="uev-bg-panel" x1="0" y1="628" x2="0" y2="1251" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3E9DB" stop-opacity="0.35"/>
+      <stop offset="0.08" stop-color="#F5ECDF" stop-opacity="0.32"/>
+      <stop offset="0.30" stop-color="#F7EFE6" stop-opacity="0.24"/>
+      <stop offset="0.56" stop-color="#F9F3EC" stop-opacity="0.16"/>
+      <stop offset="0.82" stop-color="#FCF8F3" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Top-left wing -->
+  <path id="uev-bg-left-wing" d="M0,0 L960,628 L0,628 Z" fill="url(#uev-bg-wing-left)"/>
+  <!-- Top-right wing (mirror) -->
+  <path id="uev-bg-right-wing" d="M1920,0 L960,628 L1920,628 Z" fill="url(#uev-bg-wing-right)"/>
+
+  <!-- Lower fade starts at the V apex and softly disappears before the bottom -->
+  <rect id="uev-bg-lower-fade" x="0" y="628" width="1920" height="623" fill="url(#uev-bg-panel)"/>
+</svg>

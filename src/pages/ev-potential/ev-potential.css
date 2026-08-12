@@ -1,0 +1,168 @@
+/* Extracted from BatterySmart/css5.css + css6.css for the Unleash EV section */
+
+.evp-page { --green:#00ce7e; --blue:#6B4423; --dark:#4A2E17; background:#fff; min-height:100vh; overflow-x:hidden; }
+.evp-section { min-height: 0 !important; overflow: visible !important; padding-bottom: 80px; margin-top: -30vw; }
+.evp-page .text-dark-blue { color: var(--blue); }
+.evp-page .text-green { color: var(--green); }
+
+/* Typography */
+.evp-page .Typography_xl__lpgwQ { font-family: var(--font-ttfirs, "TT Firs Neue Trl", "Rubik", system-ui, sans-serif); font-weight: 500; font-style: normal; }
+.evp-page .Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 3.3333333333vw; line-height: 1.05; }
+.evp-page .Typography_Body__be3dk { font-family: var(--font-nunito, "Nunito Sans", system-ui, sans-serif); font-weight: 400; font-style: normal; }
+.evp-page .Typography_Body__be3dk.Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 1.6666666667vw; }
+
+/* Vehicle container */
+.evp-page .VehicleContainer_vehicleContainer__qSz35 { position: relative; padding-top: 7.8125vw; }
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 {
+  position: absolute; top: 0; left: 0; width: 100%; z-index: 0;
+}
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_greenBackground__ymkZ3 {
+  position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: 0;
+}
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_flowLineContainer__Py1Df {
+  position: absolute; top: 0; left: 0; width: 100%; z-index: 1; margin-inline: auto; display: flex; justify-content: center; margin-top: 14.0625vw;
+}
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_flowLineContainer__Py1Df .VehicleContainer_flowLine__SRtkD {
+  width: 56.25vw; height: auto;
+}
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_heading__pgx2u { margin-top: 23vw; margin-bottom: 4vw; position: relative; z-index: 2; text-align: center; }
+.evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_potentialLine__r9_a2 { display: block; width: 100%; text-align: center; }
+
+/* Vehicle cards row (3 items) - using last children layout from reference */
+.evp-page .VehicleContainer_vehicleContainer__qSz35 > div:last-child {
+  position: relative; z-index: 2;
+  margin-top: 18vw;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .evp-page .Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 20px !important; }
+  .evp-page .Typography_Body__be3dk.Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 4.8vw; }
+  .evp-page .VehicleContainer_vehicleContainer__qSz35 { padding-top: 18.6666666667vw; }
+  .evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_flowLineContainer__Py1Df { margin-top: 8vw; }
+  .evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_flowLineContainer__Py1Df .VehicleContainer_flowLine__SRtkD { width: 72vw; }
+  .evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_heading__pgx2u { margin-bottom: 0 !important; }
+}
+
+/* Vehicles row */
+.evp-page .Vehicles_Vehicles__y0XsI {
+  display: flex; gap: 1.5625vw; justify-content: center; align-items: center;
+  position: relative; z-index: 2;
+}
+.evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX {
+  width: 22.1354166667vw; height: 13.8098958333vw; flex-wrap: wrap;
+  border-radius: .5208333333vw; border: .0520833333vw solid var(--blue);
+  background: #fff; display: flex; align-items: center; justify-content: center;
+  gap: 1.6666666667vw; color: var(--blue);
+  padding: 2.6041666667vw 0 1.5625vw;
+  box-shadow: 0 1.0416666667vw 2.0833333333vw -1.0416666667vw rgba(107, 68, 35, 0.18);
+}
+.evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX .Vehicles_vehicleIcon__Zin_8 {
+  width: 10.8333333333vw; height: 5.4166666667vw; display: flex; justify-content: center;
+}
+.evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX svg { height: 100%; width: auto; }
+.evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX span { white-space: pre; }
+
+/* Heading layout, Unleashing EV / Potential For stacked center.
+   Use plain block + text-align:center (not flex) so each line collapses to
+   its natural width and both lines are perfectly centered under the V apex. */
+.evp-page .Title_Title__h9OBl {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-ttfirs, "TT Firs Neue Trl", "Rubik", system-ui, sans-serif);
+  font-weight: 700; line-height: 1.1;
+  white-space: normal;
+}
+.evp-page .Title_Title__h9OBl > span { display: inline; }
+.evp-page .Title_Title__h9OBl .Title_word__BoWST { display: inline-block; vertical-align: baseline; }
+.evp-page .VehicleContainer_heading__pgx2u { width: 100%; text-align: center; display: block; }
+.evp-page .VehicleContainer_potentialLine__r9_a2 { display: block; width: 100%; text-align: center; }
+.evp-page .Title_Title__h9OBl.Title_l2__WeAnN { font-size: 3.3333333333vw; }
+.evp-page .Title_word__BoWST { display: inline-block; overflow: visible; }
+.evp-page .Title_word__BoWST > span { display: inline-block; }
+.evp-page .VehicleContainer_heading__pgx2u { text-transform: capitalize; }
+
+@media (min-width: 769px) {
+  .evp-page .VehicleContainer_heading__pgx2u {
+    margin-top: 32vw !important;
+  }
+  .evp-page .VehicleContainer_heading__pgx2u,
+  .evp-page .VehicleContainer_heading__pgx2u .Title_Title__h9OBl {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+  }
+  /* Color wrapper spans inside a line stay inline so "Unleashing EV" sits on one line */
+  .evp-page .VehicleContainer_heading__pgx2u .Title_Title__h9OBl > span {
+    display: inline;
+  }
+  .evp-page .VehicleContainer_heading__pgx2u .Title_Title__h9OBl .Title_word__BoWST {
+    display: inline-block;
+    margin: 0 0.15em;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .evp-page .Vehicles_Vehicles__y0XsI {
+    display: grid !important; gap: 5.3333333333vw !important; padding-top: 26.6666666667vw;
+  }
+  .evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX {
+    border-radius: 10px !important; border: 1px solid var(--blue) !important;
+    background: #fff !important; display: grid !important;
+    width: 71.4666666667vw !important; padding: 8vw 0 !important; height: unset !important;
+  }
+  .evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX .Vehicles_vehicleIcon__Zin_8 {
+    width: 37.3333333333vw; height: 18.6666666667vw;
+  }
+  .evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX span {
+    padding-top: 5.3333333333vw; font-size: 4.8vw;
+  }
+  .evp-page .Title_Title__h9OBl.Title_l2__WeAnN { font-size: 20px !important; }
+}
+
+/* Smooth staggered entrance for vehicle cards */
+.evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX {
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(1) { transition-delay: 80ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(2) { transition-delay: 220ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(3) { transition-delay: 360ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(4) { transition-delay: 500ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(5) { transition-delay: 640ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(6) { transition-delay: 780ms; }
+.evp-page .Vehicles_Vehicles__y0XsI.is-in .Vehicles_vehicle__b4QBX:nth-child(7) { transition-delay: 920ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX {
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
+/* Defer heading until SVG/illustration has had time to render */
+.evp-page .VehicleContainer_heading__pgx2u {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 700ms ease-out 900ms, transform 700ms ease-out 900ms;
+  will-change: opacity, transform;
+}
+.evp-page .VehicleContainer_heading__pgx2u.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .evp-page .VehicleContainer_heading__pgx2u {
+    opacity: 1; transform: none; transition: none;
+  }
+}
