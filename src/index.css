@@ -330,7 +330,7 @@
     100% { opacity: 0; transform: translateY(-80px); filter: blur(6px); }
   }
   .bs-rotating-title .bs-rt-line { display: inline-block; }
-  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-primary-brand-deep)); margin-right: 0.2em; }
+  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-navy)); margin-right: 0.2em; }
   .bs-rotating-title .bs-rt-accent {
     color: hsl(var(--c-green-tree));
     transition: color 0.3s ease;
