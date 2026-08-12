@@ -3,10 +3,10 @@ import {
   Smartphone,
   Users,
   Truck,
-  ShieldCheck,
-  Newspaper,
+  Bike,
+  Store,
+  Handshake,
   Cpu,
-  Building2,
   type LucideIcon,
 } from "lucide-react";
 import { createElement, type ReactNode } from "react";
