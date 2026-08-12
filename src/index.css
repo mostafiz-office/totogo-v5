@@ -99,7 +99,7 @@
 
     /* Heading hover tokens */
     --primary-darker:    var(--c-primary-brand-deep);
-    --hover-shadow-ink:  74 46 23;  /* #4A2E17 as RGB triplet */
+    --hover-shadow-ink:  0 102 56;  /* #006638 as RGB triplet */
   }
 
 }
@@ -327,7 +327,7 @@
     100% { opacity: 0; transform: translateY(-80px); filter: blur(6px); }
   }
   .bs-rotating-title .bs-rt-line { display: inline-block; }
-  .bs-rotating-title .bs-rt-lead  { color: #6B4423; margin-right: 0.2em; }
+  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-primary-brand-deep)); margin-right: 0.2em; }
   .bs-rotating-title .bs-rt-accent {
     color: hsl(var(--c-green-tree));
     transition: color 0.3s ease;
@@ -521,7 +521,7 @@
     box-sizing: border-box;
   }
   .bs-tip__title {
-    color: #4A2E17;
+    color: hsl(var(--c-primary-brand-deep));
     font-family: 'Manrope', 'TT Firs Neue Trl', sans-serif;
     font-size: 1.6667vw;
     font-weight: 500;
