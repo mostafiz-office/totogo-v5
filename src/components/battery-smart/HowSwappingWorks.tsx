@@ -299,17 +299,27 @@ export default function HowSwappingWorks() {
         }
 
         .sss-stats {
-          display: flex; gap: 2.5rem; margin-top: 0.5rem;
+          display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; margin-top: 0.5rem;
           padding-top: 1.25rem;
           border-top: 1px solid var(--c-border);
         }
-        .sss-stat { display: flex; flex-direction: column; gap: 0.25rem; }
+        @media (max-width: 520px) { .sss-stats { grid-template-columns: 1fr; } }
+        .sss-stat { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
         .sss-stat-value {
           font-family: 'Ubuntu', system-ui, sans-serif;
-          font-size: 1.75rem; font-weight: 700; color: var(--c-text); line-height: 1;
+          font-size: clamp(1.05rem, 1.5vw, 1.35rem); font-weight: 700; color: var(--c-text);
+          line-height: 1.2; overflow-wrap: anywhere;
         }
         .sss-stat-label {
-          font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-faint);
+          font-size: 0.75rem; line-height: 1.5; color: var(--c-faint);
+        }
+        .sss-closing {
+          margin-top: 2.5rem;
+          text-align: center;
+          font-family: 'Ubuntu', system-ui, sans-serif;
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+          font-weight: 700;
+          color: hsl(150 25% 12%);
         }
 
         .sss-cta {
