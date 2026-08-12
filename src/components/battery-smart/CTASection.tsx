@@ -72,10 +72,10 @@ const CTASection = () => {
                   fontSize: "clamp(1.6rem, 6vw, 52px)",
                   lineHeight: 1.15,
                   letterSpacing: "-0.01em",
-                  color: "#4A2E17",
+                  color: "#0E1613",
                 }}
               >
-                <span style={{ color: "#4A2E17" }}>Ready to</span>{" "}
+                <span style={{ color: "#0E1613" }}>Ready to</span>{" "}
                 <span style={{ color: "hsl(var(--c-green-tree))", textShadow: "1px 0.7px 0 hsl(150 30% 8% / 0.25)" }}>
                   earn more?
                 </span>
@@ -103,13 +103,13 @@ const CTASection = () => {
                     <div>
                       <p
                         className="text-base font-semibold leading-snug md:text-lg"
-                        style={{ color: "#4A2E17" }}
+                        style={{ color: "#0E1613" }}
                       >
                         {title}
                       </p>
                       <p
                         className="mt-1 text-sm leading-relaxed md:text-[15px]"
-                        style={{ color: "#4A2E17", opacity: 0.72 }}
+                        style={{ color: "#0E1613", opacity: 0.72 }}
                       >
                         {desc}
                       </p>
@@ -162,7 +162,7 @@ const CTASection = () => {
             className="absolute bottom-0 left-0 h-1 w-full"
             style={{
               background:
-                "linear-gradient(90deg, hsl(var(--c-green)), #6B4423, hsl(var(--c-green)))",
+                "linear-gradient(90deg, hsl(var(--c-green)), #006638, hsl(var(--c-green)))",
             }}
             aria-hidden="true"
           />

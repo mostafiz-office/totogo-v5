@@ -243,13 +243,13 @@ export default function HowSwappingWorks() {
           padding-bottom: 1.25rem;
         }
         .sss-card {
-          --c-bg: #FAF6EE;
-          --c-text: #4A2E17;
-          --c-mute: #4A2E17cc;
-          --c-faint: #4A2E1799;
+          --c-bg: #F8FBF9;
+          --c-text: #0E1613;
+          --c-mute: #0E1613cc;
+          --c-faint: #0E161399;
           --c-border: hsl(0 0% 0% / 0.18);
           --c-hover: #00CE7E;
-          --c-tile-bg: #6B4423;
+          --c-tile-bg: #006638;
           --c-tile-icon: #ffffff;
 
           background: var(--c-bg);
@@ -269,27 +269,27 @@ export default function HowSwappingWorks() {
         }
 
         .sss-card[data-step="2"] {
-          --c-bg: #F0E8DC;
+          --c-bg: #E8F3EE;
           --c-tile-bg: #00CE7E;
           --c-tile-icon: #ffffff;
         }
         .sss-card[data-step="3"] {
-          --c-bg: #E8DCC8;
-          --c-tile-bg: #4A2E17;
+          --c-bg: #D7E4DE;
+          --c-tile-bg: #0E1613;
           --c-tile-icon: #ffffff;
         }
         .sss-card[data-step="4"] {
-          --c-bg: #6B4423;
+          --c-bg: #006638;
           --c-text: #ffffff;
           --c-mute: hsl(0 0% 100% / 0.82);
           --c-faint: hsl(0 0% 100% / 0.6);
           --c-border: hsl(0 0% 100% / 0.25);
           --c-hover: #00CE7E;
-          --c-tile-bg: #FAF6EE;
-          --c-tile-icon: #6B4423;
+          --c-tile-bg: #F8FBF9;
+          --c-tile-icon: #006638;
         }
         .sss-card[data-step="5"] {
-          --c-bg: #4A2E17;
+          --c-bg: #0E1613;
           --c-text: #ffffff;
           --c-mute: hsl(0 0% 100% / 0.82);
           --c-faint: hsl(0 0% 100% / 0.6);

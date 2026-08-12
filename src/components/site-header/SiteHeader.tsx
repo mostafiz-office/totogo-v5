@@ -129,7 +129,7 @@ const SiteHeader = ({
           <a
             href={primaryCta.href}
             className="inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-sm font-semibold text-white shadow-sm lg:hidden"
-            style={{ backgroundColor: "#4A2E17" }}
+            style={{ backgroundColor: "#0E1613" }}
             aria-label={`Call: ${primaryCta.label}`}
           >
             <Phone size={16} strokeWidth={2.5} />
