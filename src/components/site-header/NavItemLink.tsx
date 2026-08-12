@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { NavItem } from "./nav-config";
-import { popularTopics } from "./nav-config";
 
 const normalize = (p: string) => (p.endsWith("/") ? p : `${p}/`);
 export const isRouteActive = (current: string, target: string) => {
@@ -113,19 +112,6 @@ const NavItemLink = ({ item, currentPath, isOpen, onOpen, onClose, onLinkClick }
                     </span>
                   </a>
                 ))}
-              </div>
-
-              <div className="mt-4 grid gap-1">
-                <span className="site-mega-popular-label">Popular topics</span>
-                <ul className="grid grid-cols-1 sm:grid-cols-2">
-                  {popularTopics.map((t) => (
-                    <li key={t.path}>
-                      <a href={t.path} className="site-mega-popular-link" onClick={onLinkClick}>
-                        {t.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="site-mega-footer">
