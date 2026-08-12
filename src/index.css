@@ -13,10 +13,10 @@
        ============================================================ */
 
     /* Brand primary (brown) */
-    --c-brown:        26 51% 27%;   /* #6B4423 HQ brown */
-    --c-brown-deep:   24 53% 19%;   /* #4A2E17 hover / deeper */
-    --c-brown-warm:   26 53% 36%;   /* #8B5A2B secondary surfaces */
-    --c-brown-soft:   32 40% 88%;   /* #EBDDCB tint */
+    --c-primary-brand:        26 51% 27%;   /* #6B4423 HQ brown */
+    --c-primary-brand-deep:   24 53% 19%;   /* #4A2E17 hover / deeper */
+    --c-primary-brand-warm:   26 53% 36%;   /* #8B5A2B secondary surfaces */
+    --c-primary-brand-soft:   32 40% 88%;   /* #EBDDCB tint */
 
     /* Brand action (green) */
     --c-green:        155 100% 40%; /* #00CE7E CTA */
@@ -32,8 +32,8 @@
     --c-border:       33 39% 84%;   /* #E4D8C6 hairline */
 
     /* Legacy alias, keeps existing components readable while we transition */
-    --c-blue:         var(--c-brown);
-    --c-blue-deep:    var(--c-brown-deep);
+    --c-blue:         var(--c-primary-brand);
+    --c-blue-deep:    var(--c-primary-brand-deep);
     --c-green-bright: var(--c-green);
     --c-bg-grad-1:    var(--c-surface);
     --c-bg-grad-2:    var(--c-surface-alt);
@@ -48,7 +48,7 @@
     --card-foreground: var(--c-ink);
     --popover: 0 0% 100%;
     --popover-foreground: var(--c-ink);
-    --primary: var(--c-brown);
+    --primary: var(--c-primary-brand);
     --primary-foreground: 0 0% 100%;
     --secondary: var(--c-surface-alt);
     --secondary-foreground: var(--c-ink);
@@ -60,11 +60,11 @@
     --destructive-foreground: 0 0% 100%;
     --border: var(--c-border);
     --input: var(--c-border);
-    --ring: var(--c-brown);
+    --ring: var(--c-primary-brand);
     --radius: 0.5rem;
 
     /* Site-header tokens */
-    --background-deepest: var(--c-brown-deep);
+    --background-deepest: var(--c-primary-brand-deep);
 
     /* Site-footer ramp (deep brown-black, no navy) */
     --footer-row-main-bg:      26 43% 12%;  /* #2A1D10 */
@@ -80,18 +80,18 @@
     --hiw-ink:       var(--c-ink);
     --hiw-ink-soft:  var(--c-muted);
     --hiw-teal:      var(--c-green-deep);
-    --hiw-rail:      var(--c-brown);
+    --hiw-rail:      var(--c-primary-brand);
 
     /* Hero-Below "Unleashing EV Potential" section */
-    --ev-navy:        var(--c-brown-deep);
+    --ev-navy:        var(--c-primary-brand-deep);
     --ev-green:       var(--c-green);
     --ev-green-soft:  var(--c-green-soft);
     --ev-green-bg:    36 40% 93%;
     --ev-sky:         36 43% 97%;
     --ev-card-border: var(--c-border);
 
-    --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-brown) / 0.08);
-    --shadow-nav:  0 2px 12px hsl(var(--c-brown) / 0.08);
+    --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-primary-brand) / 0.08);
+    --shadow-nav:  0 2px 12px hsl(var(--c-primary-brand) / 0.08);
 
     --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -99,7 +99,7 @@
     --pad-x: clamp(16px, 4vw, 64px);
 
     /* Heading hover tokens */
-    --primary-darker:    var(--c-brown-deep);
+    --primary-darker:    var(--c-primary-brand-deep);
     --hover-shadow-ink:  74 46 23;  /* #4A2E17 as RGB triplet */
   }
 
