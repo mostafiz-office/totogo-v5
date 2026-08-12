@@ -55,7 +55,7 @@
   background: #fff; display: flex; align-items: center; justify-content: center;
   gap: 1.6666666667vw; color: var(--blue);
   padding: 2.6041666667vw 0 1.5625vw;
-  box-shadow: 0 1.0416666667vw 2.0833333333vw -1.0416666667vw rgba(107, 68, 35, 0.18);
+  box-shadow: 0 1.0416666667vw 2.0833333333vw -1.0416666667vw rgba(0, 102, 56, 0.18);
 }
 .evp-page .Vehicles_Vehicles__y0XsI .Vehicles_vehicle__b4QBX .Vehicles_vehicleIcon__Zin_8 {
   width: 10.8333333333vw; height: 5.4166666667vw; display: flex; justify-content: center;
