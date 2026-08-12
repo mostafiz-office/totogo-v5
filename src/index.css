@@ -65,17 +65,17 @@
     /* Site-header tokens */
     --background-deepest: var(--c-primary-brand-deep);
 
-    /* Site-footer ramp (deep brown-black, no navy) */
-    --footer-row-main-bg:      26 43% 12%;  /* #2A1D10 */
-    --footer-row-specialty-bg: 26 40% 8%;   /* #1C130A */
+    /* Site-footer ramp (deep green-black, no navy) */
+    --footer-row-main-bg:      160 35% 9%;  /* #0F1F1A */
+    --footer-row-specialty-bg: 160 38% 6%;  /* #091511 */
     --footer-row-copyright-bg: 0 0% 6%;     /* #101010 */
     --footer-heading: 0 0% 100%;
     --footer-body:    0 0% 100%;
     --footer-meta:    0 0% 100%;
     --primary-light:  155 80% 55%;          /* accessible brand-green on dark footer */
 
-    /* How It Works section tokens (warm brown/green) */
-    --hiw-bg:        36 43% 95%;
+    /* How It Works section tokens (green/neutral) */
+    --hiw-bg:        150 28% 96%;
     --hiw-ink:       var(--c-ink);
     --hiw-ink-soft:  var(--c-muted);
     --hiw-teal:      var(--c-green-deep);
@@ -85,8 +85,8 @@
     --ev-navy:        var(--c-primary-brand-deep);
     --ev-green:       var(--c-green);
     --ev-green-soft:  var(--c-green-soft);
-    --ev-green-bg:    36 40% 93%;
-    --ev-sky:         36 43% 97%;
+    --ev-green-bg:    150 30% 94%;
+    --ev-sky:         150 25% 98%;
     --ev-card-border: var(--c-border);
 
     --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-primary-brand) / 0.08);
