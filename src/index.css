@@ -29,6 +29,9 @@
     --c-surface:      150 25% 98%;  /* #F8FBF9 page bg */
     --c-surface-alt:  150 28% 93%;  /* #E8F3EE section band */
     --c-border:       150 20% 86%;  /* #D7E4DE hairline */
+    --c-navy:         220 100% 20%; /* #002366 logo navy */
+
+
 
     /* Legacy alias, keeps existing components readable while we transition */
     --c-blue:         var(--c-primary-brand);
@@ -327,7 +330,7 @@
     100% { opacity: 0; transform: translateY(-80px); filter: blur(6px); }
   }
   .bs-rotating-title .bs-rt-line { display: inline-block; }
-  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-primary-brand-deep)); margin-right: 0.2em; }
+  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-navy)); margin-right: 0.2em; }
   .bs-rotating-title .bs-rt-accent {
     color: hsl(var(--c-green-tree));
     transition: color 0.3s ease;
