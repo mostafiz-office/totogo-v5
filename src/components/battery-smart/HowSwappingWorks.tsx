@@ -150,7 +150,7 @@ export default function HowSwappingWorks() {
 
       <style>{`
         .sss-section.totoogo {
-          background: hsl(var(--c-green-soft) / 0.35);
+          background: hsl(var(--c-surface));
           font-family: 'Poppins', system-ui, sans-serif;
         }
         .sss-eyebrow {
