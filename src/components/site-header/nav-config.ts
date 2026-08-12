@@ -28,7 +28,7 @@ export type NavItem = {
 const icon = (I: LucideIcon) => createElement(I, { size: 18, strokeWidth: 2 });
 
 export const navLinks: NavItem[] = [
-  { label: "About Us", path: "/about/" },
+  { label: "The Idea", path: "/the-idea/" },
   {
     label: "Our Solutions",
     path: "/solutions/",
@@ -60,40 +60,33 @@ export const navLinks: NavItem[] = [
       },
     ],
   },
-  { label: "Safety Center", path: "/safety/" },
+  { label: "Investment", path: "/investment/" },
   {
-    label: "Media",
-    path: "/media/",
+    label: "Join Our Network",
+    path: "/join/",
     mega: false,
     children: [
       {
-        label: "Newsroom",
-        description: "Press releases and announcements.",
-        path: "/media/news/",
-        icon: icon(Newspaper),
+        label: "Own an EV",
+        description: "Own a totooGO electric three-wheeler.",
+        path: "/join/own-an-ev/",
+        icon: icon(Bike),
       },
       {
-        label: "Brand Assets",
-        description: "Logos, photography, and brand guide.",
-        path: "/media/brand/",
-        icon: icon(Building2),
+        label: "Dealership",
+        description: "Sell and service totooGO vehicles.",
+        path: "/join/dealership/",
+        icon: icon(Store),
       },
       {
-        label: "Safety Reports",
-        description: "Independent audits and certifications.",
-        path: "/media/reports/",
-        icon: icon(ShieldCheck),
+        label: "Franchise Program",
+        description: "Run a totooGO swap point in your area.",
+        path: "/join/franchise/",
+        icon: icon(Handshake),
       },
     ],
   },
   { label: "Tech", path: "/tech/" },
-];
-
-export const popularTopics = [
-  { label: "Battery-Swap Stations near me", path: "/network/stations/" },
-  { label: "2-Wheeler Compatibility", path: "/solutions/2-wheeler/" },
-  { label: "3-Wheeler Compatibility", path: "/solutions/3-wheeler/" },
-  { label: "How Battery Swapping Works", path: "/how-it-works/" },
 ];
 
 export const techIcon = icon(Cpu);
