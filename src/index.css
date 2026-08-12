@@ -7,16 +7,15 @@
 @layer base {
   :root {
     /* ============================================================
-       totooGO palette: Heritage Brown + Electric Green
-       Two brand colors only. Brown from the HQ building,
-       green from the CTA button and logo plug.
+       totooGO palette: Electric Green, straight from the logo.
+       One brand color + neutral greys. No brown anywhere.
        ============================================================ */
 
-    /* Brand primary (brown) */
-    --c-brown:        26 51% 27%;   /* #6B4423 HQ brown */
-    --c-brown-deep:   24 53% 19%;   /* #4A2E17 hover / deeper */
-    --c-brown-warm:   26 53% 36%;   /* #8B5A2B secondary surfaces */
-    --c-brown-soft:   32 40% 88%;   /* #EBDDCB tint */
+    /* Brand primary (green) */
+    --c-primary-brand:        155 100% 40%; /* #00CE7E logo green */
+    --c-primary-brand-deep:   157 100% 20%; /* #006638 hover / deeper */
+    --c-primary-brand-warm:   155 100% 33%; /* #00A866 secondary surfaces */
+    --c-primary-brand-soft:   152 65% 88%;  /* #CFF1DF tint */
 
     /* Brand action (green) */
     --c-green:        155 100% 40%; /* #00CE7E CTA */
@@ -24,16 +23,16 @@
     --c-green-soft:   152 65% 88%;  /* #CFF1DF tint */
     --c-green-tree:   158 62% 45%;  /* #2DBA88 hero tree leaves */
 
-    /* Neutrals (warm, brown-tinted) */
-    --c-ink:          30 40% 6%;    /* #1A1208 body ink */
-    --c-muted:        27 15% 37%;   /* #6B5D50 secondary copy */
-    --c-surface:      36 43% 97%;   /* #FAF7F2 page bg */
-    --c-surface-alt:  36 40% 90%;   /* #F0E8DC section band */
-    --c-border:       33 39% 84%;   /* #E4D8C6 hairline */
+    /* Neutrals (cool, faintly green-tinted) */
+    --c-ink:          160 20% 7%;   /* #0E1613 body ink */
+    --c-muted:        160 8% 38%;   /* #5A6864 secondary copy */
+    --c-surface:      150 25% 98%;  /* #F8FBF9 page bg */
+    --c-surface-alt:  150 28% 93%;  /* #E8F3EE section band */
+    --c-border:       150 20% 86%;  /* #D7E4DE hairline */
 
     /* Legacy alias, keeps existing components readable while we transition */
-    --c-blue:         var(--c-brown);
-    --c-blue-deep:    var(--c-brown-deep);
+    --c-blue:         var(--c-primary-brand);
+    --c-blue-deep:    var(--c-primary-brand-deep);
     --c-green-bright: var(--c-green);
     --c-bg-grad-1:    var(--c-surface);
     --c-bg-grad-2:    var(--c-surface-alt);
@@ -48,7 +47,7 @@
     --card-foreground: var(--c-ink);
     --popover: 0 0% 100%;
     --popover-foreground: var(--c-ink);
-    --primary: var(--c-brown);
+    --primary: var(--c-primary-brand);
     --primary-foreground: 0 0% 100%;
     --secondary: var(--c-surface-alt);
     --secondary-foreground: var(--c-ink);
@@ -60,38 +59,38 @@
     --destructive-foreground: 0 0% 100%;
     --border: var(--c-border);
     --input: var(--c-border);
-    --ring: var(--c-brown);
+    --ring: var(--c-primary-brand);
     --radius: 0.5rem;
 
     /* Site-header tokens */
-    --background-deepest: var(--c-brown-deep);
+    --background-deepest: var(--c-primary-brand-deep);
 
-    /* Site-footer ramp (deep brown-black, no navy) */
-    --footer-row-main-bg:      26 43% 12%;  /* #2A1D10 */
-    --footer-row-specialty-bg: 26 40% 8%;   /* #1C130A */
+    /* Site-footer ramp (deep green-black, no navy) */
+    --footer-row-main-bg:      160 35% 9%;  /* #0F1F1A */
+    --footer-row-specialty-bg: 160 38% 6%;  /* #091511 */
     --footer-row-copyright-bg: 0 0% 6%;     /* #101010 */
     --footer-heading: 0 0% 100%;
     --footer-body:    0 0% 100%;
     --footer-meta:    0 0% 100%;
     --primary-light:  155 80% 55%;          /* accessible brand-green on dark footer */
 
-    /* How It Works section tokens (warm brown/green) */
-    --hiw-bg:        36 43% 95%;
+    /* How It Works section tokens (green/neutral) */
+    --hiw-bg:        150 28% 96%;
     --hiw-ink:       var(--c-ink);
     --hiw-ink-soft:  var(--c-muted);
     --hiw-teal:      var(--c-green-deep);
-    --hiw-rail:      var(--c-brown);
+    --hiw-rail:      var(--c-primary-brand);
 
     /* Hero-Below "Unleashing EV Potential" section */
-    --ev-navy:        var(--c-brown-deep);
+    --ev-navy:        var(--c-primary-brand-deep);
     --ev-green:       var(--c-green);
     --ev-green-soft:  var(--c-green-soft);
-    --ev-green-bg:    36 40% 93%;
-    --ev-sky:         36 43% 97%;
+    --ev-green-bg:    150 30% 94%;
+    --ev-sky:         150 25% 98%;
     --ev-card-border: var(--c-border);
 
-    --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-brown) / 0.08);
-    --shadow-nav:  0 2px 12px hsl(var(--c-brown) / 0.08);
+    --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-primary-brand) / 0.08);
+    --shadow-nav:  0 2px 12px hsl(var(--c-primary-brand) / 0.08);
 
     --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -99,8 +98,8 @@
     --pad-x: clamp(16px, 4vw, 64px);
 
     /* Heading hover tokens */
-    --primary-darker:    var(--c-brown-deep);
-    --hover-shadow-ink:  74 46 23;  /* #4A2E17 as RGB triplet */
+    --primary-darker:    var(--c-primary-brand-deep);
+    --hover-shadow-ink:  0 102 56;  /* #006638 as RGB triplet */
   }
 
 }
@@ -328,7 +327,7 @@
     100% { opacity: 0; transform: translateY(-80px); filter: blur(6px); }
   }
   .bs-rotating-title .bs-rt-line { display: inline-block; }
-  .bs-rotating-title .bs-rt-lead  { color: #6B4423; margin-right: 0.2em; }
+  .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-primary-brand-deep)); margin-right: 0.2em; }
   .bs-rotating-title .bs-rt-accent {
     color: hsl(var(--c-green-tree));
     transition: color 0.3s ease;
@@ -522,7 +521,7 @@
     box-sizing: border-box;
   }
   .bs-tip__title {
-    color: #4A2E17;
+    color: hsl(var(--c-primary-brand-deep));
     font-family: 'Manrope', 'TT Firs Neue Trl', sans-serif;
     font-size: 1.6667vw;
     font-weight: 500;

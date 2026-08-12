@@ -2,10 +2,10 @@
 
 .bp-how-it-works {
   --teal: #00CE7E;
-  --primary-blue: #6B4423;
-  background: #FAF7F2;
+  --primary-blue: #006638;
+  background: #F8FBF9;
   font-family: Inter, sans-serif;
-  color: #4A2E17;
+  color: #0E1613;
   position: relative;
   height: 300vh; /* desktop scroll-jacked track */
 }
@@ -82,7 +82,7 @@
 }
 
 .bp-how-it-works .work-heading {
-  color: #4A2E17;
+  color: #0E1613;
   max-width: 573px;
   font-size: 3rem;
   font-weight: 500;
@@ -91,7 +91,7 @@
 }
 
 .bp-how-it-works .work-content {
-  color: #4A2E17;
+  color: #0E1613;
   padding: 3rem;
   display: flex;
 }
@@ -168,7 +168,7 @@
 
 /* Mobile stacked cards reuse the same palette */
 .bp-how-it-works .bp-mobile .work-content { border-radius: 20px; margin-bottom: 16px; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(1) { background: #CFF1DF; color: #4A2E17; }
+.bp-how-it-works .bp-mobile .work-content:nth-of-type(1) { background: #CFF1DF; color: #0E1613; }
 .bp-how-it-works .bp-mobile .work-content:nth-of-type(2) { background: #00CE7E; color: #ffffff; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(3) { background: #6B4423; color: #ffffff; }
+.bp-how-it-works .bp-mobile .work-content:nth-of-type(3) { background: #006638; color: #ffffff; }
 .bp-how-it-works .bp-mobile .work-content:nth-of-type(n+2) .num-para { color: rgba(255,255,255,0.85); }

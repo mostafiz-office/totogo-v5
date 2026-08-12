@@ -2452,14 +2452,14 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
             }}
           >
             <div
-              className="relative rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(74,46,23,0.18)] px-4 py-2.5 border border-[#E8DCC8]"
+              className="relative rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(14,22,19,0.18)] px-4 py-2.5 border border-[#D7E4DE]"
               style={{ maxWidth: 260 }}
             >
               <div className="flex items-center gap-2.5">
                 <span className="inline-flex w-7 h-7 rounded-full bg-[#00CE7E]/15 items-center justify-center shrink-0">
                   <span className="w-2 h-2 rounded-full bg-[#00CE7E] animate-pulse" />
                 </span>
-                <span className="text-[12px] leading-tight font-semibold text-[#4A2E17]">
+                <span className="text-[12px] leading-tight font-semibold text-[#0E1613]">
                   {t.title}
                 </span>
               </div>
