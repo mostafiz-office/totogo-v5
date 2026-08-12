@@ -239,16 +239,6 @@ export default function HowSwappingWorks() {
           --c-tile-bg: #F8FBF9;
           --c-tile-icon: #006638;
         }
-        .sss-card[data-step="5"] {
-          --c-bg: #0E1613;
-          --c-text: #ffffff;
-          --c-mute: hsl(0 0% 100% / 0.82);
-          --c-faint: hsl(0 0% 100% / 0.6);
-          --c-border: hsl(0 0% 100% / 0.25);
-          --c-hover: #00CE7E;
-          --c-tile-bg: #00CE7E;
-          --c-tile-icon: #ffffff;
-        }
 
         .sss-card-content { display: flex; flex-direction: column; gap: 1rem; align-self: center; }
         .sss-category {
@@ -266,36 +256,13 @@ export default function HowSwappingWorks() {
           font-weight: 700;
           margin: 0;
         }
-        .sss-card-title-link {
-          color: var(--c-text);
-          text-decoration: none;
-          transition: color 0.25s ease, text-shadow 0.25s ease;
-        }
-        .sss-card-title-link:hover {
-          color: var(--c-hover);
-          text-shadow: 1px 0.7px 0 hsl(150 30% 8% / 0.25);
-        }
-        .sss-card-title-link:focus-visible {
-          outline: 2px solid var(--c-hover);
-          outline-offset: 2px;
-          border-radius: 4px;
-        }
+        .sss-card-title { color: var(--c-text); }
 
         .sss-card-desc {
           font-size: 0.95rem;
           line-height: 1.75;
           color: var(--c-mute);
           margin: 0;
-        }
-        .sss-desc-link { color: inherit; text-decoration: none; }
-        .sss-desc-link strong {
-          color: inherit;
-          font-weight: 600;
-          transition: color 0.25s ease, text-shadow 0.25s ease;
-        }
-        .sss-desc-link:hover strong {
-          color: var(--c-hover);
-          text-shadow: 1px 0.7px 0 hsl(150 30% 8% / 0.25);
         }
 
         .sss-stats {
@@ -322,17 +289,6 @@ export default function HowSwappingWorks() {
           color: hsl(150 25% 12%);
         }
 
-        .sss-cta {
-          display: inline-flex; align-items: center; gap: 0.4rem;
-          font-size: 0.875rem; font-weight: 600;
-          color: var(--c-text); text-decoration: none;
-          padding-bottom: 4px;
-          border-bottom: 1px solid var(--c-border);
-          align-self: flex-start;
-          transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
-        }
-        .sss-cta:hover { color: var(--c-hover); border-color: var(--c-hover); gap: 0.65rem; }
-        .sss-cta-icon { width: 16px; height: 16px; }
 
         .sss-card-media {
           display: flex; align-items: center; justify-content: center;
@@ -359,9 +315,7 @@ export default function HowSwappingWorks() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .sss-card-title-link,
-          .sss-desc-link strong { transition: none; }
-          .sss-card-title-link:hover { text-shadow: none; }
+          .sss-card-title { transition: none; }
         }
       `}</style>
     </section>
