@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { MapPin, QrCode, BatteryCharging, Truck, TrendingUp, ArrowRight } from "lucide-react";
+import { ListChecks, Wallet, BatteryCharging, TrendingUp } from "lucide-react";
 
 type Card = {
   step: number;
@@ -7,104 +7,56 @@ type Card = {
   title: string;
   body: React.ReactNode;
   stats: [{ value: string; label: string }, { value: string; label: string }];
-  cta: string;
   Icon: React.ComponentType<{ className?: string }>;
 };
 
 const CARDS: Card[] = [
   {
     step: 1,
-    category: "Locate",
-    Icon: MapPin,
-    title: "Pull into a totooGO swap point",
-    body: (
-      <>
-        Find the nearest swap station from the totooGO app, already live across{" "}
-        <a className="sss-desc-link" href="#"><strong>Dhaka, Chattogram &amp; Sylhet</strong></a>{" "}
-        with new points opening every week along the busiest{" "}
-        <a className="sss-desc-link" href="#"><strong>EV corridors</strong></a>.
-      </>
-    ),
+    category: "CHOOSE",
+    Icon: ListChecks,
+    title: "Choose your E3W, Start your ELECTRIC journey!",
+    body: "Select a totooGO electric three-wheeler built for affordable, efficient everyday driving.",
     stats: [
-      { value: "120+", label: "SWAP POINTS" },
-      { value: "<2 km", label: "AVG DISTANCE" },
+      { value: "3-5 kW Motor", label: "Built for low-cost, efficient mobility." },
+      { value: "Comfortable Ride", label: "Designed for the real needs of CNG & EV drivers." },
     ],
-    cta: "See station map",
   },
   {
     step: 2,
-    category: "Identify",
-    Icon: QrCode,
-    title: "Scan, unlock, and queue your slot",
-    body: (
-      <>
-        Tap your driver QR, the cabinet recognises your{" "}
-        <a className="sss-desc-link" href="#"><strong>totooGO ID</strong></a>, releases a charged battery, and reserves your slot. No paperwork, no waiting in line, no{" "}
-        <a className="sss-desc-link" href="#"><strong>cash hassle</strong></a>.
-      </>
-    ),
+    category: "BUY",
+    Icon: Wallet,
+    title: "Own your vehicle! Own Your Future!",
+    body: "Get your TOTOOGO E3W with easy, pocket-friendly financing and start building your own asset!",
     stats: [
-      { value: "1 tap", label: "TO UNLOCK" },
-      { value: "100%", label: "CASHLESS" },
+      { value: "Tk. 20,000", label: "Downpayment starts from" },
+      { value: "Tk 600-900", label: "Daily installment, less than CNG rent." },
     ],
-    cta: "How the app works",
   },
   {
     step: 3,
-    category: "Swap",
+    category: "SWAP",
     Icon: BatteryCharging,
-    title: "Swap empty for full in 90 seconds",
-    body: (
-      <>
-        Slide the depleted pack in, lift a freshly charged one out, lock, done.{" "}
-        <a className="sss-desc-link" href="#"><strong>90-second swap</strong></a>{" "}
-        beats every fast charger on the road, and you never gamble on a{" "}
-        <a className="sss-desc-link" href="#"><strong>weak battery</strong></a>.
-      </>
-    ),
+    title: "Swap & Drive, No Expensive Battery Replacement!",
+    body: "With totooGO, you don't pay for costly battery replacement—only a simple subscription that keeps you on the road.",
     stats: [
-      { value: "90 sec", label: "PER SWAP" },
-      { value: "100%", label: "CHARGED" },
+      { value: "24/7 On Road", label: "Keep driving anytime with uninterrupted battery access." },
+      {
+        value: "30-Second Quick Swap",
+        label: "Swap your battery in seconds and get back to earning. Stay moving and pay only for what you use.",
+      },
     ],
-    cta: "Inside the swap",
   },
   {
     step: 4,
-    category: "Drive",
-    Icon: Truck,
-    title: "Drive out and keep earning all day",
-    body: (
-      <>
-        A full pack means more trips, more fares, more deliveries, without the{" "}
-        <a className="sss-desc-link" href="#"><strong>downtime</strong></a> of plug-in charging. Drivers report up to{" "}
-        <a className="sss-desc-link" href="#"><strong>৳600 extra per day</strong></a>{" "}
-        after switching.
-      </>
-    ),
-    stats: [
-      { value: "৳600+", label: "EXTRA / DAY" },
-      { value: "3×", label: "MORE TRIPS" },
-    ],
-    cta: "Driver stories",
-  },
-  {
-    step: 5,
-    category: "Track",
+    category: "Earn",
     Icon: TrendingUp,
-    title: "Track your savings in the app",
-    body: (
-      <>
-        Every swap is logged. See your fuel savings, kilometres driven, and{" "}
-        <a className="sss-desc-link" href="#"><strong>CO₂ avoided</strong></a>{" "}
-        in real time, proof that totooGO pays you back while cleaning the{" "}
-        <a className="sss-desc-link" href="#"><strong>Bangladesh air</strong></a>.
-      </>
-    ),
+    title: "Drive More. Earn More. Build Your Freedom!",
+    body: "With lower running costs and more time on the road, totooGO helps you keep more of what you earn and build towards financial freedom.",
     stats: [
-      { value: "৳18k+", label: "AVG SAVED / MO" },
-      { value: "1.2 t", label: "CO₂ AVOIDED / YR" },
+      { value: "70% Lower Costs", label: "Save on everyday operating expenses." },
+      { value: "30% Higher Earnings", label: "Spend more time earning and keep more of your income." },
     ],
-    cta: "Open the dashboard",
   },
 ];
 
@@ -144,18 +96,19 @@ export default function HowSwappingWorks() {
       ref={sectionRef}
       className="sss-section totoogo"
       id="how-swapping-works"
-      aria-label="How totooGO battery swapping works in five steps"
+      aria-label="How totooGO works in four steps"
     >
       <div className="container max-w-[1248px] mx-auto px-6 py-14 md:py-20 lg:py-28">
         <div className="sss-head-wrap text-center mb-14 md:mb-20 max-w-3xl mx-auto">
-          <p className="sss-eyebrow">How It Works</p>
+          <p className="sss-eyebrow">HOW IT WORKS</p>
           <h2 className="sss-heading">
-            Swap, drive, earn, in <em>five simple steps</em>
+            Own &amp; earn your freedom, buy, swap, earn, in <em>four simple steps</em>
           </h2>
           <p className="sss-intro mt-5">
-            totooGO replaces slow charging with a <strong>90-second battery swap</strong>{" "}
-            built for Bangladesh's <strong>CNG &amp; EV drivers</strong>. Here's the full ride, from pulling in to{" "}
-            <strong>tracking your savings</strong>.
+            totooGO helps CNG three-wheeler drivers own an electric three-wheeler with easy,
+            affordable financing. Our battery subscription removes the worry of costly battery
+            replacement, while lower operating costs and higher earnings help drivers achieve
+            financial freedom.
           </p>
         </div>
 
@@ -169,9 +122,7 @@ export default function HowSwappingWorks() {
               <article className="sss-card" data-step={c.step}>
                 <div className="sss-card-content">
                   <span className="sss-category">{c.category}</span>
-                  <h3 className="sss-card-title">
-                    <a className="sss-card-title-link" href="#">{c.title}</a>
-                  </h3>
+                  <h3 className="sss-card-title">{c.title}</h3>
                   <p className="sss-card-desc">{c.body}</p>
                   <div className="sss-stats">
                     {c.stats.map((s, idx) => (
@@ -181,9 +132,6 @@ export default function HowSwappingWorks() {
                       </div>
                     ))}
                   </div>
-                  <a className="sss-cta" href="#">
-                    {c.cta} <ArrowRight className="sss-cta-icon" aria-hidden />
-                  </a>
                 </div>
                 <div className="sss-card-media" aria-hidden>
                   <div className="sss-icon-tile">
@@ -195,7 +143,10 @@ export default function HowSwappingWorks() {
             </div>
           ))}
         </div>
+
+        <p className="sss-closing">Drive with TOTOOGO and earn your freedom.</p>
       </div>
+
 
       <style>{`
         .sss-section.totoogo {
@@ -288,16 +239,6 @@ export default function HowSwappingWorks() {
           --c-tile-bg: #F8FBF9;
           --c-tile-icon: #006638;
         }
-        .sss-card[data-step="5"] {
-          --c-bg: #0E1613;
-          --c-text: #ffffff;
-          --c-mute: hsl(0 0% 100% / 0.82);
-          --c-faint: hsl(0 0% 100% / 0.6);
-          --c-border: hsl(0 0% 100% / 0.25);
-          --c-hover: #00CE7E;
-          --c-tile-bg: #00CE7E;
-          --c-tile-icon: #ffffff;
-        }
 
         .sss-card-content { display: flex; flex-direction: column; gap: 1rem; align-self: center; }
         .sss-category {
@@ -315,20 +256,7 @@ export default function HowSwappingWorks() {
           font-weight: 700;
           margin: 0;
         }
-        .sss-card-title-link {
-          color: var(--c-text);
-          text-decoration: none;
-          transition: color 0.25s ease, text-shadow 0.25s ease;
-        }
-        .sss-card-title-link:hover {
-          color: var(--c-hover);
-          text-shadow: 1px 0.7px 0 hsl(150 30% 8% / 0.25);
-        }
-        .sss-card-title-link:focus-visible {
-          outline: 2px solid var(--c-hover);
-          outline-offset: 2px;
-          border-radius: 4px;
-        }
+        .sss-card-title { color: var(--c-text); }
 
         .sss-card-desc {
           font-size: 0.95rem;
@@ -336,42 +264,31 @@ export default function HowSwappingWorks() {
           color: var(--c-mute);
           margin: 0;
         }
-        .sss-desc-link { color: inherit; text-decoration: none; }
-        .sss-desc-link strong {
-          color: inherit;
-          font-weight: 600;
-          transition: color 0.25s ease, text-shadow 0.25s ease;
-        }
-        .sss-desc-link:hover strong {
-          color: var(--c-hover);
-          text-shadow: 1px 0.7px 0 hsl(150 30% 8% / 0.25);
-        }
 
         .sss-stats {
-          display: flex; gap: 2.5rem; margin-top: 0.5rem;
+          display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; margin-top: 0.5rem;
           padding-top: 1.25rem;
           border-top: 1px solid var(--c-border);
         }
-        .sss-stat { display: flex; flex-direction: column; gap: 0.25rem; }
+        @media (max-width: 520px) { .sss-stats { grid-template-columns: 1fr; } }
+        .sss-stat { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
         .sss-stat-value {
           font-family: 'Ubuntu', system-ui, sans-serif;
-          font-size: 1.75rem; font-weight: 700; color: var(--c-text); line-height: 1;
+          font-size: clamp(1.05rem, 1.5vw, 1.35rem); font-weight: 700; color: var(--c-text);
+          line-height: 1.2; overflow-wrap: anywhere;
         }
         .sss-stat-label {
-          font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-faint);
+          font-size: 0.75rem; line-height: 1.5; color: var(--c-faint);
+        }
+        .sss-closing {
+          margin-top: 2.5rem;
+          text-align: center;
+          font-family: 'Ubuntu', system-ui, sans-serif;
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+          font-weight: 700;
+          color: hsl(150 25% 12%);
         }
 
-        .sss-cta {
-          display: inline-flex; align-items: center; gap: 0.4rem;
-          font-size: 0.875rem; font-weight: 600;
-          color: var(--c-text); text-decoration: none;
-          padding-bottom: 4px;
-          border-bottom: 1px solid var(--c-border);
-          align-self: flex-start;
-          transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
-        }
-        .sss-cta:hover { color: var(--c-hover); border-color: var(--c-hover); gap: 0.65rem; }
-        .sss-cta-icon { width: 16px; height: 16px; }
 
         .sss-card-media {
           display: flex; align-items: center; justify-content: center;
@@ -398,9 +315,7 @@ export default function HowSwappingWorks() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .sss-card-title-link,
-          .sss-desc-link strong { transition: none; }
-          .sss-card-title-link:hover { text-shadow: none; }
+          .sss-card-title { transition: none; }
         }
       `}</style>
     </section>
