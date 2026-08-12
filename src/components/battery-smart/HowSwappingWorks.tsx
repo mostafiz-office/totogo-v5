@@ -194,11 +194,11 @@ export default function HowSwappingWorks() {
           padding-bottom: 1.25rem;
         }
         .sss-card {
-          --c-bg: #F8FBF9;
-          --c-text: #0E1613;
-          --c-mute: #0E1613cc;
-          --c-faint: #0E161399;
-          --c-border: hsl(0 0% 0% / 0.18);
+          --c-bg: #F5FBF8;
+          --c-text: #002366;
+          --c-mute: hsl(220 100% 20% / 0.8);
+          --c-faint: hsl(220 100% 20% / 0.6);
+          --c-border: hsl(220 100% 20% / 0.18);
           --c-hover: #00CE7E;
           --c-tile-bg: #002366;
           --c-tile-icon: #ffffff;
@@ -220,15 +220,16 @@ export default function HowSwappingWorks() {
         }
 
         .sss-card[data-step="2"] {
-          --c-bg: #E8F3EE;
+          --c-bg: #DFF4EA;
           --c-tile-bg: #00CE7E;
           --c-tile-icon: #ffffff;
         }
         .sss-card[data-step="3"] {
-          --c-bg: #D7E4DE;
-          --c-tile-bg: #0E1613;
+          --c-bg: #B8E9D2;
+          --c-tile-bg: #002366;
           --c-tile-icon: #ffffff;
         }
+
         .sss-card[data-step="4"] {
           --c-bg: #002366;
           --c-text: #ffffff;
