@@ -15,6 +15,10 @@ In the sticky stack, each card carries a step badge (`01`, `02`, `03`, `04`) in 
 
 Every step badge stays fully legible at all scroll positions of the stack. The number is never clipped, half-covered, or reduced to a partial circle by the card stacked on top of it.
 
+## Do this together with WI-05
+
+WI-01 and WI-05 are the same sticky stack and tune the same variables (`FIRST_STICKY_TOP`, `CARD_OFFSET`, `--sss-top`, per-step `z-index`, badge placement). Fix them in one pass and verify both at once, otherwise the second fix re-tunes the first.
+
 ## Likely files
 
 - `src/components/battery-smart/HowSwappingWorks.tsx` — card markup and the scoped `<style>` block: `.sss-card`, `.sss-step-badge`, `--sss-top`, `CARD_OFFSET`, `FIRST_STICKY_TOP`, `z-index` per step

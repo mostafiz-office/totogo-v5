@@ -22,11 +22,29 @@ All top-level sections on the landing page use one shared vertical spacing scale
 - `src/components/battery-smart/CTASection.tsx`, `src/components/HowItWorks.tsx`, `src/components/battery-smart/unleash-ev/EVPotentialSection.tsx` — neighbouring sections' padding
 - `src/index.css` — if a spacing token is introduced
 
+## The spacing scale to apply
+
+One scale, applied as top and bottom padding on every top-level section of the landing page:
+
+| Viewport | Section padding (top and bottom) |
+|----------|----------------------------------|
+| < 768px  | 56px |
+| 768-1023px | 80px |
+| >= 1024px | 112px |
+
+Sections in scope (order as rendered in `src/pages/Index.tsx`): Hero, EVPotentialSection, HowItWorks, CTASection, HowSwappingWorks.
+
+Exception: the Hero may keep its own top padding since it sits under the fixed header — its bottom padding still follows the scale.
+
+`HowSwappingWorks` already uses `py-14 md:py-20 lg:py-28`, which equals 56 / 80 / 112px — that is the scale. The task is to bring the other sections onto it, not to invent new numbers.
+
+`HowItWorks` is a fixed-height scroll section (`height: 800px` in `src/pages/how-it-works.css`); apply the scale to its mobile branch (`.bp-mobile`) and to the gap above and below the section, without changing the desktop scroll height (that height is load-bearing for WI-07).
+
 ## Acceptance criteria
 
-1. Define one vertical section spacing scale (for example a small set of section padding values for mobile / tablet / desktop) and apply it to every top-level landing page section.
-2. At 1280px, the gap between consecutive sections is visually equal across the page; no section has an outsized empty band.
-3. Same check passes at 768px and 360px with the scale's responsive values.
+1. Every section listed above uses the scale's padding values, with no ad-hoc margins adding extra space between sections.
+2. Verification: read each section's computed `padding-top` / `padding-bottom` at 360px, 768px and 1280px and record them in a table; every value matches the scale (allowing the Hero top exception).
+3. At 1280px no section shows an empty band larger than 112px above its first content.
 4. No section collides or loses its own internal padding.
 
 ## DO NOT
