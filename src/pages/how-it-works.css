@@ -73,6 +73,9 @@
 }
 
 .bp-how-it-works ._w-col-second { padding-top: 30px; }
+.bp-how-it-works .work-col:nth-child(3) > .pointer-disabled {
+  height: 276px;
+}
 .bp-how-it-works ._w-col-third {
   min-height: 270px;
   display: flex;
