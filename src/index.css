@@ -109,7 +109,7 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; scrollbar-gutter: stable; }
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;

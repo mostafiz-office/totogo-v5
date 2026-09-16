@@ -45,21 +45,25 @@ const useBodyScrollLock = (locked: boolean) => {
     savedY.current = window.scrollY;
     const root = document.documentElement;
     const body = document.body;
+    const scrollbarWidth = window.innerWidth - root.clientWidth;
     const previousRootOverflow = root.style.overflow;
     const previousScrollBehavior = root.style.scrollBehavior;
     const previousBodyPosition = body.style.position;
     const previousBodyTop = body.style.top;
     const previousBodyWidth = body.style.width;
+    const previousBodyPaddingRight = body.style.paddingRight;
     root.style.overflow = "hidden";
     root.style.scrollBehavior = "auto";
     body.style.position = "fixed";
     body.style.top = `-${savedY.current}px`;
     body.style.width = "100%";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
     return () => {
       root.style.overflow = previousRootOverflow;
       body.style.position = previousBodyPosition;
       body.style.top = previousBodyTop;
       body.style.width = previousBodyWidth;
+      body.style.paddingRight = previousBodyPaddingRight;
       window.scrollTo(0, savedY.current);
       root.style.scrollBehavior = previousScrollBehavior;
     };
