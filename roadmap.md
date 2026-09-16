@@ -15,5 +15,5 @@
 ## Desktop How It Works motion correction
 
 - [x] Align SWAP and EARN vertically with their horizontal rail segments
-- [x] Pin SWAP and EARN at the presentation point before moving them upward
-- [x] Verify desktop motion checkpoints and unchanged mobile layout
+- [ ] Keep SWAP and EARN attached to the horizontally moving rail while they rise
+- [ ] Verify desktop rail-following checkpoints and unchanged mobile layout
