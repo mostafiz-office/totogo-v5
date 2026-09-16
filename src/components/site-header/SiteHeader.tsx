@@ -190,8 +190,9 @@ const SiteHeader = ({
                 }
                 return (
                   <div key={item.label}>
-                    <button
+                    <Button
                       type="button"
+                      variant="ghost"
                       className="site-mobile-link"
                       data-open={isExpanded || undefined}
                       data-active={active || undefined}
@@ -202,7 +203,7 @@ const SiteHeader = ({
                     >
                       <span>{item.label}</span>
                       <ChevronDown size={16} className="chev" aria-hidden="true" />
-                    </button>
+                    </Button>
                     {isExpanded && (
                       <div className="site-mobile-children">
                          {children.map((c) => (

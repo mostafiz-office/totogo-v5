@@ -3,9 +3,9 @@
 - **Source row:** SL 6, tab "Website Issues"
 - **Screenshot:** `screenshots/WI-06-navbar-redesign.png`
 - **Client remark (verbatim):** "Redesign the navbar"
-- **Area:** Site header — mobile drawer in the screenshot, desktop header implied
+- **Area:** Site header — mobile top bar and open drawer only; desktop stays unchanged
 - **Viewport in screenshot:** Mobile, menu open
-- **Status:** **Blocked — needs client direction before any work starts**
+- **Status:** **Fixed (2026-09-16) — mobile-only full redesign verified at 360px, 393px, and 768px; desktop unchanged at 1280px**
 
 ## Observed behaviour
 
@@ -16,14 +16,11 @@ The screenshot marks two regions in red:
 
 The remark is a general instruction, not a specific defect. Nothing in the doc states what the redesign should look like.
 
-## Open question — resolve before implementing
+## Approved direction
 
-Which does the client want?
+The project owner approved a **full redesign of the mobile navbar only**. The desktop header is explicitly outside this feedback item and must remain unchanged.
 
-- **Option A — polish only:** keep the current structure and fix the drawer's craft (logo size/legibility, link spacing and type scale, full-width Call/Contact buttons, backdrop and close-button treatment, submenu expand behaviour).
-- **Option B — full redesign:** new header concept for desktop and mobile (layout, states, motion), presented as design directions before build.
-
-Do not choose unilaterally. Ask the project owner, who confirms with the client.
+The completed mobile direction uses the original logo, logo navy and brand green, a stable 70px top bar, clear menu hierarchy, expandable submenu rows, and separate full-width Call and Contact actions.
 
 ## Likely files
 
@@ -33,9 +30,9 @@ Do not choose unilaterally. Ask the project owner, who confirms with the client.
 - `src/components/site-header/site-header.css`
 - `src/components/site-header/nav-config.ts` (labels only — already approved, do not change)
 
-## Acceptance criteria (apply once a direction is chosen)
+## Acceptance criteria
 
-1. Header and drawer look deliberate at 360px, 768px and 1280px.
+1. Mobile header and drawer look deliberate at 360px, 393px and 768px; desktop remains unchanged at 1280px.
 2. Logo renders at a legible size and is not distorted or cramped.
 3. All five nav items and their submenus remain reachable, with visible focus states and working keyboard navigation.
 4. Call and Contact actions stay present and tappable (min 44px target) on mobile.
@@ -45,5 +42,5 @@ Do not choose unilaterally. Ask the project owner, who confirms with the client.
 
 - Do not rename nav items or add/remove menu entries — the structure (The Idea · Our Solutions · Investment · Join Our Network · Tech) is already client-approved.
 - Do not reintroduce the removed "Popular Topics" block.
-- Do not start building before the direction question above is answered.
+- Do not redesign or restyle the desktop navbar as part of WI-06.
 - Do not change brand colours away from green `#00CE7E` / logo navy `#002366`.
