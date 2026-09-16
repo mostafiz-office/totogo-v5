@@ -15,5 +15,5 @@
 ## Desktop How It Works motion correction
 
 - [x] Align SWAP and EARN vertically with their horizontal rail segments
-- [ ] Keep SWAP and EARN attached to the horizontally moving rail while they rise
-- [ ] Verify desktop rail-following checkpoints and unchanged mobile layout
+- [x] Keep SWAP and EARN attached to the horizontally moving rail while they rise
+- [x] Verify desktop rail-following checkpoints and unchanged mobile layout
