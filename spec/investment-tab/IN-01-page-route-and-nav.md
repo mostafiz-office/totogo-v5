@@ -1,6 +1,6 @@
 # IN-01 — Investment page route and menu link
 
-**Status:** Not started
+**Status:** Done
 **Depends on:** nothing
 **Blocks:** IN-02, IN-03, IN-04
 
