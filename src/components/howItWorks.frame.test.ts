@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   computeFrame,
   computeStackProgress,
-  computeRailStepFrame,
+  computeRailFillPx,
   TRACK_TRAVEL_PX,
   TRACK_TRAVEL_COMPLETE_AT,
 } from "./howItWorks.frame";
