@@ -311,10 +311,13 @@ export default function HowSwappingWorks() {
         }
         .sss-icon { width: 38%; height: 38%; color: var(--c-tile-icon); stroke-width: 1.4; opacity: 0.98; }
         .sss-step-badge {
-          position: absolute; top: 1rem; right: 1.25rem;
+          position: absolute;
+          top: clamp(1rem, 2vw, 1.5rem);
+          right: clamp(1.25rem, 2.5vw, 2rem);
+          z-index: 2;
           font-family: 'Ubuntu', system-ui, sans-serif;
-          font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
-          color: hsl(0 0% 100% / 0.85);
+          font-size: 1rem; font-weight: 700; letter-spacing: 0.1em;
+          color: var(--c-faint);
         }
 
         @media (prefers-reduced-motion: reduce) {
