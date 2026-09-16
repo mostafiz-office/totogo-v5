@@ -21,7 +21,21 @@ The doc tab is a table of SL / Screenshot / Remark with 7 filled rows. Each row 
 | [WI-06](WI-06-navbar-redesign.md) | Redesign the navbar | Header / mobile menu | All | Blocked — needs client direction |
 | [WI-07](WI-07-step-3-not-visible.md) | Step 3 never becomes visible while scrolling | EV Ownership Made Easy | Desktop | Not started |
 
-WI-04 and WI-07 concern the same component at different viewports but are kept separate because the client listed them separately.
+WI-04 and WI-07 concern the same component at different viewports but are kept separate because the client listed them separately. WI-01 and WI-05 are the same sticky stack and should be fixed in one pass.
+
+## Known code facts (verified — read before starting any task)
+
+- **"EV Ownership Made Easy"** = `src/components/HowItWorks.tsx`. It imports **`src/pages/how-it-works.css`** — that is the live stylesheet.
+- **Dead files, do not edit:** `src/components/how-it-works.css` (imported by nothing) and `src/components/howItWorks.frame.ts` / `howItWorks.frame.test.ts` (the frame math is imported only by its own test; the component does not use it).
+- That component has **no per-step opacity animation**. Desktop scroll maps to one horizontal translate (`TRACK_TRAVEL_PX = 1740`) plus the green rail width.
+- Below **991px** the desktop track is hidden and a static list (`.bp-mobile`) renders instead.
+- **"How It Works" four-step stack** = `src/components/battery-smart/HowSwappingWorks.tsx`, with its CSS in a scoped `<style>` block inside the file.
+- **CTA image overlay** is in `src/components/battery-smart/CTASection.tsx` and applies at **all** viewports (no mobile-only condition).
+- Landing page section order lives in `src/pages/Index.tsx`: Hero, EVPotentialSection, HowItWorks, CTASection, HowSwappingWorks.
+
+## Suggested fix order
+
+WI-04 (confirmed cause) → WI-01 + WI-05 together → WI-03 → WI-07 → WI-02 → WI-06 once unblocked.
 
 ## Rules for anyone (human or AI) executing these
 
