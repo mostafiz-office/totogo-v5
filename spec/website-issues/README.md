@@ -16,7 +16,7 @@ The doc tab is a table of SL / Screenshot / Remark with 7 filled rows. Each row 
 | [WI-01](WI-01-missing-card-number.md) | Step number on stacked card is hidden | How It Works (stacked cards) | Desktop | Not started |
 | [WI-02](WI-02-section-gaps.md) | Inconsistent vertical gaps between sections | Landing page spacing | All | Not started |
 | [WI-03](WI-03-mobile-image-blur.md) | Remove unnecessary blur/fade on mobile image | CTA image | Mobile | Not started |
-| [WI-04](WI-04-mobile-text-break.md) | Text breaks / stays invisible on mobile | EV Ownership Made Easy | Mobile | Not started |
+| [WI-04](WI-04-mobile-text-break.md) | Text breaks / stays invisible on mobile (cause confirmed: `nth-of-type` off-by-one) | EV Ownership Made Easy | Mobile | Not started |
 | [WI-05](WI-05-mobile-card-overlap.md) | Overlapping card hides content on mobile | How It Works (stacked cards) | Mobile | Not started |
 | [WI-06](WI-06-navbar-redesign.md) | Redesign the navbar | Header / mobile menu | All | Blocked — needs client direction |
 | [WI-07](WI-07-step-3-not-visible.md) | Step 3 never becomes visible while scrolling | EV Ownership Made Easy | Desktop | Not started |
