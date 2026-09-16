@@ -35,3 +35,11 @@ Spec is buildable as-is. All copy, routes, and destinations are decided; the onl
 - Direct Contact mailto/tel links verified.
 - Build log: `build OK`.
 - All CU-01 → CU-08 marked Done.
+
+## Spec review against the Contact Us tab (2026-09-16, approved plan)
+
+- Word-for-word copy check: every heading, body, field name, dropdown option, email and phone in the spec matches the document tab. No mismatches found.
+- Audit re-verified: footer link `/contact/` resolves, routes registered, navy CTA and hero patterns match the other pages, placeholders (mailto submit, Book a Call) still accurate.
+- One noted deviation: the document marks Section 2 as `[slider]`; the built page uses a static grid (1-col mobile, 2-col tablet, 4-col desktop) because four short cards fit without swiping. Spec permits this; recorded here so it is a conscious decision, not an oversight.
+- Added an explicit "Brand consistency" section to the README (tokens, section rhythm, hero/card/button patterns shared with the other pages).
+- Verdict: spec is complete and the built page conforms. CU-01 → CU-08 remain Done.
