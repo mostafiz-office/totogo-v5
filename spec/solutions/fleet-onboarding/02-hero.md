@@ -1,6 +1,6 @@
 # FL-02 — Section 1, Hero
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/fleet/FleetHero.tsx`
 
 ## Content (verbatim)
