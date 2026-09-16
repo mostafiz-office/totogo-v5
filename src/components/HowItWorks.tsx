@@ -51,7 +51,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     if (!wrapper || !track || !green) return;
 
     const travel = () => {
-      const viewport = track.parentElement?.parentElement?.clientWidth ?? 0;
+      const viewport = track.closest(".works-overflow")?.clientWidth ?? 0;
       const measured = track.scrollWidth - viewport;
       return measured > 0 ? measured : TRACK_TRAVEL_PX;
     };
