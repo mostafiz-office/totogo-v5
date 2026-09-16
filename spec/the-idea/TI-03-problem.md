@@ -27,7 +27,11 @@
 
 ## Motion
 
-Cards reveal as one group, 60ms stagger, single run.
+Cards reveal as one group, 60ms stagger, single run. The global `.reveal` rule has
+no stagger of its own (`.pcard.reveal` is homepage-only), so set `style={{ "--i": i }}`
+on each card and add
+`.the-idea-page .idea-card.reveal { transition-delay: calc(var(--i, 0) * 60ms); }`
+to `the-idea.css`.
 
 ## Acceptance
 

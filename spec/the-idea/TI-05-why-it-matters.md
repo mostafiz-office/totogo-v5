@@ -27,7 +27,9 @@
 
 ## Motion
 
-Items reveal as one group with a 60ms stagger.
+Items reveal as one group with a 60ms stagger, using the same `--i` index +
+page-scoped `transition-delay` rule described in TI-03 (the global `.reveal`
+rule carries no stagger).
 
 ## Acceptance
 
