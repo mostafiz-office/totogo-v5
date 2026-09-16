@@ -23,7 +23,7 @@ const DEFAULT_CALL: CTA = {
 };
 const DEFAULT_BOOK: CTA = {
   label: "Contact",
-  href: "#contact",
+  href: "/contact/",
 };
 
 const usePathname = () => {
