@@ -45,8 +45,15 @@ document line `We are creating more than an electric vehicle company.`
 
 ## Motion
 
-Same `.reveal` / `.is-in` fade-and-rise as the homepage CTA, single run,
-disabled under `prefers-reduced-motion`.
+Reuse the **existing global** `.reveal` / `.is-in` classes in `src/index.css`
+(~597–603, reduced-motion reset ~699) — same fade-and-rise as the homepage CTA,
+single run, observer unobserves after firing. No new animation CSS.
+
+## Files touched
+
+- new `src/pages/investment/InvestmentCTA.tsx`
+- edit `src/pages/investment/investment.css`
+- edit `src/pages/investment/InvestmentPage.tsx`
 
 ## Acceptance criteria
 
@@ -56,3 +63,4 @@ disabled under `prefers-reduced-motion`.
 - Contrast of label text on the navy card ≥ 4.5:1.
 - At 360px both buttons are full width and stacked; at 1280px they sit in a row.
 - Card corners and padding visually match the homepage CTA card.
+- `README.md` status table updated to **Done** for IN-04.

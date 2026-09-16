@@ -15,7 +15,24 @@
 | IN-05 | Visual assets (hero graphic, icons, background) | `IN-05-visual-assets.md` | Not started |
 | IN-06 | Responsive + QA pass | `IN-06-responsive-and-qa.md` | Not started |
 
-Wireframe: `wireframe.md`
+Wireframe: `wireframe.md` — Build checklist: `CHECKLIST.md`
+
+After finishing a task, update its row in the table above to **Done**.
+
+## Resolved decisions (do not re-litigate)
+
+1. Numbers footnote is exactly `*Minimum-ticket allocations` — nothing invented.
+2. Numbers section sits on a full-width `--c-surface-alt` band (no inner card).
+3. No icons in the numbers section.
+4. Primary button = green fill with a navy label; secondary = navy outline.
+5. Hero image is newly generated as `src/assets/investment-hero.jpg`; existing
+   assets are not reused.
+6. `Request Investor Deck` and `Book a Call` both use `href="#"` for now.
+7. The page has exactly three sections — hero, numbers, CTA.
+8. `.reveal` / `.is-in` already exist globally in `src/index.css` (~597–603,
+   reduced-motion reset ~699). Reuse them; only write the IntersectionObserver.
+9. No `react-helmet` in this project — page metadata is set and restored in a
+   `useEffect` (see IN-01).
 
 ## Build order
 
@@ -33,7 +50,7 @@ IN-01 → IN-02 → IN-03 → IN-04 → IN-05 → IN-06
    - No brown / warm tan anywhere (removed site-wide earlier).
 3. **Spacing** — use the shared section tokens `.sec-pad` / `.sec-pad-b` (`--sec-y`: 56px mobile / 80px tablet / 112px desktop). Horizontal padding `px-4 sm:px-6 md:px-[var(--pad-x)]`, content capped at `max-width: 1200px`.
 4. **Typography** — inherit the homepage scale. One `<h1>` per page. Headings in navy, body copy in `--c-muted`.
-5. **Motion** — scroll reveal copies the IntersectionObserver `.reveal` / `.is-in` pattern in `CTASection.tsx`; single run, unobserve after firing. Every animation must be disabled under `@media (prefers-reduced-motion: reduce)`.
+5. **Motion** — reuse the global `.reveal` / `.is-in` classes already in `src/index.css`; write only the IntersectionObserver (same shape as `CTASection.tsx`), single run, unobserve after firing. JS-driven motion such as the counters must check `prefers-reduced-motion` itself.
 6. **Accessibility** — semantic `<section>` landmarks, `aria-label` on each section, focus-visible rings, minimum 44px touch targets, text contrast ≥ 4.5:1 (white on navy, navy on mint).
 7. **Links** — per client decision, "Request Investor Deck" and "Book a Call" both use `href="#"` for now. No form, no Calendly link, no backend. Buttons must still be keyboard focusable and styled as real CTAs so wiring them later is a one-line change.
 
