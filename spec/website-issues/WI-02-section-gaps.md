@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "Proper gaps must be maintained"
 - **Area:** Vertical rhythm between landing page sections, highlighted between the section above and the "How It Works" section
 - **Viewport in screenshot:** Desktop (browser devtools open, element `section#how-swapping-works` inspected, padding shown as `112px 24px`)
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — shared --sec-y scale (56/80/112px) applied; verified at 360/768/1280px
 
 ## Observed behaviour
 
