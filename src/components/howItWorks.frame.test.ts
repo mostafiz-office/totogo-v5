@@ -3,6 +3,7 @@ import {
   computeFrame,
   computeStackProgress,
   computeRailFillPx,
+  computeRailRisePx,
   TRACK_TRAVEL_PX,
   TRACK_TRAVEL_COMPLETE_AT,
 } from "./howItWorks.frame";
