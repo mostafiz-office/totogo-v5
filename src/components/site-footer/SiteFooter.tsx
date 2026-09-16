@@ -8,7 +8,7 @@ type NavItem = { label: string; href: string; title?: string; external?: boolean
 const year = new Date().getFullYear();
 
 const quickLinks: NavItem[] = [
-  { label: "About Us", href: "/about/", title: "Learn about totooGO's mission and team" },
+  { label: "The Idea", href: "/the-idea/", title: "Learn about totooGO's mission and team" },
   { label: "Our Solutions", href: "/solutions/", title: "Battery swapping, apps and fleet solutions" },
   { label: "Safety Center", href: "/safety/", title: "Battery safety standards and certifications" },
   { label: "Newsroom", href: "/media/news/", title: "Latest totooGO press and announcements" },
