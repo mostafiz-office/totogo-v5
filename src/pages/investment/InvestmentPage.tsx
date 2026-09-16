@@ -37,7 +37,7 @@ const InvestmentPage = () => {
       <main>
         <InvestmentHero />
         <InvestmentStats />
-        {/* section added by IN-04 */}
+        <InvestmentCTA />
       </main>
       <Footer />
     </div>
