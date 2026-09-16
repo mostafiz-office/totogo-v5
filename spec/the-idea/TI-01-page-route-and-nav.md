@@ -9,10 +9,14 @@ real page instead of the 404 route.
 
 ## Implementation
 
-1. Create `src/pages/the-idea/TheIdeaPage.tsx`:
+1. Create `src/pages/the-idea/TheIdeaPage.tsx`. Imports must match the existing
+   pages exactly — `import SiteHeader from "@/components/site-header/SiteHeader";`
+   and `import Footer from "@/components/site-footer/SiteFooter";` (the footer is
+   a default export named `Footer` at the import site). The root element carries
+   the `the-idea-page` scope class, same as `inv-page` on the Investment page:
 
 ```tsx
-<div className="min-h-screen bg-[hsl(var(--c-surface))]">
+<div className="the-idea-page min-h-screen bg-background">
   <SiteHeader />
   <main>
     <IdeaHero />
@@ -21,7 +25,7 @@ real page instead of the 404 route.
     <IdeaWhy />
     <IdeaVisionCTA />
   </main>
-  <SiteFooter />
+  <Footer />
 </div>
 ```
 

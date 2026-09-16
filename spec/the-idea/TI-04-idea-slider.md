@@ -24,9 +24,11 @@
   page-specific tweak is needed, add a new class under `.the-idea-page`.
 - Slides use both `title` and `body`, each with a mint icon chip (TI-07):
   car-front, battery-charging, repeat, badge-percent, cpu.
-- Visible slides: 1.1 mobile / 2 at ≥768px / 3 at ≥1024px (slider default).
-- Heading block left-aligned on desktop with the arrows aligned right on the
-  same row; on mobile the arrows sit below the track, centred.
+- Visible slides: 1.1 mobile / 2 at ≥768px / 3 at ≥1024px — these are the built-in
+  `solution-slider.css` breakpoints; do not restate or override them.
+- Arrow placement is fixed by the shared component: the `sol-slider__nav` row sits
+  **below** the track, centred on mobile and right-aligned from 768px up. The
+  heading block sits above the track. Do not move the arrows next to the heading.
 
 ## Acceptance
 
