@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import SiteHeader from "@/components/site-header/SiteHeader";
 import Footer from "@/components/site-footer/SiteFooter";
+import InvestmentHero from "@/components/investment/InvestmentHero";
 import "./investment.css";
 
 const PAGE_TITLE = "Investment Opportunity | totooGO";
