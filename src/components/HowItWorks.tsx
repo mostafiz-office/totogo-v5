@@ -50,8 +50,15 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const green = greenRef.current;
     if (!wrapper || !track || !green) return;
 
+    const travel = () => {
+      const viewport = track.parentElement?.parentElement?.clientWidth ?? 0;
+      const measured = track.scrollWidth - viewport;
+      return measured > 0 ? measured : TRACK_TRAVEL_PX;
+    };
+
     const apply = (p: number) => {
-      track.style.transform = `translate3d(${-TRACK_TRAVEL_PX * p}px, 0, 0)`;
+      const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
+      track.style.transform = `translate3d(${-travel() * t}px, 0, 0)`;
       green.style.width = `${p * 100}%`;
     };
 
