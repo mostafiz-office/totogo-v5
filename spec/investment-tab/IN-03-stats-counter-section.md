@@ -1,6 +1,6 @@
 # IN-03 — Numbers section with scroll-triggered counters
 
-**Status:** Not started
+**Status:** Done
 **Depends on:** IN-01 (build after IN-02 for visual continuity)
 
 ## Goal
