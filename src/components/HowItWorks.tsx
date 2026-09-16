@@ -111,6 +111,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
           pinShiftPx,
           risePx,
           riseCompleteAt,
+          TRAVEL_COMPLETE_AT,
         );
         element.style.transform = `translate3d(${frame.compensateX}px, ${frame.translateY}px, 0)`;
       });

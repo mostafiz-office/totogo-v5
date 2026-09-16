@@ -46,15 +46,17 @@ export function computePinnedStepFrame(
   pinShiftPx: number,
   risePx: number,
   riseCompleteAt: number,
+  travelCompleteAt = TRACK_TRAVEL_COMPLETE_AT,
 ): PinnedStepFrame {
   const p = clamp01(progress);
   const safeTravel = Math.max(0, travelPx);
   const safePin = Math.max(0, Math.min(safeTravel, pinShiftPx));
-  const trackProgress = clamp01(p / TRACK_TRAVEL_COMPLETE_AT);
+  const safeTravelCompleteAt = Math.max(0.01, travelCompleteAt);
+  const trackProgress = clamp01(p / safeTravelCompleteAt);
   const currentShift = safeTravel * trackProgress;
   const compensateX = Math.max(0, currentShift - safePin);
   const pinProgress = safeTravel > 0
-    ? TRACK_TRAVEL_COMPLETE_AT * (safePin / safeTravel)
+    ? safeTravelCompleteAt * (safePin / safeTravel)
     : 0;
   const end = Math.max(pinProgress, riseCompleteAt);
   const riseProgress = end === pinProgress
@@ -63,7 +65,7 @@ export function computePinnedStepFrame(
 
   return {
     compensateX,
-    translateY: -Math.max(0, risePx) * riseProgress,
+    translateY: riseProgress === 0 ? 0 : -Math.max(0, risePx) * riseProgress,
   };
 }
 
