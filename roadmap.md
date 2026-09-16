@@ -11,3 +11,9 @@
 - [x] Place Call and Contact immediately after Tech
 - [x] Prevent close actions from changing the page scroll position
 - [x] Verify mobile states and unchanged desktop navbar
+
+## Desktop How It Works motion correction
+
+- [ ] Align SWAP and EARN vertically with their horizontal rail segments
+- [ ] Pin SWAP and EARN at the presentation point before moving them upward
+- [ ] Verify desktop motion checkpoints and unchanged mobile layout

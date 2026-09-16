@@ -76,6 +76,10 @@
 .bp-how-it-works ._w-col-third  { padding-top: 70px; }
 .bp-how-it-works ._w-col-four   { padding-top: 70px; padding-bottom: 40px; }
 
+.bp-how-it-works .desktop-step-motion {
+  will-change: transform;
+}
+
 .bp-how-it-works .pointer-disabled {
   opacity: 0;
   pointer-events: none;
@@ -162,6 +166,10 @@
   .bp-how-it-works .bp-mobile .number { margin-top: 1px; margin-right: 12px; font-size: 22px; line-height: 34px; }
   .bp-how-it-works .bp-mobile .num-head { margin-bottom: 10px; font-size: 20px; line-height: 36px; }
   .bp-how-it-works .bp-mobile .num-para { font-size: 18px; line-height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 992px) {
+  .bp-how-it-works .desktop-step-motion { transform: none !important; }
 }
 
 /* Sticky step cards, desktop keeps default/transparent background */

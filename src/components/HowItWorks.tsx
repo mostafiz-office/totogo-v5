@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
+import { computePinnedStepFrame } from "./howItWorks.frame";
 import "@/pages/how-it-works.css";
 
 /* Fallback only; real travel is measured from the track at runtime. */
@@ -50,25 +51,69 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const green = greenRef.current;
     if (!wrapper || !track || !green) return;
 
+    const movingSteps = Array.from(
+      track.querySelectorAll<HTMLElement>("[data-desktop-step]"),
+    );
+
+    type StepMotion = {
+      element: HTMLElement;
+      pinShiftPx: number;
+      risePx: number;
+      riseCompleteAt: number;
+    };
+
+    let stepMotions: StepMotion[] = [];
+
     /* Distance needed so the last column ends flush with the visible edge,
        accounting for the container's left offset inside the overflow box. */
-    const travel = () => {
+    const measure = () => {
       const overflow = track.closest(".works-overflow") as HTMLElement | null;
       if (!overflow) return TRACK_TRAVEL_PX;
       const prev = track.style.transform;
+      const previousStepTransforms = movingSteps.map((step) => step.style.transform);
       track.style.transform = "translate3d(0,0,0)";
-      const measured =
+      movingSteps.forEach((step) => {
+        step.style.transform = "translate3d(0,0,0)";
+      });
+      const flushTravel =
         track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
+      const presentationX = overflow.getBoundingClientRect().left + window.innerWidth * 0.25;
+      const measurements = movingSteps.map((element) => {
+        const number = element.querySelector<HTMLElement>(".number");
+        const numberX = number?.getBoundingClientRect().x ?? element.getBoundingClientRect().x;
+        const step = Number(element.dataset.desktopStep);
+        return {
+          element,
+          pinShiftPx: Math.max(0, numberX - presentationX),
+          risePx: 270,
+          riseCompleteAt: step === 2 ? TRAVEL_COMPLETE_AT : 1,
+        };
+      });
+      const lastPin = measurements.at(-1)?.pinShiftPx ?? 0;
       track.style.transform = prev;
-      return measured > 0 ? measured : TRACK_TRAVEL_PX;
+      movingSteps.forEach((step, index) => {
+        step.style.transform = previousStepTransforms[index] ?? "";
+      });
+      stepMotions = measurements;
+      return Math.max(flushTravel, lastPin, TRACK_TRAVEL_PX);
     };
 
-    let travelPx = travel();
+    let travelPx = measure();
 
     const apply = (p: number) => {
       const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
       track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
       green.style.width = `${p * 100}%`;
+      stepMotions.forEach(({ element, pinShiftPx, risePx, riseCompleteAt }) => {
+        const frame = computePinnedStepFrame(
+          p,
+          travelPx,
+          pinShiftPx,
+          risePx,
+          riseCompleteAt,
+        );
+        element.style.transform = `translate3d(${frame.compensateX}px, ${frame.translateY}px, 0)`;
+      });
     };
 
     if (typeof forcedProgress === "number") {
@@ -93,7 +138,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     };
 
     const onResize = () => {
-      travelPx = travel();
+      travelPx = measure();
       update();
     };
 
@@ -147,7 +192,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       <h2 className="work-heading">{SECONDARY_HEADLINE}</h2>
                     </div>
                   </div>
-                  <div className="_w-col-third">
+                  <div className="_w-col-third desktop-step-motion" data-desktop-step="2">
                     <div className="work-content">
                       <div className="number">{STEPS[1].n}</div>
                       <div>
@@ -173,7 +218,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="_w-col-four">
+                  <div className="_w-col-four desktop-step-motion" data-desktop-step="3">
                     <div className="work-content">
                       <div className="number">{STEPS[2].n}</div>
                       <div>
