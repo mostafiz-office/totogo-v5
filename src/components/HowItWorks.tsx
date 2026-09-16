@@ -1,16 +1,17 @@
 import { useEffect, useRef } from "react";
 import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
-import { computeRailFillPx } from "./howItWorks.frame";
+import { computeRailFillPx, computeRailRisePx } from "./howItWorks.frame";
 import "@/pages/how-it-works.css";
 
 /* Fallback only; real travel is measured from the track at runtime. */
 const TRACK_TRAVEL_PX = 1740;
 /* Reach the last step before the section ends so step 3 stays readable. */
 const TRAVEL_COMPLETE_AT = 0.85;
-/* Rail artwork geometry (src/assets/how-it-works/*.svg). */
+/* Rail artwork geometry (src/assets/how-it-works/*.svg), viewBox units. */
 const RAIL_VIEWBOX_W = 2870;
-const RAIL_FIRST_BEND_X = 710.614;
+const RAIL_BEND_X = [710.614, 1434.54, 2157.3];
+const RAIL_BEND_Y = [276.573, 547.072, 817.571];
 
 const STEPS = [
   {
