@@ -1,6 +1,6 @@
 # BS-05 — Section 3 heading + Section 4
 
-**Status:** Not started
+**Status:** Done
 
 ## Section 3 — Why Battery Swapping
 

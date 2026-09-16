@@ -1,6 +1,6 @@
 # BS-06 — Closing CTA section
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/battery-swapping/BatterySwapCTA.tsx`
 **Pattern:** copy the structure and styling of `src/components/investment/InvestmentCTA.tsx`
 

@@ -1,6 +1,6 @@
 # BS-02 — Section 1, Hero
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/battery-swapping/BatterySwapHero.tsx`
 
 ## Content (verbatim)
