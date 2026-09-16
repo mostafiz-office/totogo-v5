@@ -68,6 +68,15 @@ Give every audience (driver, fleet operator, station partner, investor, business
 - Scoped stylesheet `src/pages/contact/contact.css` under `.contact-page`.
 - Metadata: title "Contact Us | totooGO", description from hero body.
 
+## Brand consistency (explicit)
+
+- Colors come only from the shared tokens (`--c-navy`, `--c-green`, `--c-green-soft`, `--c-green-deep`, `--c-surface`, `--c-surface-alt`, `--c-muted`, `--c-border`) — the same green/navy system as the homepage, Investment, Our Solutions and The Idea.
+- Section rhythm alternates surface / surface-alt backgrounds, matching The Idea page.
+- Hero uses the shared two-column pattern: eyebrow chip, large navy H1, muted lead paragraph, green pill button, rounded photo panel with soft green glow.
+- Cards use the shared card style: surface background, 1px border, rounded corners, soft shadow, green-soft icon chip.
+- Buttons are the shared 52px green pill style; the closing band is the shared navy card with green glow.
+- Motion uses the global `.reveal`/`useReveal` fade-up with staggered `--i` delays, same as every other page.
+
 ## Tasks
 
 | ID | Task | Status |
