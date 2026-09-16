@@ -81,7 +81,11 @@
   display: flex;
   align-items: center;
 }
-.bp-how-it-works ._w-col-four   { padding-top: 70px; padding-bottom: 40px; }
+.bp-how-it-works ._w-col-four   {
+  min-height: 330px;
+  display: flex;
+  align-items: center;
+}
 
 .bp-how-it-works .pointer-disabled {
   opacity: 0;
