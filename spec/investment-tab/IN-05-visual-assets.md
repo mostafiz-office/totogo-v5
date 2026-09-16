@@ -1,6 +1,6 @@
 # IN-05 — Visual assets, icons and background treatment
 
-**Status:** Not started
+**Status:** Done
 **Depends on:** IN-02, IN-03, IN-04
 
 ## Hero visual
