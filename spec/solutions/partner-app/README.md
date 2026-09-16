@@ -9,14 +9,14 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| PA-01 | Route + nav + page shell | `01-route-and-nav.md` | Not started |
-| PA-02 | Section 1 — Hero | `02-hero.md` | Not started |
-| PA-03 | Section 2 — Manage Everything in One Place | `03-section-two.md` | Not started |
-| PA-04 | Feature slider | `04-slider.md` | Not started |
-| PA-05 | Sections 3 & 4 | `05-section-three-four.md` | Not started |
-| PA-06 | CTA section | `06-cta.md` | Not started |
-| PA-07 | Visual assets | `07-visuals.md` | Not started |
-| PA-08 | Responsive + QA | `08-responsive-qa.md` | Not started |
+| PA-01 | Route + nav + page shell | `01-route-and-nav.md` | Done |
+| PA-02 | Section 1 — Hero | `02-hero.md` | Done |
+| PA-03 | Section 2 — Manage Everything in One Place | `03-section-two.md` | Done |
+| PA-04 | Feature slider | `04-slider.md` | Done |
+| PA-05 | Sections 3 & 4 | `05-section-three-four.md` | Done |
+| PA-06 | CTA section | `06-cta.md` | Done |
+| PA-07 | Visual assets | `07-visuals.md` | Done |
+| PA-08 | Responsive + QA | `08-responsive-qa.md` | Done |
 
 Wireframe: `wireframe.md` · Shared rules: `../shared-patterns.md`
 
