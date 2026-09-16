@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "Texts break on mobile devices, has to work on responsive design."
 - **Area:** "EV Ownership Made Easy" steps (1 BUY / 2 SWAP / 3 EARN)
 - **Viewport in screenshot:** Mobile
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — cards now keyed on `data-step`, verified at 360px
 
 ## Observed behaviour
 
