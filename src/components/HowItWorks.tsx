@@ -99,10 +99,10 @@ const HowItWorks = ({ forcedProgress }: Props) => {
 
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", update);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", update);
+      window.removeEventListener("resize", onResize);
       if (raf) cancelAnimationFrame(raf);
     };
   }, [forcedProgress]);
