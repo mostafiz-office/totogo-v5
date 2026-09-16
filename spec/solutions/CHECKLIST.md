@@ -19,6 +19,9 @@ the Investment audit. Run through this before and after each page is built.
 | 10 | Homepage sticky How-It-Works animation could be copied by mistake | BS-03 forbids it — static three-card row |
 | 11 | Hero images did not exist | One generated image per page, listed in each `07-visuals.md`, with eager loading and alt text |
 | 12 | Risk of regressing shared files | `shared-patterns.md` §10 lists the do-not-touch files |
+| 13 | `SolutionSlide.body` was required, but Battery Swapping slides are title-only | `body` is now optional in `shared-patterns.md` §7; title-only slides use the centred layout from BS-04 |
+| 14 | BS-05 task title ("Section 3 & 4 content") overlapped BS-04's slider | Renamed to "Section 3 heading + Section 4"; `05-section-three-four.md` owns only the heading wrapper and Section 4 |
+| 15 | Driver App / Partner App feature-vs-slider split unverified | Verified: DA-03/PA-03 own the heading and mount the slider; DA-04/PA-04 define the slides — each feature appears exactly once |
 
 ## B. Per-page build checklist
 
