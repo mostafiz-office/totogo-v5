@@ -181,7 +181,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
         </div>
         <h2 className="work-heading">{HEADLINE}</h2>
         {STEPS.map((s) => (
-          <div key={s.n} className="work-content">
+          <div key={s.n} className="work-content" data-step={s.n}>
             <div className="number">{s.n}</div>
             <div>
               <div className="num-head">{s.title}</div>

@@ -166,9 +166,11 @@
 
 /* Sticky step cards, desktop keeps default/transparent background */
 
-/* Mobile stacked cards reuse the same palette */
-.bp-how-it-works .bp-mobile .work-content { border-radius: 20px; margin-bottom: 16px; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(1) { background: #CFF1DF; color: #0E1613; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(2) { background: #00CE7E; color: #ffffff; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(3) { background: #002366; color: #ffffff; }
-.bp-how-it-works .bp-mobile .work-content:nth-of-type(n+2) .num-para { color: rgba(255,255,255,0.85); }
+/* Mobile stacked cards reuse the same palette, keyed on data-step (stable) */
+.bp-how-it-works .bp-mobile .work-content { border-radius: 20px; margin-bottom: 16px; padding: 20px; }
+.bp-how-it-works .bp-mobile .work-content[data-step="1"] { background: #CFF1DF; color: #0E1613; }
+.bp-how-it-works .bp-mobile .work-content[data-step="1"] .num-para { color: rgba(14,22,19,0.8); }
+.bp-how-it-works .bp-mobile .work-content[data-step="2"] { background: #00CE7E; color: #ffffff; }
+.bp-how-it-works .bp-mobile .work-content[data-step="3"] { background: #002366; color: #ffffff; }
+.bp-how-it-works .bp-mobile .work-content[data-step="2"] .num-para,
+.bp-how-it-works .bp-mobile .work-content[data-step="3"] .num-para { color: rgba(255,255,255,0.85); }
