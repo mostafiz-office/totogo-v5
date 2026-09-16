@@ -214,9 +214,11 @@ export default function HowSwappingWorks() {
           gap: 2.5rem;
           padding: clamp(1.75rem, 3vw, 2.75rem);
           overflow: hidden;
+          position: relative;
         }
         @media (max-width: 768px) {
           .sss-card { grid-template-columns: 1fr; min-height: 0; }
+          .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 1rem; }
         }
 
         .sss-card[data-step="2"] {
