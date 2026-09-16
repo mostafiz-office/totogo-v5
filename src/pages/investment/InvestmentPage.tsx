@@ -3,6 +3,7 @@ import SiteHeader from "@/components/site-header/SiteHeader";
 import Footer from "@/components/site-footer/SiteFooter";
 import InvestmentHero from "@/components/investment/InvestmentHero";
 import InvestmentStats from "@/components/investment/InvestmentStats";
+import InvestmentCTA from "@/components/investment/InvestmentCTA";
 import "./investment.css";
 
 const PAGE_TITLE = "Investment Opportunity | totooGO";
