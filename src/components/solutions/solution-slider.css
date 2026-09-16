@@ -1,0 +1,107 @@
+/* Shared Solutions slider. Reused unchanged by every /solutions/* page. */
+
+.sol-slider { position: relative; }
+
+.sol-slider__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sol-slider__track::-webkit-scrollbar { display: none; }
+.sol-slider__track:focus-visible {
+  outline: 2px solid hsl(var(--c-green));
+  outline-offset: 4px;
+  border-radius: 20px;
+}
+
+.sol-slider__card {
+  flex: 0 0 calc(100% / 1.1 - 16px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: hsl(var(--c-surface));
+  border: 1px solid hsl(var(--c-border));
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 180px;
+}
+
+.sol-slider__card--compact {
+  justify-content: center;
+  text-align: left;
+}
+
+.sol-slider__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: hsl(var(--c-green-soft));
+  color: hsl(var(--c-navy));
+}
+.sol-slider__chip svg { width: 22px; height: 22px; }
+
+.sol-slider__title {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: hsl(var(--c-navy));
+}
+
+.sol-slider__body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: hsl(var(--c-muted));
+}
+
+.sol-slider__nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sol-slider__arrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1.5px solid hsl(var(--c-navy));
+  color: hsl(var(--c-navy));
+  background: transparent;
+  transition: background-color 150ms ease, color 150ms ease, opacity 150ms ease;
+}
+.sol-slider__arrow:hover:not(:disabled) {
+  background: hsl(var(--c-navy));
+  color: hsl(var(--c-surface));
+}
+.sol-slider__arrow:focus-visible {
+  outline: 2px solid hsl(var(--c-green));
+  outline-offset: 3px;
+}
+.sol-slider__arrow:disabled { opacity: 0.35; cursor: not-allowed; }
+
+@media (min-width: 768px) {
+  .sol-slider__card { flex-basis: calc(50% - 8px); }
+  .sol-slider__nav { justify-content: flex-end; }
+}
+
+@media (min-width: 1024px) {
+  .sol-slider__card { flex-basis: calc((100% - 32px) / 3); padding: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sol-slider__track { scroll-behavior: auto; }
+}
