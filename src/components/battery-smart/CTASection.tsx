@@ -146,8 +146,10 @@ const CTASection = () => {
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ objectPosition: "right center" }}
               />
+              {/* Fade only on desktop side-by-side layout; on mobile the image
+                  stacks below the text and must render clean edge to edge (WI-03) */}
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 hidden md:block"
                 style={{
                   background:
                     "linear-gradient(90deg, #CFF1DF 0%, rgba(207,241,223,0.4) 25%, transparent 60%)",
