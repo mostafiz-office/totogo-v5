@@ -38,22 +38,27 @@ only from the words above.
 - H1: clamp from ~34px mobile to ~60px desktop, weight 700, colour
   `hsl(var(--c-navy))`, line-height 1.08, `text-balance`.
 - Paragraphs: 16–18px, `hsl(var(--c-muted))`, max-width ~56ch, 16px gap.
-- Buttons: reuse the shared `Button` component.
-  - Primary — solid green `--c-green`, navy or white label (whichever clears
-    4.5:1), hover `--c-green-deep`, rounded-full, height ≥ 48px.
+- Buttons: reuse the shared `Button` component
+  (`src/components/ui/button.tsx`).
+  - Primary — solid green `--c-green` with a **navy label** (`--c-navy`),
+    hover `--c-green-deep`, rounded-full, height ≥ 48px, `ArrowRight` icon.
   - Secondary — transparent with navy border and navy label, same height.
   - Mobile: both full width, stacked with 12px gap.
+  - Both `href="#"` (client decision), with `data-cta="investor-deck"` and
+    `data-cta="book-a-call"`.
 - Visual panel: rounded `2rem` (`1.5rem` mobile), `overflow-hidden`, subtle
   border `--c-border`, soft shadow. Aspect ratio ~4:3 desktop, ~16:10 mobile.
-  Image is specified in IN-05; until then use a token-coloured placeholder
-  block, never a grey box with text.
+  The image itself is produced in IN-05 (`src/assets/investment-hero.jpg`);
+  until then fill the panel with a token-coloured mint block — never a grey box
+  with placeholder text.
 
 ## Motion
 
-- Copy block and visual panel each get `.reveal` → `.is-in` (fade + 16px rise,
-  visual delayed ~80ms), using the same IntersectionObserver pattern as
-  `CTASection.tsx`, threshold 0.15, unobserve after firing.
-- Disabled under `prefers-reduced-motion: reduce`.
+- Copy block and visual panel each get the **existing global** `.reveal` class
+  (defined in `src/index.css` ~597–603 with the reduced-motion reset at ~699);
+  only the IntersectionObserver that adds `.is-in` needs writing. Threshold
+  0.15, unobserve after firing, visual delayed ~80ms via `--i`.
+- No new animation CSS is added for this.
 
 ## Acceptance criteria
 

@@ -24,10 +24,16 @@
 5. All text visible, nothing clipped or truncated mid-word.
 6. Tab order: header nav → hero primary → hero secondary → CTA primary →
    CTA secondary → footer. Every stop has a visible focus ring.
-7. Mobile drawer closes after tapping "Investment" and the page scroll position
-   is restored correctly (regression guard for the earlier scroll-lock fix).
+7. Mobile drawer closes after tapping "Investment", body scroll is unlocked, and
+   the page opens at the top (regression guard for the earlier scroll-lock fix).
 8. `prefers-reduced-motion: reduce` → no reveal animation, no counting, final
    values shown.
+9. Both `/investment` and `/investment/` load the page (the nav links to the
+   trailing-slash form).
+10. The "Investment" nav item carries `aria-current="page"` while on the page,
+    on desktop and in the mobile drawer.
+11. Tab title is "Investment Opportunity | totooGO" on the page and reverts to
+    the site default after navigating away.
 
 ## Regression guards
 
