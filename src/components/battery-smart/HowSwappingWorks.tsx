@@ -120,6 +120,7 @@ export default function HowSwappingWorks() {
               style={{ ["--sss-top" as any]: `${FIRST_STICKY_TOP + i * CARD_OFFSET}px`, zIndex: c.step }}
             >
               <article className="sss-card" data-step={c.step}>
+                <span className="sss-step-badge">0{c.step}</span>
                 <div className="sss-card-content">
                   <span className="sss-category">{c.category}</span>
                   <h3 className="sss-card-title">{c.title}</h3>
@@ -136,7 +137,6 @@ export default function HowSwappingWorks() {
                 <div className="sss-card-media" aria-hidden>
                   <div className="sss-icon-tile">
                     <c.Icon className="sss-icon" />
-                    <span className="sss-step-badge">0{c.step}</span>
                   </div>
                 </div>
               </article>
