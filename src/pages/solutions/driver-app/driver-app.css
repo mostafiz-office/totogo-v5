@@ -1,0 +1,208 @@
+/* Driver App page styles. All rules scoped under .da-page. */
+
+.da-page .da-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+.da-page .reveal[style*="--i"] { transition-delay: calc(var(--i, 0) * 80ms); }
+
+.da-page .da-h2 {
+  margin: 0 0 28px;
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: hsl(var(--c-navy));
+}
+
+/* ===== Buttons ===== */
+.da-page .da-btn {
+  height: 52px;
+  padding-inline: 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.da-page .da-btn--primary {
+  background: hsl(var(--c-green));
+  color: hsl(var(--c-navy));
+}
+.da-page .da-btn--primary:hover { background: hsl(var(--c-green-deep)); }
+
+/* ===== Hero ===== */
+.da-page .da-hero {
+  background: hsl(var(--c-surface));
+  overflow: hidden;
+}
+
+.da-page .da-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.da-page .da-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: hsl(var(--c-green-soft));
+  color: hsl(var(--c-navy));
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.da-page .da-eyebrow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: hsl(var(--c-green));
+}
+
+.da-page .da-hero__title {
+  margin: 20px 0;
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 1.08;
+  font-weight: 700;
+  color: hsl(var(--c-navy));
+}
+
+.da-page .da-hero__lead {
+  max-width: 54ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: hsl(var(--c-muted));
+}
+
+.da-page .da-hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.da-page .da-hero__visual { position: relative; }
+
+.da-page .da-hero__glow {
+  display: none;
+  position: absolute;
+  inset: -12% -8%;
+  background: radial-gradient(circle, hsl(var(--c-green-soft) / 0.7), transparent 70%);
+  pointer-events: none;
+}
+
+.da-page .da-hero__panel {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--c-border));
+  box-shadow: var(--shadow-card);
+  background: hsl(var(--c-green-soft));
+}
+
+.da-page .da-hero__panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Key Features (slider band) ===== */
+.da-page .da-features { background: hsl(var(--c-surface-alt)); }
+
+/* ===== Designed Around Drivers ===== */
+.da-page .da-designed { background: hsl(var(--c-surface)); }
+
+.da-page .da-designed__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.da-page .da-designed__lead {
+  margin: 0 0 12px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: hsl(var(--c-navy));
+}
+
+.da-page .da-designed__body {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: hsl(var(--c-muted));
+}
+
+/* ===== Closing CTA ===== */
+.da-page .da-cta { background: hsl(var(--c-surface-alt)); padding-top: var(--sec-y); }
+
+.da-page .da-cta__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: hsl(var(--c-navy));
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.da-page .da-cta__glow {
+  position: absolute;
+  inset: auto -10% -60% -10%;
+  height: 320px;
+  background: radial-gradient(circle, hsl(var(--c-green) / 0.28), transparent 70%);
+  pointer-events: none;
+}
+
+.da-page .da-cta__title {
+  position: relative;
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: hsl(var(--c-surface));
+}
+
+.da-page .da-cta__line {
+  position: relative;
+  margin: 16px auto 0;
+  max-width: 48ch;
+  font-size: 16px;
+  color: hsl(var(--c-green-soft));
+}
+
+.da-page .da-cta__actions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 640px) {
+  .da-page .da-hero__actions,
+  .da-page .da-cta__actions { flex-direction: row; }
+  .da-page .da-cta__actions { justify-content: center; }
+  .da-page .da-btn { width: auto; }
+}
+
+@media (min-width: 768px) {
+  .da-page .da-shell { padding-inline: 32px; }
+  .da-page .da-hero__lead { font-size: 18px; }
+  .da-page .da-hero__glow { display: block; }
+  .da-page .da-hero__panel { border-radius: 2rem; }
+  .da-page .da-cta__card { padding: 64px 40px; }
+}
+
+@media (min-width: 1024px) {
+  .da-page .da-hero__grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
+}
