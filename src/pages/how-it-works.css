@@ -7,7 +7,7 @@
   font-family: Inter, sans-serif;
   color: #0E1613;
   position: relative;
-  height: 300vh; /* desktop scroll-jacked track */
+  height: 340vh; /* extra desktop travel keeps the taller final rail in view */
 }
 @media (max-width: 768px) {
   .bp-how-it-works { height: auto; }
@@ -76,13 +76,16 @@
 .bp-how-it-works .work-col:nth-child(3) > .pointer-disabled {
   height: 276px;
 }
+.bp-how-it-works .work-col:nth-child(4) > .pointer-disabled {
+  height: 547px;
+}
 .bp-how-it-works ._w-col-third {
   min-height: 270px;
   display: flex;
   align-items: center;
 }
 .bp-how-it-works ._w-col-four   {
-  min-height: 330px;
+  min-height: 393px;
   display: flex;
   align-items: center;
 }
