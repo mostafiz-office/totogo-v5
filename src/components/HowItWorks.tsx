@@ -81,7 +81,6 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       const measurements = movingSteps.map((element) => {
         const number = element.querySelector<HTMLElement>(".number");
         const numberX = number?.getBoundingClientRect().x ?? element.getBoundingClientRect().x;
-        const step = Number(element.dataset.desktopStep);
         return {
           element,
           riseStartShiftPx: Math.max(0, numberX - presentationX),
