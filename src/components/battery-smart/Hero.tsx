@@ -65,7 +65,7 @@ const Hero = ({ variant = "v1" }: { variant?: "v1" | "v2" } = {}) => {
   return (
     <section
       ref={sectionRef}
-      className="Home_Home__r7pEu"
+      className="Home_Home__r7pEu sec-pad-b"
       aria-label="Battery Smart hero"
     >
       <div className="Home_hero__B0w79">

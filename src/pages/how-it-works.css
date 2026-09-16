@@ -156,7 +156,7 @@
 
 @media (max-width: 991px) {
   .bp-how-it-works .work-sticky { display: none; }
-  .bp-how-it-works .bp-mobile { display: block; padding: 40px 24px 80px; }
+  .bp-how-it-works .bp-mobile { display: block; padding: var(--sec-y) 24px; }
   .bp-how-it-works .bp-mobile .work-heading { font-size: 26px; line-height: 36px; margin-bottom: 32px; }
   .bp-how-it-works .bp-mobile .work-content { padding: 0; margin-top: 30px; }
   .bp-how-it-works .bp-mobile .number { margin-top: 1px; margin-right: 12px; font-size: 22px; line-height: 34px; }
