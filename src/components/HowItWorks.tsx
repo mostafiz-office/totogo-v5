@@ -50,9 +50,16 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const green = greenRef.current;
     if (!wrapper || !track || !green) return;
 
+    /* Distance needed so the last column ends flush with the visible edge,
+       accounting for the container's left offset inside the overflow box. */
     const travel = () => {
-      const viewport = track.closest(".works-overflow")?.clientWidth ?? 0;
-      const measured = track.scrollWidth - viewport;
+      const overflow = track.closest(".works-overflow") as HTMLElement | null;
+      if (!overflow) return TRACK_TRAVEL_PX;
+      const prev = track.style.transform;
+      track.style.transform = "translate3d(0,0,0)";
+      const measured =
+        track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
+      track.style.transform = prev;
       return measured > 0 ? measured : TRACK_TRAVEL_PX;
     };
 
