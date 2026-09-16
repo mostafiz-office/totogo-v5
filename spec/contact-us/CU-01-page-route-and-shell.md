@@ -1,6 +1,6 @@
 # CU-01 — Page shell, route, metadata
 
-**Status:** Not started
+**Status:** Done
 
 ## Build
 

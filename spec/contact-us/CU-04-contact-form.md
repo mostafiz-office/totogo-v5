@@ -1,6 +1,6 @@
 # CU-04 — Contact form
 
-**Status:** Not started
+**Status:** Done
 
 ## Content (verbatim)
 

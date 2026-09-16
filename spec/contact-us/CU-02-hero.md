@@ -1,6 +1,6 @@
 # CU-02 — Hero section
 
-**Status:** Not started
+**Status:** Done
 
 ## Content (verbatim)
 
