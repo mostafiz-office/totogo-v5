@@ -3,7 +3,10 @@ import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
 import "@/pages/how-it-works.css";
 
+/* Fallback only; real travel is measured from the track at runtime. */
 const TRACK_TRAVEL_PX = 1740;
+/* Reach the last step before the section ends so step 3 stays readable. */
+const TRAVEL_COMPLETE_AT = 0.85;
 
 const STEPS = [
   {
@@ -47,8 +50,24 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const green = greenRef.current;
     if (!wrapper || !track || !green) return;
 
+    /* Distance needed so the last column ends flush with the visible edge,
+       accounting for the container's left offset inside the overflow box. */
+    const travel = () => {
+      const overflow = track.closest(".works-overflow") as HTMLElement | null;
+      if (!overflow) return TRACK_TRAVEL_PX;
+      const prev = track.style.transform;
+      track.style.transform = "translate3d(0,0,0)";
+      const measured =
+        track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
+      track.style.transform = prev;
+      return measured > 0 ? measured : TRACK_TRAVEL_PX;
+    };
+
+    let travelPx = travel();
+
     const apply = (p: number) => {
-      track.style.transform = `translate3d(${-TRACK_TRAVEL_PX * p}px, 0, 0)`;
+      const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
+      track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
       green.style.width = `${p * 100}%`;
     };
 
@@ -73,12 +92,17 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       raf = requestAnimationFrame(update);
     };
 
+    const onResize = () => {
+      travelPx = travel();
+      update();
+    };
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", update);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", update);
+      window.removeEventListener("resize", onResize);
       if (raf) cancelAnimationFrame(raf);
     };
   }, [forcedProgress]);
