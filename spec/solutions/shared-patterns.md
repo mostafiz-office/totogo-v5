@@ -73,7 +73,7 @@ Built once during the Battery Swapping page, reused by the other three.
 **Props**
 
 ```ts
-type SolutionSlide = { title: string; body: string; icon?: ReactNode };
+type SolutionSlide = { title: string; body?: string; icon?: ReactNode };
 type SolutionSliderProps = {
   slides: SolutionSlide[];
   ariaLabel: string;      // e.g. "Battery swapping benefits"
