@@ -701,3 +701,10 @@
   .bs-tip { opacity: 0.9 !important; }
 }
 
+
+/* Shared vertical rhythm for top-level landing sections (WI-02) */
+:root { --sec-y: 56px; }
+@media (min-width: 768px) { :root { --sec-y: 80px; } }
+@media (min-width: 1024px) { :root { --sec-y: 112px; } }
+.sec-pad { padding-top: var(--sec-y); padding-bottom: var(--sec-y); }
+.sec-pad-b { padding-bottom: var(--sec-y); }
