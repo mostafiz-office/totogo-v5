@@ -53,7 +53,8 @@ const InvestmentHero = () => {
               alt="Electric three-wheeler at a totooGO battery swapping station"
               width={1200}
               height={912}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
             />
           </div>
