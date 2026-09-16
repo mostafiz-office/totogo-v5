@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "No. 3 is not visible while scrolling"
 - **Area:** "EV Ownership Made Easy" steps (1 BUY / 2 SWAP / 3 EARN)
 - **Viewport in screenshot:** Desktop
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — travel measured from the track, completes at 85% scroll; step 3 fully visible at 1280px and 1440px
 
 ## Observed behaviour
 
