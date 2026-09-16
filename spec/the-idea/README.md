@@ -8,14 +8,14 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| TI-01 | Page shell, route, metadata, menu link | `TI-01-page-route-and-nav.md` | Not started |
-| TI-02 | Section 1 — Hero | `TI-02-hero.md` | Not started |
-| TI-03 | Section 2 — The Problem (4 cards) | `TI-03-problem.md` | Not started |
-| TI-04 | Section 3 — The Idea (5-slide slider) | `TI-04-idea-slider.md` | Not started |
-| TI-05 | Section 4 — Why It Matters (5 benefits) | `TI-05-why-it-matters.md` | Not started |
-| TI-06 | Section 5 — The Bigger Vision + closing CTA | `TI-06-vision-cta.md` | Not started |
-| TI-07 | Visual assets (hero image, icons) | `TI-07-visual-assets.md` | Not started |
-| TI-08 | Responsive + QA pass | `TI-08-responsive-and-qa.md` | Not started |
+| TI-01 | Page shell, route, metadata, menu link | `TI-01-page-route-and-nav.md` | Done |
+| TI-02 | Section 1 — Hero | `TI-02-hero.md` | Done |
+| TI-03 | Section 2 — The Problem (4 cards) | `TI-03-problem.md` | Done |
+| TI-04 | Section 3 — The Idea (5-slide slider) | `TI-04-idea-slider.md` | Done |
+| TI-05 | Section 4 — Why It Matters (5 benefits) | `TI-05-why-it-matters.md` | Done |
+| TI-06 | Section 5 — The Bigger Vision + closing CTA | `TI-06-vision-cta.md` | Done |
+| TI-07 | Visual assets (hero image, icons) | `TI-07-visual-assets.md` | Done |
+| TI-08 | Responsive + QA pass | `TI-08-responsive-and-qa.md` | Done |
 
 Wireframe: `wireframe.md` — Gap analysis: `CHECKLIST.md`
 

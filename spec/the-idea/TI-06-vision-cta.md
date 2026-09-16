@@ -1,6 +1,6 @@
 # TI-06 — Section 5: The Bigger Vision + closing CTA
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/the-idea/IdeaVisionCTA.tsx`
 **Background:** `--c-surface`, with a navy rounded CTA card inside
 

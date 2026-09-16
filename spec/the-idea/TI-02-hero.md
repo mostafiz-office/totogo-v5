@@ -1,6 +1,6 @@
 # TI-02 — Section 1: Hero
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/the-idea/IdeaHero.tsx`
 **Background:** `--c-surface`
 
