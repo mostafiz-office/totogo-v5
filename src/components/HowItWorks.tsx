@@ -92,6 +92,11 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       raf = requestAnimationFrame(update);
     };
 
+    const onResize = () => {
+      travelPx = travel();
+      update();
+    };
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update);
