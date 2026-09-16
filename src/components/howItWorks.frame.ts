@@ -31,6 +31,44 @@ export interface Frame {
   steps: Record<1 | 2 | 3, StepFrame>;
 }
 
+export interface PinnedStepFrame {
+  compensateX: number;
+  translateY: number;
+}
+
+/**
+ * Keeps a step at its presentation point after the horizontal track reaches it,
+ * then carries the step upward along the rail's vertical leg.
+ */
+export function computePinnedStepFrame(
+  progress: number,
+  travelPx: number,
+  pinShiftPx: number,
+  risePx: number,
+  riseCompleteAt: number,
+  travelCompleteAt = TRACK_TRAVEL_COMPLETE_AT,
+): PinnedStepFrame {
+  const p = clamp01(progress);
+  const safeTravel = Math.max(0, travelPx);
+  const safePin = Math.max(0, Math.min(safeTravel, pinShiftPx));
+  const safeTravelCompleteAt = Math.max(0.01, travelCompleteAt);
+  const trackProgress = clamp01(p / safeTravelCompleteAt);
+  const currentShift = safeTravel * trackProgress;
+  const compensateX = Math.max(0, currentShift - safePin);
+  const pinProgress = safeTravel > 0
+    ? safeTravelCompleteAt * (safePin / safeTravel)
+    : 0;
+  const end = Math.max(pinProgress, riseCompleteAt);
+  const riseProgress = end === pinProgress
+    ? Number(p >= end)
+    : smoothstep(clamp01((p - pinProgress) / (end - pinProgress)));
+
+  return {
+    compensateX,
+    translateY: riseProgress === 0 ? 0 : -Math.max(0, risePx) * riseProgress,
+  };
+}
+
 export function computeFrame(progress: number): Frame {
   const p = clamp01(progress);
   const moveProgress = clamp01(p / TRACK_TRAVEL_COMPLETE_AT);
