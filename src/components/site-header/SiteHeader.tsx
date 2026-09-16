@@ -43,15 +43,18 @@ const useBodyScrollLock = (locked: boolean) => {
   useEffect(() => {
     if (!locked) return;
     savedY.current = window.scrollY;
+    const root = document.documentElement;
     const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${savedY.current}px`;
-    body.style.width = "100%";
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    root.style.overflow = "hidden";
+    body.style.overflow = "hidden";
     return () => {
-      body.style.position = "";
-      body.style.top = "";
-      body.style.width = "";
-      window.scrollTo(0, savedY.current);
+      root.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+      if (window.scrollY !== savedY.current) {
+        window.scrollTo({ top: savedY.current, behavior: "instant" });
+      }
     };
   }, [locked]);
 };
