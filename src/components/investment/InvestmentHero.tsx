@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import investmentHero from "@/assets/investment-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "./useReveal";
 
