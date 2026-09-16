@@ -1,6 +1,6 @@
 # IN-06 — Responsive behaviour and QA pass
 
-**Status:** Not started
+**Status:** Done
 **Depends on:** IN-01 … IN-05
 
 ## Breakpoints to verify
