@@ -35,7 +35,8 @@ const InvestmentPage = () => {
       <SiteHeader />
       <main>
         <InvestmentHero />
-        {/* sections added by IN-03..IN-04 */}
+        <InvestmentStats />
+        {/* section added by IN-04 */}
       </main>
       <Footer />
     </div>
