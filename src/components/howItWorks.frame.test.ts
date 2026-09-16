@@ -2,8 +2,6 @@ import { describe, it, expect } from "vitest";
 import {
   computeFrame,
   computeStackProgress,
-  computeRailFillPx,
-  computeRailRisePx,
   TRACK_TRAVEL_PX,
   TRACK_TRAVEL_COMPLETE_AT,
 } from "./howItWorks.frame";
@@ -65,49 +63,3 @@ describe("computeStackProgress", () => {
     expect(b).toBeGreaterThan(a);
   });
 });
-
-describe("computeRailFillPx", () => {
-  it("starts at the first bend", () => {
-    expect(computeRailFillPx(0, 1800, 700, 2800, 0.85)).toBeCloseTo(700, 5);
-  });
-
-  it("advances at the same rate as the strip travels", () => {
-    const at = (p: number) => computeRailFillPx(p, 1800, 700, 2800, 0.85);
-    expect(at(0.425) - at(0)).toBeCloseTo(900, 5);
-    expect(at(0.85) - at(0)).toBeCloseTo(1800, 5);
-  });
-
-  it("clamps to the strip width and to valid progress", () => {
-    expect(computeRailFillPx(1, 1800, 1500, 2800, 0.85)).toBe(2800);
-    expect(computeRailFillPx(2, 1800, 700, 2800, 0.85)).toBe(
-      computeRailFillPx(1, 1800, 700, 2800, 0.85),
-    );
-    expect(computeRailFillPx(-1, 1800, 700, 2800, 0.85)).toBeCloseTo(700, 5);
-  });
-
-  it("leads past the elbow when a lead is given", () => {
-    expect(computeRailFillPx(0, 1800, 700, 2800, 0.85, 120)).toBeCloseTo(820, 5);
-  });
-});
-
-describe("computeRailRisePx", () => {
-  const shifts = [0, 700, 1400];
-  const rises = [0, 264, 528];
-
-  it("starts with no lift", () => {
-    expect(computeRailRisePx(0, shifts, rises)).toBe(0);
-  });
-
-  it("interpolates between bends", () => {
-    expect(computeRailRisePx(350, shifts, rises)).toBeCloseTo(132, 5);
-    expect(computeRailRisePx(700, shifts, rises)).toBeCloseTo(264, 5);
-    expect(computeRailRisePx(1050, shifts, rises)).toBeCloseTo(396, 5);
-  });
-
-  it("clamps past the last bend and below zero", () => {
-    expect(computeRailRisePx(5000, shifts, rises)).toBe(528);
-    expect(computeRailRisePx(-100, shifts, rises)).toBe(0);
-    expect(computeRailRisePx(100, [], [])).toBe(0);
-  });
-});
-

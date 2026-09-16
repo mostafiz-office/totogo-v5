@@ -1,17 +1,12 @@
 import { useEffect, useRef } from "react";
 import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
-import { computeRailFillPx, computeRailRisePx } from "./howItWorks.frame";
 import "@/pages/how-it-works.css";
 
 /* Fallback only; real travel is measured from the track at runtime. */
 const TRACK_TRAVEL_PX = 1740;
 /* Reach the last step before the section ends so step 3 stays readable. */
 const TRAVEL_COMPLETE_AT = 0.85;
-/* Rail artwork geometry (src/assets/how-it-works/*.svg), viewBox units. */
-const RAIL_VIEWBOX_W = 2870;
-const RAIL_BEND_X = [710.614, 1434.54, 2157.3];
-const RAIL_BEND_Y = [276.573, 547.072, 817.571];
 
 const STEPS = [
   {
@@ -57,52 +52,24 @@ const HowItWorks = ({ forcedProgress }: Props) => {
 
     /* Distance needed so the last column ends flush with the visible edge,
        accounting for the container's left offset inside the overflow box. */
-    let stripWidthPx = track.getBoundingClientRect().width;
-    let focusPx = 0;
-    let leadPx = 0;
-    let knotShift: number[] = [];
-    let knotRise: number[] = [];
-
-    const measure = () => {
+    const travel = () => {
       const overflow = track.closest(".works-overflow") as HTMLElement | null;
       if (!overflow) return TRACK_TRAVEL_PX;
       const prev = track.style.transform;
       track.style.transform = "translate3d(0,0,0)";
-      const trackRect = track.getBoundingClientRect();
-      const flushTravel = trackRect.right - overflow.getBoundingClientRect().right;
-      stripWidthPx = trackRect.width;
-      /* Rail bends in strip coordinates drive both the fill and the lift. */
-      const railImg = track.querySelector<HTMLImageElement>(".gray-line-image");
-      if (railImg) {
-        const r = railImg.getBoundingClientRect();
-        const s = r.width / RAIL_VIEWBOX_W;
-        const originX = r.left - trackRect.left;
-        focusPx = originX + RAIL_BEND_X[0] * s;
-        leadPx = (RAIL_BEND_X[1] - RAIL_BEND_X[0]) * s * 0.18;
-        knotShift = RAIL_BEND_X.map((x) => (x - RAIL_BEND_X[0]) * s);
-        knotRise = RAIL_BEND_Y.map((y) => (y - RAIL_BEND_Y[0]) * s);
-      }
+      const measured =
+        track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
       track.style.transform = prev;
-      return Math.max(flushTravel, TRACK_TRAVEL_PX);
+      return measured > 0 ? measured : TRACK_TRAVEL_PX;
     };
 
-    let travelPx = measure();
+    let travelPx = travel();
 
     const apply = (p: number) => {
       const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
-      const shift = travelPx * t;
-      const rise = computeRailRisePx(shift, knotShift, knotRise);
-      track.style.transform = `translate3d(${-shift}px, ${-rise}px, 0)`;
-      green.style.width = `${computeRailFillPx(
-        p,
-        travelPx,
-        focusPx,
-        stripWidthPx,
-        TRAVEL_COMPLETE_AT,
-        leadPx,
-      )}px`;
+      track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
+      green.style.width = `${p * 100}%`;
     };
-
 
     if (typeof forcedProgress === "number") {
       apply(Math.max(0, Math.min(1, forcedProgress)));
@@ -126,7 +93,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     };
 
     const onResize = () => {
-      travelPx = measure();
+      travelPx = travel();
       update();
     };
 

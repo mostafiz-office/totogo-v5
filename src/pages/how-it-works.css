@@ -50,14 +50,6 @@
   overflow: hidden;
 }
 
-/* Fade out steps that have risen above the active one. */
-@media (min-width: 992px) {
-  .bp-how-it-works .works-overflow {
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 60px, #000 130px);
-    mask-image: linear-gradient(to bottom, transparent 0, transparent 60px, #000 130px);
-  }
-}
-
 .bp-how-it-works .work-block {
   padding-top: 64px;
 }
@@ -81,9 +73,8 @@
 }
 
 .bp-how-it-works ._w-col-second { padding-top: 30px; }
-/* Each card sits the same distance below its own rail segment as step 1. */
-.bp-how-it-works ._w-col-third  { padding-top: 166px; }
-.bp-how-it-works ._w-col-four   { padding-top: 234px; padding-bottom: 40px; }
+.bp-how-it-works ._w-col-third  { padding-top: 70px; }
+.bp-how-it-works ._w-col-four   { padding-top: 70px; padding-bottom: 40px; }
 
 .bp-how-it-works .pointer-disabled {
   opacity: 0;
