@@ -1,6 +1,6 @@
 # BS-03 — Section 2, How It Works
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/battery-swapping/BatterySwapSteps.tsx`
 
 ## Content (verbatim)

@@ -1,6 +1,6 @@
 # BS-08 — Responsive pass and QA
 
-**Status:** Not started
+**Status:** Done
 
 Test `/solutions/battery-swapping` and `/solutions/battery-swapping/` at
 **360, 393, 768, 1024, 1280, 1519 px**.

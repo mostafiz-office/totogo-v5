@@ -1,6 +1,6 @@
 # BS-04 — Shared SolutionSlider + Why Battery Swapping slider
 
-**Status:** Not started
+**Status:** Done
 **Builds:** `src/components/solutions/SolutionSlider.tsx` + `solution-slider.css`
 (shared by all four pages — build it properly here, reuse it later unchanged)
 
