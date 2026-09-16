@@ -13,7 +13,7 @@
 | BS-02 | Section 1 — Hero | `02-hero.md` | Not started |
 | BS-03 | Section 2 — How It Works | `03-section-two.md` | Not started |
 | BS-04 | Shared slider + Section 3 slider | `04-slider.md` | Not started |
-| BS-05 | Section 3 & 4 content | `05-section-three-four.md` | Not started |
+| BS-05 | Section 3 heading + Section 4 — Built for Everyday Mobility | `05-section-three-four.md` | Not started |
 | BS-06 | CTA section | `06-cta.md` | Not started |
 | BS-07 | Visual assets | `07-visuals.md` | Not started |
 | BS-08 | Responsive + QA | `08-responsive-qa.md` | Not started |

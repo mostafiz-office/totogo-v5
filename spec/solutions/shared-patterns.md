@@ -73,7 +73,7 @@ Built once during the Battery Swapping page, reused by the other three.
 **Props**
 
 ```ts
-type SolutionSlide = { title: string; body: string; icon?: ReactNode };
+type SolutionSlide = { title: string; body?: string; icon?: ReactNode };
 type SolutionSliderProps = {
   slides: SolutionSlide[];
   ariaLabel: string;      // e.g. "Battery swapping benefits"
@@ -92,6 +92,8 @@ type SolutionSliderProps = {
 - `scroll-behavior: smooth`, disabled under `prefers-reduced-motion`.
 - Cards: white background, `--c-border` hairline, radius 16px, mint icon chip,
   navy title, muted body. Equal height across a row.
+- `body` is optional: title-only slides (Battery Swapping) use the centred
+  layout defined in `battery-swapping/04-slider.md`.
 - No autoplay.
 
 ## 8. Buttons
