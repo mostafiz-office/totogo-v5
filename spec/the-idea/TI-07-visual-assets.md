@@ -1,6 +1,6 @@
 # TI-07 — Visual assets
 
-**Status:** Not started
+**Status:** Done
 
 ## Hero image
 

@@ -1,6 +1,6 @@
 # TI-05 — Section 4: Why It Matters
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/the-idea/IdeaWhy.tsx`
 **Background:** `--c-surface-alt`
 

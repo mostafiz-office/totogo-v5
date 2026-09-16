@@ -1,6 +1,6 @@
 # TI-03 — Section 2: The Problem
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/the-idea/IdeaProblem.tsx`
 **Background:** `--c-surface-alt`
 

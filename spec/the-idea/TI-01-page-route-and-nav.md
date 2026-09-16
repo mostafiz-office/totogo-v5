@@ -1,6 +1,6 @@
 # TI-01 — Page shell, route, metadata, menu link
 
-**Status:** Not started
+**Status:** Done
 
 ## Goal
 

@@ -1,6 +1,6 @@
 # TI-04 — Section 3: The Idea (slider)
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/the-idea/IdeaEcosystem.tsx`
 **Background:** `--c-surface`
 **Section id:** `the-idea-ecosystem` (hero CTA target, `scroll-margin-top: 96px`)

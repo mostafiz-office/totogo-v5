@@ -1,6 +1,6 @@
 # TI-08 — Responsive + QA pass
 
-**Status:** Not started
+**Status:** Done
 
 ## Viewports to verify (Playwright, 1800px tall context)
 
