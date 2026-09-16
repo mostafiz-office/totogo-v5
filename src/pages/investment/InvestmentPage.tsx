@@ -31,7 +31,10 @@ const InvestmentPage = () => {
   return (
     <div className="inv-page min-h-screen bg-background">
       <SiteHeader />
-      <main>{/* sections added by IN-02..IN-04 */}</main>
+      <main>
+        <InvestmentHero />
+        {/* sections added by IN-03..IN-04 */}
+      </main>
       <Footer />
     </div>
   );
