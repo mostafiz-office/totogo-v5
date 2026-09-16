@@ -1,13 +1,16 @@
 import { useEffect, useRef } from "react";
 import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
-import { computeRailStepFrame } from "./howItWorks.frame";
+import { computeRailFillPx } from "./howItWorks.frame";
 import "@/pages/how-it-works.css";
 
 /* Fallback only; real travel is measured from the track at runtime. */
 const TRACK_TRAVEL_PX = 1740;
 /* Reach the last step before the section ends so step 3 stays readable. */
 const TRAVEL_COMPLETE_AT = 0.85;
+/* Rail artwork geometry (src/assets/how-it-works/*.svg). */
+const RAIL_VIEWBOX_W = 2870;
+const RAIL_FIRST_BEND_X = 710.614;
 
 const STEPS = [
   {
@@ -51,51 +54,27 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const green = greenRef.current;
     if (!wrapper || !track || !green) return;
 
-    const movingSteps = Array.from(
-      track.querySelectorAll<HTMLElement>("[data-desktop-step]"),
-    );
-
-    type StepMotion = {
-      element: HTMLElement;
-      riseStartShiftPx: number;
-      risePx: number;
-      riseTravelPx: number;
-    };
-
-    let stepMotions: StepMotion[] = [];
-
     /* Distance needed so the last column ends flush with the visible edge,
        accounting for the container's left offset inside the overflow box. */
+    let stripWidthPx = track.getBoundingClientRect().width;
+    let focusPx = 0;
+
     const measure = () => {
       const overflow = track.closest(".works-overflow") as HTMLElement | null;
       if (!overflow) return TRACK_TRAVEL_PX;
       const prev = track.style.transform;
-      const previousStepTransforms = movingSteps.map((step) => step.style.transform);
       track.style.transform = "translate3d(0,0,0)";
-      movingSteps.forEach((step) => {
-        step.style.transform = "translate3d(0,0,0)";
-      });
-      const flushTravel =
-        track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
-      const presentationX = overflow.getBoundingClientRect().left + window.innerWidth * 0.25;
-      const measurements = movingSteps.map((element) => {
-        const number = element.querySelector<HTMLElement>(".number");
-        const numberX = number?.getBoundingClientRect().x ?? element.getBoundingClientRect().x;
-        return {
-          element,
-          riseStartShiftPx: Math.max(0, numberX - presentationX),
-          risePx: 270,
-          riseTravelPx: 270,
-        };
-      });
-      const lastRiseStart = measurements.at(-1)?.riseStartShiftPx ?? 0;
-      const lastRiseTravel = measurements.at(-1)?.riseTravelPx ?? 0;
+      const trackRect = track.getBoundingClientRect();
+      const flushTravel = trackRect.right - overflow.getBoundingClientRect().right;
+      stripWidthPx = trackRect.width;
+      /* First bend of the rail artwork, in strip coordinates. */
+      const railImg = track.querySelector<HTMLImageElement>(".gray-line-image");
+      if (railImg) {
+        const r = railImg.getBoundingClientRect();
+        focusPx = r.left - trackRect.left + (RAIL_FIRST_BEND_X / RAIL_VIEWBOX_W) * r.width;
+      }
       track.style.transform = prev;
-      movingSteps.forEach((step, index) => {
-        step.style.transform = previousStepTransforms[index] ?? "";
-      });
-      stepMotions = measurements;
-      return Math.max(flushTravel, lastRiseStart + lastRiseTravel, TRACK_TRAVEL_PX);
+      return Math.max(flushTravel, TRACK_TRAVEL_PX);
     };
 
     let travelPx = measure();
@@ -103,18 +82,13 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const apply = (p: number) => {
       const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
       track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
-      green.style.width = `${p * 100}%`;
-      stepMotions.forEach(({ element, riseStartShiftPx, risePx, riseTravelPx }) => {
-        const frame = computeRailStepFrame(
-          p,
-          travelPx,
-          riseStartShiftPx,
-          risePx,
-          riseTravelPx,
-          TRAVEL_COMPLETE_AT,
-        );
-        element.style.transform = `translate3d(0, ${frame.translateY}px, 0)`;
-      });
+      green.style.width = `${computeRailFillPx(
+        p,
+        travelPx,
+        focusPx,
+        stripWidthPx,
+        TRAVEL_COMPLETE_AT,
+      )}px`;
     };
 
     if (typeof forcedProgress === "number") {
@@ -193,7 +167,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       <h2 className="work-heading">{SECONDARY_HEADLINE}</h2>
                     </div>
                   </div>
-                  <div className="_w-col-third desktop-step-motion" data-desktop-step="2">
+                  <div className="_w-col-third">
                     <div className="work-content">
                       <div className="number">{STEPS[1].n}</div>
                       <div>
@@ -219,7 +193,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="_w-col-four desktop-step-motion" data-desktop-step="3">
+                  <div className="_w-col-four">
                     <div className="work-content">
                       <div className="number">{STEPS[2].n}</div>
                       <div>

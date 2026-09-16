@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   computeFrame,
   computeStackProgress,
-  computeRailStepFrame,
+  computeRailFillPx,
   TRACK_TRAVEL_PX,
   TRACK_TRAVEL_COMPLETE_AT,
 } from "./howItWorks.frame";
@@ -65,30 +65,22 @@ describe("computeStackProgress", () => {
   });
 });
 
-describe("computeRailStepFrame", () => {
-  it("does not move a step vertically before it reaches its rail bend", () => {
-    expect(computeRailStepFrame(0.2, 1800, 900, 270, 270, 0.85)).toEqual({
-      translateY: 0,
-    });
+describe("computeRailFillPx", () => {
+  it("starts at the first bend", () => {
+    expect(computeRailFillPx(0, 1800, 700, 2800, 0.85)).toBeCloseTo(700, 5);
   });
 
-  it("rises after the rail bend without producing horizontal compensation", () => {
-    const later = computeRailStepFrame(0.7, 1800, 900, 270, 270, 0.85);
-    expect(Object.keys(later)).toEqual(["translateY"]);
-    expect(later.translateY).toBeLessThan(0);
+  it("advances at the same rate as the strip travels", () => {
+    const at = (p: number) => computeRailFillPx(p, 1800, 700, 2800, 0.85);
+    expect(at(0.425) - at(0)).toBeCloseTo(900, 5);
+    expect(at(0.85) - at(0)).toBeCloseTo(1800, 5);
   });
 
-  it("finishes at the requested rise and clamps progress", () => {
-    const end = computeRailStepFrame(1, 1800, 1200, 270, 270, 0.85);
-    expect(end.translateY).toBeCloseTo(-270, 5);
-    expect(computeRailStepFrame(2, 1800, 1200, 270, 270, 0.85)).toEqual(end);
-  });
-
-  it("starts later for a later rail bend", () => {
-    const progress = 0.6;
-    const swap = computeRailStepFrame(progress, 1800, 900, 270, 270, 0.85);
-    const earn = computeRailStepFrame(progress, 1800, 1500, 270, 270, 0.85);
-    expect(swap.translateY).toBeLessThan(0);
-    expect(earn.translateY).toBe(0);
+  it("clamps to the strip width and to valid progress", () => {
+    expect(computeRailFillPx(1, 1800, 1500, 2800, 0.85)).toBe(2800);
+    expect(computeRailFillPx(2, 1800, 700, 2800, 0.85)).toBe(
+      computeRailFillPx(1, 1800, 700, 2800, 0.85),
+    );
+    expect(computeRailFillPx(-1, 1800, 700, 2800, 0.85)).toBeCloseTo(700, 5);
   });
 });

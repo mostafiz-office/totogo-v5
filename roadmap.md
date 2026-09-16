@@ -14,6 +14,6 @@
 
 ## Desktop How It Works motion correction
 
-- [x] Align SWAP and EARN vertically with their horizontal rail segments
-- [x] Keep SWAP and EARN attached to the horizontally moving rail while they rise
-- [x] Verify desktop rail-following checkpoints and unchanged mobile layout
+- [x] Seat all three steps at the same offset below their rail segment
+- [x] Move every step with the rail exactly like step 1 (no extra per-step motion)
+- [x] Sync the green fill with measured rail travel; verified 1280/1519 and mobile 393
