@@ -63,9 +63,11 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       return measured > 0 ? measured : TRACK_TRAVEL_PX;
     };
 
+    let travelPx = travel();
+
     const apply = (p: number) => {
       const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
-      track.style.transform = `translate3d(${-travel() * t}px, 0, 0)`;
+      track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
       green.style.width = `${p * 100}%`;
     };
 
