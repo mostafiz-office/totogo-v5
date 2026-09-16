@@ -89,12 +89,13 @@ const HowItWorks = ({ forcedProgress }: Props) => {
         };
       });
       const lastRiseStart = measurements.at(-1)?.riseStartShiftPx ?? 0;
+      const lastRiseTravel = measurements.at(-1)?.riseTravelPx ?? 0;
       track.style.transform = prev;
       movingSteps.forEach((step, index) => {
         step.style.transform = previousStepTransforms[index] ?? "";
       });
       stepMotions = measurements;
-      return Math.max(flushTravel, lastRiseStart, TRACK_TRAVEL_PX);
+      return Math.max(flushTravel, lastRiseStart + lastRiseTravel, TRACK_TRAVEL_PX);
     };
 
     let travelPx = measure();
