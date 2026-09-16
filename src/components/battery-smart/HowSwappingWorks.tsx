@@ -120,6 +120,7 @@ export default function HowSwappingWorks() {
               style={{ ["--sss-top" as any]: `${FIRST_STICKY_TOP + i * CARD_OFFSET}px`, zIndex: c.step }}
             >
               <article className="sss-card" data-step={c.step}>
+                <span className="sss-step-badge">0{c.step}</span>
                 <div className="sss-card-content">
                   <span className="sss-category">{c.category}</span>
                   <h3 className="sss-card-title">{c.title}</h3>
@@ -136,7 +137,6 @@ export default function HowSwappingWorks() {
                 <div className="sss-card-media" aria-hidden>
                   <div className="sss-icon-tile">
                     <c.Icon className="sss-icon" />
-                    <span className="sss-step-badge">0{c.step}</span>
                   </div>
                 </div>
               </article>
@@ -214,9 +214,11 @@ export default function HowSwappingWorks() {
           gap: 2.5rem;
           padding: clamp(1.75rem, 3vw, 2.75rem);
           overflow: hidden;
+          position: relative;
         }
         @media (max-width: 768px) {
           .sss-card { grid-template-columns: 1fr; min-height: 0; }
+          .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 1rem; }
         }
 
         .sss-card[data-step="2"] {
@@ -309,10 +311,13 @@ export default function HowSwappingWorks() {
         }
         .sss-icon { width: 38%; height: 38%; color: var(--c-tile-icon); stroke-width: 1.4; opacity: 0.98; }
         .sss-step-badge {
-          position: absolute; top: 1rem; right: 1.25rem;
+          position: absolute;
+          top: clamp(1rem, 2vw, 1.5rem);
+          right: clamp(1.25rem, 2.5vw, 2rem);
+          z-index: 2;
           font-family: 'Ubuntu', system-ui, sans-serif;
-          font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
-          color: hsl(0 0% 100% / 0.85);
+          font-size: 1rem; font-weight: 700; letter-spacing: 0.1em;
+          color: var(--c-faint);
         }
 
         @media (prefers-reduced-motion: reduce) {
