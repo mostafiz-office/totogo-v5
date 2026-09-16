@@ -15,7 +15,24 @@
 | IN-05 | Visual assets (hero graphic, icons, background) | `IN-05-visual-assets.md` | Not started |
 | IN-06 | Responsive + QA pass | `IN-06-responsive-and-qa.md` | Not started |
 
-Wireframe: `wireframe.md`
+Wireframe: `wireframe.md` — Build checklist: `CHECKLIST.md`
+
+After finishing a task, update its row in the table above to **Done**.
+
+## Resolved decisions (do not re-litigate)
+
+1. Numbers footnote is exactly `*Minimum-ticket allocations` — nothing invented.
+2. Numbers section sits on a full-width `--c-surface-alt` band (no inner card).
+3. No icons in the numbers section.
+4. Primary button = green fill with a navy label; secondary = navy outline.
+5. Hero image is newly generated as `src/assets/investment-hero.jpg`; existing
+   assets are not reused.
+6. `Request Investor Deck` and `Book a Call` both use `href="#"` for now.
+7. The page has exactly three sections — hero, numbers, CTA.
+8. `.reveal` / `.is-in` already exist globally in `src/index.css` (~597–603,
+   reduced-motion reset ~699). Reuse them; only write the IntersectionObserver.
+9. No `react-helmet` in this project — page metadata is set and restored in a
+   `useEffect` (see IN-01).
 
 ## Build order
 
