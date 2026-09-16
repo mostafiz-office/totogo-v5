@@ -53,7 +53,7 @@ const useBodyScrollLock = (locked: boolean) => {
       root.style.overflow = previousRootOverflow;
       body.style.overflow = previousBodyOverflow;
       if (window.scrollY !== savedY.current) {
-        window.scrollTo({ top: savedY.current, behavior: "instant" });
+        window.scrollTo(0, savedY.current);
       }
     };
   }, [locked]);
