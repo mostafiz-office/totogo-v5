@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "Red marked area is not accessible/readable on mobile devices"
 - **Area:** "How It Works" four-step sticky card stack
 - **Viewport in screenshot:** Mobile
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — badge moved to card top-right; mobile stack un-stickied
 
 ## Observed behaviour
 

@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "Missing card number"
 - **Area:** "How It Works" four-step sticky card stack on the landing page
 - **Viewport in screenshot:** Desktop
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — badge moved to card top-right; mobile stack un-stickied
 
 ## Observed behaviour
 
