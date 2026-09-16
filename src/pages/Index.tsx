@@ -5,7 +5,6 @@ import EVPotentialSection from "@/components/battery-smart/unleash-ev/EVPotentia
 import CTASection from "@/components/battery-smart/CTASection";
 import HowSwappingWorks from "@/components/battery-smart/HowSwappingWorks";
 import Footer from "@/components/site-footer/SiteFooter";
-import MobileQABadge from "@/components/dev/MobileQABadge";
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
         <HowSwappingWorks />
       </main>
       <Footer />
-      <MobileQABadge />
     </div>
   );
 };
