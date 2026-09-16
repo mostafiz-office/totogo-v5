@@ -1,6 +1,6 @@
 # PA-03 — Section 2, Manage Everything in One Place
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/partner-app/PartnerAppManage.tsx`
 
 - Background `--c-surface-alt`, `.sec-pad`.

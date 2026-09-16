@@ -1,6 +1,6 @@
 # PA-07 — Visual assets
 
-**Status:** Not started
+**Status:** Done
 
 ## Generate
 

@@ -1,6 +1,6 @@
 # PA-04 — Manage Everything slider
 
-**Status:** Not started
+**Status:** Done
 **Uses:** shared `SolutionSlider` (built with the Battery Swapping page). Do not fork it.
 
 ## Slides (verbatim)

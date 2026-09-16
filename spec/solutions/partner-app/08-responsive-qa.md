@@ -1,6 +1,8 @@
 # PA-08 — Responsive pass and QA
 
-**Status:** Not started
+**Status:** Done
+
+Status: Done
 
 Test `/solutions/partner-app` and `/solutions/partner-app/` at
 **360, 393, 768, 1024, 1280, 1519 px**.

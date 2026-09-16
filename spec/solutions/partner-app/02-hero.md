@@ -1,6 +1,6 @@
 # PA-02 — Section 1, Hero
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/partner-app/PartnerAppHero.tsx`
 
 ## Content (verbatim)

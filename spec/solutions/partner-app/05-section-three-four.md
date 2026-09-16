@@ -1,6 +1,6 @@
 # PA-05 — Sections 3 and 4
 
-**Status:** Not started
+**Status:** Done
 
 ## Section 3 — Built for Simple Operations
 
