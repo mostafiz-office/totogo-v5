@@ -139,3 +139,53 @@
     gap: 64px;
   }
 }
+
+/* ===== Numbers band ===== */
+.inv-page .inv-stats { background: hsl(var(--c-surface-alt)); }
+
+.inv-page .inv-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inv-page .inv-stats__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 4px;
+}
+
+.inv-page .inv-stats__value {
+  display: block;
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: hsl(var(--c-navy));
+  font-variant-numeric: tabular-nums;
+  min-width: 5ch;
+}
+
+.inv-page .inv-stats__label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: hsl(var(--c-muted));
+}
+
+.inv-page .inv-stats__note {
+  margin: 24px 0 0;
+  font-size: 12px;
+  color: hsl(var(--c-muted));
+}
+
+@media (min-width: 768px) {
+  .inv-page .inv-stats__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .inv-page .inv-stats__cell + .inv-stats__cell {
+    border-left: 1px solid hsl(var(--c-border));
+    padding-left: 24px;
+  }
+  .inv-page .inv-stats__label { font-size: 15px; }
+}

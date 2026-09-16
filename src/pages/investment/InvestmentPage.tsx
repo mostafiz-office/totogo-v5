@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import SiteHeader from "@/components/site-header/SiteHeader";
 import Footer from "@/components/site-footer/SiteFooter";
 import InvestmentHero from "@/components/investment/InvestmentHero";
+import InvestmentStats from "@/components/investment/InvestmentStats";
 import "./investment.css";
 
 const PAGE_TITLE = "Investment Opportunity | totooGO";
@@ -34,7 +35,8 @@ const InvestmentPage = () => {
       <SiteHeader />
       <main>
         <InvestmentHero />
-        {/* sections added by IN-03..IN-04 */}
+        <InvestmentStats />
+        {/* section added by IN-04 */}
       </main>
       <Footer />
     </div>
