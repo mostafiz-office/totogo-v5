@@ -10,6 +10,7 @@ import EVPotentialPage from "./pages/ev-potential/EVPotentialPage.tsx";
 import InvestmentPage from "./pages/investment/InvestmentPage.tsx";
 import BatterySwappingPage from "./pages/solutions/battery-swapping/BatterySwappingPage.tsx";
 import DriverAppPage from "./pages/solutions/driver-app/DriverAppPage.tsx";
+import PartnerAppPage from "./pages/solutions/partner-app/PartnerAppPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,8 @@ const App = () => (
           <Route path="/solutions/battery-swapping/" element={<BatterySwappingPage />} />
           <Route path="/solutions/driver-app" element={<DriverAppPage />} />
           <Route path="/solutions/driver-app/" element={<DriverAppPage />} />
+          <Route path="/solutions/partner-app" element={<PartnerAppPage />} />
+          <Route path="/solutions/partner-app/" element={<PartnerAppPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
