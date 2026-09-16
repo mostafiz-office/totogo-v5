@@ -15,6 +15,10 @@ On mobile the SWAP card is readable at the top, but the next card in the stack (
 
 On mobile, each step's full content — eyebrow, heading, body, both stats, and the step badge — can be read without another card covering it. Either the stack offsets are tuned for small screens, or the stack falls back to a simple stacked/scrolling list on mobile.
 
+## Do this together with WI-01
+
+WI-05 and WI-01 are the same sticky stack and tune the same variables. Fix them in one pass and verify both at once, otherwise the second fix re-tunes the first.
+
 ## Likely files
 
 - `src/components/battery-smart/HowSwappingWorks.tsx` — `FIRST_STICKY_TOP`, `CARD_OFFSET`, `--sss-top`, per-step `z-index`, and the scoped mobile media queries
