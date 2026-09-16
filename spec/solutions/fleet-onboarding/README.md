@@ -9,14 +9,14 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| FL-01 | Route + nav + page shell | `01-route-and-nav.md` | Not started |
-| FL-02 | Section 1 — Hero | `02-hero.md` | Not started |
-| FL-03 | Section 2 — What We Provide | `03-section-two.md` | Not started |
-| FL-04 | Feature slider | `04-slider.md` | Not started |
-| FL-05 | Sections 3 & 4 | `05-section-three-four.md` | Not started |
-| FL-06 | CTA section | `06-cta.md` | Not started |
-| FL-07 | Visual assets | `07-visuals.md` | Not started |
-| FL-08 | Responsive + QA | `08-responsive-qa.md` | Not started |
+| FL-01 | Route + nav + page shell | `01-route-and-nav.md` | Done |
+| FL-02 | Section 1 — Hero | `02-hero.md` | Done |
+| FL-03 | Section 2 — What We Provide | `03-section-two.md` | Done |
+| FL-04 | Feature slider | `04-slider.md` | Done |
+| FL-05 | Sections 3 & 4 | `05-section-three-four.md` | Done |
+| FL-06 | CTA section | `06-cta.md` | Done |
+| FL-07 | Visual assets | `07-visuals.md` | Done |
+| FL-08 | Responsive + QA | `08-responsive-qa.md` | Done |
 
 Wireframe: `wireframe.md` · Shared rules: `../shared-patterns.md`
 

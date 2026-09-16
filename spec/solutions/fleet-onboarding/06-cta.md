@@ -1,6 +1,6 @@
 # FL-06 — Closing CTA section
 
-**Status:** Not started
+**Status:** Done
 **Component:** `src/components/solutions/fleet/FleetCTA.tsx`
 **Pattern:** navy rounded card, same as `InvestmentCTA.tsx`.
 

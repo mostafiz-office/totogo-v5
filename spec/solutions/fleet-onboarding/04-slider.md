@@ -1,6 +1,6 @@
 # FL-04 — What We Provide slider
 
-**Status:** Not started
+**Status:** Done
 **Uses:** shared `SolutionSlider`. Do not fork it.
 
 ## Slides (verbatim)
