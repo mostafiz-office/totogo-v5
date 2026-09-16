@@ -1,6 +1,6 @@
 # IN-02 — Hero / Investment Opportunity section
 
-**Status:** Not started
+**Status:** Done
 **Depends on:** IN-01
 **Source:** Document "SECTION 01 — HERO / INVESTMENT OPPORTUNITY"
 

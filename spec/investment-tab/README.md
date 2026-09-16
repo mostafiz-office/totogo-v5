@@ -9,7 +9,7 @@
 | ID | Task | File | Status |
 |----|------|------|--------|
 | IN-01 | Page route + menu link | `IN-01-page-route-and-nav.md` | Done |
-| IN-02 | Hero / Investment Opportunity section | `IN-02-hero-section.md` | Not started |
+| IN-02 | Hero / Investment Opportunity section | `IN-02-hero-section.md` | Done |
 | IN-03 | Numbers (animated counters) section | `IN-03-stats-counter-section.md` | Not started |
 | IN-04 | CTA section | `IN-04-cta-section.md` | Not started |
 | IN-05 | Visual assets (hero graphic, icons, background) | `IN-05-visual-assets.md` | Not started |
