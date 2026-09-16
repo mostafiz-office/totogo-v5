@@ -56,6 +56,10 @@
 
 .bp-how-it-works .works-content {
   width: 2800px;
+  box-sizing: content-box;
+  /* Slack so the final step can slide to screen centre without exposing
+     an empty gap at the right edge of the track. */
+  padding-right: 700px;
   display: flex;
   position: relative;
   transform: translate3d(0, 0, 0);
@@ -133,7 +137,7 @@
 
 .bp-how-it-works .work-lines {
   pointer-events: none;
-  width: 100%;
+  width: 2800px;
   position: absolute;
   inset: 0;
 }

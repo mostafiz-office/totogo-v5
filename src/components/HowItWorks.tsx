@@ -55,10 +55,19 @@ const HowItWorks = ({ forcedProgress }: Props) => {
     const travel = () => {
       const overflow = track.closest(".works-overflow") as HTMLElement | null;
       if (!overflow) return TRACK_TRAVEL_PX;
+      const last = track.querySelector("._w-col-four") as HTMLElement | null;
       const prev = track.style.transform;
       track.style.transform = "translate3d(0,0,0)";
-      const measured =
-        track.getBoundingClientRect().right - overflow.getBoundingClientRect().right;
+      const ob = overflow.getBoundingClientRect();
+      let measured: number;
+      if (last) {
+        const lb = last.getBoundingClientRect();
+        /* Slide until the final step group's centre reaches the screen centre,
+           so steps 2 and 3 cross the viewport just like step 1. */
+        measured = lb.left + lb.width / 2 - (ob.left + ob.width / 2);
+      } else {
+        measured = track.getBoundingClientRect().right - ob.right;
+      }
       track.style.transform = prev;
       return measured > 0 ? measured : TRACK_TRAVEL_PX;
     };
