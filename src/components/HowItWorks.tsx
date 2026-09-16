@@ -3,7 +3,10 @@ import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
 import "@/pages/how-it-works.css";
 
+/* Fallback only; real travel is measured from the track at runtime. */
 const TRACK_TRAVEL_PX = 1740;
+/* Reach the last step before the section ends so step 3 stays readable. */
+const TRAVEL_COMPLETE_AT = 0.85;
 
 const STEPS = [
   {
