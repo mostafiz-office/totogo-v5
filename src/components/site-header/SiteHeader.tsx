@@ -47,14 +47,19 @@ const useBodyScrollLock = (locked: boolean) => {
     const body = document.body;
     const previousRootOverflow = root.style.overflow;
     const previousBodyOverflow = body.style.overflow;
+    const previousScrollBehavior = root.style.scrollBehavior;
     root.style.overflow = "hidden";
+    root.style.scrollBehavior = "auto";
     body.style.overflow = "hidden";
     return () => {
       root.style.overflow = previousRootOverflow;
       body.style.overflow = previousBodyOverflow;
       const restorePosition = () => window.scrollTo(0, savedY.current);
       restorePosition();
-      window.requestAnimationFrame(restorePosition);
+      window.requestAnimationFrame(() => {
+        restorePosition();
+        root.style.scrollBehavior = previousScrollBehavior;
+      });
     };
   }, [locked]);
 };
