@@ -1,6 +1,6 @@
 # CU-03 — "How Can We Help?" topic cards
 
-**Status:** Not started
+**Status:** Done
 
 ## Content (verbatim)
 

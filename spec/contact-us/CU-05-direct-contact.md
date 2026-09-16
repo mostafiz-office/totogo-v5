@@ -1,6 +1,6 @@
 # CU-05 — Direct Contact section
 
-**Status:** Not started
+**Status:** Done
 
 ## Content (verbatim)
 

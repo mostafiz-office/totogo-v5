@@ -1,6 +1,6 @@
 # CU-07 — Assets: hero photo and icons
 
-**Status:** Not started
+**Status:** Done
 
 ## Hero photo
 

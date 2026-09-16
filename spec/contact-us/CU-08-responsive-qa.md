@@ -1,6 +1,6 @@
 # CU-08 — Responsive QA and accessibility
 
-**Status:** Not started
+**Status:** Done
 
 ## Checks (Playwright at 360 / 768 / 1280)
 

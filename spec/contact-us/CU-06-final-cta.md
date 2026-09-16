@@ -1,6 +1,6 @@
 # CU-06 — Final CTA (navy band)
 
-**Status:** Not started
+**Status:** Done
 
 ## Content (verbatim)
 

@@ -26,3 +26,12 @@ Audit of the spec against the real codebase, before implementation.
 ## Verdict
 
 Spec is buildable as-is. All copy, routes, and destinations are decided; the only new asset is the hero photo.
+
+## Post-build verification (2026-09-16)
+
+- Playwright at 360 / 768 / 1280: title correct, one H1, no horizontal overflow, no page errors.
+- Topic card click pre-selects the matching form option and scrolls to the form.
+- Empty submit shows inline errors and focuses the first field.
+- Direct Contact mailto/tel links verified.
+- Build log: `build OK`.
+- All CU-01 → CU-08 marked Done.

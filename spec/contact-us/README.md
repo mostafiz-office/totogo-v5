@@ -72,14 +72,14 @@ Give every audience (driver, fleet operator, station partner, investor, business
 
 | ID | Task | Status |
 |----|------|--------|
-| CU-01 | Page shell, route `/contact` + `/contact/`, metadata | Not started |
-| CU-02 | Hero section + hero photo | Not started |
-| CU-03 | "How Can We Help?" topic cards (click → pre-select form topic) | Not started |
-| CU-04 | Contact form with validation + mailto submit | Not started |
-| CU-05 | Direct Contact section (investment email/phone only) | Not started |
-| CU-06 | Final CTA navy band | Not started |
-| CU-07 | Icons, hero image asset, alt text | Not started |
-| CU-08 | Responsive QA (360/768/1280), accessibility, build check | Not started |
+| CU-01 | Page shell, route `/contact` + `/contact/`, metadata | Done |
+| CU-02 | Hero section + hero photo | Done |
+| CU-03 | "How Can We Help?" topic cards (click → pre-select form topic) | Done |
+| CU-04 | Contact form with validation + mailto submit | Done |
+| CU-05 | Direct Contact section (investment email/phone only) | Done |
+| CU-06 | Final CTA navy band | Done |
+| CU-07 | Icons, hero image asset, alt text | Done |
+| CU-08 | Responsive QA (360/768/1280), accessibility, build check | Done |
 
 ## Resolved decisions
 
