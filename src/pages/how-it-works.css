@@ -50,6 +50,14 @@
   overflow: hidden;
 }
 
+/* Fade out steps that have risen above the active one. */
+@media (min-width: 992px) {
+  .bp-how-it-works .works-overflow {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 60px, #000 130px);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 60px, #000 130px);
+  }
+}
+
 .bp-how-it-works .work-block {
   padding-top: 64px;
 }

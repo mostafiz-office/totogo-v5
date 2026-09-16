@@ -34,7 +34,8 @@ export interface Frame {
 /**
  * Width of the green rail overlay in pixels. The tip stays on the card that is
  * currently presented: it starts at the first bend and advances exactly as fast
- * as the strip travels left.
+ * as the strip travels left. `leadPx` pushes the tip slightly past the elbow so
+ * the corner under the active card reads as fully green.
  */
 export function computeRailFillPx(
   progress: number,
@@ -42,14 +43,43 @@ export function computeRailFillPx(
   focusPx: number,
   stripWidthPx: number,
   travelCompleteAt = TRACK_TRAVEL_COMPLETE_AT,
+  leadPx = 0,
 ): number {
   const p = clamp01(progress);
   const safeTravel = Math.max(0, travelPx);
   const safeStrip = Math.max(0, stripWidthPx);
-  const safeFocus = Math.max(0, Math.min(safeStrip, focusPx));
+  const safeFocus = Math.max(0, Math.min(safeStrip, focusPx + Math.max(0, leadPx)));
   const trackProgress = clamp01(p / Math.max(0.01, travelCompleteAt));
   return Math.min(safeStrip, safeFocus + safeTravel * trackProgress);
 }
+
+/**
+ * Upward shift of the strip, in pixels, for a given horizontal shift.
+ * Piecewise-linear through the rail bends so each step is presented at the same
+ * screen height as the first one.
+ */
+export function computeRailRisePx(
+  shiftPx: number,
+  knotShiftPx: readonly number[],
+  knotRisePx: readonly number[],
+): number {
+  const n = Math.min(knotShiftPx.length, knotRisePx.length);
+  if (n === 0) return 0;
+  const x = Math.max(0, shiftPx);
+  if (x <= knotShiftPx[0]) {
+    const span = Math.max(1, knotShiftPx[0]);
+    return (knotRisePx[0] * x) / span;
+  }
+  for (let i = 1; i < n; i += 1) {
+    if (x <= knotShiftPx[i]) {
+      const span = Math.max(1, knotShiftPx[i] - knotShiftPx[i - 1]);
+      const t = (x - knotShiftPx[i - 1]) / span;
+      return knotRisePx[i - 1] + (knotRisePx[i] - knotRisePx[i - 1]) * t;
+    }
+  }
+  return knotRisePx[n - 1];
+}
+
 
 export function computeFrame(progress: number): Frame {
   const p = clamp01(progress);

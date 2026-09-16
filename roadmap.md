@@ -17,3 +17,5 @@
 - [x] Seat all three steps at the same offset below their rail segment
 - [x] Move every step with the rail exactly like step 1 (no extra per-step motion)
 - [x] Sync the green fill with measured rail travel; verified 1280/1519 and mobile 393
+- [x] Lift the strip so steps 2 and 3 arrive at the same screen height as step 1
+- [x] Fill the elbow fully for the active step; verified 1280/1440/1519 and mobile 393
