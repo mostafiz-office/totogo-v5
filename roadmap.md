@@ -7,7 +7,7 @@
 
 ## Mobile navbar correction
 
-- [ ] Align all primary menu rows consistently on the left
-- [ ] Place Call and Contact immediately after Tech
-- [ ] Prevent close actions from changing the page scroll position
-- [ ] Verify mobile states and unchanged desktop navbar
+- [x] Align all primary menu rows consistently on the left
+- [x] Place Call and Contact immediately after Tech
+- [x] Prevent close actions from changing the page scroll position
+- [x] Verify mobile states and unchanged desktop navbar

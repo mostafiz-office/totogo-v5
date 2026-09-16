@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "Redesign the navbar"
 - **Area:** Site header — mobile top bar and open drawer only; desktop stays unchanged
 - **Viewport in screenshot:** Mobile, menu open
-- **Status:** **Fixed (2026-09-16) — mobile-only full redesign verified at 360px, 393px, and 768px; desktop unchanged at 1280px**
+- **Status:** **Fixed and refined (2026-09-16) — all mobile labels now share one left-aligned style, dropdowns align left, Call and Contact follow Tech, and closing preserves scroll position; verified at 360px, 393px, and 768px with desktop unchanged at 1280px**
 
 ## Observed behaviour
 
