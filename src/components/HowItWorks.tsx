@@ -167,7 +167,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       <h2 className="work-heading">{SECONDARY_HEADLINE}</h2>
                     </div>
                   </div>
-                  <div className="_w-col-third desktop-step-motion" data-desktop-step="2">
+                  <div className="_w-col-third">
                     <div className="work-content">
                       <div className="number">{STEPS[1].n}</div>
                       <div>
@@ -193,7 +193,7 @@ const HowItWorks = ({ forcedProgress }: Props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="_w-col-four desktop-step-motion" data-desktop-step="3">
+                  <div className="_w-col-four">
                     <div className="work-content">
                       <div className="number">{STEPS[2].n}</div>
                       <div>

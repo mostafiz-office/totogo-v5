@@ -165,10 +165,6 @@
   .bp-how-it-works .bp-mobile .num-para { font-size: 18px; line-height: 24px; }
 }
 
-@media (prefers-reduced-motion: reduce) and (min-width: 992px) {
-  .bp-how-it-works .desktop-step-motion { transform: none !important; }
-}
-
 /* Sticky step cards, desktop keeps default/transparent background */
 
 /* Mobile stacked cards reuse the same palette, keyed on data-step (stable) */
