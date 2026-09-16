@@ -50,7 +50,7 @@ IN-01 → IN-02 → IN-03 → IN-04 → IN-05 → IN-06
    - No brown / warm tan anywhere (removed site-wide earlier).
 3. **Spacing** — use the shared section tokens `.sec-pad` / `.sec-pad-b` (`--sec-y`: 56px mobile / 80px tablet / 112px desktop). Horizontal padding `px-4 sm:px-6 md:px-[var(--pad-x)]`, content capped at `max-width: 1200px`.
 4. **Typography** — inherit the homepage scale. One `<h1>` per page. Headings in navy, body copy in `--c-muted`.
-5. **Motion** — scroll reveal copies the IntersectionObserver `.reveal` / `.is-in` pattern in `CTASection.tsx`; single run, unobserve after firing. Every animation must be disabled under `@media (prefers-reduced-motion: reduce)`.
+5. **Motion** — reuse the global `.reveal` / `.is-in` classes already in `src/index.css`; write only the IntersectionObserver (same shape as `CTASection.tsx`), single run, unobserve after firing. JS-driven motion such as the counters must check `prefers-reduced-motion` itself.
 6. **Accessibility** — semantic `<section>` landmarks, `aria-label` on each section, focus-visible rings, minimum 44px touch targets, text contrast ≥ 4.5:1 (white on navy, navy on mint).
 7. **Links** — per client decision, "Request Investor Deck" and "Book a Call" both use `href="#"` for now. No form, no Calendly link, no backend. Buttons must still be keyboard focusable and styled as real CTAs so wiring them later is a one-line change.
 
