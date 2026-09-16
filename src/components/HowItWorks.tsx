@@ -8,6 +8,9 @@ import "@/pages/how-it-works.css";
 const TRACK_TRAVEL_PX = 1740;
 /* Reach the last step before the section ends so step 3 stays readable. */
 const TRAVEL_COMPLETE_AT = 0.85;
+/* Rail artwork geometry (src/assets/how-it-works/*.svg). */
+const RAIL_VIEWBOX_W = 2870;
+const RAIL_FIRST_BEND_X = 710.614;
 
 const STEPS = [
   {
