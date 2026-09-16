@@ -5,7 +5,7 @@
 - **Client remark (verbatim):** "This blurr on mobile devices is not necessary."
 - **Area:** Photo below the "Join our waitlist" block (CTA section)
 - **Viewport in screenshot:** Mobile
-- **Status:** Not started
+- **Status:** Fixed (2026-09-16) — gradient overlay hidden below `md:` breakpoint; verified at 360px (overlay `display:none`, image clean edge to edge) and desktop fade preserved at 1280px.
 
 ## Observed behaviour
 
