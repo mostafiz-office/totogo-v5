@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   computeFrame,
   computeStackProgress,
-  computePinnedStepFrame,
+  computeRailStepFrame,
   TRACK_TRAVEL_PX,
   TRACK_TRAVEL_COMPLETE_AT,
 } from "./howItWorks.frame";
@@ -65,25 +65,30 @@ describe("computeStackProgress", () => {
   });
 });
 
-describe("computePinnedStepFrame", () => {
-  it("does not offset a step before it reaches its presentation point", () => {
-    expect(computePinnedStepFrame(0.2, 1800, 900, 270, 0.85)).toEqual({
-      compensateX: 0,
+describe("computeRailStepFrame", () => {
+  it("does not move a step vertically before it reaches its rail bend", () => {
+    expect(computeRailStepFrame(0.2, 1800, 900, 270, 270, 0.85)).toEqual({
       translateY: 0,
     });
   });
 
-  it("holds horizontal position and rises after reaching the pin", () => {
-    const atPin = computePinnedStepFrame(0.35, 1800, 900, 270, 0.85);
-    const later = computePinnedStepFrame(0.7, 1800, 900, 270, 0.85);
-    expect(atPin.compensateX).toBeCloseTo(0, 5);
-    expect(later.compensateX).toBeGreaterThan(0);
+  it("rises after the rail bend without producing horizontal compensation", () => {
+    const later = computeRailStepFrame(0.7, 1800, 900, 270, 270, 0.85);
+    expect(Object.keys(later)).toEqual(["translateY"]);
     expect(later.translateY).toBeLessThan(0);
   });
 
   it("finishes at the requested rise and clamps progress", () => {
-    const end = computePinnedStepFrame(1, 1800, 1500, 270, 1);
+    const end = computeRailStepFrame(1, 1800, 1200, 270, 270, 0.85);
     expect(end.translateY).toBeCloseTo(-270, 5);
-    expect(computePinnedStepFrame(2, 1800, 1500, 270, 1)).toEqual(end);
+    expect(computeRailStepFrame(2, 1800, 1200, 270, 270, 0.85)).toEqual(end);
+  });
+
+  it("starts later for a later rail bend", () => {
+    const progress = 0.6;
+    const swap = computeRailStepFrame(progress, 1800, 900, 270, 270, 0.85);
+    const earn = computeRailStepFrame(progress, 1800, 1500, 270, 270, 0.85);
+    expect(swap.translateY).toBeLessThan(0);
+    expect(earn.translateY).toBe(0);
   });
 });

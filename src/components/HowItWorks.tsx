@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import grayLine from "@/assets/how-it-works/light.svg";
 import greenLine from "@/assets/how-it-works/green.svg";
-import { computePinnedStepFrame } from "./howItWorks.frame";
+import { computeRailStepFrame } from "./howItWorks.frame";
 import "@/pages/how-it-works.css";
 
 /* Fallback only; real travel is measured from the track at runtime. */
@@ -57,9 +57,9 @@ const HowItWorks = ({ forcedProgress }: Props) => {
 
     type StepMotion = {
       element: HTMLElement;
-      pinShiftPx: number;
+      riseStartShiftPx: number;
       risePx: number;
-      riseCompleteAt: number;
+      riseTravelPx: number;
     };
 
     let stepMotions: StepMotion[] = [];
@@ -81,21 +81,21 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       const measurements = movingSteps.map((element) => {
         const number = element.querySelector<HTMLElement>(".number");
         const numberX = number?.getBoundingClientRect().x ?? element.getBoundingClientRect().x;
-        const step = Number(element.dataset.desktopStep);
         return {
           element,
-          pinShiftPx: Math.max(0, numberX - presentationX),
+          riseStartShiftPx: Math.max(0, numberX - presentationX),
           risePx: 270,
-          riseCompleteAt: step === 2 ? TRAVEL_COMPLETE_AT : 1,
+          riseTravelPx: 270,
         };
       });
-      const lastPin = measurements.at(-1)?.pinShiftPx ?? 0;
+      const lastRiseStart = measurements.at(-1)?.riseStartShiftPx ?? 0;
+      const lastRiseTravel = measurements.at(-1)?.riseTravelPx ?? 0;
       track.style.transform = prev;
       movingSteps.forEach((step, index) => {
         step.style.transform = previousStepTransforms[index] ?? "";
       });
       stepMotions = measurements;
-      return Math.max(flushTravel, lastPin, TRACK_TRAVEL_PX);
+      return Math.max(flushTravel, lastRiseStart + lastRiseTravel, TRACK_TRAVEL_PX);
     };
 
     let travelPx = measure();
@@ -104,16 +104,16 @@ const HowItWorks = ({ forcedProgress }: Props) => {
       const t = Math.min(1, p / TRAVEL_COMPLETE_AT);
       track.style.transform = `translate3d(${-travelPx * t}px, 0, 0)`;
       green.style.width = `${p * 100}%`;
-      stepMotions.forEach(({ element, pinShiftPx, risePx, riseCompleteAt }) => {
-        const frame = computePinnedStepFrame(
+      stepMotions.forEach(({ element, riseStartShiftPx, risePx, riseTravelPx }) => {
+        const frame = computeRailStepFrame(
           p,
           travelPx,
-          pinShiftPx,
+          riseStartShiftPx,
           risePx,
-          riseCompleteAt,
+          riseTravelPx,
           TRAVEL_COMPLETE_AT,
         );
-        element.style.transform = `translate3d(${frame.compensateX}px, ${frame.translateY}px, 0)`;
+        element.style.transform = `translate3d(0, ${frame.translateY}px, 0)`;
       });
     };
 
