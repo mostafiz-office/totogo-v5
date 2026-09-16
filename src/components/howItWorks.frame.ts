@@ -31,36 +31,24 @@ export interface Frame {
   steps: Record<1 | 2 | 3, StepFrame>;
 }
 
-export interface RailStepFrame {
-  translateY: number;
-}
-
 /**
- * Keeps horizontal movement on the shared rail track and adds only the
- * vertical movement that begins when a step reaches its rail bend.
+ * Width of the green rail overlay in pixels. The tip stays on the card that is
+ * currently presented: it starts at the first bend and advances exactly as fast
+ * as the strip travels left.
  */
-export function computeRailStepFrame(
+export function computeRailFillPx(
   progress: number,
   travelPx: number,
-  riseStartShiftPx: number,
-  risePx: number,
-  riseTravelPx = risePx,
+  focusPx: number,
+  stripWidthPx: number,
   travelCompleteAt = TRACK_TRAVEL_COMPLETE_AT,
-): RailStepFrame {
+): number {
   const p = clamp01(progress);
   const safeTravel = Math.max(0, travelPx);
-  const safeStart = Math.max(0, Math.min(safeTravel, riseStartShiftPx));
-  const safeRiseTravel = Math.max(0, riseTravelPx);
-  const safeTravelCompleteAt = Math.max(0.01, travelCompleteAt);
-  const trackProgress = clamp01(p / safeTravelCompleteAt);
-  const currentShift = safeTravel * trackProgress;
-  const riseProgress = safeRiseTravel === 0
-    ? Number(currentShift >= safeStart)
-    : smoothstep(clamp01((currentShift - safeStart) / safeRiseTravel));
-
-  return {
-    translateY: riseProgress === 0 ? 0 : -Math.max(0, risePx) * riseProgress,
-  };
+  const safeStrip = Math.max(0, stripWidthPx);
+  const safeFocus = Math.max(0, Math.min(safeStrip, focusPx));
+  const trackProgress = clamp01(p / Math.max(0.01, travelCompleteAt));
+  return Math.min(safeStrip, safeFocus + safeTravel * trackProgress);
 }
 
 export function computeFrame(progress: number): Frame {
