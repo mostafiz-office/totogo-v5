@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import totoogoLogo from "@/assets/totoogo-logo.png";
 import NavItemLink, { isRouteActive } from "./NavItemLink";
 import CallBookPill from "./CallBookPill";
@@ -83,6 +84,15 @@ const SiteHeader = ({
     setExpandedMobile(null);
   }, [path]);
 
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setDrawerOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [drawerOpen]);
+
   return (
     <header
       className="site-header"
@@ -90,11 +100,11 @@ const SiteHeader = ({
       data-scrolled={scrolled || undefined}
     >
       <div
-        className="mx-auto flex h-[70px] max-w-[1440px] items-center justify-between"
+        className="site-header-inner mx-auto flex h-[70px] max-w-[1440px] items-center justify-between"
         style={{ paddingLeft: "var(--pad-x)", paddingRight: "var(--pad-x)" }}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center" aria-label="totooGO home">
+        <a href="/" className="site-header-logo flex items-center" aria-label="totooGO home">
           <img
             src={logoSrc}
             alt="totooGO"
@@ -128,23 +138,24 @@ const SiteHeader = ({
           {/* Mobile-only quick Call pill */}
           <a
             href={primaryCta.href}
-            className="inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-sm font-semibold text-white shadow-sm lg:hidden"
-            style={{ backgroundColor: "#0E1613" }}
+            className="site-mobile-call lg:hidden"
             aria-label={`Call: ${primaryCta.label}`}
           >
             <Phone size={16} strokeWidth={2.5} />
             <span>Call</span>
           </a>
-          <button
+          <Button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-lg lg:hidden"
+            variant="ghost"
+            size="icon"
+            className="site-mobile-menu-toggle lg:hidden"
             aria-label={drawerOpen ? "Close menu" : "Open menu"}
             aria-expanded={drawerOpen}
+            aria-controls="mobile-primary-menu"
             onClick={() => setDrawerOpen((o) => !o)}
-            style={{ color: "hsl(var(--c-blue))" }}
           >
             {drawerOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -156,10 +167,12 @@ const SiteHeader = ({
             onClick={() => setDrawerOpen(false)}
             aria-hidden="true"
           />
-          <div className="site-mobile-panel lg:hidden">
-            <nav aria-label="Mobile primary" className="flex flex-col gap-1 p-4">
+           <div className="site-mobile-panel lg:hidden" id="mobile-primary-menu">
+             <nav aria-label="Mobile primary" className="site-mobile-nav">
+               <div className="site-mobile-menu-label">Menu</div>
               {navLinks.map((item) => {
-                const hasChildren = !!item.children?.length;
+                 const children = item.children ?? [];
+                 const hasChildren = children.length > 0;
                 const isExpanded = expandedMobile === item.label;
                 const active = isRouteActive(path, item.path);
                 if (!hasChildren) {
@@ -177,8 +190,9 @@ const SiteHeader = ({
                 }
                 return (
                   <div key={item.label}>
-                    <button
+                    <Button
                       type="button"
+                      variant="ghost"
                       className="site-mobile-link"
                       data-open={isExpanded || undefined}
                       data-active={active || undefined}
@@ -189,10 +203,10 @@ const SiteHeader = ({
                     >
                       <span>{item.label}</span>
                       <ChevronDown size={16} className="chev" aria-hidden="true" />
-                    </button>
+                    </Button>
                     {isExpanded && (
                       <div className="site-mobile-children">
-                        {item.children!.map((c) => (
+                         {children.map((c) => (
                           <a
                             key={c.path}
                             href={c.path}
@@ -212,8 +226,14 @@ const SiteHeader = ({
                 );
               })}
 
-              <div className="mt-4">
-                <CallBookPill call={primaryCta} book={secondaryCta} />
+               <div className="site-mobile-actions">
+                 <a className="site-mobile-action-call" href={primaryCta.href}>
+                   <Phone size={18} aria-hidden="true" />
+                   <span>{primaryCta.label}</span>
+                 </a>
+                 <a className="site-mobile-action-contact" href={secondaryCta.href}>
+                   <span>{secondaryCta.label}</span>
+                 </a>
               </div>
             </nav>
           </div>
