@@ -18,7 +18,6 @@ const Index = () => {
         <HowSwappingWorks />
       </main>
       <Footer />
-      <MobileQABadge />
     </div>
   );
 };
