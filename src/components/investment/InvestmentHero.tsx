@@ -47,7 +47,16 @@ const InvestmentHero = () => {
 
         <div className="inv-hero__visual reveal" style={{ ["--i" as string]: 1 }}>
           <div className="inv-hero__glow" aria-hidden="true" />
-          <div className="inv-hero__panel" />
+          <div className="inv-hero__panel">
+            <img
+              src={investmentHero}
+              alt="Electric three-wheeler at a totooGO battery swapping station"
+              width={1200}
+              height={912}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </div>
     </section>
