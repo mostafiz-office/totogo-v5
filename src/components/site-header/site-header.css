@@ -277,6 +277,9 @@
   overscroll-behavior: contain;
   animation: site-mobile-in 220ms var(--ease-out);
 }
+html:has(.site-mobile-panel) {
+  overflow-anchor: none;
+}
 @keyframes site-fade {
   from { opacity: 0; } to { opacity: 1; }
 }

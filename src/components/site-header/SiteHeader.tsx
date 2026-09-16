@@ -52,9 +52,9 @@ const useBodyScrollLock = (locked: boolean) => {
     return () => {
       root.style.overflow = previousRootOverflow;
       body.style.overflow = previousBodyOverflow;
-      if (window.scrollY !== savedY.current) {
-        window.scrollTo(0, savedY.current);
-      }
+      const restorePosition = () => window.scrollTo(0, savedY.current);
+      restorePosition();
+      window.requestAnimationFrame(restorePosition);
     };
   }, [locked]);
 };
