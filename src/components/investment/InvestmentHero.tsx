@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import investmentHero from "@/assets/investment-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "./useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const InvestmentHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const InvestmentHero = () => {
             Join Our Current Pre-Seed Round
           </span>
 
-          <h1 className="inv-hero__title text-balance">
-            Invest in a New Era of Mobility
-          </h1>
+          <BrandHeading as="h1" lead="Invest in a" accent="New Era of Mobility" className="inv-hero__title" />
 
           <p className="inv-hero__lead">
             totooGO is building an end-to-end electric mobility ecosystem designed for

@@ -1,4 +1,5 @@
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const USE_CASES = [
   "Passenger transport",
@@ -14,7 +15,7 @@ const FleetCommercial = () => {
   return (
     <section ref={ref} className="fl-commercial sec-pad" aria-label="Built for Commercial Use">
       <div className="fl-shell fl-commercial__inner">
-        <h2 className="fl-h2 reveal">Built for Commercial Use</h2>
+        <BrandHeading as="h2" lead="Built for" accent="Commercial Use" className="fl-h2 reveal" />
         <p className="fl-commercial__intro reveal" style={{ ["--i" as string]: 1 }}>
           Ideal for:
         </p>

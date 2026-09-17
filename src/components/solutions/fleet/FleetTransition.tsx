@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const CHAIN = ["Vehicles", "Batteries", "Swapping", "Technology", "Support"];
 
@@ -9,7 +10,7 @@ const FleetTransition = () => {
   return (
     <section ref={ref} className="fl-transition sec-pad" aria-label="A Complete Transition">
       <div className="fl-shell fl-transition__inner">
-        <h2 className="fl-h2 reveal">A Complete Transition</h2>
+        <BrandHeading as="h2" lead="A" accent="Complete Transition" className="fl-h2 reveal" />
         <p className="fl-transition__body reveal" style={{ ["--i" as string]: 1 }}>
           totooGO supports the shift from conventional vehicles to electric
           through one connected ecosystem.

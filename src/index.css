@@ -93,7 +93,10 @@
     --ev-card-border: var(--c-border);
 
     --shadow-card: 0 1px 2px hsl(var(--c-ink) / 0.05), 0 8px 24px hsl(var(--c-primary-brand) / 0.08);
-    --shadow-nav:  0 2px 12px hsl(var(--c-primary-brand) / 0.08);
+    --shadow-nav-rest: 0 3px 14px hsl(var(--c-navy) / 0.09);
+    --shadow-nav: 0 6px 22px hsl(var(--c-navy) / 0.14);
+    --shadow-heading: 1px 1px 0 hsl(var(--c-navy) / 0.28);
+    --shadow-heading-accent: 1px 1px 0 hsl(var(--c-ink) / 0.24);
 
     --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -127,26 +130,7 @@
     border-radius: 4px;
   }
 
-  /* ---- Heading: persistent directional ink shadow; darker text on hover ----
-     Drop shadow is always visible. On hover, text color deepens to navy. */
-  h1, h2, h3 {
-    text-shadow: rgb(var(--hover-shadow-ink)) 1px 0.7px 0px;
-    transition: color 0.3s ease;
-  }
-  h1:hover, h2:hover, h3:hover,
-  h1:focus-within, h2:focus-within, h3:focus-within {
-    color: hsl(var(--primary-darker));
-  }
-  /* Opt-out for headings on dark backgrounds where navy hover would vanish */
-  .cta-heading,
-  .cta-heading:hover,
-  .cta-heading:focus-within {
-    color: #fff !important;
-    text-shadow: none;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    h1, h2, h3 { transition: none; }
-  }
+  h1, h2, h3 { text-shadow: var(--shadow-heading); }
 
   /* ---- Hide legacy Battery Smart branded marks inside the hero SVG ----
      - `#loader` group: BS-branded animated loader vehicle.
@@ -207,6 +191,99 @@
 }
 
 @layer components {
+  .brand-heading {
+    color: hsl(var(--c-navy));
+    letter-spacing: 0;
+    text-shadow: var(--shadow-heading);
+  }
+  .brand-heading__accent {
+    color: hsl(var(--c-green-deep));
+    text-shadow: var(--shadow-heading-accent);
+  }
+  .home-brand-cta { background: hsl(var(--c-green-soft)); }
+  .home-brand-cta__title { font-size: clamp(28px, 4vw, 52px); line-height: 1.15; font-weight: 700; }
+  .home-brand-cta__icon { background: hsl(var(--c-green) / 0.18); border-color: hsl(var(--c-green) / 0.45); }
+  .home-brand-cta__icon-svg { color: hsl(var(--c-green)); }
+  .home-brand-cta__bullet-title { color: hsl(var(--c-ink)); }
+  .home-brand-cta__bullet-body { color: hsl(var(--c-ink) / 0.72); }
+  .home-brand-cta__button { background: hsl(var(--c-green)); color: hsl(var(--c-ink)); }
+  .home-brand-cta__button:hover { background: hsl(var(--c-green-deep)); }
+  .home-brand-cta__image-fade { background: linear-gradient(90deg, hsl(var(--c-green-soft)), hsl(var(--c-green-soft) / 0.4) 25%, transparent 60%); }
+  .home-brand-cta__line { background: linear-gradient(90deg, hsl(var(--c-green)), hsl(var(--c-navy)), hsl(var(--c-green))); }
+
+  .brand-cta {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    border-radius: 2rem;
+    background: hsl(var(--c-green-soft));
+    box-shadow: var(--shadow-card);
+  }
+  .brand-cta__copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 24px;
+  }
+  .brand-cta__title {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.12;
+    font-weight: 700;
+  }
+  .brand-cta__body {
+    max-width: 54ch;
+    margin-top: 18px;
+    color: hsl(var(--c-ink) / 0.76);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .brand-cta__body > * { margin: 0; color: inherit !important; }
+  .brand-cta__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .brand-cta__actions > * { min-height: 48px; }
+  .brand-cta__actions [class*="--onnavy"],
+  .brand-cta__actions [class*="--ghost"] {
+    border: 1px solid hsl(var(--c-navy) / 0.45);
+    background: transparent;
+    color: hsl(var(--c-navy));
+  }
+  .brand-cta__actions [class*="--onnavy"]:hover,
+  .brand-cta__actions [class*="--ghost"]:hover {
+    border-color: hsl(var(--c-navy));
+    background: hsl(var(--c-navy));
+    color: hsl(var(--c-surface));
+  }
+  .brand-cta__visual { position: relative; min-height: 280px; overflow: hidden; }
+  .brand-cta__visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .brand-cta__fade { display: none; }
+  .brand-cta__line {
+    position: absolute;
+    inset: auto 0 0;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--c-green)), hsl(var(--c-navy)), hsl(var(--c-green)));
+  }
+  @media (min-width: 640px) {
+    .brand-cta__actions { flex-direction: row; }
+    .brand-cta__actions > * { width: auto !important; }
+  }
+  @media (min-width: 768px) {
+    .brand-cta { grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr); }
+    .brand-cta__copy { padding: 56px 48px; }
+    .brand-cta__visual { min-height: 460px; }
+    .brand-cta__visual img { position: absolute; inset: 0; }
+    .brand-cta__fade {
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, hsl(var(--c-green-soft)), hsl(var(--c-green-soft) / 0.35) 24%, transparent 58%);
+    }
+  }
   /* ===== Hero (Battery Smart spec, vw-scaled) =====
      Source: live CSS chunks 32f7e6a4007c4c3e.css + 23d241854e0729b8.css
      Title: TT Firs Neue Trl 600 (substituted with Manrope), centered, line-height 1.6, capitalize

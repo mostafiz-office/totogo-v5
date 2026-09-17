@@ -1,6 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import BrandHeading from "@/components/shared/BrandHeading";
+import BrandCTA from "@/components/shared/BrandCTA";
+import heroImage from "@/assets/the-idea-hero.jpg";
 import { useReveal } from "@/components/investment/useReveal";
 
 const IdeaVisionCTA = () => {
@@ -10,7 +13,7 @@ const IdeaVisionCTA = () => {
     <section ref={ref} className="ti-vision sec-pad" aria-label="The bigger vision">
       <div className="ti-shell">
         <div className="ti-intro ti-intro--center reveal">
-          <h2 className="ti-h2">From Three-Wheelers to a Connected Electric Future</h2>
+          <BrandHeading lead="From Three-Wheelers to a" accent="Connected Electric Future" className="ti-h2" />
           <p className="ti-intro__body">
             totooGO starts with high-usage 2- and 3-wheel mobility, but the
             ecosystem is designed to grow into delivery fleets, cargo transport,
@@ -19,20 +22,21 @@ const IdeaVisionCTA = () => {
           </p>
         </div>
 
-        <div className="ti-cta__card reveal" style={{ ["--i" as string]: 1 }}>
-          <div className="ti-cta__glow" aria-hidden="true" />
-          <h3 className="ti-cta__title text-balance">
-            One Network. Multiple Possibilities.
-          </h3>
-          <div className="ti-cta__actions">
+        <BrandCTA
+          className="ti-cta__brand"
+          image={heroImage}
+          imageAlt="Connected electric mobility ecosystem in Bangladesh"
+          lead="One Network."
+          accent="Multiple Possibilities."
+          actions={
             <Button asChild className="ti-btn ti-btn--primary">
               <Link to="/solutions/battery-swapping/">
                 Explore Our Solutions
                 <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
-          </div>
-        </div>
+          }
+        />
       </div>
     </section>
   );

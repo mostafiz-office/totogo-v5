@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const PartnerAppGrow = () => {
   const ref = useReveal<HTMLElement>();
@@ -8,7 +9,7 @@ const PartnerAppGrow = () => {
   return (
     <section ref={ref} className="pa-grow sec-pad" aria-label="Grow with the network">
       <div className="pa-shell pa-grow__inner">
-        <h2 className="pa-h2 reveal">Grow With the Network</h2>
+        <BrandHeading as="h2" lead="Grow With" accent="the Network" className="pa-h2 reveal" />
         <p className="pa-grow__body reveal" style={{ ["--i" as string]: 1 }}>
           Become part of totooGO&rsquo;s expanding battery-swapping ecosystem and
           support the transition to electric mobility.

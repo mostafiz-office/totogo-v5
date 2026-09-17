@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/the-idea-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const CHIPS = ["Electric Vehicles", "Battery Swapping", "Technology", "Financing"];
 
@@ -17,9 +18,7 @@ const IdeaHero = () => {
             The Idea
           </span>
 
-          <h1 className="ti-hero__title text-balance">
-            A Better Way to Move Bangladesh
-          </h1>
+          <BrandHeading as="h1" lead="A Better Way to" accent="Move Bangladesh" className="ti-hero__title" />
 
           <p className="ti-hero__lead">
             totooGO is building a cleaner, safer, and more affordable mobility

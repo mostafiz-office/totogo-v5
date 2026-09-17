@@ -1,5 +1,6 @@
 import { Headset, Truck, Handshake, TrendingUp, ArrowDown } from "lucide-react";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 export const TOPIC_OPTIONS = [
   "Driver Support",
@@ -60,7 +61,7 @@ const ContactTopics = ({ onSelect }: ContactTopicsProps) => {
     <section ref={ref} className="cu-topics sec-pad" aria-label="How can we help">
       <div className="cu-shell">
         <div className="cu-intro reveal">
-          <h2 className="cu-h2">Choose What You&rsquo;d Like to Talk About</h2>
+          <BrandHeading as="h2" lead="Choose What You’d Like" accent="to Talk About" className="cu-h2" />
         </div>
 
         <ul className="cu-topic-cards">

@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BrandCTA from "@/components/shared/BrandCTA";
+import heroImage from "@/assets/investment-hero.jpg";
 import { useReveal } from "./useReveal";
 
 const InvestmentCTA = () => {
@@ -12,15 +14,14 @@ const InvestmentCTA = () => {
       aria-label="Explore the investment opportunity"
     >
       <div className="inv-shell">
-        <div className="inv-cta__card reveal">
-          <div className="inv-cta__glow" aria-hidden="true" />
-          <h2 className="inv-cta__title text-balance">
-            Explore the Investment Opportunity
-          </h2>
-          <p className="inv-cta__line">
-            We are creating more than an electric vehicle company.
-          </p>
-          <div className="inv-cta__actions">
+        <BrandCTA
+          image={heroImage}
+          imageAlt="totooGO electric mobility and battery-swapping investment opportunity"
+          lead="Explore the"
+          accent="Investment Opportunity"
+          body={<p>We are creating more than an electric vehicle company.</p>}
+          actions={
+            <>
             <Button asChild className="inv-btn inv-btn--primary">
               <a href="#" data-cta="investor-deck">
                 Request Investor Deck
@@ -32,8 +33,9 @@ const InvestmentCTA = () => {
                 Book a Call
               </a>
             </Button>
-          </div>
-        </div>
+            </>
+          }
+        />
       </div>
     </section>
   );

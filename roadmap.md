@@ -11,3 +11,10 @@
 - [x] Place Call and Contact immediately after Tech
 - [x] Prevent close actions from changing the page scroll position
 - [x] Verify mobile states and unchanged desktop navbar
+
+## Homepage-style visual consistency
+
+- [x] Standardize header shadow at the top and after scrolling
+- [x] Add green highlights and directional shadows to all major inner-page headings
+- [x] Replace seven compact closing cards with responsive image-led layouts
+- [x] Verify 48 responsive page views with no horizontal overflow or page errors

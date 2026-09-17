@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/contact-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const ContactHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const ContactHero = () => {
             Contact Us
           </span>
 
-          <h1 className="cu-hero__title text-balance">
-            Let&rsquo;s Build the Future of Mobility Together
-          </h1>
+          <BrandHeading as="h1" lead="Let’s Build the" accent="Future of Mobility Together" className="cu-hero__title" />
 
           <p className="cu-hero__lead">
             Whether you&rsquo;re a driver, fleet operator, station partner,

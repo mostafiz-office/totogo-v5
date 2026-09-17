@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/solutions-battery-swapping-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const BatterySwapHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const BatterySwapHero = () => {
             Battery Swapping
           </span>
 
-          <h1 className="bs-hero__title text-balance">
-            Swap in Minutes. Stay on the Road.
-          </h1>
+          <BrandHeading as="h1" lead="Swap in Minutes." accent="Stay on the Road." className="bs-hero__title" />
 
           <p className="bs-hero__lead">
             Replace a depleted battery quickly and get back to work without long

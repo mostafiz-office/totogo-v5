@@ -1,6 +1,7 @@
 import { History, MapPin, Radio, Wallet } from "lucide-react";
 import SolutionSlider, { type SolutionSlide } from "@/components/solutions/SolutionSlider";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const SLIDES: SolutionSlide[] = [
   {
@@ -31,7 +32,7 @@ const DriverAppFeatures = () => {
   return (
     <section ref={ref} className="da-features sec-pad" aria-label="Key features">
       <div className="da-shell">
-        <h2 className="da-h2 reveal">Key Features</h2>
+        <BrandHeading as="h2" lead="Key" accent="Features" className="da-h2 reveal" />
         <div className="reveal" style={{ ["--i" as string]: 1 }}>
           <SolutionSlider slides={SLIDES} ariaLabel="Driver App key features" />
         </div>

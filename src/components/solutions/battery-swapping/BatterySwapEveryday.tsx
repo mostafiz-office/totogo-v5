@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const BatterySwapEveryday = () => {
   const ref = useReveal<HTMLElement>();
@@ -11,7 +12,7 @@ const BatterySwapEveryday = () => {
       aria-label="Built for everyday mobility"
     >
       <div className="bs-shell bs-everyday__inner reveal">
-        <h2 className="bs-h2">Built for Everyday Mobility</h2>
+        <BrandHeading as="h2" lead="Built for" accent="Everyday Mobility" className="bs-h2" />
         <p className="bs-everyday__body">
           Designed for electric three-wheelers, delivery vehicles, commercial fleets,
           and other high-usage EVs.

@@ -1,4 +1,5 @@
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const STEPS = [
   { title: "Arrive", body: "Visit the nearest totooGO swapping station." },
@@ -12,7 +13,7 @@ const BatterySwapSteps = () => {
   return (
     <section ref={ref} className="bs-steps sec-pad" aria-label="How it works">
       <div className="bs-shell">
-        <h2 className="bs-h2 reveal">How It Works</h2>
+        <BrandHeading as="h2" lead="How" accent="It Works" className="bs-h2 reveal" />
 
         <div className="bs-steps__grid">
           {STEPS.map((step, i) => (

@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const ITEMS = [
   { title: "Fast Swapping", body: "Minimize downtime between journeys." },
@@ -25,7 +26,7 @@ const IdeaWhy = () => {
     <section ref={ref} className="ti-why sec-pad" aria-label="Why it matters">
       <div className="ti-shell">
         <div className="ti-intro reveal">
-          <h2 className="ti-h2">More Time on the Road. Lower Barriers to Electric.</h2>
+          <BrandHeading as="h2" lead="More Time on the Road." accent="Lower Barriers to Electric." className="ti-h2" />
           <p className="ti-intro__body">
             Our approach is designed around the real needs of drivers and
             commercial operators.

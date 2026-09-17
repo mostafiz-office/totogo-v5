@@ -1,4 +1,5 @@
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const DriverAppDesigned = () => {
   const ref = useReveal<HTMLElement>();
@@ -6,7 +7,7 @@ const DriverAppDesigned = () => {
   return (
     <section ref={ref} className="da-designed sec-pad" aria-label="Designed around drivers">
       <div className="da-shell da-designed__inner">
-        <h2 className="da-h2 reveal">Designed Around Drivers</h2>
+        <BrandHeading as="h2" lead="Designed" accent="Around Drivers" className="da-h2 reveal" />
         <p className="da-designed__lead reveal" style={{ ["--i" as string]: 1 }}>
           Less searching. Less waiting. More time on the road.
         </p>
