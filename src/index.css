@@ -96,7 +96,7 @@
     --shadow-nav-rest: 0 3px 14px hsl(var(--c-navy) / 0.09);
     --shadow-nav: 0 6px 22px hsl(var(--c-navy) / 0.14);
     --shadow-heading: 1px 1px 0 hsl(var(--c-navy) / 0.28);
-    --shadow-heading-accent: 1px 1px 0 hsl(var(--c-ink) / 0.24);
+    --shadow-heading-on-dark: 1px 1px 0 hsl(var(--c-ink) / 0.35);
 
     --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -196,9 +196,20 @@
     letter-spacing: 0;
     text-shadow: var(--shadow-heading);
   }
+  .brand-heading__lead,
   .brand-heading__accent {
-    color: hsl(var(--c-green-deep));
-    text-shadow: var(--shadow-heading-accent);
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    text-shadow: var(--shadow-heading);
+  }
+  .brand-heading__accent {
+    color: hsl(var(--c-green));
+  }
+  .brand-heading--on-dark,
+  .brand-heading--on-dark .brand-heading__lead,
+  .brand-heading--on-dark .brand-heading__accent {
+    text-shadow: var(--shadow-heading-on-dark);
   }
   .home-brand-cta { background: hsl(var(--c-green-soft)); }
   .home-brand-cta__title { font-size: clamp(28px, 4vw, 52px); line-height: 1.15; font-weight: 700; }
@@ -408,14 +419,9 @@
   }
   .bs-rotating-title .bs-rt-line { display: inline-block; }
   .bs-rotating-title .bs-rt-lead  { color: hsl(var(--c-navy)); margin-right: 0.2em; }
-  .bs-rotating-title .bs-rt-accent {
-    color: hsl(var(--c-green-tree));
-    transition: color 0.3s ease;
-  }
-  .bs-rotating-title:hover .bs-rt-accent,
-  .bs-rotating-title .bs-rt-accent:hover {
-    color: hsl(var(--c-green-bright));
-  }
+  .bs-rotating-title .bs-rt-accent { color: hsl(var(--c-green)); }
+  .bs-rotating-title .bs-rt-lead,
+  .bs-rotating-title .bs-rt-accent { text-shadow: var(--shadow-heading); }
   /* Override the legacy per-span fixed height so the rotating headline
      wraps naturally without clipping. */
   .Title_Title__h9OBl.Title_l1__MDOub.bs-rotating-title span {

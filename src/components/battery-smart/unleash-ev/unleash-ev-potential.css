@@ -63,6 +63,7 @@
 
 .uev-title {
   font-size: clamp(36px, 5vw, 72px);
+  text-shadow: var(--shadow-heading);
 }
 
 /* ---------- Vehicle cards row ---------- */

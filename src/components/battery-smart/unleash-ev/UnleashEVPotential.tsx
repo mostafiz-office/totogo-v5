@@ -85,12 +85,12 @@ const UnleashEVPotential = () => {
 
       <div className="uev-heading uev-reveal">
         <div className="uev-title">
-          <span style={{ color: "#002366" }}>Unleashing </span>
-          <span style={{ color: "#00CE7E" }}>EV</span>
+          <span style={{ color: "hsl(var(--c-navy))" }}>Unleashing </span>
+          <span style={{ color: "hsl(var(--c-green))" }}>EV</span>
         </div>
         <div className="uev-title">
-          <span style={{ color: "#00CE7E" }}>Potential </span>
-          <span style={{ color: "#002366" }}>For</span>
+          <span style={{ color: "hsl(var(--c-green))" }}>Potential </span>
+          <span style={{ color: "hsl(var(--c-navy))" }}>For</span>
         </div>
       </div>
 
