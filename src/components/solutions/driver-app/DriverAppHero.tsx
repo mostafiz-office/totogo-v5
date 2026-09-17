@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/solutions-driver-app-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const DriverAppHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const DriverAppHero = () => {
             Driver App
           </span>
 
-          <h1 className="da-hero__title text-balance">
-            Everything a Driver Needs, in One App.
-          </h1>
+          <BrandHeading as="h1" lead="Everything a Driver Needs," accent="in One App." className="da-hero__title" />
 
           <p className="da-hero__lead">
             Find nearby swap stations, manage your battery usage, and stay

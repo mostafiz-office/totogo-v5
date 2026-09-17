@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BrandCTA from "@/components/shared/BrandCTA";
+import heroImage from "@/assets/solutions-battery-swapping-hero.jpg";
 import { useReveal } from "@/components/investment/useReveal";
 
 const BatterySwapCTA = () => {
@@ -12,15 +14,15 @@ const BatterySwapCTA = () => {
       aria-label="Find your nearest swap station"
     >
       <div className="bs-shell">
-        <div className="bs-cta__card reveal">
-          <div className="bs-cta__glow" aria-hidden="true" />
-          <h2 className="bs-cta__title text-balance">
-            Find Your Nearest Swap Station
-          </h2>
-          <p className="bs-cta__line">
+        <BrandCTA
+          image={heroImage}
+          imageAlt="Driver using a totooGO battery swapping station"
+          lead="Find Your"
+          accent="Nearest Swap Station"
+          body={<p>
             Join the totooGO battery swapping network and keep your vehicle on the road.
-          </p>
-          <div className="bs-cta__actions">
+          </p>}
+          actions={<>
             <Button asChild className="bs-btn bs-btn--primary">
               <a href="#" data-cta="find-swap-station">
                 Find a Swap Station
@@ -32,8 +34,8 @@ const BatterySwapCTA = () => {
                 Explore the Network
               </a>
             </Button>
-          </div>
-        </div>
+          </>}
+        />
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
 import { TOPIC_OPTIONS, type TopicOption } from "./ContactTopics";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 type ContactFormProps = {
   topic: TopicOption | "";
@@ -64,7 +65,7 @@ const ContactForm = ({ topic, onTopicChange }: ContactFormProps) => {
     <section ref={ref} id="contact-form" className="cu-form sec-pad" aria-label="Contact form">
       <div className="cu-shell">
         <div className="cu-intro reveal">
-          <h2 className="cu-h2">Send Us a Message</h2>
+          <BrandHeading as="h2" lead="Send Us" accent="a Message" className="cu-h2" />
         </div>
 
         <form className="cu-form__card reveal" onSubmit={handleSubmit} noValidate>

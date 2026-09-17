@@ -1,5 +1,6 @@
 import { HandCoins, ShieldAlert, Timer, Wallet } from "lucide-react";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const CARDS = [
   {
@@ -31,7 +32,7 @@ const IdeaProblem = () => {
     <section ref={ref} className="ti-problem sec-pad" aria-label="The problem">
       <div className="ti-shell">
         <div className="ti-intro ti-intro--center reveal">
-          <h2 className="ti-h2">Mobility Should Work Better</h2>
+          <BrandHeading as="h2" lead="Mobility Should" accent="Work Better" className="ti-h2" />
           <p className="ti-intro__body">
             Millions of drivers and passengers still depend on vehicles that are
             inefficient, unsafe, expensive to operate, and difficult to finance.

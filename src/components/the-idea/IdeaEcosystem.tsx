@@ -1,6 +1,7 @@
 import { BadgePercent, BatteryCharging, CarFront, Cpu, Repeat } from "lucide-react";
 import SolutionSlider, { type SolutionSlide } from "@/components/solutions/SolutionSlider";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const SLIDES: SolutionSlide[] = [
   {
@@ -42,7 +43,7 @@ const IdeaEcosystem = () => {
     >
       <div className="ti-shell">
         <div className="ti-intro reveal">
-          <h2 className="ti-h2">Build the Entire Ecosystem, Not Just the Vehicle</h2>
+          <BrandHeading as="h2" lead="Build the Entire Ecosystem," accent="Not Just the Vehicle" className="ti-h2" />
           <p className="ti-intro__body">
             totooGO connects the essential parts of electric mobility into one
             platform.

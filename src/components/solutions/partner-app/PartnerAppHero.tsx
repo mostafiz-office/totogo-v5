@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/solutions-partner-app-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const PartnerAppHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const PartnerAppHero = () => {
             Partner App
           </span>
 
-          <h1 className="pa-hero__title text-balance">
-            Run Your Swap Station Smarter.
-          </h1>
+          <BrandHeading as="h1" lead="Run Your Swap Station" accent="Smarter." className="pa-hero__title" />
 
           <p className="pa-hero__lead">
             The totooGO Partner App gives station operators the tools to manage

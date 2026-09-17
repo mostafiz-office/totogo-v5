@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, Zap, RefreshCw, ShieldCheck } from "lucide-react";
 import ctaImage from "@/assets/ev-ownership-cta-v8.jpg";
+import { Button } from "@/components/ui/button";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const bullets = [
   {
@@ -46,40 +48,21 @@ const CTASection = () => {
       id="contact"
     >
       <div className="mx-auto max-w-[1200px]">
-        <div
-          className="relative overflow-hidden rounded-[2rem]"
-          style={{ backgroundColor: "#CFF1DF" }}
-        >
+        <div className="home-brand-cta relative overflow-hidden rounded-[2rem]">
           {/* Ambient glow */}
           <div
             className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full opacity-30 blur-[120px]"
-            style={{ background: "hsl(var(--c-green))" }}
             aria-hidden="true"
           />
           <div
             className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full opacity-25 blur-[120px]"
-            style={{ background: "#00A866" }}
             aria-hidden="true"
           />
 
           <div className="relative grid items-stretch gap-0 md:grid-cols-2">
             {/* Left: text */}
             <div className="reveal p-5 sm:p-12 md:p-16">
-              <h2
-                className="cta-heading mb-6 font-bold sm:mb-10"
-                style={{
-                  fontFamily: "'Rubik', system-ui, sans-serif",
-                  fontSize: "clamp(1.6rem, 6vw, 52px)",
-                  lineHeight: 1.15,
-                  letterSpacing: "-0.01em",
-                  color: "#0E1613",
-                }}
-              >
-                <span style={{ color: "#0E1613" }}>Ready to</span>{" "}
-                <span style={{ color: "hsl(var(--c-green-tree))", textShadow: "1px 0.7px 0 hsl(150 30% 8% / 0.25)" }}>
-                  earn more?
-                </span>
-              </h2>
+              <BrandHeading lead="Ready to" accent="earn more?" className="home-brand-cta__title mb-6 sm:mb-10" />
 
               <ul
                 className="mb-12 space-y-6"
@@ -87,30 +70,18 @@ const CTASection = () => {
               >
                 {bullets.map(({ title, desc, Icon }) => (
                   <li key={title} className="group flex items-start gap-4">
-                    <span
-                      className="mt-0.5 grid h-10 w-10 flex-shrink-0 place-items-center rounded-full border transition-colors duration-300 group-hover:border-transparent"
-                      style={{
-                        backgroundColor: "hsl(var(--c-green) / 0.18)",
-                        borderColor: "hsl(var(--c-green) / 0.45)",
-                      }}
-                    >
+                    <span className="home-brand-cta__icon mt-0.5 grid h-10 w-10 flex-shrink-0 place-items-center rounded-full border transition-colors duration-300 group-hover:border-transparent">
                       <Icon
                         size={18}
                         strokeWidth={2.5}
-                        style={{ color: "hsl(var(--c-green))" }}
+                        className="home-brand-cta__icon-svg"
                       />
                     </span>
                     <div>
-                      <p
-                        className="text-base font-semibold leading-snug md:text-lg"
-                        style={{ color: "#0E1613" }}
-                      >
+                      <p className="home-brand-cta__bullet-title text-base font-semibold leading-snug md:text-lg">
                         {title}
                       </p>
-                      <p
-                        className="mt-1 text-sm leading-relaxed md:text-[15px]"
-                        style={{ color: "#0E1613", opacity: 0.72 }}
-                      >
+                      <p className="home-brand-cta__bullet-body mt-1 text-sm leading-relaxed md:text-[15px]">
                         {desc}
                       </p>
                     </div>
@@ -118,21 +89,12 @@ const CTASection = () => {
                 ))}
               </ul>
 
-              <a
-                href="#"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_hsl(var(--c-green)/0.5)] sm:w-auto sm:px-8"
-                style={{
-                  fontFamily: "'Poppins', system-ui, sans-serif",
-                  backgroundColor: "hsl(var(--c-green))",
-                  color: "#0f2417",
-                }}
-              >
-                Join our waitlist
-                <ArrowRight
-                  size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
+              <Button asChild className="home-brand-cta__button group h-auto w-full rounded-full px-6 py-4 text-base font-semibold sm:w-auto sm:px-8">
+                <a href="#">
+                  Join our waitlist
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </Button>
             </div>
 
             {/* Right: image */}
@@ -148,26 +110,12 @@ const CTASection = () => {
               />
               {/* Fade only on desktop side-by-side layout; on mobile the image
                   stacks below the text and must render clean edge to edge (WI-03) */}
-              <div
-                className="absolute inset-0 hidden md:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #CFF1DF 0%, rgba(207,241,223,0.4) 25%, transparent 60%)",
-                }}
-                aria-hidden="true"
-              />
+              <div className="home-brand-cta__image-fade absolute inset-0 hidden md:block" aria-hidden="true" />
             </div>
           </div>
 
           {/* Brand bottom line */}
-          <div
-            className="absolute bottom-0 left-0 h-1 w-full"
-            style={{
-              background:
-                "linear-gradient(90deg, hsl(var(--c-green)), #002366, hsl(var(--c-green)))",
-            }}
-            aria-hidden="true"
-          />
+          <div className="home-brand-cta__line absolute bottom-0 left-0 h-1 w-full" aria-hidden="true" />
         </div>
       </div>
     </section>

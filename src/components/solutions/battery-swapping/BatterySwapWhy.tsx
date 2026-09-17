@@ -1,6 +1,7 @@
 import { Activity, BatteryCharging, Timer, Truck, Wallet } from "lucide-react";
 import SolutionSlider, { type SolutionSlide } from "@/components/solutions/SolutionSlider";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const SLIDES: SolutionSlide[] = [
   { title: "Fast turnaround", icon: <Timer /> },
@@ -16,7 +17,7 @@ const BatterySwapWhy = () => {
   return (
     <section ref={ref} className="bs-why sec-pad" aria-label="Why battery swapping">
       <div className="bs-shell">
-        <h2 className="bs-h2 reveal">Why Battery Swapping</h2>
+        <BrandHeading as="h2" lead="Why" accent="Battery Swapping" className="bs-h2 reveal" />
         <div className="reveal" style={{ ["--i" as string]: 1 }}>
           <SolutionSlider slides={SLIDES} ariaLabel="Why battery swapping" />
         </div>

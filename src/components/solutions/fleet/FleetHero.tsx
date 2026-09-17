@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/solutions-fleet-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const FleetHero = () => {
   const ref = useReveal<HTMLElement>();
@@ -15,9 +16,7 @@ const FleetHero = () => {
             Fleet Onboarding
           </span>
 
-          <h1 className="fl-hero__title text-balance">
-            Move Your Fleet to Electric.
-          </h1>
+          <BrandHeading as="h1" lead="Move Your Fleet" accent="to Electric." className="fl-hero__title" />
 
           <p className="fl-hero__lead">
             Transition your 2- and 3-wheeler fleet to electric mobility with

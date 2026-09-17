@@ -1,6 +1,7 @@
 import { BatteryCharging, Bike, Cpu, Wrench } from "lucide-react";
 import SolutionSlider, { type SolutionSlide } from "@/components/solutions/SolutionSlider";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const SLIDES: SolutionSlide[] = [
   {
@@ -31,7 +32,7 @@ const FleetProvide = () => {
   return (
     <section ref={ref} className="fl-provide sec-pad" aria-label="What We Provide">
       <div className="fl-shell">
-        <h2 className="fl-h2 reveal">What We Provide</h2>
+        <BrandHeading as="h2" lead="What" accent="We Provide" className="fl-h2 reveal" />
         <div className="reveal" style={{ ["--i" as string]: 1 }}>
           <SolutionSlider slides={SLIDES} ariaLabel="What totooGO provides for fleets" />
         </div>

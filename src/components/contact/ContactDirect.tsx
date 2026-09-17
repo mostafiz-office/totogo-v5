@@ -1,5 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const ContactDirect = () => {
   const ref = useReveal<HTMLElement>();
@@ -8,7 +9,7 @@ const ContactDirect = () => {
     <section ref={ref} className="cu-direct sec-pad" aria-label="Direct contact">
       <div className="cu-shell">
         <div className="cu-intro reveal">
-          <h2 className="cu-h2">Prefer to Reach Us Directly?</h2>
+          <BrandHeading as="h2" lead="Prefer to Reach Us" accent="Directly?" className="cu-h2" />
         </div>
 
         <ul className="cu-direct__cards">

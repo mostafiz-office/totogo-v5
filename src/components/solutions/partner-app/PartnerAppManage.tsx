@@ -1,6 +1,7 @@
 import { BatteryCharging, Gauge, Receipt, Repeat } from "lucide-react";
 import SolutionSlider, { type SolutionSlide } from "@/components/solutions/SolutionSlider";
 import { useReveal } from "@/components/investment/useReveal";
+import BrandHeading from "@/components/shared/BrandHeading";
 
 const SLIDES: SolutionSlide[] = [
   {
@@ -31,7 +32,7 @@ const PartnerAppManage = () => {
   return (
     <section ref={ref} className="pa-manage sec-pad" aria-label="Manage everything in one place">
       <div className="pa-shell">
-        <h2 className="pa-h2 reveal">Manage Everything in One Place</h2>
+        <BrandHeading as="h2" lead="Manage Everything" accent="in One Place" className="pa-h2 reveal" />
         <div className="reveal" style={{ ["--i" as string]: 1 }}>
           <SolutionSlider slides={SLIDES} ariaLabel="Partner App station tools" />
         </div>
