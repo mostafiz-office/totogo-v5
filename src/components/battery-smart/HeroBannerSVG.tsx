@@ -2430,7 +2430,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   };
 
   return (
-    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#batteryIcon]:hidden [&_#battery]:hidden [&_#Union_6]:hidden [&_#Union_8]:hidden [&_#Union_9]:hidden [&_#Union_10]:hidden [&_#Group_193]:hidden [&_#Group_339]:hidden [&_#Group_379]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
+    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#batteryIcon]:hidden [&_#battery]:hidden [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
       <div className="relative" dangerouslySetInnerHTML={{ __html: svgMarkup }} />
 
       {/* Floating tooltip callouts (BatterySmart-style). Two static tooltips. */}
