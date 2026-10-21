@@ -13,7 +13,8 @@ const EVPotentialSection = () => {
         /src="\/_next\/image\?url=%2F_next%2Fstatic%2Fmedia%2FgreenBackground[^"]*"/g,
         'src="/greenBackground.webp"',
       )
-      .replace('viewBox="0 0 1109 7155"', 'viewBox="0 0 1109 1700"');
+      .replace('viewBox="0 0 1109 7155"', 'viewBox="0 0 1109 1700"')
+      .replace(/<stop stop-color="white"><\/stop>/g, '<stop stop-color="#00ce7e"></stop>');
     setHtml(fixed);
   }, []);
 
@@ -30,7 +31,7 @@ const EVPotentialSection = () => {
           }
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0.05 },
     );
     if (row) io.observe(row);
     if (heading) io.observe(heading);
