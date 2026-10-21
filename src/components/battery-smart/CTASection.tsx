@@ -45,7 +45,7 @@ const CTASection = () => {
   return (
     <section
       ref={sectionRef}
-      className="sec-pad relative overflow-hidden bg-[hsl(var(--c-green-soft))]/40 px-4 sm:px-6 md:px-[var(--pad-x)]"
+      className="relative overflow-hidden bg-[hsl(var(--c-green-soft))]/40 px-4 sm:px-6 md:px-[var(--pad-x)] py-8 md:py-14 lg:py-16"
       id="contact"
     >
       <div className="mx-auto max-w-[1200px]">

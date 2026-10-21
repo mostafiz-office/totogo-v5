@@ -1,7 +1,7 @@
 /* Extracted from BatterySmart/css5.css + css6.css for the Unleash EV section */
 
 .evp-page { --green:#00ce7e; --blue:#002366; --dark:#0E1613; background:#fff; min-height:100vh; overflow-x:hidden; }
-.evp-section { min-height: 0 !important; overflow: hidden !important; padding-bottom: 4rem; margin-top: 0 !important; padding-top: 0 !important; position: relative !important; z-index: 10; }
+.evp-section { min-height: 0 !important; overflow: hidden !important; padding-bottom: 5rem !important; margin-top: 0 !important; padding-top: 0 !important; position: relative !important; z-index: 10; }
 .evp-page .text-dark-blue { color: var(--blue); }
 .evp-page .text-green { color: var(--green); }
 
@@ -36,9 +36,10 @@
 
 /* Mobile */
 @media screen and (max-width: 768px) {
+  .evp-section { padding-bottom: 1.5rem !important; }
   .evp-page .Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 20px !important; }
   .evp-page .Typography_Body__be3dk.Typography_xl__lpgwQ.Typography_l1__hmn5V { font-size: 4.8vw; }
-  .evp-page .VehicleContainer_vehicleContainer__qSz35 { position: relative; padding-top: 2.5rem; }
+  .evp-page .VehicleContainer_vehicleContainer__qSz35 { position: relative; padding-top: 1.5rem; }
   .evp-page .VehicleContainer_vehicleContainer__qSz35 .VehicleContainer_lineContainer__wTVu6 .VehicleContainer_flowLineContainer__Py1Df {
   position: absolute; top: 0; left: 0; width: 100%; z-index: 1; margin-inline: auto; display: flex; justify-content: center; margin-top: 0 !important;
 }

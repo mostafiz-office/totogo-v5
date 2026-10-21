@@ -98,8 +98,8 @@ export default function HowSwappingWorks() {
       id="how-swapping-works"
       aria-label="How totooGO works in four steps"
     >
-      <div className="container max-w-[1248px] mx-auto px-6 py-14 md:py-20 lg:py-28">
-        <div className="sss-head-wrap text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+      <div className="container max-w-[1248px] mx-auto px-6 pt-8 pb-14 md:pt-12 md:pb-20 lg:pt-14 lg:pb-20">
+        <div className="sss-head-wrap text-center mb-10 md:mb-14 max-w-3xl mx-auto">
           <p className="sss-eyebrow">HOW IT WORKS</p>
           <h2 className="sss-heading">
             Own &amp; earn your freedom, buy, swap, earn, in <em>four simple steps</em>
