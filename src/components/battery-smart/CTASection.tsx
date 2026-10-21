@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, Zap, RefreshCw, ShieldCheck } from "lucide-react";
-import ctaImage from "@/assets/ev-ownership-cta-v8.jpg";
+import ctaDesktopImage from "@/assets/ev-ownership-cta-v8.jpg";
+import ctaMobileImage from "@/assets/ev-ownership-cta-mobile.jpg";
 import { Button } from "@/components/ui/button";
 import BrandHeading from "@/components/shared/BrandHeading";
 
@@ -98,16 +99,17 @@ const CTASection = () => {
             </div>
 
             {/* Right: image */}
-            <div className="reveal relative min-h-[340px] overflow-hidden md:min-h-full">
-              <img
-                src={ctaImage}
-                alt="Green Bangladeshi CNG auto-rickshaw next to a battery swapping cabinet with taka coins"
-                loading="lazy"
-                width={1280}
-                height={896}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "right center" }}
-              />
+            <div className="reveal relative min-h-[320px] sm:min-h-[380px] md:min-h-full overflow-hidden">
+              <picture className="block absolute inset-0 h-full w-full">
+                <source media="(min-width: 768px)" srcSet={ctaDesktopImage} />
+                <img
+                  src={ctaMobileImage}
+                  alt="Green Bangladeshi CNG auto-rickshaw next to a totooGO battery swapping cabinet"
+                  width={1024}
+                  height={686}
+                  className="h-full w-full object-cover object-[70%_center] md:object-[right_center]"
+                />
+              </picture>
               {/* Fade only on desktop side-by-side layout; on mobile the image
                   stacks below the text and must render clean edge to edge (WI-03) */}
               <div className="home-brand-cta__image-fade absolute inset-0 hidden md:block" aria-hidden="true" />

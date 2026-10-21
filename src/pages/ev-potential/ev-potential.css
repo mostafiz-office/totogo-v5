@@ -1,7 +1,7 @@
 /* Extracted from BatterySmart/css5.css + css6.css for the Unleash EV section */
 
 .evp-page { --green:#00ce7e; --blue:#002366; --dark:#0E1613; background:#fff; min-height:100vh; overflow-x:hidden; }
-.evp-section { min-height: 0 !important; overflow: visible !important; padding-bottom: var(--sec-y); margin-top: -30vw; }
+.evp-section { min-height: 0 !important; overflow: hidden !important; padding-bottom: var(--sec-y); margin-top: 0 !important; padding-top: 40px; position: relative !important; z-index: 10; }
 .evp-page .text-dark-blue { color: var(--blue); }
 .evp-page .text-green { color: var(--green); }
 
