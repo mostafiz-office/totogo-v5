@@ -2433,41 +2433,6 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#batteryIcon]:hidden [&_#battery]:hidden [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
       <div className="relative" dangerouslySetInnerHTML={{ __html: svgMarkup }} />
 
-      {/* Floating tooltip callouts (BatterySmart-style). Two static tooltips. */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true">
-        {[
-          { top: "58%", left: "4%", title: "Compatible With Both Electric 2 & 3-Wheelers", delay: "0.2s" },
-          { top: "62%", right: "5%", title: "Dense Battery Swapping Stations Network", delay: "0.5s" },
-        ].map((t, i) => (
-          <div
-            key={i}
-            className="absolute animate-fade-in"
-            style={{
-              top: t.top,
-              left: (t as any).left,
-              right: (t as any).right,
-              animationDelay: t.delay,
-              animationDuration: "0.8s",
-              animationFillMode: "both",
-            }}
-          >
-            <div
-              className="relative rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(14,22,19,0.18)] px-4 py-2.5 border border-[#D7E4DE]"
-              style={{ maxWidth: 260 }}
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="inline-flex w-7 h-7 rounded-full bg-[#00CE7E]/15 items-center justify-center shrink-0">
-                  <span className="w-2 h-2 rounded-full bg-[#00CE7E] animate-pulse" />
-                </span>
-                <span className="text-[12px] leading-tight font-semibold text-[#0E1613]">
-                  {t.title}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
 
 
 
