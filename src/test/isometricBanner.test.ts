@@ -209,18 +209,22 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('id="groceryProduceDisplay"');
     expect(heroSvgMarkup).toContain('id="groceryShopper1"');
 
-    // 4. Lower-Right Foreground Plot: Modern Grocery Supermarket Building
+    // 4. Lower-Right Foreground Plot: Modern Grocery Mart & Fresh Fruit Store (image_9a101f.png Reference Match)
     expect(heroSvgMarkup).toContain('id="shopSupermarket"');
     expect(heroSvgMarkup).toContain('tg-supermarket-building');
     expect(heroSvgMarkup).toContain('id="supermarketAwning"');
     expect(heroSvgMarkup).toContain('id="supermarketSignboard"');
-    expect(heroSvgMarkup).toContain('id="crateApplesCitrus"');
-    expect(heroSvgMarkup).toContain('id="crateGreensCarrots"');
-    expect(heroSvgMarkup).toContain('id="stackedSideCrates"');
-    expect(heroSvgMarkup).toContain('id="supermarketAFrameSign"');
-    expect(heroSvgMarkup).toContain('id="supermarketShoppingBaskets"');
-    expect(heroSvgMarkup).toContain('id="supermarketPottedPlant"');
-    expect(heroSvgMarkup).toContain('id="supermarketCustomer"');
+    expect(heroSvgMarkup).toContain('id="supermarketAcUnit"');
+    expect(heroSvgMarkup).toContain('id="supermarketSideTree"');
+    expect(heroSvgMarkup).toContain('id="supermarketGlassDoors"');
+    expect(heroSvgMarkup).toContain('id="crateCitrusLemons"');
+    expect(heroSvgMarkup).toContain('id="crateGreenCabbages"');
+    expect(heroSvgMarkup).toContain('id="crateRedApplesTomatoes"');
+    expect(heroSvgMarkup).toContain('id="crateOrangeCitrus"');
+    expect(heroSvgMarkup).toContain('id="supermarketShopper1"');
+    expect(heroSvgMarkup).toContain('id="supermarketShopper2"');
+    expect(heroSvgMarkup).toContain('id="supermarketShopper3"');
+    expect(heroSvgMarkup).toContain('id="supermarketShopper4"');
 
     // 5. Vacant Plot to the Left of main totooGo station: Traditional Tea Stall / Cafe (চায়ের দোকান)
     expect(heroSvgMarkup).toContain('id="shopTraditionalTeaStall"');
