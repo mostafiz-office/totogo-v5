@@ -208,6 +208,19 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('id="groceryProduceDisplay"');
     expect(heroSvgMarkup).toContain('id="groceryShopper1"');
 
+    // 4. Lower-Right Foreground Plot: Modern Grocery Supermarket Building
+    expect(heroSvgMarkup).toContain('id="shopSupermarket"');
+    expect(heroSvgMarkup).toContain('tg-supermarket-building');
+    expect(heroSvgMarkup).toContain('id="supermarketAwning"');
+    expect(heroSvgMarkup).toContain('id="supermarketSignboard"');
+    expect(heroSvgMarkup).toContain('id="crateApplesCitrus"');
+    expect(heroSvgMarkup).toContain('id="crateGreensCarrots"');
+    expect(heroSvgMarkup).toContain('id="stackedSideCrates"');
+    expect(heroSvgMarkup).toContain('id="supermarketAFrameSign"');
+    expect(heroSvgMarkup).toContain('id="supermarketShoppingBaskets"');
+    expect(heroSvgMarkup).toContain('id="supermarketPottedPlant"');
+    expect(heroSvgMarkup).toContain('id="supermarketCustomer"');
+
     // Confirms removed shops are not present
     expect(heroSvgMarkup).not.toContain('id="shopTeaStall"');
     expect(heroSvgMarkup).not.toContain('id="shopTelecomKiosk"');

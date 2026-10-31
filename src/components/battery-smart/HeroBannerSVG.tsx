@@ -75,11 +75,14 @@ const HQ_COLLISION_ELEMENT_IDS: string[] = [];
 const TREE_IDS = [
   "firstTreeIn2WheelerWay",
   "extraTree1",
+  "extraTree2",
   "extraTree3",
   "extraTree4",
   "extraTree5",
+  "extraTree6",
   "treeBesideRoad",
   "treeNearStation",
+  "tgSolarParkTree",
 ];
 
 function buildVehicles(timing: Record<VehicleId, VehicleTiming>): VehicleSpec[] {
@@ -894,6 +897,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   // runtime replacement stretched the PNG and applied shear, which made the
   // building drift off the road grid. Prefer the existing overlay from the SVG,
   // and create an image fallback only if that overlay is missing.
+  // Keep the HQ locked to the source SVG's road-aligned placement.
   useLayoutEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
@@ -1072,35 +1076,8 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   // sibling. Downstream palette, animation, and paint-order effects then pick
   // it up like any other vehicle.
   useLayoutEffect(() => {
-    const root = wrapRef.current;
-    if (!root) return;
-    const svg = root.querySelector("svg");
-    if (!svg) return;
-    if (svg.querySelector('[id="threeWheeler2"]')) return;
-    const source = svg.querySelector<SVGGElement>('[id="threeWheelerHero"]');
-    if (!source || !source.parentNode) return;
-    const clone = source.cloneNode(true) as SVGGElement;
-    clone.setAttribute("id", "threeWheeler2");
-    // Strip inner ids from the clone so duplicate DOM ids do not collide with
-    // the original (`Vector 167_2`, etc. are queried elsewhere).
-    clone.querySelectorAll<SVGElement>("[id]").forEach((el) => el.removeAttribute("id"));
-    // Wrap the clone in an outer <g> that owns a lane offset. GSAP animates
-    // the aliased outer group (#threeWheeler2) with x/y transforms and each
-    // rebuild calls removeAttribute("transform") on it, which would wipe any
-    // offset written directly on the aliased node. Nesting the offset on an
-    // inner <g> keeps threeWheeler2 on a different lane from threeWheelerHero
-    // so the two autos never overlap on repeat, even though they share the
-    // same route vector.
-    const laneOffset = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    // Iso-lane shift: push #2 back along the road axis so it trails hero on
-    // a parallel lane instead of driving the exact same visual line.
-    laneOffset.setAttribute("transform", "translate(-160 -82)");
-    while (clone.firstChild) laneOffset.appendChild(clone.firstChild);
-    clone.appendChild(laneOffset);
-    source.parentNode.insertBefore(clone, source.nextSibling);
-    return () => {
-      clone.remove();
-    };
+    // Only animate the single passenger 3-wheeler on the road as in the reference sequence
+    return () => {};
   }, [svgMarkup]);
 
 
@@ -1281,8 +1258,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   const vehicles = useMemo(() => buildVehicles(scaledTiming), [scaledTiming]);
   const specById = useMemo(() => new Map(vehicles.map((v) => [v.id, v])), [vehicles]);
 
-  // ── Intro callouts: run ONCE per SVG mount so they don't re-fire on every
-  //    speed/lock edit.
+  // ── A11y & Palettes setup
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
@@ -1302,51 +1278,6 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       el.setAttribute("focusable", "false");
       el.setAttribute("aria-hidden", "true");
     });
-
-    const tweens: Array<gsap.core.Timeline | gsap.core.Tween> = [];
-
-    // Initial hidden state for every callout.
-    Object.entries(CALLOUT_STYLE).forEach(([id, style]) => {
-      const el = svg.querySelector<SVGGElement>(`#${id}`);
-      if (!el) return;
-      el.style.transform = "";
-      if (style.kind === "scale") {
-        gsap.set(el, { transformOrigin: style.origin, scale: 0, opacity: 0 });
-      } else {
-        gsap.set(el, { opacity: 0 });
-      }
-    });
-
-    // Per-callout extra delay (seconds). Used to hold back specific chips so
-    // they appear later in the page-load timeline.
-    const EXTRA_DELAY: Record<string, number> = {
-      quickBatterySwapping: 8, // "2-Minute Battery Swap", surface ~10s in
-    };
-
-    // Reveal in ordered pairs.
-    CALLOUT_SEQUENCE.forEach((pair, beatIdx) => {
-      pair.forEach((id, withinPair) => {
-        const el = svg.querySelector<SVGGElement>(`#${id}`);
-        const style = CALLOUT_STYLE[id];
-        if (!el || !style) return;
-        const delay =
-          FIRST_BEAT + beatIdx * BEAT_GAP + withinPair * PAIR_STAGGER + (EXTRA_DELAY[id] ?? 0);
-        if (style.kind === "scale") {
-          tweens.push(
-            gsap.to(el, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)", delay }),
-          );
-        } else {
-          tweens.push(
-            gsap.to(el, { opacity: 1, duration: 0.7, ease: "power3.out", delay }),
-          );
-        }
-      });
-    });
-
-
-    return () => {
-      tweens.forEach((t) => t.kill());
-    };
   }, [svgMarkup]);
 
   // Battery Smart cube-top emblems: hide small white wave/dot paths that sit
@@ -1435,7 +1366,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     //    The tooltip never animates in because its anchor vehicle
     //    (`twoWheeler1`) is missing from the current SVG export, so the
     //    default position leaks a white rectangle under the tree.
-    ["Vector_1333", "PartnerApp"].forEach((id) => {
+    ["Vector_1333"].forEach((id) => {
       const el = svg.querySelector<SVGElement>(`[id="${CSS.escape(id)}"]`);
       if (el) {
         (el as unknown as HTMLElement).style.display = "none";
@@ -1448,16 +1379,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     //    linked to its subject via its existing leader/pointer; we only
     //    shift the chip body into a safe zone. Wrapper <g translate> avoids
     //    fighting GSAP opacity/scale tweens on the chip itself.
-    const CHIP_OFFSETS: Record<string, [number, number]> = {
-      // Lift into the upper-right sky, away from the central road diamond
-      // and the auto-rickshaw lane.
-      batteryPerformance: [180, -140],
-      // Lift into the upper-left sky gutter, off the left road spur and
-      // the two-wheeler rider path.
-      // Lifted higher and shifted right so it clears the Partner App chip
-      // on the left sky gutter (partner-app lives ~x:220-410, y:680-760).
-      Both: [40, -340],
-    };
+    const CHIP_OFFSETS: Record<string, [number, number]> = {};
     Object.entries(CHIP_OFFSETS).forEach(([id, [dx, dy]]) => {
       const chip = svg.querySelector<SVGGElement>(`#${CSS.escape(id)}`);
       if (!chip) return;
@@ -1664,119 +1586,8 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   }, [svgMarkup]);
 
 
-  // Tree wind motion: move canopy groups while trunk and shadow stay rooted.
-  useEffect(() => {
-    const root = wrapRef.current;
-    if (!root) return;
-    const svg = root.querySelector("svg");
-    if (!svg) return;
-
-    const reduce = typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-
-    const treeSet = new Set<SVGGElement>();
-    svg.querySelectorAll<SVGGElement>(".bs-tree").forEach((tree) => treeSet.add(tree));
-    TREE_IDS.forEach((id) => {
-      const tree = svg.querySelector<SVGGElement>(`[id="${CSS.escape(id)}"]`);
-      if (tree) treeSet.add(tree);
-    });
-
-    const trees = Array.from(treeSet);
-    const durs = [3.6, 3.2, 4.0, 3.4, 3.8, 3.3, 4.2];
-    const delays = [-0.4, -1.1, -2.2, -1.6, -2.8, -0.7, -2.4];
-    const tweens: gsap.core.Tween[] = [];
-    const animatedCanopies: SVGGElement[] = [];
-
-    const getCanopies = (tree: SVGGElement) => {
-      const classCanopy = tree.querySelector<SVGGElement>(".bs-tree-canopy");
-      if (classCanopy) return [classCanopy];
-
-      return Array.from(tree.children).filter((child): child is SVGGElement => {
-        const tag = child.tagName.toLowerCase();
-        if (tag !== "g") return false;
-        const id = (child.id || "").toLowerCase();
-        const style = (child.getAttribute("style") || "").toLowerCase();
-        if (id.includes("shadow") || style.includes("mix-blend-mode")) return false;
-        try {
-          const box = (child as SVGGraphicsElement).getBBox();
-          return box.width > 8 && box.height > 8;
-        } catch {
-          return false;
-        }
-      });
-    };
-
-    trees.forEach((tree, i) => {
-      const id = tree.id || `tree-${i}`;
-      const directChildren = Array.from(tree.children) as SVGElement[];
-      const rootedPieces = directChildren.filter((child) => {
-        const tag = child.tagName.toLowerCase();
-        const id = (child.id || "").toLowerCase();
-        const style = (child.getAttribute("style") || "").toLowerCase();
-        return tag === "path" || tag === "rect" || tag === "ellipse" || id.includes("shadow") || style.includes("mix-blend-mode");
-      });
-      const canopies = getCanopies(tree);
-
-      gsap.killTweensOf([tree, ...rootedPieces, ...canopies]);
-      gsap.set(tree, { clearProps: "transform" });
-      rootedPieces.forEach((piece) => gsap.set(piece, { clearProps: "transform,opacity" }));
-
-      if (reduce) return;
-
-      canopies.forEach((canopy, canopyIndex) => {
-        let bbox: DOMRect;
-        try {
-          bbox = canopy.getBBox();
-        } catch {
-          return;
-        }
-
-        animatedCanopies.push(canopy);
-        const pivotX = bbox.x + bbox.width / 2;
-        const pivotY = bbox.y + bbox.height * 0.95;
-        gsap.set(canopy, {
-          svgOrigin: `${pivotX} ${pivotY}`,
-          willChange: "transform",
-        });
-
-        // Amplitudes bumped so the wind sway is actually visible on screen
-        // (previous 1-2 deg was imperceptible at the hero's render scale).
-        const direction = (i + canopyIndex) % 2 === 0 ? 1 : -1;
-        const gust = id === "treeNearStation" ? 1.15 : 1;
-        const drift = (4.5 + canopyIndex * 0.6) * direction * gust;
-        const lift = 1.2 * direction;
-        const sway = (4.5 + (i % 3) * 0.8) * direction * gust; // 4.5-6.1 deg
-        const duration = durs[i % durs.length] + canopyIndex * 0.25;
-        const delay = delays[i % delays.length] - canopyIndex * 0.3 - i * 0.17;
-
-        tweens.push(gsap.to(canopy, {
-          keyframes: [
-            { rotation: sway, x: drift, y: lift, scaleX: 1.02, scaleY: 0.985 },
-            { rotation: -sway * 0.85, x: -drift * 0.75, y: -lift, scaleX: 0.985, scaleY: 1.015 },
-            { rotation: sway * 0.6, x: drift * 0.4, y: lift * 0.3, scaleX: 1.012, scaleY: 0.994 },
-            { rotation: 0, x: 0, y: 0, scaleX: 1, scaleY: 1 },
-          ],
-          duration,
-          delay,
-          ease: "sine.inOut",
-          repeat: -1,
-        }));
-      });
-    });
-
-    return () => {
-      tweens.forEach((t) => t.kill());
-      animatedCanopies.forEach((canopy) => gsap.set(canopy, { clearProps: "transform,willChange" }));
-    };
-  }, [svgMarkup]);
-
-  // ── Fix tree-shadow / vehicle stacking.
-  //    In the source SVG some tree shadows are painted after the vehicles, so
-  //    the auto looks ghosted when it drives under a tree. We (a) raise every
-  //    vehicle to the end of its parent group so it draws above its siblings,
-  //    and (b) set tree shadows to `mix-blend-mode: multiply` so even if a
-  //    shadow still overlaps, it only darkens the road beneath, not the
-  //    vehicle body.
+  // ── Fix tree-shadow blending.
+  //    Tree shadows are set to `mix-blend-mode: multiply` so they darken the road naturally.
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
@@ -1787,14 +1598,6 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     svg.querySelectorAll<SVGEllipseElement>(".bs-tree > ellipse").forEach((sh) => {
       sh.style.mixBlendMode = "multiply";
       sh.style.pointerEvents = "none";
-    });
-
-    // Vehicles render on top of trees within their parent group.
-    const vehicleIds = ["loader", "twoWheeler1", "twoWheeler2", "threeWheelerHero", "threeWheeler2"];
-    vehicleIds.forEach((id) => {
-      const el = svg.querySelector<SVGGElement>(`#${id}`);
-      const parent = el?.parentNode;
-      if (el && parent) parent.appendChild(el);
     });
   }, [svgMarkup]);
 
@@ -2096,131 +1899,279 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   }, [svgMarkup]);
 
 
-  // ── Vehicle + highlight loops: rebuilt together whenever scaledTiming
-  //    (speedScale × base timing) or effectiveHighlights (lock state) change.
-  //    Because every looping timeline is created in this single effect, they
-  //    all share the same t=0 origin and therefore stay perfectly in sync
-  //    with each other after any edit.
+  // ── Master 3-Stage Hero Narrative Loop
+  // Stage 1: Approach & Initial Callouts ("Compatible With Both" & "Dense Network")
+  // Stage 2: Vehicles stop at substations; Charging halos pulse; Green connection lines connect all substations & central antenna; Antenna waves pulse; Stage 2 Callouts ("2-Minute Quick Swapping", "Partner App", "Driver App")
+  // Stage 3: Vehicles resume motion; previous items exit with motion effect; Stage 3 Callouts ("24/7 Support" & "Battery Performance") appear; vehicles drive to destination and fade out.
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
-    const svg = root.querySelector("svg");
+    const svg = root.querySelector<SVGSVGElement>("svg");
     if (!svg) return;
 
-    if (paused) {
-      vehicles.forEach((spec) => {
-        const el = svg.querySelector<SVGGElement>(`#${spec.id}`);
-        if (!el) return;
-        gsap.killTweensOf(el);
-        gsap.set(el, { x: 0, y: 0, opacity: 0 });
-      });
-      effectiveHighlights.forEach(({ id }) => {
-        const el = svg.querySelector<SVGGElement>(`#${id}`);
-        if (!el) return;
-        gsap.killTweensOf(el);
-        gsap.set(el, { opacity: 0 });
-      });
-      setDebug({});
-      return () => {
-        // Intentionally empty, frozen in hidden initial state.
-      };
+    // 1. Prepare inter-substation lines and styling
+    let interGroup = svg.querySelector<SVGGElement>("#tgInterStationLines");
+    if (!interGroup) {
+      interGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      interGroup.setAttribute("id", "tgInterStationLines");
+      interGroup.setAttribute("opacity", "0");
+      interGroup.innerHTML = `
+        <defs>
+          <filter id="tgGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Left Substation (436, 1151) to Bottom Substation (1092, 1553) -->
+        <path d="M436 1151 L1092 1553" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
+        <!-- Bottom Substation (1092, 1553) to Right Substation (1377, 1177) -->
+        <path d="M1092 1553 L1377 1177" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
+        <!-- Left Substation (436, 1151) to Right Substation (1377, 1177) -->
+        <path d="M436 1151 L1377 1177" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
+      `;
+      const anchor = svg.querySelector("#denseBatteryStation") || svg.firstElementChild;
+      if (anchor && anchor.parentNode) {
+        anchor.parentNode.insertBefore(interGroup, anchor);
+      } else {
+        svg.appendChild(interGroup);
+      }
     }
 
-    const tweens: Array<gsap.core.Timeline | gsap.core.Tween> = [];
-    const vehicleTlMap = new Map<string, gsap.core.Timeline>();
-    const touchedEls: SVGGElement[] = [];
+    // Enhance connection lines from main antenna
+    const mainLineIds = ["loaderLine", "threeWheelerLine", "twoWheelerLine"];
+    const mainLines = mainLineIds.map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`)).filter(Boolean);
+    mainLines.forEach(line => {
+      if (!line) return;
+      line.style.opacity = "0";
+      const path = line.querySelector<SVGPathElement>("path") || line;
+      path.setAttribute("stroke", "#00E58A");
+      path.setAttribute("stroke-width", "3");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-dasharray", "10 6");
+      path.setAttribute("filter", "drop-shadow(0 0 8px rgba(0, 229, 138, 0.85))");
+    });
 
-    vehicles.forEach((spec) => {
-      const el = svg.querySelector<SVGGElement>(`#${spec.id}`);
-      if (!el) return;
-      // Cancel any lingering tweens on this element from the previous build.
+    // Enhance charging highlights
+    const hlIds = [
+      "loaderHighlight", "partnerAppHighlight",
+      "threeWheelerHighlight", "driverAppHighlight",
+      "twoWheelerHighlight", "denseHighlight"
+    ];
+    const highlights = hlIds.map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`)).filter(Boolean);
+
+    highlights.forEach(hl => {
+      if (!hl) return;
+      hl.style.opacity = "0";
+      const path = hl.querySelector<SVGPathElement>("path") || hl;
+      if (hl.id === "denseHighlight") {
+        path.setAttribute("fill", "#00E58A");
+      }
+      path.setAttribute("filter", "drop-shadow(0 0 10px rgba(0, 229, 138, 0.95))");
+    });
+
+    // Antenna elements
+    const innerCircle = svg.querySelector<SVGGraphicsElement>("#innerCircle");
+    if (innerCircle) {
+      innerCircle.style.display = "none";
+      innerCircle.style.opacity = "0";
+    }
+
+    const antennaCircles = ["middleCircle", "outerCircle"]
+      .map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`))
+      .filter((el): el is SVGGraphicsElement => !!el);
+    antennaCircles.forEach(c => {
+      c.style.opacity = "0";
+      c.setAttribute("stroke", "#00E58A");
+      c.setAttribute("stroke-width", "2");
+      c.setAttribute("filter", "drop-shadow(0 0 6px rgba(0, 229, 138, 0.8))");
+    });
+    const batteryIcon = svg.querySelector<SVGGraphicsElement>("#batteryIcon");
+    if (batteryIcon) {
+      batteryIcon.style.opacity = "0";
+      batteryIcon.setAttribute("fill", "#00E58A");
+      batteryIcon.setAttribute("filter", "drop-shadow(0 0 8px rgba(0, 229, 138, 0.9))");
+    }
+
+    // Battery swap station slot indicators
+    const swapLeds = Array.from(
+      svg.querySelectorAll<SVGElement>('[id^="Mini Charging Point"] [fill="#CD3026"], [id^="Mini Charging Point_2"] [fill="#CD3026"]')
+    );
+
+    // Trees remain completely static and rooted in place as before (no movement)
+    svg.querySelectorAll<SVGGraphicsElement>(".bs-tree, .bs-tree-canopy").forEach((el) => {
       gsap.killTweensOf(el);
-      el.style.transform = "";
       el.removeAttribute("transform");
-      gsap.set(el, {
-        transformOrigin: `${spec.origin.x}px ${spec.origin.y}px`,
-        x: 0,
-        y: 0,
-        opacity: 0,
-      });
-      touchedEls.push(el);
-      const tl = gsap.timeline({ repeat: -1, delay: spec.delay });
-      // Explicit labels mark each segment boundary; the visualizer reads these
-      // back via tl.labels so the overlay matches the real animation exactly.
-      tl.addLabel("fadeInStart", 0)
-        .to(el, { opacity: 1, duration: FADE_IN, ease: "sine.out" }, "fadeInStart")
-        .to(
-          el,
-          { x: spec.end.dx, y: spec.end.dy, duration: spec.duration, ease: "none" },
-          "fadeInStart",
-        )
-        .addLabel("driveEnd", spec.duration)
-        .to(el, { opacity: 0, duration: FADE_OUT, ease: "sine.in" }, "driveEnd")
-        .addLabel("fadeOutEnd", spec.duration + FADE_OUT)
-        .set(el, { x: 0, y: 0 }, "fadeOutEnd")
-        .to(el, { opacity: 0, duration: spec.hold + FADE_IN }, "fadeOutEnd")
-        .addLabel("cycleEnd", spec.duration + FADE_OUT + spec.hold + FADE_IN);
-      tweens.push(tl);
-      vehicleTlMap.set(spec.id, tl);
+      el.style.transform = "";
+      el.style.transformOrigin = "";
+      el.style.transformBox = "";
     });
 
-    effectiveHighlights.forEach(({ id, period, offset }) => {
-      const el = svg.querySelector<SVGGElement>(`#${id}`);
-      if (!el) return;
-      gsap.killTweensOf(el);
-      gsap.set(el, { opacity: 0 });
-      touchedEls.push(el);
-      const tl = gsap.timeline({ repeat: -1, delay: offset });
-      tl.to(el, { opacity: 0.85, duration: 0.4, ease: "sine.out" })
-        .to(el, { opacity: 0, duration: 0.7, ease: "sine.in" })
-        .to(el, { opacity: 0, duration: Math.max(0.1, period - 1.1) });
-      tweens.push(tl);
+    // Vehicle elements
+    const loader = svg.querySelector<SVGGElement>("#loader");
+    const threeWheeler = svg.querySelector<SVGGElement>("#threeWheelerHero");
+    const twoWheeler = svg.querySelector<SVGGElement>("#twoWheeler1");
+    const activeVehicles = [loader, threeWheeler, twoWheeler].filter((v): v is SVGGElement => !!v);
+
+    // Callout elements
+    const cardBoth = svg.querySelector<SVGGElement>("#Both");
+    const cardNetwork = svg.querySelector<SVGGElement>("#network");
+    const cardQuick = svg.querySelector<SVGGElement>("#quickBatterySwapping");
+    const cardPartner = svg.querySelector<SVGGElement>("#PartnerApp");
+    const cardDriver = svg.querySelector<SVGGElement>("#driverApp");
+    const cardSupport = svg.querySelector<SVGGElement>("#support247");
+    const cardBatteryPerf = svg.querySelector<SVGGElement>("#batteryPerformance");
+
+    const allCards = [
+      cardBoth, cardNetwork, cardQuick, cardPartner, cardDriver, cardSupport, cardBatteryPerf
+    ].filter((c): c is SVGGElement => !!c);
+
+    // Initial setups for cards
+    const CARD_ORIGINS: Record<string, string> = {
+      Both: "470px 1288.75px",
+      network: "1492.5px 1147.75px",
+      quickBatterySwapping: "963px 910.25px",
+      PartnerApp: "270px 1104.75px",
+      driverApp: "1271px 1481.75px",
+      support247: "701px 1054.25px",
+      batteryPerformance: "1092px 1120.75px",
+    };
+
+    allCards.forEach(c => {
+      const origin = CARD_ORIGINS[c.id] || "center";
+      gsap.killTweensOf(c);
+      gsap.set(c, { transformOrigin: origin, scale: 0, opacity: 0 });
     });
 
-    // Snapshot vehicle-timeline labels so the visualizer matches GSAP exactly.
-    const labelsSnapshot: Record<string, Record<string, number>> = {};
-    vehicleTlMap.forEach((tl, id) => {
-      labelsSnapshot[id] = { ...tl.labels };
+    activeVehicles.forEach(v => {
+      gsap.killTweensOf(v);
+      v.style.transform = "";
+      v.removeAttribute("transform");
+      gsap.set(v, { x: 0, y: 0, opacity: 0 });
     });
-    setTlLabels(labelsSnapshot);
 
-    let updateDebug: (() => void) | null = null;
-    if (debugVisible) {
-      let lastDebugUpdate = 0;
-      updateDebug = () => {
-        const now = gsap.ticker.time;
-        if (now - lastDebugUpdate < 0.25) return;
-        lastDebugUpdate = now;
-        const next: Record<string, VehicleDebug> = {};
-        vehicleTlMap.forEach((tl, id) => {
-          const spec = specById.get(id);
-          if (!spec) return;
-          const t = tl.time();
-          next[id] = {
-            phase: getPhase(spec, t),
-            cycleTime: Number(t.toFixed(1)),
-            loopCount: tl.iteration(),
-            totalTime: Number(tl.totalTime().toFixed(1)),
-            progress: Number((t / cycleLength(spec)).toFixed(2)),
-          };
-        });
-        setDebug(next);
-      };
-      gsap.ticker.add(updateDebug);
-    } else {
-      setDebug({});
+    if (loader) gsap.set(loader, { transformOrigin: "56.75px 916.76px" });
+    if (threeWheeler) gsap.set(threeWheeler, { transformOrigin: "774.38px 1364.36px" });
+    if (twoWheeler) gsap.set(twoWheeler, { transformOrigin: "1691.71px 933.75px" });
+
+    // Collect all paths in connection lines for pulse dash animation
+    const allLines = [...mainLines, interGroup].filter(Boolean);
+    const linePaths: SVGPathElement[] = [];
+    allLines.forEach((l) => {
+      if (!l) return;
+      if (l instanceof SVGPathElement) linePaths.push(l);
+      else l.querySelectorAll<SVGPathElement>("path").forEach((p) => linePaths.push(p));
+    });
+
+    // Build Master Timeline (15s choreographed loop)
+    const masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.0 });
+
+    // --- STAGE 1: Approach & Initial Cards (0s -> 4.2s) ---
+    // Vehicles fade in & drive to substations
+    masterTl.to(activeVehicles, { opacity: 1, duration: 0.6, ease: "sine.out" }, 0.0);
+    if (loader) {
+      masterTl.to(loader, { x: 368.7, y: 244.5, duration: 4.2, ease: "power1.inOut" }, 0.0);
     }
+    if (threeWheeler) {
+      masterTl.to(threeWheeler, { x: 323.5, y: 209.5, duration: 4.2, ease: "power1.inOut" }, 0.0);
+    }
+    if (twoWheeler) {
+      masterTl.to(twoWheeler, { x: -354.0, y: 230.8, duration: 4.2, ease: "power1.inOut" }, 0.0);
+    }
+
+    // Stage 1 cards pop in
+    const s1Cards = [cardBoth, cardNetwork].filter(Boolean);
+    masterTl.to(s1Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 0.6);
+    // Stage 1 cards exit before vehicles stop
+    masterTl.to(s1Cards, { scale: 0, opacity: 0, duration: 0.45, ease: "power2.in" }, 3.6);
+
+    // --- STAGE 2: Charging & Network Connections (4.2s -> 9.2s) ---
+    // Vehicles stop at substations at 4.2s
+    // Highlights pulse
+    const activeHighlights = highlights.filter(Boolean);
+    masterTl.to(activeHighlights, { opacity: 0.9, duration: 0.5, ease: "sine.out" }, 4.2);
+    masterTl.to(activeHighlights, { opacity: 0.55, duration: 0.7, yoyo: true, repeat: 5, ease: "sine.inOut" }, 4.7);
+
+    // Connection lines fade in and glow with flowing pulse
+    masterTl.to(allLines, { opacity: 1, duration: 0.5, ease: "power2.out" }, 4.2);
+    if (linePaths.length) {
+      masterTl.fromTo(
+        linePaths,
+        { strokeDashoffset: 0 },
+        { strokeDashoffset: -128, duration: 4.4, ease: "none" },
+        4.2
+      );
+    }
+
+    // Antenna radiates circular waves & icon pulses
+    if (batteryIcon) {
+      masterTl.to(batteryIcon, { opacity: 1, duration: 0.4 }, 4.2);
+    }
+    if (antennaCircles.length) {
+      masterTl.fromTo(antennaCircles,
+        { scale: 0.75, opacity: 0.9, transformOrigin: "962.5px 975.5px" },
+        { scale: 1.6, opacity: 0, duration: 1.1, repeat: 3, ease: "sine.out" },
+        4.3
+      );
+    }
+
+    // Battery swap completion indicator (red slots switch to charged green)
+    if (swapLeds.length) {
+      masterTl.to(swapLeds, { fill: "#00E58A", duration: 0.4 }, 6.2);
+      masterTl.to(swapLeds, { fill: "#CD3026", duration: 0.3 }, 8.7);
+    }
+
+    // Stage 2 cards reveal
+    const s2Cards = [cardQuick, cardPartner, cardDriver].filter(Boolean);
+    masterTl.to(s2Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 4.6);
+
+    // Stage 2 exit with motion effect
+    masterTl.to(s2Cards, { scale: 0, opacity: 0, duration: 0.5, ease: "power2.in" }, 8.6);
+    masterTl.to(allLines, { opacity: 0, duration: 0.4 }, 8.7);
+    masterTl.to(activeHighlights, { opacity: 0, duration: 0.4 }, 8.7);
+    if (batteryIcon) masterTl.to(batteryIcon, { opacity: 0, duration: 0.4 }, 8.7);
+
+    // --- STAGE 3: Departure & Support/Monitoring Cards (9.2s -> 15.0s) ---
+    // Vehicles resume motion from substations to road terminus
+    if (loader) {
+      // Drives strictly along the straight road lane to terminus
+      masterTl.to(loader, { x: 1138.1, y: 720.5, duration: 4.8, ease: "power1.in" }, 9.2);
+    }
+    if (threeWheeler) {
+      masterTl.to(threeWheeler, { x: 516.0, y: 306.0, duration: 4.8, ease: "power1.in" }, 9.2);
+    }
+    if (twoWheeler) {
+      masterTl.to(twoWheeler, { x: -897.6, y: 554.0, duration: 4.8, ease: "power1.in" }, 9.2);
+    }
+
+    // Stage 3 cards pop in
+    const s3Cards = [cardSupport, cardBatteryPerf].filter(Boolean);
+    masterTl.to(s3Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 9.6);
+
+    // Vehicles fade out near road end
+    masterTl.to(activeVehicles, { opacity: 0, duration: 0.6, ease: "sine.in" }, 13.4);
+
+    // Stage 3 cards exit
+    masterTl.to(s3Cards, { scale: 0, opacity: 0, duration: 0.5, ease: "power2.in" }, 13.8);
+
+    // Reset vehicles for next cycle
+    masterTl.set(activeVehicles, { x: 0, y: 0, opacity: 0 }, 14.5);
 
     return () => {
-      if (updateDebug) gsap.ticker.remove(updateDebug);
-      tweens.forEach((t) => t.kill());
-      // Reset transforms so a stale half-driven vehicle doesn't flash before
-      // the next build's gsap.set runs.
-      touchedEls.forEach((el) => {
-        gsap.set(el, { x: 0, y: 0, opacity: 0 });
-      });
+      masterTl.kill();
+      activeVehicles.forEach(v => gsap.set(v, { x: 0, y: 0, opacity: 0 }));
+      allCards.forEach(c => gsap.set(c, { scale: 0, opacity: 0 }));
+      activeHighlights.forEach(h => { if (h) h.style.opacity = "0"; });
+      allLines.forEach(l => { if (l) l.style.opacity = "0"; });
+      if (batteryIcon) batteryIcon.style.opacity = "0";
+      if (innerCircle) innerCircle.style.display = "none";
+      antennaCircles.forEach(c => { gsap.set(c, { scale: 1, opacity: 0 }); });
+      swapLeds.forEach(el => el.setAttribute("fill", "#CD3026"));
+      linePaths.forEach(p => { p.style.strokeDashoffset = "0"; });
     };
-  }, [svgMarkup, vehicles, specById, effectiveHighlights, paused, debugVisible]);
+  }, [svgMarkup]);
 
   // ── Finalize paint order (authoritative).
   //    Runs after every other effect. Rebuilds z-order deterministically so
@@ -2233,17 +2184,46 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     if (!svg) return;
 
     const PAINT_ORDER: string[] = [
-      // Static plaza characters (dormant until Figma re-export names them).
-      "roadMan1",
-      "roadMan2",
-      // Vehicles: below the woman and callouts, above trees.
+      // Background roadside shops (North side of roads, behind traffic)
+      "shopPharmacy",
+      "shopCafeMart",
+      "shopGroceryStore",
+      // 1. All vehicles: rendered lowest among foreground elements
       "loader",
       "twoWheeler1",
       "twoWheeler2",
       "threeWheelerHero",
       "threeWheeler2",
+      // 2. Trees: sit above vehicles so cars and bikes never run over trees
+      "firstTreeIn2WheelerWay",
+      "bs-extra-trees",
+      "treeBesideRoad",
+      "treeNearStation",
+      "tgSolarParkTree",
+      // Foreground roadside shops (South side of roads & plazas, in front of traffic)
+      "shopTeaStall",
+      "shopTelecomKiosk",
+      "shopFruitStall",
+      "shopEvMartCafe",
+      "shopSupermarket",
+      // 3. Foreground street furniture & station on left road: sits above loader so vehicle passes behind
+      "Mini Charging Point_2",
+      "Group 238954_2",
+      "Group 238987",
+      // 4. Pedestrians & street characters: sit above vehicles so cars never draw over people
+      "Man",
+      "Man_2",
+      "Woman F",
       // HQ overlay: single flat PNG; sits above vehicles that pass behind it.
       "totogoHqBuildingOverlay",
+      // Rooftop antenna & network lines
+      "middleCircle",
+      "outerCircle",
+      "batteryIcon",
+      "loaderLine",
+      "threeWheelerLine",
+      "twoWheelerLine",
+      "tgInterStationLines",
       // Walking woman: must sit above HQ overlay so she never disappears.
       "yellowGirl",
       // Callouts / chip wraps last so labels never hide behind buildings.
@@ -2430,7 +2410,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   };
 
   return (
-    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#batteryIcon]:hidden [&_#battery]:hidden [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
+    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#innerCircle]:hidden [&_#batteryIcon]:hidden [&_#battery]:hidden [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
       <div className="relative" dangerouslySetInnerHTML={{ __html: svgMarkup }} />
 
 
