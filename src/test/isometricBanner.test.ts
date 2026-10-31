@@ -200,14 +200,18 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('cafePastryCase');
     expect(heroSvgMarkup).toContain('cafeCustomerFigure');
 
-    // 3. Vacant Plot behind Station Bays: Modern Grocery Store ("GROCERY MART" / মুদি দোকান)
-    expect(heroSvgMarkup).toContain('id="shopGroceryStore"');
-    expect(heroSvgMarkup).toContain('GROCERY MART');
-    expect(heroSvgMarkup).toContain('tg-grocery-mart');
-    expect(heroSvgMarkup).toContain('id="groceryAwning"');
-    expect(heroSvgMarkup).toContain('id="signGroceryMart"');
-    expect(heroSvgMarkup).toContain('id="groceryProduceDisplay"');
-    expect(heroSvgMarkup).toContain('id="groceryShopper1"');
+    // 3. Upper Plot behind Station Bays: Dedicated Luxury Modern Pharmacy ("PHARMACY") (image_893aa7.jpg Reference Match)
+    expect(heroSvgMarkup).toContain('id="shopPharmacy"');
+    expect(heroSvgMarkup).toContain('PHARMACY');
+    expect(heroSvgMarkup).toContain('tg-pharmacy-store');
+    expect(heroSvgMarkup).toContain('id="pharmacyMedicalCross"');
+    expect(heroSvgMarkup).toContain('id="pharmacySignboard"');
+    expect(heroSvgMarkup).toContain('id="pharmacyTimberSlats"');
+    expect(heroSvgMarkup).toContain('id="pharmacyGlassFacade"');
+    expect(heroSvgMarkup).toContain('id="pharmacyPharmacist"');
+    expect(heroSvgMarkup).toContain('id="pharmacyPatient"');
+    expect(heroSvgMarkup).toContain('id="pharmacyOpenSign"');
+    expect(heroSvgMarkup).not.toContain('id="shopGroceryStore"');
 
     // 4. Lower-Right Foreground Plot: Modern Grocery Mart & Fresh Fruit Store (image_9a101f.png Reference Match)
     expect(heroSvgMarkup).toContain('id="shopSupermarket"');
