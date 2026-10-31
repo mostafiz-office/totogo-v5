@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vercel
+.netlify
+scratch/
+.antigravity*
+AGM_INSTANCE_STATUS.md
+user_annotated_image.png
+
