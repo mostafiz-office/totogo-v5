@@ -221,7 +221,21 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('id="supermarketPottedPlant"');
     expect(heroSvgMarkup).toContain('id="supermarketCustomer"');
 
-    // Confirms removed shops are not present
+    // 5. Vacant Plot to the Left of main totooGo station: Traditional Tea Stall / Cafe (চায়ের দোকান)
+    expect(heroSvgMarkup).toContain('id="shopTraditionalTeaStall"');
+    expect(heroSvgMarkup).toContain('tg-traditional-tea-stall');
+    expect(heroSvgMarkup).toContain('id="teaStallAwning"');
+    expect(heroSvgMarkup).toContain('id="teaStallSignboard"');
+    expect(heroSvgMarkup).toContain('TEA &amp; SNACKS');
+    expect(heroSvgMarkup).toContain('id="teaKettleMain"');
+    expect(heroSvgMarkup).toContain('id="snackJar1"');
+    expect(heroSvgMarkup).toContain('id="snackJar2"');
+    expect(heroSvgMarkup).toContain('id="teaSideTable"');
+    expect(heroSvgMarkup).toContain('id="teaCustomer1"');
+    expect(heroSvgMarkup).toContain('id="teaCustomer2"');
+    expect(heroSvgMarkup).toContain('id="teaShopkeeper"');
+
+    // Confirms removed legacy duplicate stall is not present
     expect(heroSvgMarkup).not.toContain('id="shopTeaStall"');
     expect(heroSvgMarkup).not.toContain('id="shopTelecomKiosk"');
   });

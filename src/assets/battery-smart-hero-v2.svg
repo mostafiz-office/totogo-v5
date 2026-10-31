@@ -1735,6 +1735,307 @@
         <line x1="4" y1="-16" x2="4.5" y2="-20" stroke="#F59E0B" stroke-width="1.4" stroke-linecap="round"/>
       </g>
     </g>
+
+    <!-- ======================================================================== -->
+    <!-- TRADITIONAL TEA STALL / CAFE (চায়ের দোকান)                               -->
+    <!-- Location: Vacant lot to the left of main totooGo station                 -->
+    <!-- Aesthetic: Timber shack, slanted tin roof, red-white-green striped awning-->
+    <!-- Details: Boiling kettles, glass jars, hanging chips, seated customers   -->
+    <!-- ======================================================================== -->
+<g id="shopTraditionalTeaStall" class="tg-shop tg-traditional-tea-stall" transform="translate(565, 915)">
+      <!-- Ground Drop Shadow (Soft directional daylight shadow cast towards lower-left) -->
+      <polygon points="-52,-10 24,34 58,16 36,-18 -22,-36" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
+      <ellipse cx="6" cy="12" rx="48" ry="22" fill="#0A1812" opacity="0.14" style="mix-blend-mode: multiply;"/>
+
+      <!-- Clean Paved Sidewalk Base & Wooden Floor Deck -->
+      <polygon points="-46,-16 22,23 52,7 -16,-32" fill="#F1F5F9"/>
+      <polygon points="-46,-16 22,23 22,26 -46,-13" fill="#CBD5E1"/>
+      <polygon points="22,23 52,7 52,10 22,26" fill="#94A3B8"/>
+      <!-- Inner Wooden Flooring -->
+      <polygon points="-42,-14 18,20 46,6 -14,-28" fill="#78350F"/>
+
+      <!-- Wooden Shack Main Shell Structure -->
+      <!-- Back-Right Wall (Shadow side) -->
+      <polygon points="20,21 48,6 48,-36 20,-21" fill="#78350F"/>
+      <!-- Back Wall (Interior backdrop) -->
+      <polygon points="-14,-28 48,6 48,-36 -14,-70" fill="#451A03"/>
+      <!-- Warm Interior Ambient Glow -->
+      <polygon points="-12,-26 44,5 44,-34 -12,-65" fill="#FEF3C7" opacity="0.16"/>
+
+      <!-- Hanging Chips / Snacks Packets on string (Typical Bangladeshi Tong Shop Detail) -->
+      <g class="hanging-chips-packets">
+        <line x1="-8" y1="-50" x2="38" y2="-24" stroke="#D97706" stroke-width="0.8"/>
+        <!-- Packet 1 (Yellow - Potato Chips) -->
+        <rect x="0" y="-45" width="4" height="6" fill="#FACC15" transform="matrix(0.866 0.5 0 1 0 0)"/>
+        <!-- Packet 2 (Red - Chanachur / Kurkure) -->
+        <rect x="7" y="-41" width="4" height="6" fill="#EF4444" transform="matrix(0.866 0.5 0 1 0 0)"/>
+        <!-- Packet 3 (Green - Spicy Peanuts / Aloo Bhujia) -->
+        <rect x="14" y="-37" width="4" height="6" fill="#10B981" transform="matrix(0.866 0.5 0 1 0 0)"/>
+        <!-- Packet 4 (Orange - Biscuits) -->
+        <rect x="21" y="-33" width="4" height="6" fill="#F97316" transform="matrix(0.866 0.5 0 1 0 0)"/>
+        <!-- Packet 5 (Blue - Salted Chips) -->
+        <rect x="28" y="-29" width="4" height="6" fill="#3B82F6" transform="matrix(0.866 0.5 0 1 0 0)"/>
+      </g>
+
+      <!-- Corner Timber Posts / Frame -->
+      <!-- Left Post -->
+      <polygon points="-42,-14 -38,-12 -38,-62 -42,-64" fill="#B45309"/>
+      <polygon points="-38,-12 -36,-13 -36,-63 -38,-62" fill="#78350F"/>
+      <!-- Center Post -->
+      <polygon points="18,20 22,22 22,-28 18,-30" fill="#B45309"/>
+      <!-- Right Post -->
+      <polygon points="46,6 49,4 49,-46 46,-44" fill="#78350F"/>
+
+      <!-- Front Serving Counter Structure (Teak Wood Paneling) -->
+      <!-- Front Counter Base with Vertical Wooden Slats -->
+      <polygon points="-40,-13 18,20 18,6 -40,-27" fill="#B45309"/>
+      <g class="counter-vertical-slats">
+        <polygon points="-36,-11 -34,-10 -34,-23 -36,-24" fill="#D97706"/>
+        <polygon points="-30,-7 -28,-6 -28,-19 -30,-20" fill="#92400E"/>
+        <polygon points="-24,-4 -22,-3 -22,-16 -24,-17" fill="#D97706"/>
+        <polygon points="-18,-1 -16,0 -16,-13 -18,-14" fill="#92400E"/>
+        <polygon points="-12,3 -10,4 -10,-9 -12,-10" fill="#D97706"/>
+        <polygon points="-6,6 -4,7 -4,-6 -6,-7" fill="#92400E"/>
+        <polygon points="0,9 2,10 2,-3 0,-4" fill="#D97706"/>
+        <polygon points="6,13 8,14 8,1 6,0" fill="#92400E"/>
+        <polygon points="12,16 14,17 14,4 12,3" fill="#D97706"/>
+      </g>
+      <!-- Polished Wooden Counter Top (Ledge where cups & jars sit) -->
+      <polygon points="-44,-29 20,8 26,5 -38,-32" fill="#F59E0B"/>
+      <polygon points="-44,-29 20,8 20,10 -44,-27" fill="#D97706"/>
+      <polygon points="20,8 26,5 26,7 20,10" fill="#B45309"/>
+
+      <!-- Counter Goods & Equipment (Authentic "Chayer Dokan" Details) -->
+      <!-- 1. Large Traditional Metallic Boiling Kettle (কেতলি) with Steam -->
+      <g id="teaKettleMain" transform="translate(-18, -25)">
+        <!-- Burner / stove stand underneath -->
+        <polygon points="-5,0 4,5 4,2 -5,-3" fill="#334155"/>
+        <!-- Aluminium kettle body (bright silver/metallic) -->
+        <ellipse cx="0" cy="-3" rx="5.5" ry="3.5" fill="#E2E8F0"/>
+        <path d="M-5.5,-3 L-4,-11 L4,-7 L5.5,-3 Z" fill="#CBD5E1"/>
+        <ellipse cx="0" cy="-9" rx="4" ry="2.2" fill="#F8FAFC"/>
+        <!-- Kettle Lid Knob -->
+        <circle cx="0" cy="-11" r="1.2" fill="#475569"/>
+        <!-- Curved Spout -->
+        <path d="M4,-4 C7,-5 8,-9 9,-11" fill="none" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Curved Metallic Top Handle with Black Grip -->
+        <path d="M-4,-7 C-4,-15 4,-11 4,-3" fill="none" stroke="#475569" stroke-width="1.2"/>
+        <path d="M-2,-12 C-1,-14 2,-12 3,-10" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+        <!-- Subtle Faint White Steam Wisps Rising from Spout -->
+        <path d="M9,-12 C10,-16 8,-18 10,-22" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6" stroke-linecap="round"/>
+      </g>
+
+      <!-- 2. Transparent Glass Biscuit / Snack Jars (কাঁচের বিস্কুটের বয়াম) with Brass/Red Lids -->
+      <!-- Biscuit Jar 1 -->
+      <g id="snackJar1" transform="translate(-2, -16)">
+        <polygon points="-3,0 3,3 3,-7 -3,-10" fill="#38BDF8" fill-opacity="0.35" stroke="#CBD5E1" stroke-width="0.5"/>
+        <!-- Golden-brown cookies/biscuits visible inside -->
+        <circle cx="0" cy="-2" r="1.5" fill="#F59E0B"/>
+        <circle cx="-1" cy="-5" r="1.5" fill="#D97706"/>
+        <circle cx="1.5" cy="-4" r="1.5" fill="#FBBF24"/>
+        <!-- Red Jar Lid -->
+        <polygon points="-3.5,-10 3.5,-7 3.5,-9 -3.5,-12" fill="#DC2626"/>
+      </g>
+      <!-- Biscuit Jar 2 -->
+      <g id="snackJar2" transform="translate(10, -9)">
+        <polygon points="-2.5,0 2.5,2.5 2.5,-6 -2.5,-8.5" fill="#38BDF8" fill-opacity="0.35" stroke="#CBD5E1" stroke-width="0.5"/>
+        <!-- Toast / Rusk biscuits inside -->
+        <rect x="-1" y="-5" width="2" height="3" fill="#F59E0B"/>
+        <!-- Brass Jar Lid -->
+        <polygon points="-3,-8.5 3,-6 3,-7.5 -3,-10" fill="#F59E0B"/>
+      </g>
+
+      <!-- Side Wooden Preparation Table (On the left with second kettle & glass cups) -->
+      <g id="teaSideTable" transform="translate(-32, -4)">
+        <!-- Table Top -->
+        <polygon points="-16,-9 6,3 12,0 -10,-12" fill="#B45309"/>
+        <polygon points="-16,-9 6,3 6,5 -16,-7" fill="#78350F"/>
+        <!-- Table Legs -->
+        <line x1="-14" y1="-7" x2="-14" y2="10" stroke="#78350F" stroke-width="1.4"/>
+        <line x1="4" y1="5" x2="4" y2="22" stroke="#78350F" stroke-width="1.4"/>
+        <line x1="10" y1="2" x2="10" y2="19" stroke="#451A03" stroke-width="1.4"/>
+        <line x1="-8" y1="-10" x2="-8" y2="6" stroke="#451A03" stroke-width="1.2"/>
+
+        <!-- Second Kettle on Prep Table -->
+        <g transform="translate(-8, -12)">
+          <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="#E2E8F0"/>
+          <path d="M-4,0 L-3,-6 L3,-3 L4,0 Z" fill="#CBD5E1"/>
+          <path d="M3,-1 C5,-2 6,-5 7,-6" fill="none" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M-3,-4 C-3,-9 3,-6 3,-1" fill="none" stroke="#475569" stroke-width="1.2"/>
+        </g>
+
+        <!-- Tray with Stacked Glass Tea Cups (কাঁচের চায়ের কাপ) -->
+        <g transform="translate(2, -2)">
+          <!-- Tray plate -->
+          <polygon points="-5,-3 4,2 6,1 -3,-4" fill="#CBD5E1" stroke="#94A3B8" stroke-width="0.5"/>
+          <!-- Glass cups on tray (transparent light cyan/white) -->
+          <polygon points="-3,-2 -1,-1 -1,-6 -3,-7" fill="#38BDF8" fill-opacity="0.5" stroke="#FFFFFF" stroke-width="0.4"/>
+          <polygon points="0,0 2,1 2,-4 0,-5" fill="#38BDF8" fill-opacity="0.5" stroke="#FFFFFF" stroke-width="0.4"/>
+          <polygon points="2,1 4,2 4,-3 2,-4" fill="#38BDF8" fill-opacity="0.5" stroke="#FFFFFF" stroke-width="0.4"/>
+        </g>
+      </g>
+
+      <!-- Slanted Corrugated Tin Roof Structure -->
+      <!-- Corrugated Tin Roof Deck (Slanted back-to-front with metal ridges) -->
+      <polygon points="-48,-66 22,-27 54,-43 -16,-82" fill="#CBD5E1"/>
+      <polygon points="-48,-66 22,-27 22,-29 -48,-68" fill="#94A3B8"/>
+      <!-- Roof Corrugation Ridge Lines -->
+      <g stroke="#94A3B8" stroke-width="0.8">
+        <line x1="-42" y1="-63" x2="-10" y2="-79"/>
+        <line x1="-34" y1="-58" x2="-2" y2="-74"/>
+        <line x1="-26" y1="-54" x2="6" y2="-70"/>
+        <line x1="-18" y1="-49" x2="14" y2="-65"/>
+        <line x1="-10" y1="-45" x2="22" y2="-61"/>
+        <line x1="-2" y1="-40" x2="30" y2="-56"/>
+        <line x1="6" y1="-36" x2="38" y2="-52"/>
+        <line x1="14" y1="-31" x2="46" y2="-47"/>
+      </g>
+
+      <!-- Vibrant Red, White & Green Striped Fabric Awning (Classic Bangladeshi Chayer Dokan Aesthetic) -->
+      <g id="teaStallAwning">
+        <!-- Awning Cantilever Frame -->
+        <!-- Stripe 1: Red -->
+        <polygon points="-44,-42 -37,-38 -32,-28 -39,-32" fill="#EF4444"/>
+        <!-- Stripe 2: White -->
+        <polygon points="-37,-38 -30,-34 -25,-24 -32,-28" fill="#FFFFFF"/>
+        <!-- Stripe 3: Green -->
+        <polygon points="-30,-34 -23,-30 -18,-20 -25,-24" fill="#10B981"/>
+        <!-- Stripe 4: White -->
+        <polygon points="-23,-30 -16,-26 -11,-16 -18,-20" fill="#FFFFFF"/>
+        <!-- Stripe 5: Red -->
+        <polygon points="-16,-26 -9,-22 -4,-12 -11,-16" fill="#EF4444"/>
+        <!-- Stripe 6: White -->
+        <polygon points="-9,-22 -2,-18 3,-8 -4,-12" fill="#FFFFFF"/>
+        <!-- Stripe 7: Green -->
+        <polygon points="-2,-18 5,-14 10,-4 3,-8" fill="#10B981"/>
+        <!-- Stripe 8: White -->
+        <polygon points="5,-14 12,-10 17,0 10,-4" fill="#FFFFFF"/>
+        <!-- Stripe 9: Red -->
+        <polygon points="12,-10 19,-6 24,4 17,0" fill="#EF4444"/>
+        <!-- Stripe 10: White -->
+        <polygon points="19,-6 26,-2 31,8 24,4" fill="#FFFFFF"/>
+
+        <!-- Front Scalloped / Valance Edge -->
+        <polygon points="-39,-32 31,8 31,11 -39,-29" fill="#DC2626"/>
+        <polygon points="-32,-28 -25,-24 -25,-22 -32,-26" fill="#F1F5F9"/>
+        <polygon points="-18,-20 -11,-16 -11,-14 -18,-18" fill="#F1F5F9"/>
+        <polygon points="-4,-12 3,-8 3,-6 -4,-10" fill="#F1F5F9"/>
+        <polygon points="10,-4 17,0 17,2 10,-2" fill="#F1F5F9"/>
+        <polygon points="24,4 31,8 31,10 24,6" fill="#F1F5F9"/>
+
+        <!-- Awning Under-Shadow -->
+        <polygon points="-44,-42 26,-2 26,-5 -44,-45" fill="#0F172A" opacity="0.32"/>
+      </g>
+
+      <!-- Prominent Header Signboard: "TEA & SNACKS" (Mounted Above Awning) -->
+      <g id="teaStallSignboard">
+        <!-- Signboard White Backing Plate with Wooden Border -->
+        <polygon points="-28,-58 24,-28 24,-42 -28,-72" fill="#FFFFFF" stroke="#78350F" stroke-width="1.2"/>
+        <polygon points="-28,-58 -26,-57 -26,-71 -28,-72" fill="#E2E8F0"/>
+        <polygon points="24,-28 25,-29 25,-43 24,-42" fill="#CBD5E1"/>
+
+        <!-- Crisp Bold Black Typography: "TEA & SNACKS" in Isometric Skew -->
+        <g transform="translate(-2, -50) skewY(30)">
+          <!-- Tiny Stylized Steaming Tea Cup Icon -->
+          <path d="M-15 -3 L-13 -3 L-12 1 L-8 1 L-7 -3" fill="none" stroke="#B45309" stroke-width="0.8" stroke-linecap="round"/>
+          <path d="M-7 -2 C-6 -2 -6 0 -7 0" fill="none" stroke="#B45309" stroke-width="0.7"/>
+          <path d="M-10.5 -4 C-10.5 -5.5 -9.5 -6 -9.5 -7" fill="none" stroke="#F59E0B" stroke-width="0.7" stroke-linecap="round"/>
+          <!-- Signboard Text -->
+          <text x="5" y="1" text-anchor="middle" dominant-baseline="central" fill="#1E293B" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="7.2" font-weight="900" letter-spacing="0.8">TEA &amp; SNACKS</text>
+        </g>
+      </g>
+
+      <!-- Outdoor Seating & Lively Customers (Authentic Tong Adda Aesthetic) -->
+      <!-- Low-Poly Wooden Stools (4-legged wooden stools) -->
+      <!-- Stool 1 (Right customer) -->
+      <g id="teaStool1" transform="translate(28, 28)">
+        <polygon points="-3,-2 3,1 5,-0.5 -1,-3.5" fill="#D97706"/>
+        <polygon points="-3,-2 3,1 3,2.5 -3,-0.5" fill="#B45309"/>
+        <!-- 4 legs with cross-brace -->
+        <line x1="-3" y1="2" x2="-3" y2="12" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="3" y1="3" x2="3" y2="13" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="5" y1="0.5" x2="5" y2="10" stroke="#451A03" stroke-width="1.2"/>
+        <line x1="-1" y1="-2" x2="-1" y2="8" stroke="#451A03" stroke-width="1.2"/>
+      </g>
+
+      <!-- Stool 2 (Middle customer) -->
+      <g id="teaStool2" transform="translate(8, 17)">
+        <polygon points="-3,-2 3,1 5,-0.5 -1,-3.5" fill="#D97706"/>
+        <polygon points="-3,-2 3,1 3,2.5 -3,-0.5" fill="#B45309"/>
+        <line x1="-3" y1="2" x2="-3" y2="12" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="3" y1="3" x2="3" y2="13" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="5" y1="0.5" x2="5" y2="10" stroke="#451A03" stroke-width="1.2"/>
+        <line x1="-1" y1="-2" x2="-1" y2="8" stroke="#451A03" stroke-width="1.2"/>
+      </g>
+
+      <!-- Stool 3 (Empty spare stool ready for next customer) -->
+      <g id="teaStool3" transform="translate(-12, 6)">
+        <ellipse cx="1" cy="11" rx="4" ry="2" fill="#0A1812" opacity="0.2"/>
+        <polygon points="-3,-2 3,1 5,-0.5 -1,-3.5" fill="#D97706"/>
+        <polygon points="-3,-2 3,1 3,2.5 -3,-0.5" fill="#B45309"/>
+        <line x1="-3" y1="2" x2="-3" y2="11" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="3" y1="3" x2="3" y2="12" stroke="#78350F" stroke-width="1.2"/>
+        <line x1="5" y1="0.5" x2="5" y2="9.5" stroke="#451A03" stroke-width="1.2"/>
+        <line x1="-1" y1="-2" x2="-1" y2="7.5" stroke="#451A03" stroke-width="1.2"/>
+      </g>
+
+      <!-- Customer 1 (Seated on Stool 2 - Purple Shirt, sipping tea and chatting) -->
+      <g id="teaCustomer1" transform="translate(7, 8)">
+        <!-- Drop shadow -->
+        <ellipse cx="2" cy="19" rx="4" ry="2" fill="#0A1812" opacity="0.22"/>
+        <!-- Blue Trousers & Legs seated on stool -->
+        <path d="M-2,6 L-2,14 L0,18" fill="none" stroke="#1E3A8A" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M2,8 L2,15 L4,19" fill="none" stroke="#1D4ED8" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- Dark shoes -->
+        <circle cx="0" cy="18" r="1.1" fill="#0F172A"/>
+        <circle cx="4" cy="19" r="1.1" fill="#0F172A"/>
+        <!-- Purple Shirt / Torso -->
+        <polygon points="-3,-4 2,-1 2,-12 -3,-15" fill="#9333EA"/>
+        <polygon points="2,-1 5,-3 5,-13 2,-12" fill="#7E22CE"/>
+        <!-- Right arm resting on counter holding steaming glass cup -->
+        <path d="M1,-8 L-3,-3 L-5,-2" fill="none" stroke="#9333EA" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Glass Tea Cup in Hand (steaming red tea / milk tea) -->
+        <polygon points="-7,-4 -5,-3 -5,-7 -7,-8" fill="#F59E0B" stroke="#38BDF8" stroke-width="0.5"/>
+        <path d="M-6,-9 C-6,-11 -5,-12 -5,-14" fill="none" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+        <!-- Head & Dark Hair -->
+        <circle cx="0" cy="-17" r="2.2" fill="#FBBF24"/>
+        <path d="M-2,-18 C-1,-20 3,-20 3,-17 C3,-17 2,-16 0,-16 Z" fill="#1E293B"/>
+      </g>
+
+      <!-- Customer 2 (Seated on Stool 1 - Teal Green Shirt, chatting with Customer 1) -->
+      <g id="teaCustomer2" transform="translate(27, 19)">
+        <ellipse cx="2" cy="19" rx="4" ry="2" fill="#0A1812" opacity="0.22"/>
+        <!-- Khaki / Beige Trousers -->
+        <path d="M-2,6 L-2,14 L0,18" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M2,8 L2,15 L4,19" fill="none" stroke="#CBD5E1" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="0" cy="18" r="1.1" fill="#0F172A"/>
+        <circle cx="4" cy="19" r="1.1" fill="#0F172A"/>
+        <!-- Teal/Green Shirt -->
+        <polygon points="-3,-4 2,-1 2,-12 -3,-15" fill="#059669"/>
+        <polygon points="2,-1 5,-3 5,-13 2,-12" fill="#047857"/>
+        <!-- Left arm resting on counter with tea cup -->
+        <path d="M-1,-8 L-4,-4 L-7,-3" fill="none" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Glass Tea Cup on Counter -->
+        <polygon points="-9,-5 -7,-4 -7,-8 -9,-9" fill="#D97706" stroke="#38BDF8" stroke-width="0.5"/>
+        <path d="M-8,-10 C-8,-12 -7,-13 -7,-15" fill="none" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+        <!-- Head & Hair -->
+        <circle cx="0" cy="-17" r="2.2" fill="#FBBF24"/>
+        <path d="M-2,-18 C-1,-20 3,-20 3,-17 C3,-17 2,-16 0,-16 Z" fill="#334155"/>
+      </g>
+
+      <!-- Standing Shopkeeper / "Mama" inside stall pouring tea -->
+      <g id="teaShopkeeper" transform="translate(3, -24)">
+        <!-- Apron / Vest (Warm brown / white shirt) -->
+        <polygon points="-2,-3 2,-1 2,-10 -2,-12" fill="#F8FAFC"/>
+        <polygon points="2,-1 4,-2 4,-11 2,-10" fill="#E2E8F0"/>
+        <!-- Head & Mustache / Hair -->
+        <circle cx="0.5" cy="-15" r="2" fill="#FBBF24"/>
+        <path d="M-1,-16 C-0.5,-18 3,-18 3,-15 Z" fill="#0F172A"/>
+        <!-- Arms pouring tea from strainer / cup -->
+        <path d="M-2,-7 L-4,-4 L-3,-2" fill="none" stroke="#E2E8F0" stroke-width="1.2"/>
+        <path d="M2,-7 L4,-4 L3,-2" fill="none" stroke="#E2E8F0" stroke-width="1.2"/>
+      </g>
+    </g>
 </g>
 
   </g>

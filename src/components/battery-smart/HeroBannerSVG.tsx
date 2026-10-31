@@ -2202,6 +2202,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       "tgSolarParkTree",
       // Foreground roadside shops (South side of roads & plazas, in front of traffic)
       "shopTeaStall",
+      "shopTraditionalTeaStall",
       "shopTelecomKiosk",
       "shopFruitStall",
       "shopEvMartCafe",
