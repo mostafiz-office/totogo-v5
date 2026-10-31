@@ -191,13 +191,14 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('EV AUTO MART');
     expect(heroSvgMarkup).toContain('tg-ev-auto-mart');
 
-    // 2. Lower-Left Shop: Modern Ground-Floor EV Cafe & Lounge (Lower-left plot in front of house)
+    // 2. Lower-Left Shop: Modern Ground-Floor EV Cafe & Lounge (Repositioned to vacant sidewalk plot on the left)
     expect(heroSvgMarkup).toContain('id="shopEvMartCafe"');
     expect(heroSvgMarkup).toContain('EV CAFE');
     expect(heroSvgMarkup).toContain('tg-ev-cafe-lounge');
     expect(heroSvgMarkup).toContain('class="timber-slats-left');
     expect(heroSvgMarkup).toContain('cafeEspressoMachine');
     expect(heroSvgMarkup).toContain('cafePastryCase');
+    expect(heroSvgMarkup).toContain('cafeCustomerFigure');
 
     // 3. Vacant Plot behind Station Bays: Modern Grocery Store ("GROCERY MART" / মুদি দোকান)
     expect(heroSvgMarkup).toContain('id="shopGroceryStore"');
