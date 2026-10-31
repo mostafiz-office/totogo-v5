@@ -24,8 +24,8 @@ const HEADLINE_FADE_MS = 700;
 const BANNER_DELAY_AFTER_TITLE_MS = 200;
 const BANNER_IN_MS = 900;
 
-const Hero = ({ variant = "v1" }: { variant?: "v1" | "v2" } = {}) => {
-  const heroSvgMarkup = variant === "v2" ? heroSvgMarkupV2 : heroSvgMarkupV1;
+const Hero = ({ variant = "v2" }: { variant?: "v1" | "v2" } = {}) => {
+  const heroSvgMarkup = variant === "v1" ? heroSvgMarkupV1 : heroSvgMarkupV2;
   const sectionRef = useRef<HTMLElement>(null);
   const [idx, setIdx] = useState(0);
   const [mountBanner, setMountBanner] = useState(false);

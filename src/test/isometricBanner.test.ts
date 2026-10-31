@@ -275,6 +275,15 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('id="leftHand"');
     expect(heroSvgMarkup).toContain('id="rightHand"');
   });
+
+  it("ensures seamless ground terrain coverage across full canvas width and height without corner cutouts", () => {
+    // Terrain base rectangle must span 0 0 H1922 V2083 H0 V0Z to prevent white triangular corner cutouts
+    expect(heroSvgMarkup).toContain('id="Rectangle 5905" d="M0 0H1922V2083H0V0Z"');
+    expect(heroSvgMarkup).not.toContain('1450.23L962 2082.83');
+    expect(heroSvgMarkup).toContain('id="paint0_linear_1_7"');
+    expect(heroSvgMarkup).toContain('stop-color="#D8C49A"');
+    expect(heroSvgMarkup).toContain('stop-color="#F4E8CF"');
+  });
 });
 
 
