@@ -1474,27 +1474,35 @@
     <!-- - Parapet & Roof: Forest-green cap with continuous golden cove LED strip. -->
     <!-- - Full plot fill with light-grey paving platform, road 100% clear.        -->
     <!-- ====================================================================== -->
-                <!-- ====================================================================== -->
-    <!-- MINIMALIST 3D ISOMETRIC "GROCERY MART" (PURE VECTOR CLAY COMMERCIAL)      -->
-    <!-- Strict adherence to surrounding vector clay style, sharp straight         -->
-    <!-- geometry, and clean solid-color aesthetic (matching beige building,       -->
-    <!-- battery swapping station, and EV cafe).                                   -->
+                    <!-- ====================================================================== -->
+    <!-- PRISTINE 3D ISOMETRIC "GROCERY MART" (EXACT REFERENCE MATCH)               -->
+    <!-- Strictly matching EV AUTO MART & surrounding vector clay architecture.     -->
+    <!-- Features: Flush-mounted dark-green signboard with zero text overflow,      -->
+    <!-- taut green-and-terracotta striped canopy, clean sliding glass doors,       -->
+    <!-- 2 tiered dark-wood produce display bins with color-blocked crates,         -->
+    <!-- and 2 calibrated low-poly shoppers with grocery bags.                      -->
     <!-- ====================================================================== -->
     <g id="shopSupermarket" class="tg-shop tg-supermarket-building" transform="translate(1415, 1660)">
-      <!-- 1. SOFT DIRECTIONAL DAYLIGHT CONTACT & GROUND DROP SHADOW -->
-      <polygon points="-104,-18 28,48 126,2 96,-44 -26,-88" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
-      <ellipse cx="12" cy="18" rx="100" ry="38" fill="#0A1812" opacity="0.15" style="mix-blend-mode: multiply;"/>
+      <!-- ============================================================== -->
+      <!-- 1. SOFT DIRECTIONAL DAYLIGHT CONTACT & GROUND DROP SHADOW       -->
+      <!-- ============================================================== -->
+      <polygon points="-106,-18 28,48 128,2 96,-44 -26,-88" fill="#0A1812" opacity="0.20" style="mix-blend-mode: multiply;"/>
+      <ellipse cx="12" cy="18" rx="100" ry="36" fill="#0A1812" opacity="0.14" style="mix-blend-mode: multiply;"/>
 
-      <!-- 2. EXPANDED CLEAN PORCELAIN PAVING PLATFORM (FULL PLOT FILL) -->
-      <polygon points="-96,-25 28,37 122,-10 -2,-72" fill="#EDE6DA"/>
+      <!-- ============================================================== -->
+      <!-- 2. EXPANDED CLEAN PORCELAIN PAVING APRON (FULL PLOT FILL)       -->
+      <!-- ============================================================== -->
+      <polygon points="-96,-25 28,37 124,-11 -2,-73" fill="#EDE6DA"/>
       <polygon points="-96,-25 28,37 28,42 -96,-20" fill="#D8CFBF"/>
-      <polygon points="28,37 122,-10 122,-5 28,42" fill="#C5BBAA"/>
+      <polygon points="28,37 124,-11 124,-6 28,42" fill="#C5BBAA"/>
 
       <!-- Clean Perimeter Paving Joint Lines -->
       <line x1="-90" y1="-22" x2="26" y2="36" stroke="#C5BBAA" stroke-width="0.8"/>
-      <line x1="26" y1="36" x2="116" y2="-9" stroke="#C5BBAA" stroke-width="0.8"/>
+      <line x1="26" y1="36" x2="118" y2="-10" stroke="#C5BBAA" stroke-width="0.8"/>
 
-      <!-- 3. SOLID & CLEAN ARCHITECTURE: SMOOTH WALLS & BASE TRIM -->
+      <!-- ============================================================== -->
+      <!-- 3. CRISP, SOLID ARCHITECTURE: SMOOTH WALLS & DARK-GREEN TRIM   -->
+      <!-- ============================================================== -->
       <!-- Front-Left Facade (Street-facing lit side: pure smooth warm beige) -->
       <polygon points="-76,-24 16,22 16,-54 -76,-100" fill="#DFCCA8"/>
       <!-- Right Side Facade (Shadow side: smooth warm clay-tan) -->
@@ -1506,8 +1514,10 @@
       <line x1="-76" y1="-33" x2="16" y2="13" stroke="#34D399" stroke-width="0.9" opacity="0.45"/>
       <line x1="16" y1="13" x2="96" y2="-27" stroke="#34D399" stroke-width="0.6" opacity="0.30"/>
 
-      <!-- 4. FLAT PARAPET ROOF & CLEAN DARK-GREEN ROOFLINE TRIM -->
-      <!-- Parapet Outer Fascia Trim -->
+      <!-- ============================================================== -->
+      <!-- 4. FLAT PARAPET ROOF & DARK-GREEN BORDER (ALL 4 SIDES)         -->
+      <!-- ============================================================== -->
+      <!-- Outer Parapet Fascia Trim -->
       <polygon points="-78,-94 18,-46 18,-62 -78,-110" fill="#1E5E3C"/>
       <polygon points="18,-46 98,-86 98,-102 18,-62" fill="#144229"/>
 
@@ -1526,37 +1536,83 @@
       <!-- Clean Recessed Flat Roof Deck (Warm caramel-tan clay) -->
       <polygon points="-74,-100 18,-54 94,-92 10,-138" fill="#C8A282"/>
 
-      <!-- 5. CRISP, HIGH-CONTRAST ROAD-FACING 3D SIGNBOARD FASCIA -->
-      <g id="supermarketAwning" class="tg-signboard-wrapper">
-        <!-- Wide Solid Dark-Green Signboard Backing Box (Carefully proportioned with generous margins) -->
-        <polygon points="-77,-80 17,-33 17,-55 -77,-102" fill="#103822"/>
-        <polygon points="-76,-81 16,-34 16,-56 -76,-103" fill="#1B4D33"/>
-        <!-- Top Bevel Coping -->
-        <polygon points="-76,-103 16,-56 17,-55 -77,-102" fill="#2D8559"/>
-        <!-- Bottom Drop Shadow -->
-        <polygon points="-76,-81 16,-34 17,-33 -77,-80" fill="#0A2216"/>
-        <!-- Inner Gold/Mint Accent Line -->
-        <polygon points="-73,-84 13,-41 13,-42 -73,-85" fill="#52B788" opacity="0.65"/>
+      <!-- ============================================================== -->
+      <!-- 5. FLUSH-MOUNTED SIGNBOARD & 3D TYPOGRAPHY (ZERO OVERFLOW)     -->
+      <!-- ============================================================== -->
+      <!-- Wide Solid Dark-Green Signboard Backing Box (Flush with facade walls) -->
+      <polygon points="-76,-79 16,-33 16,-55 -76,-101" fill="#103822"/>
+      <polygon points="-75,-80 15,-34 15,-56 -75,-102" fill="#1B4D33"/>
+      <!-- Top Bevel Coping -->
+      <polygon points="-75,-102 15,-56 16,-55 -76,-101" fill="#2D8559"/>
+      <!-- Bottom Shadow Strip -->
+      <polygon points="-75,-80 15,-34 16,-33 -76,-79" fill="#0A2216"/>
+      <!-- Inner Thin Border Accent -->
+      <polygon points="-72,-83 12,-41 12,-42 -72,-84" fill="#52B788" opacity="0.6"/>
 
-        <!-- BOLD EMBOSSED 3D WHITE SANS-SERIF TYPOGRAPHY "GROCERY MART" -->
-        <g id="supermarketSignboard" transform="translate(-30, -68.5) skewY(26.565)">
-          <!-- Deep Bold 3D Drop Shadow Underlay -->
-          <text x="0" y="2.0" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.6" fill="#061A0F" letter-spacing="0.9">GROCERY MART</text>
-          <text x="0" y="1.0" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.6" fill="#0F331F" letter-spacing="0.9">GROCERY MART</text>
-          <!-- Crisp Pure White Solid Bold Face -->
-          <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.6" fill="#FFFFFF" letter-spacing="0.9">GROCERY MART</text>
-        </g>
+      <!-- BOLD EMBOSSED 3D WHITE SANS-SERIF TYPOGRAPHY "GROCERY MART" -->
+      <!-- Perfectly centered with generous margins: zero bleeding/overflow -->
+      <g id="supermarketSignboard" transform="translate(-30, -68) skewY(26.565)">
+        <text x="0" y="1.8" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.5" fill="#061A0F" letter-spacing="0.8">GROCERY MART</text>
+        <text x="0" y="0.9" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.5" fill="#0F331F" letter-spacing="0.8">GROCERY MART</text>
+        <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="9.5" fill="#FFFFFF" letter-spacing="0.8">GROCERY MART</text>
       </g>
 
-      <!-- 6. WIDE GLASS SLIDING ENTRANCE & DISPLAY WINDOWS -->
+      <!-- ============================================================== -->
+      <!-- 6. TAUT STRIPED CANOPY / AWNING (DARK-GREEN & TERRACOTTA-RED)  -->
+      <!-- Directly beneath signboard, projecting out over storefront     -->
+      <!-- ============================================================== -->
+      <g id="supermarketAwning" class="tg-awning-wrapper">
+        <!-- Cast Shadow under Awning onto Glass Door -->
+        <polygon points="-66,-66 6,-30 6,-34 -66,-70" fill="#0A1812" opacity="0.30"/>
+
+        <!-- Canopy Slope Slanted Polygons (Green & Terracotta Alternating Stripes) -->
+        <!-- Stripe 1 (Terracotta): X = -66 to -57 -->
+        <polygon points="-66,-78 -57,-73.5 -68,-64 -77,-68.5" fill="#B93822"/>
+        <polygon points="-77,-68.5 -68,-64 -68,-60 -77,-64.5" fill="#8C2514"/>
+
+        <!-- Stripe 2 (Dark Green): X = -57 to -48 -->
+        <polygon points="-57,-73.5 -48,-69 -59,-59.5 -68,-64" fill="#1B4D33"/>
+        <polygon points="-68,-64 -59,-59.5 -59,-55.5 -68,-60" fill="#103822"/>
+
+        <!-- Stripe 3 (Terracotta): X = -48 to -39 -->
+        <polygon points="-48,-69 -39,-64.5 -50,-55 -59,-59.5" fill="#C5422B"/>
+        <polygon points="-59,-59.5 -50,-55 -50,-51 -59,-55.5" fill="#8C2514"/>
+
+        <!-- Stripe 4 (Dark Green): X = -39 to -30 -->
+        <polygon points="-39,-64.5 -30,-60 -41,-50.5 -50,-55" fill="#226B47"/>
+        <polygon points="-50,-55 -41,-50.5 -41,-46.5 -50,-51" fill="#103822"/>
+
+        <!-- Stripe 5 (Terracotta): X = -30 to -21 -->
+        <polygon points="-30,-60 -21,-55.5 -32,-46 -41,-50.5" fill="#C5422B"/>
+        <polygon points="-41,-50.5 -32,-46 -32,-42 -41,-46.5" fill="#8C2514"/>
+
+        <!-- Stripe 6 (Dark Green): X = -21 to -12 -->
+        <polygon points="-21,-55.5 -12,-51 -23,-41.5 -32,-46" fill="#1B4D33"/>
+        <polygon points="-32,-46 -23,-41.5 -23,-37.5 -32,-42" fill="#103822"/>
+
+        <!-- Stripe 7 (Terracotta): X = -12 to -3 -->
+        <polygon points="-12,-51 -3,-46.5 -14,-37 -23,-41.5" fill="#C5422B"/>
+        <polygon points="-23,-41.5 -14,-37 -14,-33 -23,-37.5" fill="#8C2514"/>
+
+        <!-- Stripe 8 (Dark Green): X = -3 to 6 -->
+        <polygon points="-3,-46.5 6,-42 -5,-32.5 -14,-37" fill="#226B47"/>
+        <polygon points="-14,-37 -5,-32.5 -5,-28.5 -14,-33" fill="#103822"/>
+
+        <!-- Crisp Bottom Scallop Trim Line -->
+        <line x1="-77" y1="-64.5" x2="-5" y2="-28.5" stroke="#FEF08A" stroke-width="0.8" opacity="0.65"/>
+      </g>
+
+      <!-- ============================================================== -->
+      <!-- 7. WIDE MODERN GLASS SLIDING ENTRANCE                          -->
+      <!-- ============================================================== -->
       <g id="supermarketStorefront">
-        <!-- Recessed Doorway Cavity (Clean architectural framing) -->
+        <!-- Recessed Doorway Cavity -->
         <polygon points="-58,-15 2,15 2,-34 -58,-64" fill="#0F172A"/>
 
         <!-- Wide Double Glass Sliding Doors -->
         <g id="supermarketGlassDoors">
-          <polygon points="-56,-14 0,14 0,-32 -56,-60" fill="#38BDF8" opacity="0.25"/>
-          <polygon points="-54,-13 -2,13 -2,-30 -54,-58" fill="#FEF3C7" opacity="0.38"/>
+          <polygon points="-56,-14 0,14 0,-32 -56,-60" fill="#38BDF8" opacity="0.22"/>
+          <polygon points="-54,-13 -2,13 -2,-30 -54,-58" fill="#FEF3C7" opacity="0.35"/>
 
           <!-- Solid Dark Outer Aluminum Framing (#1E293B) -->
           <line x1="-56" y1="-14" x2="0" y2="14" stroke="#1E293B" stroke-width="2.0"/>
@@ -1567,26 +1623,28 @@
           <!-- Center Door Dividing Mullion -->
           <line x1="-28" y1="-46" x2="-28" y2="0" stroke="#1E293B" stroke-width="1.8"/>
 
-          <!-- Clean Vertical Handles -->
+          <!-- Vertical Handles -->
           <line x1="-29.5" y1="-17" x2="-29.5" y2="-27" stroke="#E2E8F0" stroke-width="1.4" stroke-linecap="round"/>
           <line x1="-26.5" y1="-15.5" x2="-26.5" y2="-25.5" stroke="#E2E8F0" stroke-width="1.4" stroke-linecap="round"/>
 
           <!-- Specular Glare Streaks -->
-          <polygon points="-48,-50 -44,-52 -28,-14 -32,-12" fill="#FFFFFF" opacity="0.30"/>
-          <polygon points="-20,-36 -16,-38 -4,-10 -8,-8" fill="#FFFFFF" opacity="0.30"/>
+          <polygon points="-48,-50 -44,-52 -28,-14 -32,-12" fill="#FFFFFF" opacity="0.28"/>
+          <polygon points="-20,-36 -16,-38 -4,-10 -8,-8" fill="#FFFFFF" opacity="0.28"/>
         </g>
 
-        <!-- Clean Concrete Entrance Step -->
+        <!-- Concrete Entrance Step -->
         <polygon points="-54,-13 -2,13 2,15 -50,-11" fill="#CBD5E1"/>
       </g>
 
-      <!-- 7. EXTERIOR SIDE FIXTURES: WHITE AC UNIT & ROUND TREE -->
+      <!-- ============================================================== -->
+      <!-- 8. EXTERIOR SIDE FIXTURES: WHITE AC UNIT & ROUND SHADE TREES   -->
+      <!-- ============================================================== -->
+      <!-- Clean White AC Compressor Unit on Right Wall -->
       <g id="supermarketAcUnit" transform="translate(68, -48)">
-        <polygon points="0,0 14,-7 14,12 0,19" fill="#0A1812" opacity="0.20"/>
+        <polygon points="0,0 14,-7 14,12 0,19" fill="#0A1812" opacity="0.18"/>
         <polygon points="-2,1 12,-6 12,12 -2,19" fill="#CBD5E1"/>
         <polygon points="-2,1 12,-6 9,-8 -5,-1" fill="#FFFFFF"/>
         <polygon points="-5,-1 -2,1 -2,19 -5,17" fill="#94A3B8"/>
-        <!-- Front Louvers -->
         <line x1="0" y1="4" x2="9" y2="-0.5" stroke="#64748B" stroke-width="0.9"/>
         <line x1="0" y1="8" x2="9" y2="3.5" stroke="#64748B" stroke-width="0.9"/>
         <line x1="0" y1="12" x2="9" y2="7.5" stroke="#64748B" stroke-width="0.9"/>
@@ -1594,7 +1652,7 @@
         <path d="M-3,18 L-3,26 L3,29" fill="none" stroke="#B45309" stroke-width="1.0" stroke-linecap="round"/>
       </g>
 
-      <!-- Stylized Spherical Round Green Shade Tree on Right Plinth Corner -->
+      <!-- Primary Stylized Spherical Round Green Shade Tree -->
       <g id="supermarketSideTree" transform="translate(86, -6)">
         <ellipse cx="0" cy="5" rx="8" ry="4" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
         <polygon points="-1,5 1,5 1,-4 -1,-4" fill="#523218"/>
@@ -1603,10 +1661,22 @@
         <circle cx="-3" cy="-13" r="3.6" fill="#2BB38A" opacity="0.75"/>
       </g>
 
-      <!-- 8. BOLD, GEOMETRIC PRODUCE DISPLAYS (INSTANTLY RECOGNIZABLE) -->
-      <!-- STAND 1 (LEFT OF ENTRANCE): Bold Red Apples & Sunny Yellow Lemons -->
+      <!-- Secondary Small Shade Tree behind right corner (as in reference) -->
+      <g id="supermarketSideTree2" transform="translate(104, -20)">
+        <ellipse cx="0" cy="4" rx="6" ry="3" fill="#0A1812" opacity="0.18" style="mix-blend-mode: multiply;"/>
+        <polygon points="-1,4 1,4 1,-3 -1,-3" fill="#523218"/>
+        <circle cx="0" cy="-8" r="8" fill="#14664F"/>
+        <circle cx="-2" cy="-10" r="2.8" fill="#2BB38A" opacity="0.7"/>
+      </g>
+
+      <!-- ============================================================== -->
+      <!-- 9. TWO TIERED PRODUCE DISPLAYS (BOLD COLOR-BLOCKED CRATES)     -->
+      <!-- ============================================================== -->
+
+      <!-- STAND 1 (LEFT OF ENTRANCE): Solid dark-wood stepped bin -->
       <g id="produceStandLeft" transform="translate(-70, -4)">
         <polygon points="-4,2 26,17 26,22 -4,7" fill="#0A1812" opacity="0.25" style="mix-blend-mode: multiply;"/>
+        <!-- Structure -->
         <polygon points="0,0 20,10 20,16 0,6" fill="#3E2723"/>
         <polygon points="20,10 28,6 28,12 20,16" fill="#2E1C14"/>
         <polygon points="0,0 20,10 28,6 8,-4" fill="#5D4037"/>
@@ -1616,58 +1686,52 @@
         <polygon points="18,1 24,-2 24,3 18,6" fill="#2E1C14"/>
         <polygon points="4,-6 18,1 24,-2 10,-9" fill="#6D4C41"/>
 
-        <!-- TIER A (UPPER): Bright Bold Red Organic Apples/Tomatoes -->
+        <!-- TIER A (UPPER): Green Vegetables & Orange Citrus -->
+        <g id="crateGreenCabbages">
+          <ellipse cx="6" cy="-4.5" rx="2.5" ry="1.9" fill="#15803D"/>
+          <ellipse cx="5.5" cy="-4.9" rx="1.8" ry="1.3" fill="#22C55E"/>
+          <circle cx="5.1" cy="-5.2" r="0.6" fill="#86EFAC" opacity="0.9"/>
+
+          <ellipse cx="10" cy="-2.5" rx="2.5" ry="1.9" fill="#16A34A"/>
+          <ellipse cx="9.5" cy="-2.9" rx="1.8" ry="1.3" fill="#4ADE80"/>
+          <circle cx="9.1" cy="-3.2" r="0.6" fill="#BBF7D0" opacity="0.9"/>
+        </g>
+        <g id="crateOrangeCitrus">
+          <circle cx="15" cy="0" r="2.3" fill="#C2410C"/>
+          <circle cx="14.5" cy="-0.4" r="1.7" fill="#F97316"/>
+          <circle cx="14.1" cy="-0.8" r="0.6" fill="#FED7AA" opacity="0.95"/>
+
+          <circle cx="19" cy="2" r="2.3" fill="#9A3412"/>
+          <circle cx="18.5" cy="1.6" r="1.7" fill="#FB923C"/>
+          <circle cx="18.1" cy="1.2" r="0.6" fill="#FED7AA" opacity="0.95"/>
+        </g>
+
+        <!-- TIER B (LOWER): Glossy Red Apples & Sunny Yellow Lemons -->
         <g id="crateRedApplesTomatoes">
-          <circle cx="7" cy="-5" r="2.4" fill="#B91C1C"/>
-          <circle cx="6.5" cy="-5.4" r="1.8" fill="#DC2626"/>
-          <circle cx="6.1" cy="-5.8" r="0.6" fill="#FCA5A5" opacity="0.9"/>
+          <circle cx="5" cy="1.5" r="2.4" fill="#B91C1C"/>
+          <circle cx="4.5" cy="1.1" r="1.8" fill="#DC2626"/>
+          <circle cx="4.1" cy="0.7" r="0.6" fill="#FCA5A5" opacity="0.9"/>
 
-          <circle cx="12" cy="-2.5" r="2.4" fill="#B91C1C"/>
-          <circle cx="11.5" cy="-2.9" r="1.8" fill="#EF4444"/>
-          <circle cx="11.1" cy="-3.3" r="0.6" fill="#FCA5A5" opacity="0.9"/>
-
-          <circle cx="17" cy="0" r="2.4" fill="#B91C1C"/>
-          <circle cx="16.5" cy="-0.4" r="1.8" fill="#DC2626"/>
-          <circle cx="16.1" cy="-0.8" r="0.6" fill="#FCA5A5" opacity="0.9"/>
-
-          <circle cx="9" cy="-1.5" r="2.4" fill="#991B1B"/>
-          <circle cx="8.5" cy="-1.9" r="1.8" fill="#DC2626"/>
-          <circle cx="8.1" cy="-2.3" r="0.6" fill="#FCA5A5" opacity="0.9"/>
-
-          <circle cx="14" cy="1" r="2.4" fill="#991B1B"/>
-          <circle cx="13.5" cy="0.6" r="1.8" fill="#EF4444"/>
-          <circle cx="13.1" cy="0.2" r="0.6" fill="#FCA5A5" opacity="0.9"/>
+          <circle cx="9" cy="3.5" r="2.4" fill="#991B1B"/>
+          <circle cx="8.5" cy="3.1" r="1.8" fill="#EF4444"/>
+          <circle cx="8.1" cy="2.7" r="0.6" fill="#FCA5A5" opacity="0.9"/>
         </g>
-
-        <!-- TIER B (LOWER): Vibrant Sunny Yellow Citrus Lemons / Bananas -->
         <g id="crateCitrusLemons">
-          <ellipse cx="5" cy="1.5" rx="2.5" ry="2.0" fill="#CA8A04"/>
-          <ellipse cx="4.5" cy="1.1" rx="1.9" ry="1.5" fill="#FACC15"/>
-          <circle cx="4.1" cy="0.7" r="0.6" fill="#FEF08A" opacity="0.95"/>
+          <ellipse cx="14" cy="6" rx="2.5" ry="2.0" fill="#CA8A04"/>
+          <ellipse cx="13.5" cy="5.6" rx="1.9" ry="1.5" fill="#FACC15"/>
+          <circle cx="13.1" cy="5.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
 
-          <ellipse cx="10" cy="4" rx="2.5" ry="2.0" fill="#CA8A04"/>
-          <ellipse cx="9.5" cy="3.6" rx="1.9" ry="1.5" fill="#FDE047"/>
-          <circle cx="9.1" cy="3.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
-
-          <ellipse cx="15" cy="6.5" rx="2.5" ry="2.0" fill="#CA8A04"/>
-          <ellipse cx="14.5" cy="6.1" rx="1.9" ry="1.5" fill="#FACC15"/>
-          <circle cx="14.1" cy="5.7" r="0.6" fill="#FEF08A" opacity="0.95"/>
-
-          <ellipse cx="8" cy="6" rx="2.5" ry="2.0" fill="#A16207"/>
-          <ellipse cx="7.5" cy="5.6" rx="1.9" ry="1.5" fill="#FACC15"/>
-          <circle cx="7.1" cy="5.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
-
-          <ellipse cx="13" cy="8.5" rx="2.5" ry="2.0" fill="#A16207"/>
-          <ellipse cx="12.5" cy="8.1" rx="1.9" ry="1.5" fill="#FDE047"/>
-          <circle cx="12.1" cy="7.7" r="0.6" fill="#FEF08A" opacity="0.95"/>
+          <ellipse cx="18" cy="8" rx="2.5" ry="2.0" fill="#A16207"/>
+          <ellipse cx="17.5" cy="7.6" rx="1.9" ry="1.5" fill="#FDE047"/>
+          <circle cx="17.1" cy="7.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
         </g>
 
-        <!-- Solid Slate Price Placard -->
+        <!-- Price Placard -->
         <polygon points="8,8 14,11 14,15 8,12" fill="#1E293B"/>
         <line x1="9" y1="10.5" x2="13" y2="12.5" stroke="#FFFFFF" stroke-width="0.8"/>
       </g>
 
-      <!-- STAND 2 (RIGHT OF ENTRANCE): Crisp Green Cabbages & Vibrant Orange Citrus -->
+      <!-- STAND 2 (RIGHT OF ENTRANCE): Solid dark-wood stepped bin -->
       <g id="produceStandRight" transform="translate(14, 20)">
         <polygon points="-4,2 26,17 26,22 -4,7" fill="#0A1812" opacity="0.25" style="mix-blend-mode: multiply;"/>
         <polygon points="0,0 20,10 20,16 0,6" fill="#3E2723"/>
@@ -1678,87 +1742,92 @@
         <polygon points="18,1 24,-2 24,3 18,6" fill="#2E1C14"/>
         <polygon points="4,-6 18,1 24,-2 10,-9" fill="#6D4C41"/>
 
-        <!-- TIER A (UPPER): Crisp Emerald-Green Cabbages -->
-        <g id="crateGreenCabbages">
-          <ellipse cx="7" cy="-5" rx="2.8" ry="2.1" fill="#15803D"/>
-          <ellipse cx="6.5" cy="-5.4" rx="2.0" ry="1.5" fill="#22C55E"/>
-          <circle cx="6.1" cy="-5.8" r="0.7" fill="#86EFAC" opacity="0.9"/>
+        <!-- TIER A (UPPER): Green Vegetables & Orange Citrus -->
+        <g id="crateRightUpper">
+          <ellipse cx="6" cy="-4.5" rx="2.5" ry="1.9" fill="#15803D"/>
+          <ellipse cx="5.5" cy="-4.9" rx="1.8" ry="1.3" fill="#22C55E"/>
+          <circle cx="5.1" cy="-5.2" r="0.6" fill="#86EFAC" opacity="0.9"/>
 
-          <ellipse cx="12" cy="-2.5" rx="2.8" ry="2.1" fill="#16A34A"/>
-          <ellipse cx="11.5" cy="-2.9" rx="2.0" ry="1.5" fill="#4ADE80"/>
-          <circle cx="11.1" cy="-3.3" r="0.7" fill="#BBF7D0" opacity="0.9"/>
+          <ellipse cx="10" cy="-2.5" rx="2.5" ry="1.9" fill="#16A34A"/>
+          <ellipse cx="9.5" cy="-2.9" rx="1.8" ry="1.3" fill="#4ADE80"/>
+          <circle cx="9.1" cy="-3.2" r="0.6" fill="#BBF7D0" opacity="0.9"/>
 
-          <ellipse cx="17" cy="0" rx="2.8" ry="2.1" fill="#15803D"/>
-          <ellipse cx="16.5" cy="-0.4" rx="2.0" ry="1.5" fill="#22C55E"/>
-          <circle cx="16.1" cy="-0.8" r="0.7" fill="#86EFAC" opacity="0.9"/>
+          <circle cx="15" cy="0" r="2.3" fill="#C2410C"/>
+          <circle cx="14.5" cy="-0.4" r="1.7" fill="#F97316"/>
+          <circle cx="14.1" cy="-0.8" r="0.6" fill="#FED7AA" opacity="0.95"/>
 
-          <ellipse cx="10" cy="-1.5" rx="2.8" ry="2.1" fill="#16A34A"/>
-          <ellipse cx="9.5" cy="-1.9" rx="2.0" ry="1.5" fill="#4ADE80"/>
-          <circle cx="9.1" cy="-2.3" r="0.7" fill="#BBF7D0" opacity="0.9"/>
+          <circle cx="19" cy="2" r="2.3" fill="#9A3412"/>
+          <circle cx="18.5" cy="1.6" r="1.7" fill="#FB923C"/>
+          <circle cx="18.1" cy="1.2" r="0.6" fill="#FED7AA" opacity="0.95"/>
         </g>
 
-        <!-- TIER B (LOWER): Vibrant Sunny Orange Citrus -->
-        <g id="crateOrangeCitrus">
-          <circle cx="5" cy="1.5" r="2.4" fill="#C2410C"/>
-          <circle cx="4.5" cy="1.1" r="1.8" fill="#F97316"/>
-          <circle cx="4.1" cy="0.7" r="0.6" fill="#FED7AA" opacity="0.95"/>
+        <!-- TIER B (LOWER): Glossy Red Apples & Sunny Yellow Lemons -->
+        <g id="crateRightLower">
+          <circle cx="5" cy="1.5" r="2.4" fill="#B91C1C"/>
+          <circle cx="4.5" cy="1.1" r="1.8" fill="#DC2626"/>
+          <circle cx="4.1" cy="0.7" r="0.6" fill="#FCA5A5" opacity="0.9"/>
 
-          <circle cx="10" cy="4" r="2.4" fill="#C2410C"/>
-          <circle cx="9.5" cy="3.6" r="1.8" fill="#FB923C"/>
-          <circle cx="9.1" cy="3.2" r="0.6" fill="#FED7AA" opacity="0.95"/>
+          <circle cx="9" cy="3.5" r="2.4" fill="#991B1B"/>
+          <circle cx="8.5" cy="3.1" r="1.8" fill="#EF4444"/>
+          <circle cx="8.1" cy="2.7" r="0.6" fill="#FCA5A5" opacity="0.9"/>
 
-          <circle cx="15" cy="6.5" r="2.4" fill="#C2410C"/>
-          <circle cx="14.5" cy="6.1" r="1.8" fill="#F97316"/>
-          <circle cx="14.1" cy="5.7" r="0.6" fill="#FED7AA" opacity="0.95"/>
+          <ellipse cx="14" cy="6" rx="2.5" ry="2.0" fill="#CA8A04"/>
+          <ellipse cx="13.5" cy="5.6" rx="1.9" ry="1.5" fill="#FACC15"/>
+          <circle cx="13.1" cy="5.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
 
-          <circle cx="8" cy="6" r="2.4" fill="#9A3412"/>
-          <circle cx="7.5" cy="5.6" r="1.8" fill="#F97316"/>
-          <circle cx="7.1" cy="5.2" r="0.6" fill="#FED7AA" opacity="0.95"/>
-
-          <circle cx="13" cy="8.5" r="2.4" fill="#9A3412"/>
-          <circle cx="12.5" cy="8.1" r="1.8" fill="#FB923C"/>
-          <circle cx="12.1" cy="7.7" r="0.6" fill="#FED7AA" opacity="0.95"/>
+          <ellipse cx="18" cy="8" rx="2.5" ry="2.0" fill="#A16207"/>
+          <ellipse cx="17.5" cy="7.6" rx="1.9" ry="1.5" fill="#FDE047"/>
+          <circle cx="17.1" cy="7.2" r="0.6" fill="#FEF08A" opacity="0.95"/>
         </g>
 
-        <!-- Solid Slate Price Placard -->
+        <!-- Price Placard -->
         <polygon points="8,8 14,11 14,15 8,12" fill="#1E293B"/>
         <line x1="9" y1="10.5" x2="13" y2="12.5" stroke="#FFFFFF" stroke-width="0.8"/>
       </g>
 
-      <!-- 9. TWO CLEAN, STYLIZED LOW-POLY SHOPPERS -->
-      <!-- SHOPPER 1 (WOMAN): Crimson Top & Cream Trousers with Kraft Bag -->
+      <!-- ============================================================== -->
+      <!-- 10. TWO CALIBRATED LOW-POLY SHOPPERS (~24px HUMAN SCALE)        -->
+      <!-- ============================================================== -->
+
+      <!-- SHOPPER 1 (WOMAN): Red Top & Teal Skirt holding Green Bag -->
       <g id="supermarketShopper1" transform="translate(-46, 12)">
         <ellipse cx="0" cy="2" rx="4.2" ry="2.1" fill="#0A1812" opacity="0.28" style="mix-blend-mode: multiply;"/>
         <ellipse cx="-1.2" cy="1.5" rx="1.3" ry="0.7" fill="#0F172A"/>
         <ellipse cx="1.2" cy="1" rx="1.3" ry="0.7" fill="#0F172A"/>
-        <line x1="-1.2" y1="1" x2="-0.9" y2="-9" stroke="#E2D0BA" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="1.2" y1="0.5" x2="0.9" y2="-9" stroke="#F5E6D3" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- Teal Skirt -->
+        <polygon points="-3,-9 3,-9 2.5,-3 -2.5,-3" fill="#0D9488"/>
+        <!-- Red Top -->
         <path d="M-3.4,-9 L3.4,-9 L2.5,-18 L-2.5,-18 Z" fill="#DC2626"/>
         <polygon points="-1,-9 1,-9 0,-15" fill="#F8FAFC"/>
+        <!-- Arm holding Green Grocery Bag -->
         <line x1="2.4" y1="-16" x2="4.5" y2="-9" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round"/>
-        <polygon points="2.5,-9 6.5,-7 6.5,-1 2.5,-3" fill="#D97706"/>
-        <polygon points="6.5,-7 8.5,-8 8.5,-2 6.5,-1" fill="#B45309"/>
-        <polygon points="2.5,-9 6.5,-7 8.5,-8 4.5,-10" fill="#F59E0B"/>
-        <line x1="5.2" y1="-10" x2="6.2" y2="-13.5" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round"/>
-        <line x1="6.5" y1="-9.5" x2="7.8" y2="-12.5" stroke="#22C55E" stroke-width="1.0" stroke-linecap="round"/>
+        <polygon points="2.5,-9 6.5,-7 6.5,-1 2.5,-3" fill="#15803D"/>
+        <polygon points="6.5,-7 8.5,-8 8.5,-2 6.5,-1" fill="#166534"/>
+        <polygon points="2.5,-9 6.5,-7 8.5,-8 4.5,-10" fill="#22C55E"/>
+        <line x1="5.2" y1="-10" x2="6.2" y2="-13.5" stroke="#BBF7D0" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Head & Hair -->
         <circle cx="0" cy="-21.5" r="2.3" fill="#F5D0B5"/>
         <path d="M-2.1,-22.5 Q0,-24.5 2.1,-22.5 Q2.3,-18 2.0,-17 Q0,-19 -2.0,-17 Z" fill="#29180E"/>
       </g>
 
-      <!-- SHOPPER 2 (MAN): Gold Sweater & Dark Denim Jeans with Kraft Bag -->
+      <!-- SHOPPER 2 (MAN): Gold/Yellow Shirt & Denim Jeans with Kraft Bag -->
       <g id="supermarketShopper2" transform="translate(10, 32)">
         <ellipse cx="0" cy="2" rx="4.5" ry="2.2" fill="#0A1812" opacity="0.28" style="mix-blend-mode: multiply;"/>
         <ellipse cx="-1.6" cy="1.5" rx="1.5" ry="0.8" fill="#F8FAFC"/>
         <ellipse cx="1.6" cy="1" rx="1.5" ry="0.8" fill="#F8FAFC"/>
+        <!-- Dark Denim Blue Jeans -->
         <line x1="-1.6" y1="1" x2="-1.2" y2="-9.5" stroke="#1E3A8A" stroke-width="2.3" stroke-linecap="round"/>
         <line x1="1.6" y1="0.5" x2="1.1" y2="-9.5" stroke="#1D4ED8" stroke-width="2.3" stroke-linecap="round"/>
+        <!-- Gold/Yellow Shirt -->
         <path d="M-3.6,-9.5 L3.6,-9.5 L2.7,-19 L-2.7,-19 Z" fill="#EAB308"/>
+        <!-- Arm holding Brown Kraft Bag -->
         <line x1="-2.7" y1="-16.5" x2="-5" y2="-9.5" stroke="#EAB308" stroke-width="1.6" stroke-linecap="round"/>
         <polygon points="-7.5,-9.5 -4.2,-7.8 -4.2,-1.2 -7.5,-2.9" fill="#D97706"/>
         <polygon points="-4.2,-7.8 -2.4,-8.6 -2.4,-2 -4.2,-1.2" fill="#B45309"/>
         <polygon points="-7.5,-9.5 -4.2,-7.8 -2.4,-8.6 -5.7,-10.3" fill="#F59E0B"/>
         <line x1="-5.2" y1="-10.3" x2="-6.2" y2="-14" stroke="#D4A373" stroke-width="1.3" stroke-linecap="round"/>
         <circle cx="-3.8" cy="-9.2" r="1.0" fill="#EF4444"/>
+        <!-- Head & Hair -->
         <circle cx="0" cy="-22.5" r="2.4" fill="#F5D0B5"/>
         <path d="M-2.3,-24 Q0,-25.5 2.3,-24 Q2.3,-22 0,-22 Z" fill="#3E2410"/>
       </g>
