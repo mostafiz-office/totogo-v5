@@ -1909,49 +1909,21 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     const svg = root.querySelector<SVGSVGElement>("svg");
     if (!svg) return;
 
-    // 1. Prepare inter-substation lines and styling
-    let interGroup = svg.querySelector<SVGGElement>("#tgInterStationLines");
-    if (!interGroup) {
-      interGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      interGroup.setAttribute("id", "tgInterStationLines");
-      interGroup.setAttribute("opacity", "0");
-      interGroup.innerHTML = `
-        <defs>
-          <filter id="tgGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <!-- Left Substation (436, 1151) to Bottom Substation (1092, 1553) -->
-        <path d="M436 1151 L1092 1553" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
-        <!-- Bottom Substation (1092, 1553) to Right Substation (1377, 1177) -->
-        <path d="M1092 1553 L1377 1177" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
-        <!-- Left Substation (436, 1151) to Right Substation (1377, 1177) -->
-        <path d="M436 1151 L1377 1177" stroke="#00E58A" stroke-width="2.5" stroke-dasharray="10 6" stroke-linecap="round" filter="url(#tgGlowFilter)" />
-      `;
-      const anchor = svg.querySelector("#denseBatteryStation") || svg.firstElementChild;
-      if (anchor && anchor.parentNode) {
-        anchor.parentNode.insertBefore(interGroup, anchor);
-      } else {
-        svg.appendChild(interGroup);
-      }
-    }
+    // Clean up any extraneous inter-station lines (ensure strictly 3 connection lines)
+    svg.querySelector("#tgInterStationLines")?.remove();
 
-    // Enhance connection lines from main antenna
+    // Enhance connection lines from main antenna: strictly 3 solid straight lines in single #9CE9D0 color
     const mainLineIds = ["loaderLine", "threeWheelerLine", "twoWheelerLine"];
     const mainLines = mainLineIds.map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`)).filter(Boolean);
     mainLines.forEach(line => {
       if (!line) return;
-      line.style.opacity = "0";
-      const path = line.querySelector<SVGPathElement>("path") || line;
-      path.setAttribute("stroke", "#00E58A");
-      path.setAttribute("stroke-width", "3");
+      line.style.opacity = "1";
+      const path = line.querySelector<SVGLineElement | SVGPathElement>("line, path") || line;
+      path.setAttribute("stroke", "#9CE9D0");
+      path.setAttribute("stroke-width", "2.5");
       path.setAttribute("stroke-linecap", "round");
-      path.setAttribute("stroke-dasharray", "10 6");
-      path.setAttribute("filter", "drop-shadow(0 0 8px rgba(0, 229, 138, 0.85))");
+      path.removeAttribute("stroke-dasharray");
+      path.removeAttribute("filter");
     });
 
     // Enhance charging highlights
@@ -2039,137 +2011,75 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       batteryPerformance: "1092px 1120.75px",
     };
 
-    allCards.forEach(c => {
-      const origin = CARD_ORIGINS[c.id] || "center";
-      gsap.killTweensOf(c);
-      gsap.set(c, { transformOrigin: origin, scale: 0, opacity: 0 });
-    });
-
-    activeVehicles.forEach(v => {
-      gsap.killTweensOf(v);
-      v.style.transform = "";
-      v.removeAttribute("transform");
-      gsap.set(v, { x: 0, y: 0, opacity: 0 });
-    });
-
-    if (loader) gsap.set(loader, { transformOrigin: "56.75px 916.76px" });
-    if (threeWheeler) gsap.set(threeWheeler, { transformOrigin: "774.38px 1364.36px" });
-    if (twoWheeler) gsap.set(twoWheeler, { transformOrigin: "1691.71px 933.75px" });
-
-    // Collect all paths in connection lines for pulse dash animation
-    const allLines = [...mainLines, interGroup].filter(Boolean);
-    const linePaths: SVGPathElement[] = [];
-    allLines.forEach((l) => {
-      if (!l) return;
-      if (l instanceof SVGPathElement) linePaths.push(l);
-      else l.querySelectorAll<SVGPathElement>("path").forEach((p) => linePaths.push(p));
-    });
-
-    // Build Master Timeline (15s choreographed loop)
-    const masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.0 });
-
-    // --- STAGE 1: Approach & Initial Cards (0s -> 4.2s) ---
-    // Vehicles fade in & drive to substations
-    masterTl.to(activeVehicles, { opacity: 1, duration: 0.6, ease: "sine.out" }, 0.0);
+    // State 2 Active Docking Setup:
+    // 1. Vehicles docked at substations
     if (loader) {
-      masterTl.to(loader, { x: 368.7, y: 244.5, duration: 4.2, ease: "power1.inOut" }, 0.0);
+      gsap.killTweensOf(loader);
+      gsap.set(loader, { transformOrigin: "56.75px 916.76px", x: 368.7, y: 244.5, opacity: 1 });
     }
     if (threeWheeler) {
-      masterTl.to(threeWheeler, { x: 323.5, y: 209.5, duration: 4.2, ease: "power1.inOut" }, 0.0);
+      gsap.killTweensOf(threeWheeler);
+      gsap.set(threeWheeler, { transformOrigin: "774.38px 1364.36px", x: 323.5, y: 209.5, opacity: 1 });
     }
     if (twoWheeler) {
-      masterTl.to(twoWheeler, { x: -354.0, y: 230.8, duration: 4.2, ease: "power1.inOut" }, 0.0);
+      gsap.killTweensOf(twoWheeler);
+      gsap.set(twoWheeler, { transformOrigin: "1691.71px 933.75px", x: -354.0, y: 230.8, opacity: 1 });
     }
 
-    // Stage 1 cards pop in
-    const s1Cards = [cardBoth, cardNetwork].filter(Boolean);
-    masterTl.to(s1Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 0.6);
-    // Stage 1 cards exit before vehicles stop
-    masterTl.to(s1Cards, { scale: 0, opacity: 0, duration: 0.45, ease: "power2.in" }, 3.6);
+    // 2. Hide State 1 and extraneous callout cards
+    [cardBoth, cardNetwork, cardQuick, cardSupport, cardBatteryPerf].forEach(c => {
+      if (c) {
+        gsap.killTweensOf(c);
+        gsap.set(c, { scale: 0, opacity: 0, display: "none" });
+      }
+    });
 
-    // --- STAGE 2: Charging & Network Connections (4.2s -> 9.2s) ---
-    // Vehicles stop at substations at 4.2s
-    // Highlights pulse
-    const activeHighlights = highlights.filter(Boolean);
-    masterTl.to(activeHighlights, { opacity: 0.9, duration: 0.5, ease: "sine.out" }, 4.2);
-    masterTl.to(activeHighlights, { opacity: 0.55, duration: 0.7, yoyo: true, repeat: 5, ease: "sine.inOut" }, 4.7);
+    // 3. Show State 2 callout cards ("Partner App" & "Driver App")
+    [cardPartner, cardDriver].forEach(c => {
+      if (c) {
+        gsap.killTweensOf(c);
+        const origin = CARD_ORIGINS[c.id] || "center";
+        gsap.set(c, { transformOrigin: origin, scale: 1, opacity: 1, display: "block" });
+      }
+    });
 
-    // Connection lines fade in and glow with flowing pulse
-    masterTl.to(allLines, { opacity: 1, duration: 0.5, ease: "power2.out" }, 4.2);
-    if (linePaths.length) {
-      masterTl.fromTo(
-        linePaths,
-        { strokeDashoffset: 0 },
-        { strokeDashoffset: -128, duration: 4.4, ease: "none" },
-        4.2
-      );
-    }
+    // 4. Connection lines & Radar visible (strictly 3 lines emitting from central radar)
+    const allLines = mainLines.filter(Boolean);
+    allLines.forEach((l) => {
+      if (l) {
+        gsap.killTweensOf(l);
+        l.style.opacity = "1";
+        gsap.set(l, { opacity: 1, display: "block" });
+      }
+    });
 
-    // Antenna radiates circular waves & icon pulses
     if (batteryIcon) {
-      masterTl.to(batteryIcon, { opacity: 1, duration: 0.4 }, 4.2);
+      gsap.killTweensOf(batteryIcon);
+      batteryIcon.style.opacity = "1";
+      gsap.set(batteryIcon, { opacity: 1, display: "block" });
+    }
+    antennaCircles.forEach(c => {
+      gsap.killTweensOf(c);
+      c.style.opacity = "1";
+      gsap.set(c, { opacity: 1, scale: 1, display: "block" });
+    });
+
+    // 5. Subtle ambient glow on active charging highlights
+    const activeHighlights = highlights.filter(Boolean);
+    activeHighlights.forEach(h => {
+      if (h) h.style.opacity = "0.85";
+    });
+
+    const masterTl = gsap.timeline({ repeat: -1, yoyo: true });
+    if (activeHighlights.length) {
+      masterTl.to(activeHighlights, { opacity: 0.95, duration: 1.5, ease: "sine.inOut" }, 0);
     }
     if (antennaCircles.length) {
-      masterTl.fromTo(antennaCircles,
-        { scale: 0.75, opacity: 0.9, transformOrigin: "962.5px 975.5px" },
-        { scale: 1.6, opacity: 0, duration: 1.1, repeat: 3, ease: "sine.out" },
-        4.3
-      );
+      masterTl.to(antennaCircles, { opacity: 0.8, duration: 2.0, ease: "sine.inOut" }, 0);
     }
-
-    // Battery swap completion indicator (red slots switch to charged green)
-    if (swapLeds.length) {
-      masterTl.to(swapLeds, { fill: "#00E58A", duration: 0.4 }, 6.2);
-      masterTl.to(swapLeds, { fill: "#CD3026", duration: 0.3 }, 8.7);
-    }
-
-    // Stage 2 cards reveal
-    const s2Cards = [cardQuick, cardPartner, cardDriver].filter(Boolean);
-    masterTl.to(s2Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 4.6);
-
-    // Stage 2 exit with motion effect
-    masterTl.to(s2Cards, { scale: 0, opacity: 0, duration: 0.5, ease: "power2.in" }, 8.6);
-    masterTl.to(allLines, { opacity: 0, duration: 0.4 }, 8.7);
-    masterTl.to(activeHighlights, { opacity: 0, duration: 0.4 }, 8.7);
-    if (batteryIcon) masterTl.to(batteryIcon, { opacity: 0, duration: 0.4 }, 8.7);
-
-    // --- STAGE 3: Departure & Support/Monitoring Cards (9.2s -> 15.0s) ---
-    // Vehicles resume motion from substations to road terminus
-    if (loader) {
-      // Drives strictly along the straight road lane to terminus
-      masterTl.to(loader, { x: 1138.1, y: 720.5, duration: 4.8, ease: "power1.in" }, 9.2);
-    }
-    if (threeWheeler) {
-      masterTl.to(threeWheeler, { x: 516.0, y: 306.0, duration: 4.8, ease: "power1.in" }, 9.2);
-    }
-    if (twoWheeler) {
-      masterTl.to(twoWheeler, { x: -897.6, y: 554.0, duration: 4.8, ease: "power1.in" }, 9.2);
-    }
-
-    // Stage 3 cards pop in
-    const s3Cards = [cardSupport, cardBatteryPerf].filter(Boolean);
-    masterTl.to(s3Cards, { scale: 1, opacity: 1, duration: 0.65, ease: "back.out(1.4)" }, 9.6);
-
-    // Vehicles fade out near road end
-    masterTl.to(activeVehicles, { opacity: 0, duration: 0.6, ease: "sine.in" }, 13.4);
-
-    // Stage 3 cards exit
-    masterTl.to(s3Cards, { scale: 0, opacity: 0, duration: 0.5, ease: "power2.in" }, 13.8);
-
-    // Reset vehicles for next cycle
-    masterTl.set(activeVehicles, { x: 0, y: 0, opacity: 0 }, 14.5);
 
     return () => {
       masterTl.kill();
-      activeVehicles.forEach(v => gsap.set(v, { x: 0, y: 0, opacity: 0 }));
-      allCards.forEach(c => gsap.set(c, { scale: 0, opacity: 0 }));
-      activeHighlights.forEach(h => { if (h) h.style.opacity = "0"; });
-      allLines.forEach(l => { if (l) l.style.opacity = "0"; });
-      if (batteryIcon) batteryIcon.style.opacity = "0";
-      if (innerCircle) innerCircle.style.display = "none";
-      antennaCircles.forEach(c => { gsap.set(c, { scale: 1, opacity: 0 }); });
-      swapLeds.forEach(el => el.setAttribute("fill", "#CD3026"));
-      linePaths.forEach(p => { p.style.strokeDashoffset = "0"; });
     };
   }, [svgMarkup]);
 
