@@ -2058,238 +2058,238 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     masterTlRef.current = masterTl;
 
     // =========================================================================
-    // PHASE 1: Arrival & Initial Text Phase (State 1) [t = 0.0s -> 2.5s]
+    // PHASE 1: Inbound Driving & Intro Cards [t = 0.0s -> 4.2s] (Duration: ~4.2s)
     // =========================================================================
-    // Vehicles enter and drive smoothly along street lanes toward substations.
-    // Deterministic .fromTo guarantees no freeze or stale transform on loop repeat.
+    // Vehicles smoothly enter and cruise along lanes at a moderate, organic pace.
+    // Smooth deceleration (power2.out) into docking positions gives realistic gentle braking.
     if (loader) {
       masterTl.fromTo(loader,
         { opacity: 0 },
-        { opacity: 1, duration: 0.4, ease: "power1.out" },
+        { opacity: 1, duration: 0.6, ease: "power1.out" },
         0.0
       );
       masterTl.fromTo(loader,
         { x: 0, y: 0 },
-        { x: 368.7, y: 244.5, duration: 2.5, ease: "power2.out" },
+        { x: 368.7, y: 244.5, duration: 4.2, ease: "power2.out" },
         0.0
       );
     }
     if (threeWheeler) {
       masterTl.fromTo(threeWheeler,
         { opacity: 0 },
-        { opacity: 1, duration: 0.4, ease: "power1.out" },
+        { opacity: 1, duration: 0.6, ease: "power1.out" },
         0.0
       );
       masterTl.fromTo(threeWheeler,
         { x: 0, y: 0 },
-        { x: 323.5, y: 209.5, duration: 2.5, ease: "power2.out" },
+        { x: 323.5, y: 209.5, duration: 4.2, ease: "power2.out" },
         0.0
       );
     }
     if (twoWheeler) {
       masterTl.fromTo(twoWheeler,
         { opacity: 0 },
-        { opacity: 1, duration: 0.4, ease: "power1.out" },
+        { opacity: 1, duration: 0.6, ease: "power1.out" },
         0.0
       );
       masterTl.fromTo(twoWheeler,
         { x: 0, y: 0 },
-        { x: -354.0, y: 230.8, duration: 2.5, ease: "power2.out" },
+        { x: -354.0, y: 230.8, duration: 4.2, ease: "power2.out" },
         0.0
       );
     }
 
-    // UI Cards (Active): Display intro callouts cleanly above the substations
+    // UI Cards (Active): Intro feature cards remain comfortably visible for viewers to read (~2.8s)
     if (cardBoth) {
-      masterTl.set(cardBoth, { display: "block" }, 0.1);
+      masterTl.set(cardBoth, { display: "block" }, 0.2);
       masterTl.fromTo(cardBoth,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
-        0.15
+        { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.2)" },
+        0.25
       );
       masterTl.to(cardBoth,
-        { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" },
-        2.2
+        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        3.65
       );
-      masterTl.set(cardBoth, { display: "none" }, 2.5);
+      masterTl.set(cardBoth, { display: "none" }, 4.15);
     }
     if (cardNetwork) {
-      masterTl.set(cardNetwork, { display: "block" }, 0.25);
+      masterTl.set(cardNetwork, { display: "block" }, 0.45);
       masterTl.fromTo(cardNetwork,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
-        0.3
+        { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.2)" },
+        0.5
       );
       masterTl.to(cardNetwork,
-        { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" },
-        2.2
+        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        3.65
       );
-      masterTl.set(cardNetwork, { display: "none" }, 2.5);
+      masterTl.set(cardNetwork, { display: "none" }, 4.15);
     }
 
     // =========================================================================
-    // PHASE 2: Substation Docking, Synced Glow & App Triggers [t = 2.5s -> 4.3s]
+    // PHASE 2: Complete Docking Pause & App Triggers [t = 4.2s -> 6.5s] (Hold: 2.3s)
     // =========================================================================
-    // 1. Vehicle Pause: Smoothly decelerated stop held for strictly 1.8 seconds.
-    // 2. Circular neon-cyan radial gradient glow activates under wheels.
+    // 1. Vehicles come to a complete, stable stop right beside battery swapping lockers.
+    // 2. Steady pause: Hold active connected state steadily for a full 2.3 seconds.
+    // 3. Ground circular neon glow activates cleanly under wheels.
     if (vehicleGlows.length) {
-      masterTl.set(vehicleGlows, { display: "block", scale: 0.6 }, 2.5);
+      masterTl.set(vehicleGlows, { display: "block", scale: 0.6 }, 4.2);
       masterTl.fromTo(vehicleGlows,
         { opacity: 0, scale: 0.6 },
-        { opacity: 0.95, scale: 1, duration: 0.35, ease: "power2.out" },
-        2.5
+        { opacity: 0.95, scale: 1, duration: 0.4, ease: "power2.out" },
+        4.2
       );
       masterTl.to(vehicleGlows,
-        { opacity: 0.7, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" },
-        2.85
+        { opacity: 0.75, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" },
+        4.6
       );
     }
 
-    // 3. Substation Base Glow: illuminated ground footprint beneath charging lockers
+    // 4. Substation Base Glow: illuminated ground footprint beneath lockers
     if (baseGlows.length) {
-      masterTl.set(baseGlows, { display: "block" }, 2.5);
+      masterTl.set(baseGlows, { display: "block" }, 4.2);
       masterTl.fromTo(baseGlows,
         { opacity: 0 },
-        { opacity: 0.9, duration: 0.35, ease: "power2.out" },
-        2.5
+        { opacity: 0.9, duration: 0.4, ease: "power2.out" },
+        4.2
       );
       masterTl.to(baseGlows,
-        { opacity: 0.7, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" },
-        2.85
+        { opacity: 0.75, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" },
+        4.6
       );
     }
 
-    // 4. Central circular radar graphic + strictly 3 solid light-green beams
+    // 5. Central radar icon + strictly 3 solid light-green beams
     if (radarEls.length) {
-      masterTl.set(radarEls, { display: "block" }, 2.5);
+      masterTl.set(radarEls, { display: "block" }, 4.2);
       masterTl.fromTo(radarEls,
         { opacity: 0 },
-        { opacity: 0.95, duration: 0.35, ease: "power2.out" },
-        2.5
+        { opacity: 0.95, duration: 0.4, ease: "power2.out" },
+        4.2
       );
     }
     if (allLines.length) {
-      masterTl.set(allLines, { display: "block" }, 2.5);
+      masterTl.set(allLines, { display: "block" }, 4.2);
       masterTl.fromTo(allLines,
         { opacity: 0 },
-        { opacity: 1, duration: 0.35, ease: "power2.out" },
-        2.5
+        { opacity: 1, duration: 0.4, ease: "power2.out" },
+        4.2
       );
     }
 
-    // 5. Active tooltip bubbles: "Partner App" and "Driver App"
+    // 6. Active tooltip bubbles: "Partner App" and "Driver App"
     if (cardPartner) {
-      masterTl.set(cardPartner, { display: "block" }, 2.55);
+      masterTl.set(cardPartner, { display: "block" }, 4.25);
       masterTl.fromTo(cardPartner,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" },
-        2.55
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+        4.25
       );
     }
     if (cardDriver) {
-      masterTl.set(cardDriver, { display: "block" }, 2.55);
+      masterTl.set(cardDriver, { display: "block" }, 4.25);
       masterTl.fromTo(cardDriver,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" },
-        2.55
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+        4.25
       );
     }
 
     // =========================================================================
-    // PHASE 3: Departure, Fade-Out & Next Phase Text Trigger [t = 4.3s -> 7.0s]
+    // PHASE 3: Outbound Departure & Follow-up Cards [t = 6.5s -> 11.8s] (Duration: ~5.0s)
     // =========================================================================
-    // Vehicle Departure: After the 1.8-second hold, vehicles smoothly accelerate
-    // forward and continue traveling along their street routes.
+    // Vehicles gently accelerate away from lockers and drive smoothly down the remaining street path.
     if (loader) {
       masterTl.to(loader,
-        { x: 1050, y: 660, duration: 2.5, ease: "power2.in" },
-        4.3
+        { x: 1050, y: 660, duration: 4.8, ease: "power2.inOut" },
+        6.5
       );
       masterTl.to(loader,
-        { opacity: 0, duration: 0.4, ease: "power1.in" },
-        6.2
+        { opacity: 0, duration: 0.6, ease: "power1.in" },
+        10.7
       );
     }
     if (threeWheeler) {
       masterTl.to(threeWheeler,
-        { x: 620, y: 390, duration: 2.3, ease: "power2.in" },
-        4.3
+        { x: 620, y: 390, duration: 4.5, ease: "power2.inOut" },
+        6.5
       );
       masterTl.to(threeWheeler,
-        { opacity: 0, duration: 0.4, ease: "power1.in" },
-        6.1
+        { opacity: 0, duration: 0.6, ease: "power1.in" },
+        10.4
       );
     }
     if (twoWheeler) {
       masterTl.to(twoWheeler,
-        { x: -850, y: 520, duration: 2.5, ease: "power2.in" },
-        4.3
+        { x: -850, y: 520, duration: 4.8, ease: "power2.inOut" },
+        6.5
       );
       masterTl.to(twoWheeler,
-        { opacity: 0, duration: 0.4, ease: "power1.in" },
-        6.2
+        { opacity: 0, duration: 0.6, ease: "power1.in" },
+        10.7
       );
     }
 
-    // Glow & Lines Dissolve: instantly fade out 3 connection lines, radar, and base glows
+    // Glow & Lines Dissolve: connection lines, radar, and base glows smoothly fade out
     if (allLines.length) {
-      masterTl.to(allLines, { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.3);
-      masterTl.set(allLines, { display: "none" }, 4.6);
+      masterTl.to(allLines, { opacity: 0, duration: 0.4, ease: "power2.out" }, 6.5);
+      masterTl.set(allLines, { display: "none" }, 6.95);
     }
     if (radarEls.length) {
-      masterTl.to(radarEls, { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.3);
-      masterTl.set(radarEls, { display: "none" }, 4.6);
+      masterTl.to(radarEls, { opacity: 0, duration: 0.4, ease: "power2.out" }, 6.5);
+      masterTl.set(radarEls, { display: "none" }, 6.95);
     }
     if (vehicleGlows.length) {
-      masterTl.to(vehicleGlows, { opacity: 0, scale: 0.6, duration: 0.35, ease: "power2.in" }, 4.3);
-      masterTl.set(vehicleGlows, { display: "none" }, 4.65);
+      masterTl.to(vehicleGlows, { opacity: 0, scale: 0.6, duration: 0.45, ease: "power2.in" }, 6.5);
+      masterTl.set(vehicleGlows, { display: "none" }, 7.0);
     }
     if (baseGlows.length) {
-      masterTl.to(baseGlows, { opacity: 0, duration: 0.35, ease: "power2.in" }, 4.3);
-      masterTl.set(baseGlows, { display: "none" }, 4.65);
+      masterTl.to(baseGlows, { opacity: 0, duration: 0.45, ease: "power2.in" }, 6.5);
+      masterTl.set(baseGlows, { display: "none" }, 7.0);
     }
 
-    // UI Text Transition: completely hide "Partner App" and "Driver App"
+    // UI Text Transition: "Partner App" and "Driver App" bubbles smoothly fade out
     if (cardPartner) {
-      masterTl.to(cardPartner, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.3);
-      masterTl.set(cardPartner, { display: "none" }, 4.6);
+      masterTl.to(cardPartner, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
+      masterTl.set(cardPartner, { display: "none" }, 6.95);
     }
     if (cardDriver) {
-      masterTl.to(cardDriver, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.3);
-      masterTl.set(cardDriver, { display: "none" }, 4.6);
+      masterTl.to(cardDriver, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
+      masterTl.set(cardDriver, { display: "none" }, 6.95);
     }
 
-    // Seamlessly trigger and display subsequent feature cards as traffic moves past
+    // Subsequent feature cards fade in at a comfortable reading pace (~3s read time)
     if (cardSupport) {
-      masterTl.set(cardSupport, { display: "block" }, 4.5);
+      masterTl.set(cardSupport, { display: "block" }, 6.9);
       masterTl.fromTo(cardSupport,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
-        4.55
+        { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.2)" },
+        6.95
       );
       masterTl.to(cardSupport,
-        { scale: 0.8, opacity: 0, duration: 0.35, ease: "power2.in" },
-        6.5
+        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        10.5
       );
-      masterTl.set(cardSupport, { display: "none" }, 6.85);
+      masterTl.set(cardSupport, { display: "none" }, 11.0);
     }
     if (cardBatteryPerf) {
-      masterTl.set(cardBatteryPerf, { display: "block" }, 4.7);
+      masterTl.set(cardBatteryPerf, { display: "block" }, 7.2);
       masterTl.fromTo(cardBatteryPerf,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
-        4.75
+        { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.2)" },
+        7.25
       );
       masterTl.to(cardBatteryPerf,
-        { scale: 0.8, opacity: 0, duration: 0.35, ease: "power2.in" },
-        6.5
+        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        10.5
       );
-      masterTl.set(cardBatteryPerf, { display: "none" }, 6.85);
+      masterTl.set(cardBatteryPerf, { display: "none" }, 11.0);
     }
 
-    // Loop Reset: Once vehicles reach their path terminus, cleanly loop back to Phase 1
-    masterTl.set(activeVehicles, { x: 0, y: 0, opacity: 0 }, 7.15);
-    masterTl.to({}, { duration: 0.2 }, 7.0);
+    // Loop Reset: Clean reset at 12.6s, total comfortable loop length = 13.0 seconds
+    masterTl.set(activeVehicles, { x: 0, y: 0, opacity: 0 }, 12.6);
+    masterTl.to({}, { duration: 0.4 }, 12.6);
 
     return () => {
       masterTl.kill();
