@@ -2354,6 +2354,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       // Callouts / chip wraps last so labels never hide behind buildings.
       "quickBatterySwapping",
       "denseBatteryStation",
+      "Group 238995",
       "PartnerApp",
       "driverApp",
       "Both",

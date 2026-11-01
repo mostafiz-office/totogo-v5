@@ -212,8 +212,8 @@
     <polygon id="state2_glow_upperLeftBase" points="279,1199 349,1239 399,1210 334,1172" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
     <!-- Lower-Middle Cabinet Base Glow (Group 238954) -->
     <polygon id="state2_glow_lowerMiddleBase" points="1168,1496 1246,1545 1302,1510 1230,1464" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
-    <!-- Upper-Right Station Kiosk Base Glow (Group_230) -->
-    <polygon id="state2_glow_upperRightBase" points="1360,1190 1440,1235 1520,1190 1440,1145" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
+    <!-- Upper-Right Station Kiosk Base Glow (denseBatteryStation foundation) -->
+    <polygon id="state2_glow_upperRightBase" points="1368,1268 1439,1310 1548,1246 1478,1204" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
 
     <!-- Vehicle Ground Boundaries under Wheels (Flat-vector neon-cyan/green rounded boundary under wheels of docked EVs) -->
     <!-- Upper-Left Docked 3-Wheeler Wheel Glow -->
