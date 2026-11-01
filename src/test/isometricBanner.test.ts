@@ -281,6 +281,11 @@ describe("TotooGo Hero Banner SVG Sequential Animation Assets", () => {
     expect(heroSvgMarkup).toContain('id="leftHand"');
     expect(heroSvgMarkup).toContain('id="rightHand"');
   });
+  it("contains upper-right pedestrian group on empty sidewalk platform matching clay aesthetic and scale", () => {
+    expect(heroSvgMarkup).toContain('id="upperRightPedestrians"');
+    expect(heroSvgMarkup).toContain('class="tg-pedestrians-group"');
+    expect(heroSvgMarkup).toContain('id="pedestrianConversing1"');
+    expect(heroSvgMarkup).toContain('id="pedestrianConversing2"');
+    expect(heroSvgMarkup).toContain('id="pedestrianWalking"');
+  });
 });
-
-
