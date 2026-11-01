@@ -209,19 +209,19 @@
   <g id="state2_ActiveDockingGlows">
     <!-- Substation Base Ambient Glows (Subtle illuminated neon-cyan/green ambient glow along base foundation) -->
     <!-- Upper-Left Cabinet Base Glow (Group_276) -->
-    <polygon id="state2_glow_upperLeftBase" points="277,1322 332,1291 264,1247 209,1278" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)"/>
+    <polygon id="state2_glow_upperLeftBase" points="279,1199 349,1239 399,1210 334,1172" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
     <!-- Lower-Middle Cabinet Base Glow (Group 238954) -->
-    <polygon id="state2_glow_lowerMiddleBase" points="1235,1535 1285,1502 1230,1465 1180,1498" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)"/>
+    <polygon id="state2_glow_lowerMiddleBase" points="1168,1496 1246,1545 1302,1510 1230,1464" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
     <!-- Upper-Right Station Kiosk Base Glow (Group_230) -->
-    <polygon id="state2_glow_upperRightBase" points="1440,1235 1520,1190 1440,1145 1360,1190" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)"/>
+    <polygon id="state2_glow_upperRightBase" points="1360,1190 1440,1235 1520,1190 1440,1145" fill="#00FF9D" fill-opacity="0.35" stroke="#00FF9D" stroke-width="2" filter="url(#state2BaseGlow)" opacity="0"/>
 
     <!-- Vehicle Ground Boundaries under Wheels (Flat-vector neon-cyan/green rounded boundary under wheels of docked EVs) -->
     <!-- Upper-Left Docked 3-Wheeler Wheel Glow -->
-    <ellipse id="state2_glow_upperLeftVehicle" cx="420" cy="1165" rx="34" ry="16" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)"/>
+    <ellipse id="state2_glow_upperLeftVehicle" cx="420" cy="1165" rx="34" ry="16" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)" opacity="0"/>
     <!-- Lower-Middle Docked 3-Wheeler Wheel Glow -->
-    <ellipse id="state2_glow_lowerMiddleVehicle" cx="1098" cy="1574" rx="36" ry="17" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)"/>
+    <ellipse id="state2_glow_lowerMiddleVehicle" cx="1098" cy="1574" rx="36" ry="17" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)" opacity="0"/>
     <!-- Upper-Right Docked 2-Wheeler Scooter Wheel Glow -->
-    <ellipse id="state2_glow_upperRightVehicle" cx="1338" cy="1165" rx="22" ry="11" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)"/>
+    <ellipse id="state2_glow_upperRightVehicle" cx="1338" cy="1165" rx="22" ry="11" fill="#00FF9D" fill-opacity="0.25" stroke="#00FF9D" stroke-width="2.5" filter="url(#state2NeonGlow)" opacity="0"/>
   </g>
 <!-- ======================================================================== -->
   <!-- CLEAN RENEWABLE ENERGY MICRO-GRID: PHOTOVOLTAIC SOLAR PANEL ARRAY        -->

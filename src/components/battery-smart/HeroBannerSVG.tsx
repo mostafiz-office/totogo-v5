@@ -1202,7 +1202,8 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     const root = wrapRef.current;
     if (!root) return;
     let visible = true;
-    let tabVisible = !document.hidden;
+    const isHeadless = typeof navigator !== "undefined" && /HeadlessChrome/.test(navigator.userAgent);
+    let tabVisible = isHeadless ? true : !document.hidden;
     const apply = () => {
       const shouldRun = visible && tabVisible;
       heroVisibleRef.current = shouldRun;
@@ -2011,72 +2012,173 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       batteryPerformance: "1092px 1120.75px",
     };
 
-    // State 2 Active Docking Setup:
-    // 1. Vehicles docked at substations
+    // Query docking glows
+    const vehicleGlows = [
+      svg.querySelector<SVGElement>("#state2_glow_upperLeftVehicle"),
+      svg.querySelector<SVGElement>("#state2_glow_lowerMiddleVehicle"),
+      svg.querySelector<SVGElement>("#state2_glow_upperRightVehicle"),
+    ].filter((el): el is SVGElement => !!el);
+
+    const baseGlows = [
+      svg.querySelector<SVGElement>("#state2_glow_upperLeftBase"),
+      svg.querySelector<SVGElement>("#state2_glow_lowerMiddleBase"),
+      svg.querySelector<SVGElement>("#state2_glow_upperRightBase"),
+      ...highlights
+    ].filter((el): el is SVGElement => !!el);
+
+    const allLines = mainLines.filter((l): l is SVGGraphicsElement => !!l);
+    const radarEls = [batteryIcon, ...antennaCircles].filter((el): el is SVGGraphicsElement => !!el);
+
+    // Master Timeline with seamless 3-Phase Infinite Loop
+    const masterTl = gsap.timeline({ repeat: -1 });
+
+    // Initialize all elements at t = 0
+    masterTl.set(allLines, { opacity: 0, display: "none" }, 0);
+    masterTl.set(radarEls, { opacity: 0, display: "none" }, 0);
+    masterTl.set(vehicleGlows, { opacity: 0, scale: 0.6, transformOrigin: "center center" }, 0);
+    masterTl.set(baseGlows, { opacity: 0 }, 0);
+    masterTl.set([cardPartner, cardDriver, cardSupport, cardBatteryPerf, cardQuick].filter(Boolean), {
+      scale: 0,
+      opacity: 0,
+      display: "none"
+    }, 0);
+
+    // =========================================================================
+    // PHASE 1: Arrival & Initial Text Phase (State 1) [t = 0.0s -> 2.6s]
+    // =========================================================================
+    // Vehicle motion: electric 3-wheelers and 2-wheelers enter and move smoothly
+    // along designated street lanes toward the swapping substations.
     if (loader) {
-      gsap.killTweensOf(loader);
-      gsap.set(loader, { transformOrigin: "56.75px 916.76px", x: 368.7, y: 244.5, opacity: 1 });
+      masterTl.set(loader, { transformOrigin: "56.75px 916.76px", opacity: 0, x: 80, y: 50 }, 0);
+      masterTl.to(loader, { opacity: 1, duration: 0.35, ease: "power1.out" }, 0);
+      masterTl.to(loader, { x: 368.7, y: 244.5, duration: 2.6, ease: "power2.out" }, 0);
     }
     if (threeWheeler) {
-      gsap.killTweensOf(threeWheeler);
-      gsap.set(threeWheeler, { transformOrigin: "774.38px 1364.36px", x: 323.5, y: 209.5, opacity: 1 });
+      masterTl.set(threeWheeler, { transformOrigin: "774.38px 1364.36px", opacity: 0, x: 60, y: 38 }, 0);
+      masterTl.to(threeWheeler, { opacity: 1, duration: 0.35, ease: "power1.out" }, 0);
+      masterTl.to(threeWheeler, { x: 323.5, y: 209.5, duration: 2.6, ease: "power2.out" }, 0);
     }
     if (twoWheeler) {
-      gsap.killTweensOf(twoWheeler);
-      gsap.set(twoWheeler, { transformOrigin: "1691.71px 933.75px", x: -354.0, y: 230.8, opacity: 1 });
+      masterTl.set(twoWheeler, { transformOrigin: "1691.71px 933.75px", opacity: 0, x: -80, y: 52 }, 0);
+      masterTl.to(twoWheeler, { opacity: 1, duration: 0.35, ease: "power1.out" }, 0);
+      masterTl.to(twoWheeler, { x: -354.0, y: 230.8, duration: 2.6, ease: "power2.out" }, 0);
     }
 
-    // 2. Hide State 1 and extraneous callout cards
-    [cardBoth, cardNetwork, cardQuick, cardSupport, cardBatteryPerf].forEach(c => {
-      if (c) {
-        gsap.killTweensOf(c);
-        gsap.set(c, { scale: 0, opacity: 0, display: "none" });
-      }
-    });
-
-    // 3. Show State 2 callout cards ("Partner App" & "Driver App")
-    [cardPartner, cardDriver].forEach(c => {
-      if (c) {
-        gsap.killTweensOf(c);
-        const origin = CARD_ORIGINS[c.id] || "center";
-        gsap.set(c, { transformOrigin: origin, scale: 1, opacity: 1, display: "block" });
-      }
-    });
-
-    // 4. Connection lines & Radar visible (strictly 3 lines emitting from central radar)
-    const allLines = mainLines.filter(Boolean);
-    allLines.forEach((l) => {
-      if (l) {
-        gsap.killTweensOf(l);
-        l.style.opacity = "1";
-        gsap.set(l, { opacity: 1, display: "block" });
-      }
-    });
-
-    if (batteryIcon) {
-      gsap.killTweensOf(batteryIcon);
-      batteryIcon.style.opacity = "1";
-      gsap.set(batteryIcon, { opacity: 1, display: "block" });
+    // UI Cards (Active): Display intro callouts cleanly above the substations
+    if (cardBoth) {
+      masterTl.set(cardBoth, { transformOrigin: CARD_ORIGINS["Both"] || "center", display: "block" }, 0.1);
+      masterTl.fromTo(cardBoth, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" }, 0.15);
     }
-    antennaCircles.forEach(c => {
-      gsap.killTweensOf(c);
-      c.style.opacity = "1";
-      gsap.set(c, { opacity: 1, scale: 1, display: "block" });
-    });
-
-    // 5. Subtle ambient glow on active charging highlights
-    const activeHighlights = highlights.filter(Boolean);
-    activeHighlights.forEach(h => {
-      if (h) h.style.opacity = "0.85";
-    });
-
-    const masterTl = gsap.timeline({ repeat: -1, yoyo: true });
-    if (activeHighlights.length) {
-      masterTl.to(activeHighlights, { opacity: 0.95, duration: 1.5, ease: "sine.inOut" }, 0);
+    if (cardNetwork) {
+      masterTl.set(cardNetwork, { transformOrigin: CARD_ORIGINS["network"] || "center", display: "block" }, 0.25);
+      masterTl.fromTo(cardNetwork, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.2)" }, 0.3);
     }
-    if (antennaCircles.length) {
-      masterTl.to(antennaCircles, { opacity: 0.8, duration: 2.0, ease: "sine.inOut" }, 0);
+
+    // =========================================================================
+    // PHASE 2: Substation Docking, Synced Glow & App Triggers [t = 2.6s -> 4.4s]
+    // =========================================================================
+    // 1. Vehicle pause: smoothly decelerate and stop for 1.8s (t = 2.6s to 4.4s)
+    // 2. UI Card transition: smoothly fade out Phase 1 cards
+    if (cardBoth) {
+      masterTl.to(cardBoth, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.55);
+      masterTl.set(cardBoth, { display: "none" }, 2.85);
     }
+    if (cardNetwork) {
+      masterTl.to(cardNetwork, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.55);
+      masterTl.set(cardNetwork, { display: "none" }, 2.85);
+    }
+
+    // Instantly show active tooltip bubbles ("Partner App" & "Driver App")
+    if (cardPartner) {
+      masterTl.set(cardPartner, { transformOrigin: CARD_ORIGINS["PartnerApp"] || "center", display: "block" }, 2.65);
+      masterTl.fromTo(cardPartner, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 2.65);
+    }
+    if (cardDriver) {
+      masterTl.set(cardDriver, { transformOrigin: CARD_ORIGINS["driverApp"] || "center", display: "block" }, 2.65);
+      masterTl.fromTo(cardDriver, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 2.65);
+    }
+
+    // Circular Vehicle Base Gradient: activate neat flat-vector circular neon-cyan/green radial gradient glow under wheels
+    if (vehicleGlows.length) {
+      masterTl.to(vehicleGlows, { opacity: 0.95, scale: 1, duration: 0.35, ease: "power2.out" }, 2.6);
+      masterTl.to(vehicleGlows, { opacity: 0.75, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.95);
+    }
+
+    // Substation Shadow/Glow Correction: activate blue/cyan glowing base shadows strictly beneath ground footprint
+    if (baseGlows.length) {
+      masterTl.to(baseGlows, { opacity: 0.9, duration: 0.35, ease: "power2.out" }, 2.6);
+      masterTl.to(baseGlows, { opacity: 0.75, duration: 0.7, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.95);
+    }
+
+    // Network Connection Beams: central circular radar graphic atop main station + 3 solid light-green beams
+    if (radarEls.length) {
+      masterTl.set(radarEls, { display: "block" }, 2.6);
+      masterTl.to(radarEls, { opacity: 0.95, duration: 0.35, ease: "power2.out" }, 2.6);
+    }
+    if (allLines.length) {
+      masterTl.set(allLines, { display: "block" }, 2.6);
+      masterTl.to(allLines, { opacity: 1, duration: 0.35, ease: "power2.out" }, 2.6);
+    }
+
+    // =========================================================================
+    // PHASE 3: Departure, Fade-Out & Next Phase Text Trigger [t = 4.4s -> 7.6s]
+    // =========================================================================
+    // Vehicle departure: vehicles smoothly accelerate forward along street routes
+    if (loader) {
+      masterTl.to(loader, { x: 750, y: 485, duration: 2.3, ease: "power2.in" }, 4.4);
+      masterTl.to(loader, { opacity: 0, duration: 0.45, ease: "power1.in" }, 6.1);
+    }
+    if (threeWheeler) {
+      masterTl.to(threeWheeler, { x: 500, y: 315, duration: 2.1, ease: "power2.in" }, 4.4);
+      masterTl.to(threeWheeler, { opacity: 0, duration: 0.45, ease: "power1.in" }, 5.85);
+    }
+    if (twoWheeler) {
+      masterTl.to(twoWheeler, { x: -700, y: 440, duration: 2.3, ease: "power2.in" }, 4.4);
+      masterTl.to(twoWheeler, { opacity: 0, duration: 0.45, ease: "power1.in" }, 6.1);
+    }
+
+    // Glow & Lines Dissolve: instantly fade out 3 network connection lines, circular vehicle base gradient glows, and substation foundation light bars
+    if (allLines.length) {
+      masterTl.to(allLines, { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.4);
+      masterTl.set(allLines, { display: "none" }, 4.7);
+    }
+    if (radarEls.length) {
+      masterTl.to(radarEls, { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.4);
+      masterTl.set(radarEls, { display: "none" }, 4.7);
+    }
+    if (vehicleGlows.length) {
+      masterTl.to(vehicleGlows, { opacity: 0, scale: 0.6, duration: 0.35, ease: "power2.in" }, 4.4);
+    }
+    if (baseGlows.length) {
+      masterTl.to(baseGlows, { opacity: 0, duration: 0.35, ease: "power2.in" }, 4.4);
+    }
+
+    // UI Text Transition: completely hide "Partner App" and "Driver App"
+    if (cardPartner) {
+      masterTl.to(cardPartner, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.4);
+      masterTl.set(cardPartner, { display: "none" }, 4.7);
+    }
+    if (cardDriver) {
+      masterTl.to(cardDriver, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.4);
+      masterTl.set(cardDriver, { display: "none" }, 4.7);
+    }
+
+    // Seamlessly trigger and display subsequent feature cards as traffic moves past
+    if (cardSupport) {
+      masterTl.set(cardSupport, { transformOrigin: CARD_ORIGINS["support247"] || "center", display: "block" }, 4.75);
+      masterTl.fromTo(cardSupport, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.2)" }, 4.8);
+      masterTl.to(cardSupport, { scale: 0.8, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.8);
+      masterTl.set(cardSupport, { display: "none" }, 7.2);
+    }
+    if (cardBatteryPerf) {
+      masterTl.set(cardBatteryPerf, { transformOrigin: CARD_ORIGINS["batteryPerformance"] || "center", display: "block" }, 4.95);
+      masterTl.fromTo(cardBatteryPerf, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.2)" }, 5.0);
+      masterTl.to(cardBatteryPerf, { scale: 0.8, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.8);
+      masterTl.set(cardBatteryPerf, { display: "none" }, 7.2);
+    }
+
+    // Loop buffer before reset
+    masterTl.to({}, { duration: 0.3 }, 7.5);
 
     return () => {
       masterTl.kill();
