@@ -1811,6 +1811,134 @@
       </g>
     </g>
 
+    <!-- ====================================================================== -->
+    <!-- UPPER-LEFT PLAZA PEDESTRIANS: NATURAL 3D ISOMETRIC CONVERSATION GROUP  -->
+    <!-- Strictly placed on paved terrace within upper-left red bounding box    -->
+    <!-- 100% Proportional Scale & Aesthetic Match to Kiosk & Scene Figures     -->
+    <!-- ====================================================================== -->
+    <g id="upperLeftPlazaPedestrians" class="tg-pedestrians-group">
+      <!-- Ground Shadow Ambient Occlusion Pool for Conversational Group -->
+      <ellipse cx="433" cy="996" rx="26" ry="11" fill="#0A1812" opacity="0.07" style="mix-blend-mode: multiply;"/>
+
+      <!-- ------------------------------------------------------------------ -->
+      <!-- Figure 1: Standing Conversing Man (Crisp White Shirt, Navy Trousers) -->
+      <!-- Position: X: 422, Y: 1002 (Facing slightly right toward Colleague) -->
+      <!-- ------------------------------------------------------------------ -->
+      <g id="plazaPedestrian1" transform="translate(422, 1002)">
+        <!-- Directional Contact Drop Shadow matching daylight sun angle -->
+        <ellipse cx="1.2" cy="1.6" rx="4.8" ry="2.2" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
+        <ellipse cx="0.4" cy="1.0" rx="2.8" ry="1.4" fill="#0A1812" opacity="0.16" style="mix-blend-mode: multiply;"/>
+
+        <!-- Dark Slate Shoes -->
+        <ellipse cx="-1.8" cy="0.8" rx="1.4" ry="0.8" fill="#0F172A"/>
+        <ellipse cx="1.8" cy="1.0" rx="1.4" ry="0.8" fill="#0F172A"/>
+
+        <!-- Classic Navy Trousers & Legs (Firmly planted on pavement) -->
+        <line x1="-1.8" y1="0.5" x2="-1.8" y2="-9" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="1.8" y1="0.8" x2="1.8" y2="-8.5" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+        <polygon points="-2.8,-8 2.8,-7.5 2.8,-10.5 -2.8,-11" fill="#1E293B"/>
+
+        <!-- Crisp White Shirt (Isometric Clay Shading: Soft grey shadow face, bright white lit face) -->
+        <polygon points="-3.6,-8.5 1.8,-6 1.8,-18.5 -3.6,-21" fill="#E2E8F0"/>
+        <polygon points="1.8,-6 4.6,-7.5 4.6,-20 1.8,-18.5" fill="#FFFFFF"/>
+        <line x1="1.8" y1="-18.5" x2="1.8" y2="-12" stroke="#CBD5E1" stroke-width="0.5"/>
+
+        <!-- Left Arm: hanging naturally along side -->
+        <path d="M-3.2,-19 L-4.6,-13 L-3.8,-9" fill="none" stroke="#E2E8F0" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="-3.8" cy="-8.5" r="0.8" fill="#FBBF24"/>
+
+        <!-- Right Arm: raised gently gesturing in conversation toward Person 2 -->
+        <path d="M3.2,-18.5 L5.2,-14 L4.0,-10.5" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="4.0" cy="-10" r="0.8" fill="#FBBF24"/>
+
+        <!-- Neck -->
+        <rect x="-0.7" y="-22.5" width="1.4" height="2" fill="#FBBF24"/>
+
+        <!-- Faceless 3D Minimalist Head & Styled Dark Hair -->
+        <circle cx="0.2" cy="-24.8" r="2.3" fill="#FBBF24"/>
+        <path d="M-2.2,-25.2 C-2.2,-27.6 2.5,-27.6 2.5,-25.2 C2.5,-24.1 1.9,-23.6 1.5,-23.6 L-1.4,-23.6 C-1.8,-23.6 -2.2,-24.1 -2.2,-25.2 Z" fill="#1E293B"/>
+      </g>
+
+      <!-- ------------------------------------------------------------------ -->
+      <!-- Figure 2: Conversing Colleague (Warm Mustard Jacket, Slate Pants)  -->
+      <!-- Position: X: 444, Y: 996 (Facing Person 1 in active dialogue)      -->
+      <!-- ------------------------------------------------------------------ -->
+      <g id="plazaPedestrian2" transform="translate(444, 996)">
+        <!-- Directional Contact Drop Shadow -->
+        <ellipse cx="1.2" cy="1.6" rx="4.8" ry="2.2" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
+        <ellipse cx="0.4" cy="1.0" rx="2.8" ry="1.4" fill="#0A1812" opacity="0.16" style="mix-blend-mode: multiply;"/>
+
+        <!-- Dark Slate Shoes -->
+        <ellipse cx="-1.6" cy="0.9" rx="1.4" ry="0.8" fill="#1E293B"/>
+        <ellipse cx="1.6" cy="0.7" rx="1.4" ry="0.8" fill="#1E293B"/>
+
+        <!-- Charcoal Slate Trousers -->
+        <line x1="-1.6" y1="0.6" x2="-1.6" y2="-8.5" stroke="#475569" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="1.6" y1="0.4" x2="1.6" y2="-9" stroke="#334155" stroke-width="2.2" stroke-linecap="round"/>
+        <polygon points="-2.6,-8 2.6,-7.5 2.6,-10.5 -2.6,-11" fill="#475569"/>
+
+        <!-- Warm Amber / Mustard Jacket (Angled facing Person 1) -->
+        <polygon points="-4.4,-7.5 -1.6,-6 -1.6,-18.5 -4.4,-20" fill="#F59E0B"/>
+        <polygon points="-1.6,-6 3.6,-8.5 3.6,-21 -1.6,-18.5" fill="#D97706"/>
+        <line x1="-1.6" y1="-18.5" x2="-1.6" y2="-12" stroke="#FDE047" stroke-width="0.5"/>
+
+        <!-- Left Arm: gesturing toward Person 1 holding tablet / device -->
+        <path d="M-3.2,-18.5 L-5.2,-14 L-3.6,-10.5" fill="none" stroke="#F59E0B" stroke-width="1.6" stroke-linecap="round"/>
+        <polygon points="-5.0,-10 -3.2,-9 -3.2,-12 -5.0,-13" fill="#FFFFFF" stroke="#0F172A" stroke-width="0.3"/>
+        <circle cx="-3.4" cy="-10" r="0.8" fill="#FBBF24"/>
+
+        <!-- Right Arm: resting naturally along side -->
+        <path d="M3.2,-18 L4.5,-13 L3.6,-9" fill="none" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="3.6" cy="-8.5" r="0.8" fill="#FBBF24"/>
+
+        <!-- Neck -->
+        <rect x="-0.7" y="-22.5" width="1.4" height="2" fill="#FBBF24"/>
+
+        <!-- Faceless 3D Head & Dark Charcoal Hair (Turned slightly left) -->
+        <circle cx="-0.2" cy="-24.8" r="2.3" fill="#FBBF24"/>
+        <path d="M-2.5,-25.2 C-2.5,-27.6 2.2,-27.6 2.2,-25.2 C2.2,-24.1 1.6,-23.6 1.2,-23.6 L-1.7,-23.6 C-2.1,-23.6 -2.5,-24.1 -2.5,-25.2 Z" fill="#334155"/>
+      </g>
+
+      <!-- ------------------------------------------------------------------ -->
+      <!-- Figure 3: Companion / Bystander (Teal Polo, Dark Jeans)            -->
+      <!-- Position: X: 418, Y: 978 (Standing nearby, looking across plaza)   -->
+      <!-- ------------------------------------------------------------------ -->
+      <g id="plazaPedestrian3" transform="translate(418, 978)">
+        <!-- Directional Contact Drop Shadow -->
+        <ellipse cx="1.2" cy="1.6" rx="4.6" ry="2.1" fill="#0A1812" opacity="0.22" style="mix-blend-mode: multiply;"/>
+        <ellipse cx="0.4" cy="1.0" rx="2.6" ry="1.3" fill="#0A1812" opacity="0.16" style="mix-blend-mode: multiply;"/>
+
+        <!-- Dark Shoes -->
+        <ellipse cx="-1.8" cy="0.8" rx="1.4" ry="0.8" fill="#0F172A"/>
+        <ellipse cx="1.8" cy="1.0" rx="1.4" ry="0.8" fill="#0F172A"/>
+
+        <!-- Dark Denim Trousers -->
+        <line x1="-1.8" y1="0.5" x2="-1.8" y2="-9" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="1.8" y1="0.8" x2="1.8" y2="-8.5" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+        <polygon points="-2.8,-8 2.8,-7.5 2.8,-10.5 -2.8,-11" fill="#1E293B"/>
+
+        <!-- Contemporary Teal Shirt (Rich Isometric Contrast) -->
+        <polygon points="-3.6,-8.5 1.8,-6 1.8,-18.5 -3.6,-21" fill="#0D9488"/>
+        <polygon points="1.8,-6 4.6,-7.5 4.6,-20 1.8,-18.5" fill="#14B8A6"/>
+        <line x1="1.8" y1="-18.5" x2="1.8" y2="-12" stroke="#5EEAD4" stroke-width="0.5"/>
+
+        <!-- Arms: relaxed pose, hands loosely in pockets / at sides -->
+        <path d="M-3.2,-18.5 L-4.4,-13 L-3.6,-9.5" fill="none" stroke="#0D9488" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="-3.6" cy="-9" r="0.8" fill="#FBBF24"/>
+
+        <path d="M3.2,-18 L4.4,-13 L3.6,-9.5" fill="none" stroke="#14B8A6" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="3.6" cy="-9" r="0.8" fill="#FBBF24"/>
+
+        <!-- Neck -->
+        <rect x="-0.7" y="-22" width="1.4" height="2" fill="#FBBF24"/>
+
+        <!-- Faceless 3D Head & Dark Styled Hair (Facing towards right/station) -->
+        <circle cx="0.3" cy="-24.2" r="2.2" fill="#FBBF24"/>
+        <path d="M-2.0,-24.6 C-2.0,-27.0 2.5,-27.0 2.5,-24.6 C2.5,-23.6 1.9,-23.1 1.5,-23.1 L-1.3,-23.1 C-1.7,-23.1 -2.0,-23.6 -2.0,-24.6 Z" fill="#1E293B"/>
+      </g>
+    </g>
+
+
 <!-- LOWER-RIGHT FOREGROUND: PROMINENT MODERN GROCERY SUPERMARKET BUILDING     -->
     <!-- Footprint: Wide single-story commercial building filling the open plot     -->
     <!-- Awning: Classic red-and-white striped fabric canopy over front entrance   -->
