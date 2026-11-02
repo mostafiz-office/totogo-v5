@@ -40,15 +40,11 @@ const DEFAULT_TIMING: Record<VehicleId, VehicleTiming> = {
 
 // Geometry only, never edited by the control panel.
 const ROUTES: Record<VehicleId, Omit<VehicleSpec, keyof VehicleTiming | "id">> = {
-  loader:           { origin: { x: 56.75,   y: 916.76 },  end: { dx: 1138.11,  dy: 720.451 } },
-  twoWheeler1:      { origin: { x: 1691.71, y: 933.75 },  end: { dx: -897.643, dy: 553.958 } },
-  // Shortened drive distance so the auto fades out BEFORE reaching the road
-  // terminus at the plaza edge (was dx 609 dy 382, which overshot onto grass).
-  threeWheelerHero: { origin: { x: 774.38,  y: 1364.36 }, end: { dx: 475,      dy: 298 } },
-  twoWheeler2:      { origin: { x: 1671.71, y: 973.75 },  end: { dx: -897.643, dy: 553.958 } },
-  // Cloned from #threeWheelerHero at mount, offset into an adjacent lane so
-  // the two autos read as separate vehicles instead of a duplicate.
-  threeWheeler2:    { origin: { x: 754.38,  y: 1404.36 }, end: { dx: 475,      dy: 298 } },
+  loader:           { origin: { x: 56.75,   y: 916.76 },  end: { dx: 1420,     dy: 900 } },
+  twoWheeler1:      { origin: { x: 1691.71, y: 933.75 },  end: { dx: -1280,    dy: 810 } },
+  threeWheelerHero: { origin: { x: 774.38,  y: 1364.36 }, end: { dx: 740,      dy: 475 } },
+  twoWheeler2:      { origin: { x: 1671.71, y: 973.75 },  end: { dx: -1280,    dy: 810 } },
+  threeWheeler2:    { origin: { x: 754.38,  y: 1404.36 }, end: { dx: 740,      dy: 475 } },
 };
 
 const VEHICLE_IDS: VehicleId[] = ["loader", "twoWheeler1", "threeWheelerHero", "twoWheeler2", "threeWheeler2"];
@@ -2199,10 +2195,10 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     // =========================================================================
     // PHASE 3: Outbound Departure & Follow-up Cards [t = 6.5s -> 11.8s] (Duration: ~5.0s)
     // =========================================================================
-    // Vehicles gently accelerate away from lockers and drive smoothly down the remaining street path.
+    // Vehicles gently accelerate away from lockers and drive smoothly down to the very edge/terminus of the roadway.
     if (loader) {
       masterTl.to(loader,
-        { x: 1050, y: 660, duration: 4.8, ease: "power2.inOut" },
+        { x: 1420, y: 900, duration: 4.8, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(loader,
@@ -2212,17 +2208,17 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     }
     if (threeWheeler) {
       masterTl.to(threeWheeler,
-        { x: 620, y: 390, duration: 4.5, ease: "power2.inOut" },
+        { x: 740, y: 475, duration: 3.7, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(threeWheeler,
         { opacity: 0, duration: 0.6, ease: "power1.in" },
-        10.4
+        9.6
       );
     }
     if (twoWheeler) {
       masterTl.to(twoWheeler,
-        { x: -850, y: 520, duration: 4.8, ease: "power2.inOut" },
+        { x: -1280, y: 810, duration: 4.8, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(twoWheeler,
