@@ -1907,7 +1907,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     // Clean up any extraneous inter-station lines (ensure strictly 3 connection lines)
     svg.querySelector("#tgInterStationLines")?.remove();
 
-    // Enhance connection lines from main antenna: strictly 3 solid straight lines in single #9CE9D0 color
+    // Enhance connection lines from main antenna: 3 linear gradient line beams with smooth falloff
     const mainLineIds = ["loaderLine", "threeWheelerLine", "twoWheelerLine"];
     const mainLines = mainLineIds.map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`)).filter(Boolean);
     mainLines.forEach(line => {
@@ -1915,8 +1915,9 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       line.style.opacity = "0";
       line.style.display = "none";
       const path = line.querySelector<SVGLineElement | SVGPathElement>("line, path") || line;
-      path.setAttribute("stroke", "#9CE9D0");
-      path.setAttribute("stroke-width", "2.5");
+      const gradName = line.id === "loaderLine" ? "lineGrad_loader" : line.id === "threeWheelerLine" ? "lineGrad_threeWheeler" : "lineGrad_twoWheeler";
+      path.setAttribute("stroke", `url(#${gradName})`);
+      path.setAttribute("stroke-width", "2.2");
       path.setAttribute("stroke-linecap", "round");
       path.removeAttribute("stroke-dasharray");
       path.removeAttribute("filter");
@@ -1941,29 +1942,38 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       path.setAttribute("filter", "drop-shadow(0 0 10px rgba(0, 229, 138, 0.95))");
     });
 
-    // Antenna elements
-    const innerCircle = svg.querySelector<SVGGraphicsElement>("#innerCircle");
-    if (innerCircle) {
-      innerCircle.style.display = "none";
-      innerCircle.style.opacity = "0";
+    // Central Radar Hub & Concentric Rings (delicate, low-opacity isometric styling)
+    const batteryGroup = svg.querySelector<SVGGraphicsElement>("#battery");
+    if (batteryGroup) {
+      batteryGroup.style.opacity = "0";
+      batteryGroup.style.display = "none";
     }
 
-    const antennaCircles = ["middleCircle", "outerCircle"]
+    const antennaCircles = ["innerCircle", "middleCircle", "outerCircle"]
       .map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`))
       .filter((el): el is SVGGraphicsElement => !!el);
     antennaCircles.forEach(c => {
-      c.style.opacity = "0";
-      c.style.display = "none";
-      c.setAttribute("stroke", "#00E58A");
-      c.setAttribute("stroke-width", "2");
-      c.setAttribute("filter", "drop-shadow(0 0 6px rgba(0, 229, 138, 0.8))");
+      c.setAttribute("stroke", "#7BE8C4");
+      c.setAttribute("stroke-width", "1.2");
+      c.setAttribute("opacity", "0.45");
+      c.removeAttribute("filter");
     });
+
+    const crosshairs = ["radarCrosshairH", "radarCrosshairV"]
+      .map(id => svg.querySelector<SVGGraphicsElement>(`#${id}`))
+      .filter((el): el is SVGGraphicsElement => !!el);
+    crosshairs.forEach(ch => {
+      ch.setAttribute("stroke", "#7BE8C4");
+      ch.setAttribute("stroke-width", "1.2");
+      ch.setAttribute("opacity", "0.40");
+      ch.removeAttribute("filter");
+    });
+
     const batteryIcon = svg.querySelector<SVGGraphicsElement>("#batteryIcon");
     if (batteryIcon) {
-      batteryIcon.style.opacity = "0";
-      batteryIcon.style.display = "none";
       batteryIcon.setAttribute("fill", "#00E58A");
-      batteryIcon.setAttribute("filter", "drop-shadow(0 0 8px rgba(0, 229, 138, 0.9))");
+      batteryIcon.setAttribute("stroke", "#00B36B");
+      batteryIcon.setAttribute("stroke-width", "0.8");
     }
 
     // Battery swap station slot indicators
@@ -2003,7 +2013,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     const CARD_ORIGINS: Record<string, string> = {
       Both: "470px 1288.75px",
       network: "1492.5px 1147.75px",
-      quickBatterySwapping: "963px 910.25px",
+      quickBatterySwapping: "960px 888px",
       PartnerApp: "270px 1104.75px",
       driverApp: "1271px 1481.75px",
       support247: "701px 1054.25px",
@@ -2025,7 +2035,8 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     ].filter((el): el is SVGElement => !!el);
 
     const allLines = mainLines.filter((l): l is SVGGraphicsElement => !!l);
-    const radarEls = [batteryIcon, ...antennaCircles].filter((el): el is SVGGraphicsElement => !!el);
+    const radarGroup = svg.querySelector<SVGGraphicsElement>("#battery");
+    const radarEls = [radarGroup].filter((el): el is SVGGraphicsElement => !!el);
 
     // Clean reset all elements prior to timeline construction
     activeVehicles.forEach((v) => {
@@ -2174,7 +2185,15 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       );
     }
 
-    // 6. Active tooltip bubbles: "Partner App" and "Driver App"
+    // 6. Active tooltip bubbles: "2-Minute Quick Battery Swapping", "Partner App", and "Driver App"
+    if (cardQuick) {
+      masterTl.set(cardQuick, { display: "block" }, 4.25);
+      masterTl.fromTo(cardQuick,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+        4.25
+      );
+    }
     if (cardPartner) {
       masterTl.set(cardPartner, { display: "block" }, 4.25);
       masterTl.fromTo(cardPartner,
@@ -2247,7 +2266,11 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       masterTl.set(baseGlows, { display: "none" }, 7.0);
     }
 
-    // UI Text Transition: "Partner App" and "Driver App" bubbles smoothly fade out
+    // UI Text Transition: "2-Minute Quick Battery Swapping", "Partner App" and "Driver App" bubbles smoothly fade out
+    if (cardQuick) {
+      masterTl.to(cardQuick, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
+      masterTl.set(cardQuick, { display: "none" }, 6.95);
+    }
     if (cardPartner) {
       masterTl.to(cardPartner, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
       masterTl.set(cardPartner, { display: "none" }, 6.95);
@@ -2340,8 +2363,14 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       // HQ overlay: single flat PNG; sits above vehicles that pass behind it.
       "totogoHqBuildingOverlay",
       // Rooftop antenna & network lines
+      "battery",
+      "innerCircle",
       "middleCircle",
       "outerCircle",
+      "radarCrosshairH",
+      "radarCrosshairV",
+      "batteryBadgeGroup",
+      "batteryBadge",
       "batteryIcon",
       "loaderLine",
       "threeWheelerLine",
@@ -2534,7 +2563,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
   };
 
   return (
-    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_#innerCircle]:hidden [&_#batteryIcon]:hidden [&_#battery]:hidden [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
+    <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
       <div className="relative" dangerouslySetInnerHTML={{ __html: svgMarkup }} />
 
 
