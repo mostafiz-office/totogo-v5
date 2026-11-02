@@ -40,11 +40,11 @@ const DEFAULT_TIMING: Record<VehicleId, VehicleTiming> = {
 
 // Geometry only, never edited by the control panel.
 const ROUTES: Record<VehicleId, Omit<VehicleSpec, keyof VehicleTiming | "id">> = {
-  loader:           { origin: { x: 56.75,   y: 916.76 },  end: { dx: 1420,     dy: 900 } },
-  twoWheeler1:      { origin: { x: 1691.71, y: 933.75 },  end: { dx: -1280,    dy: 810 } },
-  threeWheelerHero: { origin: { x: 774.38,  y: 1364.36 }, end: { dx: 740,      dy: 475 } },
-  twoWheeler2:      { origin: { x: 1671.71, y: 973.75 },  end: { dx: -1280,    dy: 810 } },
-  threeWheeler2:    { origin: { x: 754.38,  y: 1404.36 }, end: { dx: 740,      dy: 475 } },
+  loader:           { origin: { x: 56.75,   y: 916.76 },  end: { dx: 1260,     dy: 795 } },
+  twoWheeler1:      { origin: { x: 1691.71, y: 933.75 },  end: { dx: -1180,    dy: 740 } },
+  threeWheelerHero: { origin: { x: 774.38,  y: 1364.36 }, end: { dx: 580,      dy: 365 } },
+  twoWheeler2:      { origin: { x: 1671.71, y: 973.75 },  end: { dx: -1180,    dy: 740 } },
+  threeWheeler2:    { origin: { x: 754.38,  y: 1404.36 }, end: { dx: 580,      dy: 365 } },
 };
 
 const VEHICLE_IDS: VehicleId[] = ["loader", "twoWheeler1", "threeWheelerHero", "twoWheeler2", "threeWheeler2"];
@@ -2195,35 +2195,37 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     // =========================================================================
     // PHASE 3: Outbound Departure & Follow-up Cards [t = 6.5s -> 11.8s] (Duration: ~5.0s)
     // =========================================================================
-    // Vehicles gently accelerate away from lockers and drive smoothly down to the very edge/terminus of the roadway.
+    // Vehicles gently accelerate away from lockers and drive smoothly down asphalt lanes.
+    // Safe Interior Despawn: Complete transparency (opacity: 0) occurs safely within the dark asphalt road boundaries
+    // before reaching canvas frame edges or cutoffs.
     if (loader) {
       masterTl.to(loader,
-        { x: 1420, y: 900, duration: 4.8, ease: "power2.inOut" },
+        { x: 1260, y: 795, duration: 4.4, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(loader,
-        { opacity: 0, duration: 0.6, ease: "power1.in" },
-        10.7
+        { opacity: 0, duration: 0.5, ease: "power1.in" },
+        10.4
       );
     }
     if (threeWheeler) {
       masterTl.to(threeWheeler,
-        { x: 740, y: 475, duration: 3.7, ease: "power2.inOut" },
+        { x: 580, y: 365, duration: 3.1, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(threeWheeler,
-        { opacity: 0, duration: 0.6, ease: "power1.in" },
-        9.6
+        { opacity: 0, duration: 0.5, ease: "power1.in" },
+        9.1
       );
     }
     if (twoWheeler) {
       masterTl.to(twoWheeler,
-        { x: -1280, y: 810, duration: 4.8, ease: "power2.inOut" },
+        { x: -1180, y: 740, duration: 4.2, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(twoWheeler,
-        { opacity: 0, duration: 0.6, ease: "power1.in" },
-        10.7
+        { opacity: 0, duration: 0.5, ease: "power1.in" },
+        10.2
       );
     }
 
