@@ -2009,15 +2009,15 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       cardBoth, cardNetwork, cardQuick, cardPartner, cardDriver, cardSupport, cardBatteryPerf
     ].filter((c): c is SVGGElement => !!c);
 
-    // Initial setups for cards
+    // Initial setups for cards (Stationary anchor centers for pure in-place fade)
     const CARD_ORIGINS: Record<string, string> = {
-      Both: "470px 1288.75px",
-      network: "1492.5px 1147.75px",
-      quickBatterySwapping: "960px 888px",
-      PartnerApp: "270px 1104.75px",
-      driverApp: "1271px 1481.75px",
-      support247: "701px 1054.25px",
-      batteryPerformance: "1092px 1120.75px",
+      Both: "470px 1257px",
+      network: "1492.5px 1126.5px",
+      quickBatterySwapping: "960px 832px",
+      PartnerApp: "270px 1066px",
+      driverApp: "1264.5px 1442px",
+      support247: "701px 1017px",
+      batteryPerformance: "1092px 1061px",
     };
 
     // Query docking glows
@@ -2051,8 +2051,9 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
 
     allCards.forEach((c) => {
       gsap.killTweensOf(c);
-      const origin = CARD_ORIGINS[c.id] || "center";
-      gsap.set(c, { transformOrigin: origin, scale: 0, opacity: 0, display: "none" });
+      const origin = CARD_ORIGINS[c.id] || "center center";
+      c.removeAttribute("transform");
+      gsap.set(c, { transformOrigin: origin, scale: 0.97, opacity: 0, display: "none" });
     });
 
     [...vehicleGlows, ...baseGlows, ...allLines, ...radarEls].forEach((el) => {
@@ -2063,6 +2064,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     // Master Timeline with seamless 3-Phase Infinite Loop
     const masterTl = gsap.timeline({ repeat: -1 });
     masterTlRef.current = masterTl;
+    (window as any).__masterTl = masterTl;
 
     // =========================================================================
     // PHASE 1: Inbound Driving & Intro Cards [t = 0.0s -> 4.2s] (Duration: ~4.2s)
@@ -2106,30 +2108,30 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       );
     }
 
-    // UI Cards (Active): Intro feature cards remain comfortably visible for viewers to read (~2.8s)
+    // Phase 1 UI Cards: Pure In-Place Fade-In & Fade-Out at stationary coordinates
     if (cardBoth) {
-      masterTl.set(cardBoth, { display: "block" }, 0.2);
+      masterTl.set(cardBoth, { display: "block" }, 0.3);
       masterTl.fromTo(cardBoth,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.2)" },
-        0.25
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        0.3
       );
       masterTl.to(cardBoth,
-        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
-        3.65
+        { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" },
+        3.85
       );
       masterTl.set(cardBoth, { display: "none" }, 4.15);
     }
     if (cardNetwork) {
-      masterTl.set(cardNetwork, { display: "block" }, 0.45);
+      masterTl.set(cardNetwork, { display: "block" }, 0.5);
       masterTl.fromTo(cardNetwork,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.2)" },
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
         0.5
       );
       masterTl.to(cardNetwork,
-        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
-        3.65
+        { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" },
+        3.85
       );
       masterTl.set(cardNetwork, { display: "none" }, 4.15);
     }
@@ -2185,29 +2187,29 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       );
     }
 
-    // 6. Active tooltip bubbles: "2-Minute Quick Battery Swapping", "Partner App", and "Driver App"
-    if (cardQuick) {
-      masterTl.set(cardQuick, { display: "block" }, 4.25);
-      masterTl.fromTo(cardQuick,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
-        4.25
-      );
-    }
+    // 6. Phase 2 UI Cards: Synchronized immediate in-place fade-in at stationary coordinates
     if (cardPartner) {
-      masterTl.set(cardPartner, { display: "block" }, 4.25);
+      masterTl.set(cardPartner, { display: "block" }, 4.2);
       masterTl.fromTo(cardPartner,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
-        4.25
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        4.2
       );
     }
     if (cardDriver) {
-      masterTl.set(cardDriver, { display: "block" }, 4.25);
+      masterTl.set(cardDriver, { display: "block" }, 4.2);
       masterTl.fromTo(cardDriver,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
-        4.25
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        4.2
+      );
+    }
+    if (cardQuick) {
+      masterTl.set(cardQuick, { display: "block" }, 4.2);
+      masterTl.fromTo(cardQuick,
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        4.2
       );
     }
 
@@ -2266,46 +2268,46 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       masterTl.set(baseGlows, { display: "none" }, 7.0);
     }
 
-    // UI Text Transition: "2-Minute Quick Battery Swapping", "Partner App" and "Driver App" bubbles smoothly fade out
-    if (cardQuick) {
-      masterTl.to(cardQuick, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
-      masterTl.set(cardQuick, { display: "none" }, 6.95);
-    }
+    // UI Cards Transition (Phase 2 to Phase 3): Pure in-place fade-out as vehicles depart
     if (cardPartner) {
-      masterTl.to(cardPartner, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
-      masterTl.set(cardPartner, { display: "none" }, 6.95);
+      masterTl.to(cardPartner, { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" }, 6.5);
+      masterTl.set(cardPartner, { display: "none" }, 6.8);
     }
     if (cardDriver) {
-      masterTl.to(cardDriver, { scale: 0.85, opacity: 0, duration: 0.4, ease: "power2.in" }, 6.5);
-      masterTl.set(cardDriver, { display: "none" }, 6.95);
+      masterTl.to(cardDriver, { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" }, 6.5);
+      masterTl.set(cardDriver, { display: "none" }, 6.8);
+    }
+    if (cardQuick) {
+      masterTl.to(cardQuick, { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" }, 6.5);
+      masterTl.set(cardQuick, { display: "none" }, 6.8);
     }
 
-    // Subsequent feature cards fade in at a comfortable reading pace (~3s read time)
+    // Phase 3 Support Cards: Immediate synchronized in-place fade-in at stationary coordinates
     if (cardSupport) {
-      masterTl.set(cardSupport, { display: "block" }, 6.9);
+      masterTl.set(cardSupport, { display: "block" }, 6.8);
       masterTl.fromTo(cardSupport,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.2)" },
-        6.95
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        6.8
       );
       masterTl.to(cardSupport,
-        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" },
         10.5
       );
-      masterTl.set(cardSupport, { display: "none" }, 11.0);
+      masterTl.set(cardSupport, { display: "none" }, 10.8);
     }
     if (cardBatteryPerf) {
-      masterTl.set(cardBatteryPerf, { display: "block" }, 7.2);
+      masterTl.set(cardBatteryPerf, { display: "block" }, 7.0);
       masterTl.fromTo(cardBatteryPerf,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.2)" },
-        7.25
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+        7.0
       );
       masterTl.to(cardBatteryPerf,
-        { scale: 0.85, opacity: 0, duration: 0.45, ease: "power2.in" },
+        { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" },
         10.5
       );
-      masterTl.set(cardBatteryPerf, { display: "none" }, 11.0);
+      masterTl.set(cardBatteryPerf, { display: "none" }, 10.8);
     }
 
     // Loop Reset: Clean reset at 12.6s, total comfortable loop length = 13.0 seconds
@@ -2363,19 +2365,12 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       // HQ overlay: single flat PNG; sits above vehicles that pass behind it.
       "totogoHqBuildingOverlay",
       // Rooftop antenna & network lines
-      "battery",
-      "innerCircle",
-      "middleCircle",
-      "outerCircle",
-      "radarCrosshairH",
-      "radarCrosshairV",
-      "batteryBadgeGroup",
-      "batteryBadge",
-      "batteryIcon",
+      "networkConnectionLines",
       "loaderLine",
       "threeWheelerLine",
       "twoWheelerLine",
       "tgInterStationLines",
+      "battery",
       // Walking woman: must sit above HQ overlay so she never disappears.
       "yellowGirl",
       // Callouts / chip wraps last so labels never hide behind buildings.

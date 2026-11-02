@@ -138,8 +138,6 @@
      - `#Union*` paths: scattered BS logo glyphs on vehicles and ground tiles.
        (Union_6/8/9/10 were already hidden via tailwind arbitrary variants on
        the wrapper div; this rule extends coverage to the remaining ones.) */
-  #bannerContainer svg #battery,
-  #bannerContainer svg #batteryIcon,
   #bannerContainer svg #Union,
   #bannerContainer svg [id^="Union_"],
   /* Pulse-mark squiggles (BS-branded ~~ glyph used as callout anchors) */

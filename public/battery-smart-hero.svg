@@ -2518,31 +2518,49 @@
 
 
   <!-- ====================================================================== -->
+<!-- ====================================================================== -->
+<!-- ====================================================================== -->
+<!-- ====================================================================== -->
   <!-- CENTRAL RADAR HUB, 3 CONNECTION LINE BEAMS & QUICK SWAP TOOLTIP CARD  -->
   <!-- ====================================================================== -->
   <g id="networkConnectionLines">
-    <g opacity="0" id="loaderLine" style="display: none;"><line x1="960" y1="902" x2="436" y2="1151" stroke="url(#lineGrad_loader)" stroke-width="2.2" stroke-linecap="round"/></g><g opacity="0" id="threeWheelerLine" style="display: none;"><line x1="960" y1="902" x2="1092" y2="1553" stroke="url(#lineGrad_threeWheeler)" stroke-width="2.2" stroke-linecap="round"/></g><g opacity="0" id="twoWheelerLine" style="display: none;"><line x1="960" y1="902" x2="1377" y2="1177" stroke="url(#lineGrad_twoWheeler)" stroke-width="2.2" stroke-linecap="round"/></g>
+    <g opacity="0" id="loaderLine" style="display: none;"><line x1="960" y1="902" x2="436" y2="1151" stroke="url(#lineGrad_loader)" stroke-width="2.2" stroke-linecap="round"/></g>
+    <g opacity="0" id="threeWheelerLine" style="display: none;"><line x1="960" y1="902" x2="1092" y2="1553" stroke="url(#lineGrad_threeWheeler)" stroke-width="2.2" stroke-linecap="round"/></g>
+    <g opacity="0" id="twoWheelerLine" style="display: none;"><line x1="960" y1="902" x2="1377" y2="1177" stroke="url(#lineGrad_twoWheeler)" stroke-width="2.2" stroke-linecap="round"/></g>
   </g>
+
+  <!-- 1. Central Radar & Butterfly Emblem (Exact match to image_32.png reference) -->
   <g id="battery" opacity="0" transform-origin="960px 902px" style="transform-origin: 960px 902px; display: none;">
-  <!-- Subtle Concentric Rings: ultra-fine, delicate, low-opacity concentric circles -->
-  <circle id="innerCircle" cx="960" cy="902" r="20" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
-  <circle id="middleCircle" cx="960" cy="902" r="38" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
-  <circle id="outerCircle" cx="960" cy="902" r="56" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
-  <!-- Fine crosshairs -->
-  <line id="radarCrosshairH" x1="894" y1="902" x2="1026" y2="902" stroke="#7BE8C4" stroke-width="1.2" opacity="0.40" stroke-linecap="round" />
-  <line id="radarCrosshairV" x1="960" y1="860" x2="960" y2="966" stroke="#7BE8C4" stroke-width="1.2" opacity="0.40" stroke-linecap="round" />
-  <!-- Center Battery Emblem: illuminated green bow-tie inside a rounded square badge -->
-  <g id="batteryBadgeGroup" filter="drop-shadow(0 2px 6px rgba(0, 229, 138, 0.35))">
-    <rect id="batteryBadge" x="946" y="888" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#5FDFB5" stroke-width="1.5" />
-    <path id="batteryIcon" d="M952 895.5 L960 902 L952 908.5 Z M968 895.5 L960 902 L968 908.5 Z" fill="#00E58A" stroke="#00B36B" stroke-width="0.8" stroke-linejoin="round" />
+    <!-- Fine Concentric Rings: delicate, ultra-fine, semi-transparent isometric rings -->
+    <circle id="innerCircle" cx="960" cy="902" r="20" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
+    <circle id="middleCircle" cx="960" cy="902" r="38" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
+    <circle id="outerCircle" cx="960" cy="902" r="56" stroke="#7BE8C4" stroke-width="1.2" fill="none" opacity="0.45" />
+
+    <!-- Fine Crosshairs -->
+    <line id="radarCrosshairH" x1="894" y1="902" x2="1026" y2="902" stroke="#7BE8C4" stroke-width="1.2" opacity="0.40" stroke-linecap="round" />
+    <line id="radarCrosshairV" x1="960" y1="860" x2="960" y2="966" stroke="#7BE8C4" stroke-width="1.2" opacity="0.40" stroke-linecap="round" />
+
+    <!-- Center Butterfly/Double Battery Emblem inside a soft-rounded square badge -->
+    <g id="batteryBadgeGroup" filter="drop-shadow(0 2px 8px rgba(0, 229, 138, 0.40))">
+      <rect id="batteryBadge" x="946" y="888" width="28" height="28" rx="6" fill="#FFFFFF" stroke="#5FDFB5" stroke-width="1.5" />
+      <!-- Crisp, 3D green & white bow-tie / butterfly-like double-battery symbol -->
+      <path id="batteryIcon" d="M950 894.5 L958.5 900.5 L958.5 903.5 L950 909.5 Z M970 894.5 L961.5 900.5 L961.5 903.5 L970 909.5 Z" fill="#00E58A" stroke="#00B36B" stroke-width="0.8" stroke-linejoin="round" />
+      <!-- Inner illuminated facets for 3D depth -->
+      <path id="batteryIconHighlight" d="M952 896.5 L957 901 L957 903 L952 907.5 Z M968 896.5 L963 901 L963 903 L968 907.5 Z" fill="#44FFAF" opacity="0.65" />
+      <circle cx="960" cy="902" r="1.5" fill="#FFFFFF" />
+    </g>
   </g>
-  <g opacity="0" id="quickBatterySwapping" transform-origin="960px 888px" style="transform: scale(0); transform-origin: 960px 888px; display: none;" display="none">
-  <!-- Subtle pointing stem leading down toward the radar badge -->
-  <line id="quickSwapStem" x1="960" y1="858" x2="960" y2="888" stroke="#5FDFB5" stroke-width="1.5" stroke-linecap="round" />
-  <!-- Card Container with soft ambient contact shadow -->
-  <rect id="quickSwapContainer" x="875" y="812" width="170" height="46" rx="6" fill="#FFFFFF" stroke="#5FDFB5" stroke-width="1.5" filter="url(#cardQuickShadow)" />
-  <!-- Clean sharp dark-blue typography on two lines -->
-  <text x="960" y="830" text-anchor="middle" fill="#102A72" font-family="'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="-0.1">2-Minute Quick</text>
-  <text x="960" y="846" text-anchor="middle" fill="#102A72" font-family="'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="-0.1">Battery Swapping</text>
-</g>
+
+  <!-- 2. Top UI Callout ("2-Minute Quick Battery Swapping") Speech Bubble -->
+  <g opacity="0" id="quickBatterySwapping" transform-origin="960px 832px" style="transform-origin: 960px 832px; display: none;" display="none">
+    <!-- Connecting stem leading straight down to the radar center badge -->
+    <line id="quickSwapStem" x1="960" y1="864" x2="960" y2="888" stroke="#5FDFB5" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Seamless speech bubble card container with drop shadow -->
+    <path id="quickSwapContainer" d="M878 808 H1042 A6 6 0 0 1 1048 814 V850 A6 6 0 0 1 1042 856 H966 L960 864 L954 856 H878 A6 6 0 0 1 872 850 V814 A6 6 0 0 1 878 808 Z" fill="#FFFFFF" stroke="#5FDFB5" stroke-width="1.5" stroke-linejoin="round" filter="url(#cardDropShadow)" />
+
+    <!-- Exact typography: bold, clean, dark-blue sans-serif font centered on two lines -->
+    <text x="960" y="828" text-anchor="middle" fill="#102A72" font-family="'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="-0.1">2-Minute Quick</text>
+    <text x="960" y="845" text-anchor="middle" fill="#102A72" font-family="'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="-0.1">Battery Swapping</text>
+  </g>
 </svg>
