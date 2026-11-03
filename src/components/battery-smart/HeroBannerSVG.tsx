@@ -40,11 +40,11 @@ const DEFAULT_TIMING: Record<VehicleId, VehicleTiming> = {
 
 // Geometry only, never edited by the control panel.
 const ROUTES: Record<VehicleId, Omit<VehicleSpec, keyof VehicleTiming | "id">> = {
-  loader:           { origin: { x: 56.75,   y: 916.76 },  end: { dx: 1260,     dy: 795 } },
+  loader:           { origin: { x: 56.75,   y: 948.0 },   end: { dx: 1260,     dy: 774 } },
   twoWheeler1:      { origin: { x: 1691.71, y: 933.75 },  end: { dx: -1180,    dy: 740 } },
-  threeWheelerHero: { origin: { x: 774.38,  y: 1364.36 }, end: { dx: 580,      dy: 365 } },
+  threeWheelerHero: { origin: { x: 774.38,  y: 1392.0 },  end: { dx: 580,      dy: 356 } },
   twoWheeler2:      { origin: { x: 1671.71, y: 973.75 },  end: { dx: -1180,    dy: 740 } },
-  threeWheeler2:    { origin: { x: 754.38,  y: 1404.36 }, end: { dx: 580,      dy: 365 } },
+  threeWheeler2:    { origin: { x: 754.38,  y: 1432.0 },  end: { dx: 580,      dy: 356 } },
 };
 
 const VEHICLE_IDS: VehicleId[] = ["loader", "twoWheeler1", "threeWheelerHero", "twoWheeler2", "threeWheeler2"];
@@ -984,7 +984,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
         // to the route origin.
         const sourceBB = source.getBBox();
         const originX = 774.38;
-        const originY = 1364.36;
+        const originY = 1392.0;
         const cx = sourceBB.x + sourceBB.width / 2;
         const cy = sourceBB.y + sourceBB.height / 2;
         const outer = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -1599,9 +1599,12 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
 
 
   // ── Yellow girl walking animation.
-  //    She walks along the isometric road vector with a natural two-step gait:
-  //    legs/arms swing in opposition, body bobs twice per cycle, head/torso
-  //    stay upright (no rotation of the whole figure, only translate + bob).
+  //    She walks continuously forward along the white sidewalk strip with a
+  //    natural, casual walking gait: legs and arms swing in opposition, body
+  //    subtly bobs with each step, and contact shadow stays grounded underfoot.
+  //    Upon reaching the end of the walkway near the foreground building apron,
+  //    she smoothly dissolves into invisibility, silently resets to the spawn point,
+  //    and repeats in an infinite fluid loop.
   useEffect(() => {
     const root = wrapRef.current;
     if (!root) return;
@@ -1614,112 +1617,104 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     const girl = svg.querySelector<SVGGElement>("#yellowGirl");
     if (!girl) return;
 
-    // Limb sub-parts (pivot from the top, hip / shoulder).
-    const limbConfigs: Array<{ id: string; phase: number; amp: number }> = [
-      { id: "leftLeg",  phase: 0,        amp: 22 },
-      { id: "rightLeg", phase: Math.PI,  amp: 22 },
-      { id: "leftHand", phase: Math.PI,  amp: 18 }, // opposite to left leg
-      { id: "rightHand", phase: 0,       amp: 18 }, // opposite to right leg
+    // Limb sub-parts with exact anatomic pivot points (hip and shoulder)
+    const limbConfigs = [
+      { id: "leftLeg",   pivotX: 1224, pivotY: 1265, phase: 0,        amp: 15 },
+      { id: "rightLeg",  pivotX: 1219, pivotY: 1265, phase: Math.PI,  amp: 15 },
+      { id: "leftHand",  pivotX: 1225, pivotY: 1253, phase: Math.PI,  amp: 10 }, // opposite to left leg
+      { id: "rightHand", pivotX: 1217, pivotY: 1253, phase: 0,        amp: 10 }, // opposite to right leg
     ];
 
     const limbs: Array<{ el: SVGGElement; phase: number; amp: number }> = [];
     limbConfigs.forEach((cfg) => {
       const el = girl.querySelector<SVGGElement>(`#${cfg.id}`);
       if (!el) return;
-      // Pivot from the top of each limb's bbox (hip / shoulder) using SVG
-      // user-space coordinates, more reliable than CSS transform-box across
-      // nested SVG groups.
-      const bb = el.getBBox();
-      const pivotX = bb.x + bb.width / 2;
-      const pivotY = bb.y + bb.height * 0.05; // near the top of the limb
-      gsap.set(el, { svgOrigin: `${pivotX} ${pivotY}`, willChange: "transform" });
+      gsap.set(el, { svgOrigin: `${cfg.pivotX} ${cfg.pivotY}`, willChange: "transform" });
       limbs.push({ el, phase: cfg.phase, amp: cfg.amp });
     });
 
-    // Shadow: keep it on the ground, fade slightly as the foot lifts.
-    const shadow = girl.querySelector<SVGGElement>("#shadow");
+    const torso = girl.querySelector<SVGGElement>("#bodyTorso");
+    const head = girl.querySelector<SVGGElement>("#headNeck");
+    const bobElements = [torso, head].filter((el): el is SVGGElement => !!el);
 
-    // Whole-figure transform anchor.
-    gsap.set(girl, { willChange: "transform" });
+    // Raise the walking woman group to top of SVG so she renders above HQ and ground
+    svg.appendChild(girl);
 
     if (reduce) return;
 
-    // Raise the woman to the top of the SVG so she paints above HQ and other
-    // late-appended nodes, guaranteeing she is visible at every point of the
-    // walk. Never touch her opacity in the visibility guard.
-    svg.appendChild(girl);
+    // Walkway path trajectory:
+    // Spawn: (1221, 1295) near tree and curb (image_3f5b83.jpg)
+    // Destination: (1221 + 175, 1295 + 106) along white sidewalk strip (image_3f5b80.jpg)
+    const WALK_DX = 175;
+    const WALK_DY = 106;
+    const WALK_DUR = 6.8;    // Casual pedestrian walking pace
+    const FADE_DUR = 1.2;    // Smooth linear opacity dissolve at walkway terminus
 
+    // Forward walking trajectory timeline (Infinite Loop)
+    const walkTl = gsap.timeline({ repeat: -1 });
 
-    // Keep the woman visible at all times. Previous code faded her out at the
-    // reset point, which looked like she disappeared while walking.
-    const WALK_DX = 84;
-    const WALK_DY = 56;
-    const walkX = { current: 0 };
-    const walkY = { current: 0 };
+    walkTl
+      // Start of cycle: visible at sidewalk spawn point
+      .set(girl, { x: 0, y: 0, opacity: 1 })
+      // Move continuously forward along the white sidewalk strip
+      .to(girl, {
+        x: WALK_DX,
+        y: WALK_DY,
+        duration: WALK_DUR,
+        ease: "none",
+      }, 0)
+      // Smooth linear fade-out as approaching the walkway terminus near building apron
+      .to(girl, {
+        opacity: 0,
+        duration: FADE_DUR,
+        ease: "power1.inOut",
+      }, WALK_DUR - FADE_DUR)
+      // Silently reset back to initial spawn point while invisible
+      .set(girl, { x: 0, y: 0, opacity: 0 })
+      // Brief pause before re-emerging
+      .to({}, { duration: 0.3 })
+      // Smooth fade-in at spawn point to begin the next cycle
+      .to(girl, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      });
 
-    // ─── Walk-cycle ticker (limbs + body bob) ──────────────────────────────
-    const STEP_PERIOD = 0.95;
+    // Walk-cycle ticker: synchronized natural leg/arm swings and subtle body bob
+    const STEP_PERIOD = 0.95; // seconds per full stride cycle
     const cycleStart = performance.now();
+    let raf = 0;
 
     const tick = () => {
-      if (!heroVisibleRef.current) {
-        raf = requestAnimationFrame(tick);
-        return;
-      }
       const now = performance.now();
       const p = (((now - cycleStart) / 1000) % STEP_PERIOD) / STEP_PERIOD;
       const twoPi = Math.PI * 2;
 
+      // Leg and arm swinging in opposition
       limbs.forEach(({ el, phase, amp }) => {
         const rot = Math.sin(twoPi * p + phase) * amp;
         gsap.set(el, { rotation: rot });
       });
 
-      const bob = -Math.abs(Math.sin(twoPi * p)) * 1.6;
-      gsap.set(girl, { x: walkX.current, y: bob + walkY.current });
-
-      if (shadow) {
-        gsap.set(shadow, { opacity: 1 - Math.abs(bob) / 5 });
+      // Subtle body bobbing (two bobs per full two-step cycle)
+      const bob = -Math.abs(Math.sin(twoPi * p)) * 1.0;
+      if (bobElements.length) {
+        gsap.set(bobElements, { y: bob });
       }
 
       raf = requestAnimationFrame(tick);
     };
-    let raf = requestAnimationFrame(tick);
-
-
-
-    // Forward-only loop: walk start → end, fade out at end, reset invisibly
-    // to start, fade back in, repeat. No yoyo/reverse, she never walks
-    // backwards. Fades only occur at the endpoints, never mid-road.
-    const WALK_DUR = 8.5;
-    const FADE = 0.45;
-    const tl = gsap.timeline({ repeat: -1 });
-    // Start of each cycle: ensure visible at start position.
-    tl.set(girl, { opacity: 1 })
-      .set(walkX, { current: 0 })
-      .set(walkY, { current: 0 })
-      // Walk forward along the road.
-      .to(walkX, { current: WALK_DX, duration: WALK_DUR, ease: "none" }, 0)
-      .to(walkY, { current: WALK_DY, duration: WALK_DUR, ease: "none" }, 0)
-      // Fade out at the far end (she has arrived / walks off).
-      .to(girl, { opacity: 0, duration: FADE, ease: "power1.in" }, WALK_DUR)
-      // Invisible reset back to the start position.
-      .set(walkX, { current: 0 })
-      .set(walkY, { current: 0 })
-      // Small invisible pause before re-appearing so the reset is not visible.
-      .to({}, { duration: 0.4 })
-      // Fade back in at the start and continue.
-      .to(girl, { opacity: 1, duration: FADE, ease: "power1.out" });
+    raf = requestAnimationFrame(tick);
 
     return () => {
       cancelAnimationFrame(raf);
-      tl.kill();
+      walkTl.kill();
       gsap.set(girl, { clearProps: "transform,opacity,willChange" });
       limbs.forEach(({ el }) =>
         gsap.set(el, { clearProps: "transform,transformOrigin,transformBox,willChange" }),
       );
-      if (shadow) {
-        gsap.set(shadow, { clearProps: "transform,transformOrigin,transformBox,opacity" });
+      if (bobElements.length) {
+        gsap.set(bobElements, { clearProps: "transform" });
       }
     };
   }, [svgMarkup]);
@@ -1981,13 +1976,11 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       svg.querySelectorAll<SVGElement>('[id^="Mini Charging Point"] [fill="#CD3026"], [id^="Mini Charging Point_2"] [fill="#CD3026"]')
     );
 
-    // Trees remain completely static and rooted in place as before (no movement)
-    svg.querySelectorAll<SVGGraphicsElement>(".bs-tree, .bs-tree-canopy").forEach((el) => {
+    // Tree bases and trunks remain anchored to their ground coordinates
+    svg.querySelectorAll<SVGGraphicsElement>(".bs-tree").forEach((el) => {
       gsap.killTweensOf(el);
       el.removeAttribute("transform");
       el.style.transform = "";
-      el.style.transformOrigin = "";
-      el.style.transformBox = "";
     });
 
     // Vehicle elements
@@ -2045,8 +2038,8 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       v.removeAttribute("transform");
       gsap.set(v, { x: 0, y: 0, opacity: 0 });
     });
-    if (loader) gsap.set(loader, { transformOrigin: "56.75px 916.76px" });
-    if (threeWheeler) gsap.set(threeWheeler, { transformOrigin: "774.38px 1364.36px" });
+    if (loader) gsap.set(loader, { transformOrigin: "56.75px 948.0px" });
+    if (threeWheeler) gsap.set(threeWheeler, { transformOrigin: "774.38px 1392.0px" });
     if (twoWheeler) gsap.set(twoWheeler, { transformOrigin: "1691.71px 933.75px" });
 
     allCards.forEach((c) => {
@@ -2079,7 +2072,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       );
       masterTl.fromTo(loader,
         { x: 0, y: 0 },
-        { x: 368.7, y: 244.5, duration: 4.2, ease: "power2.out" },
+        { x: 368.7, y: 226.4, duration: 4.2, ease: "power2.out" },
         0.0
       );
     }
@@ -2091,7 +2084,7 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       );
       masterTl.fromTo(threeWheeler,
         { x: 0, y: 0 },
-        { x: 323.5, y: 209.5, duration: 4.2, ease: "power2.out" },
+        { x: 323.5, y: 198.6, duration: 4.2, ease: "power2.out" },
         0.0
       );
     }
@@ -2219,34 +2212,42 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     // Vehicles gently accelerate away from lockers and drive smoothly down asphalt lanes.
     // Safe Interior Despawn: Complete transparency (opacity: 0) occurs safely within the dark asphalt road boundaries
     // before reaching canvas frame edges or cutoffs.
+    //
+    // Continuous Linear Velocity & Organic Near-Miss Traffic Pacing:
+    // 1. Motorcycle Priority Velocity: Speed increased by ~10% (duration 3.75s, departing at 6.5s, power2.inOut),
+    //    gliding smoothly across the intersection crossing corridor ahead at t = 8.48s.
+    // 2. CNG Continuous Cruising Momentum: Cruise speed calibrated (~6% reduction to duration 4.75s, departing at 6.55s).
+    //    Maintains 100% continuous, fluid forward momentum with ZERO full stops, zero pauses, and zero sudden braking.
+    //    Cruises through the intersection center at t = 8.95s, establishing an organic near-miss gap (~158px clear asphalt buffer)
+    //    where the motorcycle glides smoothly through first, followed immediately by the CNG cruising right behind through the clear gap.
+    if (twoWheeler) {
+      masterTl.to(twoWheeler,
+        { x: -1180, y: 740, duration: 3.75, ease: "power2.inOut" },
+        6.5
+      );
+      masterTl.to(twoWheeler,
+        { opacity: 0, duration: 0.5, ease: "power1.in" },
+        9.75
+      );
+    }
     if (loader) {
       masterTl.to(loader,
-        { x: 1260, y: 795, duration: 4.4, ease: "power2.inOut" },
-        6.5
+        { x: 1260, y: 774, duration: 4.75, ease: "power2.inOut" },
+        6.55
       );
       masterTl.to(loader,
         { opacity: 0, duration: 0.5, ease: "power1.in" },
-        10.4
+        10.8
       );
     }
     if (threeWheeler) {
       masterTl.to(threeWheeler,
-        { x: 580, y: 365, duration: 3.1, ease: "power2.inOut" },
+        { x: 580, y: 356, duration: 3.1, ease: "power2.inOut" },
         6.5
       );
       masterTl.to(threeWheeler,
         { opacity: 0, duration: 0.5, ease: "power1.in" },
         9.1
-      );
-    }
-    if (twoWheeler) {
-      masterTl.to(twoWheeler,
-        { x: -1180, y: 740, duration: 4.2, ease: "power2.inOut" },
-        6.5
-      );
-      masterTl.to(twoWheeler,
-        { opacity: 0, duration: 0.5, ease: "power1.in" },
-        10.2
       );
     }
 
@@ -2331,21 +2332,21 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
     if (!svg) return;
 
     const PAINT_ORDER: string[] = [
-      // Background roadside shops (North side of roads, behind traffic)
+      // Background roadside shops & North pavement trees (North side of roads, behind traffic)
       "shopPharmacy",
       "shopCafeMart",
       "shopGroceryStore",
-      // 1. All vehicles: rendered lowest among foreground elements
+      "treeNearStation",
+      // 1. All vehicles: rendered in traffic lanes
       "loader",
       "twoWheeler1",
       "twoWheeler2",
       "threeWheelerHero",
       "threeWheeler2",
-      // 2. Trees: sit above vehicles so cars and bikes never run over trees
+      // 2. Foreground Trees
       "firstTreeIn2WheelerWay",
       "bs-extra-trees",
       "treeBesideRoad",
-      "treeNearStation",
       "tgSolarParkTree",
       // Foreground roadside shops (South side of roads & plazas, in front of traffic)
       "shopTeaStall",
@@ -2361,9 +2362,9 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
       // 4. Pedestrians & street characters: sit above vehicles so cars never draw over people
       "Man",
       "Man_2",
-      "Woman F",
       // HQ overlay: single flat PNG; sits above vehicles that pass behind it.
       "totogoHqBuildingOverlay",
+      "Group 238982",
       // Rooftop antenna & network lines
       "networkConnectionLines",
       "loaderLine",
@@ -2559,6 +2560,68 @@ const HeroBannerSVG = ({ svgMarkup, showDebug, showControls }: Props) => {
 
   return (
     <div ref={wrapRef} style={{ contain: "layout paint style" }} className='Hero_bannerDesktop__vIq5r relative [&_[id="Union_6"]]:hidden [&_[id="Union_8"]]:hidden [&_[id="Union_9"]]:hidden [&_[id="Union_10"]]:hidden [&_[id="Group_193"]]:hidden [&_[id="Group_339"]]:hidden [&_[id="Group_379"]]:hidden [&_[id="Group_238774"]]:hidden [&_[id="Group_238773"]]:hidden'>
+      {/* Subtle organic wind-sway motion dynamics for tree canopies (rooted trunks & stationary shadows) */}
+      <style>{`
+        @keyframes bsTreeSway_1 {
+          0% { transform: rotate(-1.2deg); }
+          100% { transform: rotate(1.2deg); }
+        }
+        @keyframes bsTreeSway_2 {
+          0% { transform: rotate(1.1deg); }
+          100% { transform: rotate(-1.1deg); }
+        }
+        @keyframes bsTreeSway_3 {
+          0% { transform: rotate(-1.0deg); }
+          100% { transform: rotate(1.0deg); }
+        }
+        @keyframes bsTreeSway_4 {
+          0% { transform: rotate(1.2deg); }
+          100% { transform: rotate(-1.2deg); }
+        }
+
+        .bs-tree-canopy {
+          transform-box: fill-box !important;
+          transform-origin: 50% 90% !important;
+          will-change: transform;
+        }
+
+        #extraTree1 .bs-tree-canopy {
+          animation: bsTreeSway_1 3.1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s infinite alternate !important;
+        }
+
+        #treeNearStation .bs-tree-canopy {
+          animation: bsTreeSway_2 3.4s cubic-bezier(0.4, 0, 0.2, 1) 0.7s infinite alternate !important;
+        }
+
+        #treeBesideRoad .bs-tree-canopy {
+          animation: bsTreeSway_3 2.9s cubic-bezier(0.4, 0, 0.2, 1) 1.2s infinite alternate !important;
+        }
+
+        #firstTreeIn2WheelerWay .bs-tree-canopy {
+          animation: bsTreeSway_4 3.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s infinite alternate !important;
+        }
+
+        #extraTree3 .bs-tree-canopy,
+        #tgSolarParkTree .bs-tree-canopy {
+          animation: bsTreeSway_1 3.0s cubic-bezier(0.4, 0, 0.2, 1) 0.9s infinite alternate !important;
+        }
+
+        #extraTree4 .bs-tree-canopy {
+          animation: bsTreeSway_2 3.3s cubic-bezier(0.4, 0, 0.2, 1) 0.5s infinite alternate !important;
+        }
+
+        #extraTree5 .bs-tree-canopy {
+          animation: bsTreeSway_3 2.8s cubic-bezier(0.4, 0, 0.2, 1) 1.0s infinite alternate !important;
+        }
+
+        #extraTree2 .bs-tree-canopy {
+          animation: bsTreeSway_4 3.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s infinite alternate !important;
+        }
+
+        #extraTree6 .bs-tree-canopy {
+          animation: bsTreeSway_1 3.6s cubic-bezier(0.4, 0, 0.2, 1) 0.8s infinite alternate !important;
+        }
+      `}</style>
       <div className="relative" dangerouslySetInnerHTML={{ __html: svgMarkup }} />
 
 

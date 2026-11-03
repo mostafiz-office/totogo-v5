@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, Zap, RefreshCw, ShieldCheck } from "lucide-react";
-import ctaImage from "@/assets/ev-ownership-cta-v8.jpg";
+import ctaDesktopImage from "@/assets/ev-ownership-cta-v8.jpg";
+import ctaMobileImage from "@/assets/ev-ownership-cta-mobile.jpg";
 import { Button } from "@/components/ui/button";
 import BrandHeading from "@/components/shared/BrandHeading";
 
@@ -59,7 +60,7 @@ const CTASection = () => {
             aria-hidden="true"
           />
 
-          <div className="relative grid items-stretch gap-0 md:grid-cols-2">
+          <div className="relative grid items-stretch gap-0 lg:grid-cols-2">
             {/* Left: text */}
             <div className="reveal p-5 sm:p-12 md:p-16">
               <BrandHeading lead="Ready to" accent="earn more?" className="home-brand-cta__title mb-6 sm:mb-10" />
@@ -98,19 +99,30 @@ const CTASection = () => {
             </div>
 
             {/* Right: image */}
-            <div className="reveal relative min-h-[340px] overflow-hidden md:min-h-full">
-              <img
-                src={ctaImage}
-                alt="Green Bangladeshi CNG auto-rickshaw next to a battery swapping cabinet with taka coins"
-                loading="lazy"
-                width={1280}
-                height={896}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "right center" }}
-              />
-              {/* Fade only on desktop side-by-side layout; on mobile the image
-                  stacks below the text and must render clean edge to edge (WI-03) */}
-              <div className="home-brand-cta__image-fade absolute inset-0 hidden md:block" aria-hidden="true" />
+            <div className="reveal relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:min-h-full">
+              <picture className="block h-full w-full lg:absolute lg:inset-0">
+                {/* Mobile viewports (<= 768px): sharp, unblurred reference photograph */}
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={ctaMobileImage}
+                />
+                {/* Responsive tablet breakpoints (< 1024px): sharp, unblurred reference photograph */}
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet={ctaMobileImage}
+                />
+                {/* Desktop fallback (>= 1024px): original presentation with soft vignette blend */}
+                <img
+                  src={ctaDesktopImage}
+                  alt="Green Bangladeshi CNG auto-rickshaw next to a battery swapping cabinet"
+                  loading="lazy"
+                  width={1280}
+                  height={896}
+                  className="h-full w-full object-cover object-[55%_center] lg:object-[right_center]"
+                />
+              </picture>
+              {/* Fade only on desktop side-by-side layout; strictly hidden on mobile & tablet */}
+              <div className="home-brand-cta__image-fade pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true" />
             </div>
           </div>
 
