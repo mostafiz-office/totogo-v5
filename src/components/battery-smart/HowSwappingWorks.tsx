@@ -217,8 +217,44 @@ export default function HowSwappingWorks() {
           position: relative;
         }
         @media (max-width: 768px) {
-          .sss-card { grid-template-columns: 1fr; min-height: 0; }
-          .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 1rem; }
+          .sss-card {
+            grid-template-columns: 1fr;
+            min-height: 0;
+            padding: 1.25rem 1rem 1rem;
+            gap: 1rem;
+            border-radius: 20px;
+          }
+          .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 0.85rem; }
+          .sss-card-content { gap: 0.65rem; }
+          .sss-card-title { font-size: 1.35rem; }
+          .sss-card-desc { font-size: 0.9rem; line-height: 1.55; }
+          .sss-stats {
+            gap: 0.65rem;
+            margin-top: 0.25rem;
+            padding-top: 0.75rem;
+          }
+          .sss-stat-value { font-size: 1.05rem; }
+          .sss-stat-label { font-size: 0.75rem; line-height: 1.4; }
+          .sss-card-media {
+            min-height: 0;
+            padding-top: 0;
+          }
+          .sss-icon-tile {
+            width: 100%;
+            max-width: 320px;
+            height: 120px;
+            aspect-ratio: auto;
+            border-radius: 16px;
+            margin: 0 auto;
+          }
+          .sss-icon {
+            width: 44px;
+            height: 44px;
+          }
+          .sss-step-badge {
+            top: 1rem;
+            right: 1rem;
+          }
         }
 
         .sss-card[data-step="2"] {
