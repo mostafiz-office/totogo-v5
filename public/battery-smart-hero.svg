@@ -170,37 +170,37 @@
     <!-- 2. Far Rear Left Wheel (Occluded behind rear chassis) -->
     <g id="farWheelDL">
       <ellipse cx="8.7" cy="-36" rx="6" ry="11" fill="#1C1F22" transform="rotate(-15 8.7 -36)"/>
-      <ellipse cx="8.7" cy="-36" rx="3.5" ry="7" fill="#475569" transform="rotate(-15 8.7 -36)"/>
+      <ellipse cx="8.7" cy="-36" rx="3.5" ry="7" fill="#64748B" transform="rotate(-15 8.7 -36)"/>
       <circle cx="8.7" cy="-36" r="1.8" fill="#CBD5E1"/>
     </g>
 
-    <!-- 3. Chassis Floorpan & Battery Bay (Dark slate #0F172A) -->
+    <!-- 3. Chassis Floorpan & Structural Sub-frame (Dark slate #0F172A) -->
     <polygon points="-29.7,-3.6 -8.7,10.0 56.3,-20.5 58.0,-23.5 25.1,-42.5 19.9,-41.5" fill="#0F172A"/>
     <!-- Structural under-rail -->
     <polygon points="-8.7,12.0 56.3,-18.5 56.3,-21.5 -8.7,9.0" fill="#080C14"/>
 
-    <!-- 4. Far Interior Cabin Wall & Through-Cabin Negative Space -->
-    <polygon points="-32.9,-7.0 21.7,-43.5 21.7,-75.5 -19.9,-45.5 -32.9,-25.0" fill="#111822"/>
-    <!-- Far passenger window opening / daylight cutout -->
-    <polygon points="-7.4,-44.2 20.4,-60.2 20.4,-73.2 -7.4,-57.2" fill="#1E293B" opacity="0.9"/>
+    <!-- 4. Far Interior Cabin Wall & Negative Space -->
+    <polygon points="-29.7,-7.0 21.7,-43.5 21.7,-75.5 -19.9,-45.5 -29.7,-25.0" fill="#0A1017"/>
+    <!-- Far passenger window opening / daylight cutout with subtle mesh tone -->
+    <polygon points="-7.4,-44.2 20.4,-60.2 20.4,-73.2 -7.4,-57.2" fill="#131E2B" opacity="0.95"/>
     <!-- Dark slate footwell floor -->
-    <polygon points="-29.4,-7.0 -5.2,7.0 24.2,-6.0 -6.9,-24.0" fill="#0F172A"/>
+    <polygon points="-27.0,-7.0 -5.2,7.0 24.2,-6.0 -6.9,-24.0" fill="#0F172A"/>
 
-    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #334155) -->
-    <polygon points="-3.5,-26.0 27.7,-8.0 27.7,-14.0 -3.5,-32.0" fill="#1E2530"/>
+    <!-- 5. Rear Passenger Bench (Deep Charcoal Vinyl #1E2530) -->
+    <polygon points="-3.5,-26.0 27.7,-8.0 27.7,-14.0 -3.5,-32.0" fill="#18202A"/>
     <!-- Cushion top surface -->
-    <polygon points="-3.5,-32.0 27.7,-14.0 47.6,-24.5 14.7,-43.5" fill="#334155"/>
-    <polygon points="27.7,-14.0 47.6,-24.5 47.6,-21.5 27.7,-11.0" fill="#1E293B"/>
+    <polygon points="-3.5,-32.0 27.7,-14.0 47.6,-24.5 14.7,-43.5" fill="#24303F"/>
+    <polygon points="27.7,-14.0 47.6,-24.5 47.6,-21.5 27.7,-11.0" fill="#18202A"/>
     <!-- Cushion backrest -->
-    <polygon points="14.7,-43.5 47.6,-24.5 49.4,-38.5 16.5,-57.5" fill="#263140"/>
+    <polygon points="14.7,-43.5 47.6,-24.5 49.4,-38.5 16.5,-57.5" fill="#1E2835"/>
 
-    <!-- Rear Passenger Silhouettes (Authentic local commuters) -->
+    <!-- Rear Passenger Silhouettes (Commuters) -->
     <polygon points="14.7,-32.5 23.4,-27.5 22.5,-40.0 15.6,-44.0" fill="#E11D48"/>
     <circle cx="19.1" cy="-46" r="3.5" fill="#78350F"/>
     <polygon points="23.4,-25.5 32.0,-20.5 31.2,-32.0 24.2,-36.0" fill="#0D9488"/>
     <circle cx="27.7" cy="-38" r="3.4" fill="#543621"/>
 
-    <!-- 6. Driver Figure (Tan shirt #C4AF95, dark cap #1E293B) -->
+    <!-- 6. Driver Figure (Seated at handlebars) -->
     <polygon points="-12.1,-9.0 -1.7,-3.0 8.7,-13.0 -1.7,-19.0" fill="#1E2530"/>
     <polygon points="-7.8,-13.5 -0.9,-9.5 4.3,-25.5 -2.6,-29.5" fill="#C4AF95"/>
     <polygon points="-0.9,-9.5 4.3,-12.5 4.3,-25.5 -0.9,-22.5" fill="#A89078"/>
@@ -212,42 +212,50 @@
     <line x1="-13.9" y1="-3" x2="-12.1" y2="-13" stroke="#334155" stroke-width="2.8" stroke-linecap="round"/>
     <line x1="-16.9" y1="-15.7" x2="-7.4" y2="-10.2" stroke="#1E293B" stroke-width="2.8" stroke-linecap="round"/>
 
-    <!-- 7. Front Steering Fork & Single Front Wheel Assembly -->
+    <!-- 7. Front Steering Fork & Exposed Single Front Wheel Assembly -->
     <g id="frontAssemblyDL">
       <line x1="-35.6" y1="8.4" x2="-31.5" y2="-0.5" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
       <line x1="-33.4" y1="9.6" x2="-30.3" y2="0.2" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
-      <!-- Emerald Green Mudguard wrapping over front tire -->
+      <!-- Curved Emerald Green Mudguard wrapping snugly over front tire -->
       <polygon points="-40.9,6.8 -36.7,9.2 -27.6,-1.0 -31.8,-3.4" fill="#10B981"/>
       <polygon points="-36.7,9.2 -27.6,-1.0 -27.6,2.5 -36.7,12.7" fill="#059669"/>
       <!-- Front Wheel (10-inch tire, sits on ground Z=0) -->
       <ellipse cx="-34.5" cy="9.0" rx="6.5" ry="12.5" fill="#1C1F22"/>
-      <ellipse cx="-34.5" cy="9.0" rx="3.8" ry="7.5" fill="#525B64"/>
-      <circle cx="-34.5" cy="9.0" r="2.4" fill="#E2E8F0"/>
+      <ellipse cx="-34.5" cy="9.0" rx="3.8" ry="7.5" fill="#CBD5E1"/>
+      <circle cx="-34.5" cy="9.0" r="2.2" fill="#475569"/>
       <circle cx="-34.5" cy="9.0" r="1.1" fill="#1C1F22"/>
     </g>
 
-    <!-- 8. Front Cowl & Tapered Delta Nose Apron -->
+    <!-- 8. Compact Front Cowl, Signature Black Curved Mask & Headlights -->
     <!-- Front Bumper Bar (#1E2530) -->
     <polygon points="-40.0,6.5 -31.5,11.4 -30.3,7.9 -38.8,3.0" fill="#1E2530"/>
-    <!-- Center Nose Apron Shield (#111822) -->
-    <polygon points="-39.7,3.9 -31.8,8.5 -22.1,-2.7 -32.4,-8.6" fill="#111822"/>
-    <!-- Bajaj RE Chrome Plaque -->
-    <rect x="-35.0" y="-1.9" width="6.0" height="4.0" rx="0.8" fill="#1E293B" stroke="#CBD5E1" stroke-width="0.7"/>
-    <text x="-32.0" y="1.1" font-family="'Rubik', sans-serif" font-size="2.8" font-weight="900" fill="#F8FAFC" text-anchor="middle">RE</text>
-    <!-- Twin Circular Headlights (#F8FAFC with chrome bezel) -->
-    <circle cx="-35.8" cy="0.6" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="-35.8" cy="0.6" r="1.3" fill="#FFFFFF"/>
-    <circle cx="-30.8" cy="3.4" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="-30.8" cy="3.4" r="1.3" fill="#FFFFFF"/>
-    <!-- Amber Turn Indicators (#F59E0B) -->
-    <polygon points="-39.0,0.8 -37.8,1.5 -36.6,-1.3 -37.8,-2.0" fill="#F59E0B"/>
-    <polygon points="-31.2,5.3 -30.0,6.0 -28.7,3.2 -30.0,2.5" fill="#F59E0B"/>
+    
+    <!-- Emerald Green Nose Apron (#059669) -->
+    <polygon points="-39.7,3.9 -31.8,8.5 -22.1,-2.7 -32.4,-8.6" fill="#059669"/>
+    
+    <!-- Signature Curved Black Headlight Mask (Horizontal Wrap-Around #141A24) -->
+    <polygon points="-38.8,1.2 -31.2,5.6 -26.0,1.0 -33.6,-3.4" fill="#141A24"/>
+    <polygon points="-38.8,1.2 -31.2,5.6 -31.2,7.0 -38.8,2.6" fill="#0B0F15"/>
+
+    
+    <!-- Twin Circular Headlights (#FFFFFF with chrome bezel) -->
+    <circle cx="-35.8" cy="0.6" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="-35.8" cy="0.6" r="1.4" fill="#FEF08A"/>
+    <circle cx="-30.8" cy="3.4" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="-30.8" cy="3.4" r="1.4" fill="#FEF08A"/>
+
+    <!-- Amber Turn Indicator (#F59E0B) above the black mask -->
+    <polygon points="-35.6,-1.8 -33.8,-0.8 -32.6,-2.4 -34.4,-3.4" fill="#F59E0B" stroke="#D97706" stroke-width="0.4"/>
 
     <!-- Sloping Green Upper Hood (Top highlight #10B981) -->
     <polygon points="-32.4,-8.6 -22.1,-2.7 -6.9,-10.0 -34.6,-26.0" fill="#10B981"/>
     <line x1="-27.2" y1="-5.7" x2="-20.8" y2="-18" stroke="#34D399" stroke-width="1.2"/>
     <!-- Right Sloping Cheek Panel (Key lit Kelly Green #059669) -->
     <polygon points="-31.8,9.9 -22.1,-2.7 -6.9,-10.0 -6.9,4.0 -23.0,8.0" fill="#059669"/>
+    <!-- Bold White "CNG" Decal on Cheek Panel -->
+    <g transform="translate(-18.5, -0.5) matrix(0.866 -0.5 0 1 0 0)">
+      <text x="0" y="0" font-family="'Rubik', system-ui, sans-serif" font-size="4.2" font-weight="900" fill="#FFFFFF" letter-spacing="0.4" text-anchor="middle">CNG</text>
+    </g>
     <!-- Left Cheek Panel (Ambient shaded Forest Green #047857) -->
     <polygon points="-39.7,5.3 -32.4,-8.6 -34.6,-26.0 -34.6,-12.0 -36.3,-0.5" fill="#047857"/>
 
@@ -258,7 +266,7 @@
     <polygon points="-1.3,4.3 12.6,-1.7 12.6,-5.2 -1.3,0.8" fill="#FACC15" stroke="#CA8A04" stroke-width="0.5"/>
     <line x1="0.9" y1="1.7" x2="10.4" y2="-2.8" stroke="#1E293B" stroke-width="1.1"/>
 
-    <!-- High Sturdy Rear Quarter Panel -->
+    <!-- High Sturdy Rear Quarter Panel (#059669) -->
     <polygon points="26.0,-7.0 58.9,-24.0 60.6,-43.0 26.0,-25.0" fill="#059669"/>
     <!-- Top Highlight Shoulder Rail (#10B981) -->
     <polygon points="26.0,-25.0 60.6,-43.0 59.8,-44.5 25.1,-26.5" fill="#10B981"/>
@@ -267,8 +275,8 @@
     <line x1="27.9" y1="-20.9" x2="57.3" y2="-35.9" stroke="#047857" stroke-width="1.3"/>
     <!-- Rear Corner Face / Bumper Backing -->
     <polygon points="58.9,-24.0 25.1,-45.5 25.1,-63.5 60.6,-43.0" fill="#047857"/>
-    <!-- Rear Amber Reflector -->
-    <polygon points="59.8,-35.4 59.8,-39.4 57.2,-42.0 57.2,-38.0" fill="#F59E0B"/>
+    <!-- Rear Red Taillight (#EF4444) -->
+    <polygon points="59.8,-35.4 59.8,-39.4 57.2,-42.0 57.2,-38.0" fill="#EF4444"/>
 
     <!-- 10. Near Rear Right Wheel & Flared Wheel Arch -->
     <g id="nearWheelDL">
@@ -276,51 +284,76 @@
       <polygon points="38.2,-11.9 38.2,-19.9 50.3,-26.9 55.5,-21.9" fill="#047857"/>
       <!-- Rear tire -->
       <ellipse cx="46.8" cy="-14" rx="8.5" ry="15" fill="#1C1F22" transform="rotate(15 46.8 -14)"/>
-      <ellipse cx="46.8" cy="-14" rx="5.2" ry="9.5" fill="#64748B" transform="rotate(15 46.8 -14)"/>
-      <circle cx="46.8" cy="-14" r="2.8" fill="#E2E8F0"/>
+      <ellipse cx="46.8" cy="-14" rx="5.2" ry="9.5" fill="#CBD5E1" transform="rotate(15 46.8 -14)"/>
+      <circle cx="46.8" cy="-14" r="2.8" fill="#475569"/>
       <circle cx="46.8" cy="-14" r="1.2" fill="#1C1F22"/>
+      <!-- Rear Mudflap (#1E2530) -->
+      <polygon points="54.5,-6.0 58.5,-8.0 57.5,-14.0 53.5,-12.0" fill="#1E2530"/>
     </g>
 
-    <!-- 11. Open C-Doorway Cutout & Slender Chrome Safety Rails -->
-    <line x1="25.1" y1="-12.5" x2="25.1" y2="-37.5" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="26.2" y1="-19.9" x2="0.9" y2="-4.5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 11. Authentic Bangladeshi Security Grille / Vertical Safety Bars -->
+    <g class="tg-cng-security-grille">
+      <!-- 4 Slender Vertical Steel Security Bars (Waist Rail up to Roof Underside) -->
+      <line x1="4.0" y1="-6.0" x2="4.0" y2="-34.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="11.0" y1="-9.5" x2="11.0" y2="-38.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="18.0" y1="-13.0" x2="18.0" y2="-42.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="25.0" y1="-16.5" x2="25.0" y2="-46.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Lower chrome safety rail -->
+      <line x1="0.9" y1="-4.5" x2="25.5" y2="-17.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
 
     <!-- 12. Structural Cab A-Pillars -->
     <line x1="-6.9" y1="-10" x2="5.2" y2="-31" stroke="#10B981" stroke-width="3.6" stroke-linecap="round"/>
     <line x1="-6.9" y1="-10" x2="5.2" y2="-31" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"/>
     <line x1="-34.6" y1="-26" x2="-19.1" y2="-45" stroke="#047857" stroke-width="3.2" stroke-linecap="round"/>
 
-    <!-- 13. Raked 45° Flat Safety Glass Windshield -->
-    <polygon points="-34.6,-26.0 -6.9,-10.0 5.2,-31.0 -19.1,-45.0" fill="#111822"/>
-    <polygon points="-32.5,-26.7 -7.4,-12.2 3.0,-30.2 -18.6,-42.7" fill="#BAE6FD" fill-opacity="0.88"/>
-    <polygon points="-25.1,-25.5 -18.2,-21.5 -3.5,-32.0 -7.8,-34.5" fill="#FFFFFF" fill-opacity="0.60"/>
-    <line x1="-22.5" y1="-22" x2="-6.9" y2="-25" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-    <!-- Side Rearview Mirror -->
-    <line x1="-5.2" y1="-12" x2="-2.6" y2="-9.5" stroke="#334155" stroke-width="1.5"/>
-    <ellipse cx="-2.6" cy="-9.5" rx="2.0" ry="3.6" fill="#1E2530" transform="rotate(15 -2.6 -9.5)"/>
+    <!-- 13. Windshield Glass, Diagonal Wiper & Dual Round Pillar Mirrors -->
+    <polygon points="-34.6,-26.0 -6.9,-10.0 5.2,-31.0 -19.1,-45.0" fill="#0F172A"/>
+    <!-- Soft Cyan Pastel Glass (#BAE6FD / #E0F2FE reflection) -->
+    <polygon points="-32.5,-26.7 -7.4,-12.2 3.0,-30.2 -18.6,-42.7" fill="#C5EEF3" fill-opacity="0.90"/>
+    <!-- Specular highlight streak -->
+    <polygon points="-25.1,-25.5 -18.2,-21.5 -3.5,-32.0 -7.8,-34.5" fill="#FFFFFF" fill-opacity="0.65"/>
+    <!-- Diagonal Single Wiper Blade (Pivot at bottom center, angled diagonally) -->
+    <line x1="-15.0" y1="-16.0" x2="-6.0" y2="-28.0" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
 
-    <!-- 14. Passenger Side Window Opening & Canvas Frame -->
-    <polygon points="26.0,-25.0 26.0,-37.0 29.6,-38.9 29.6,-26.9" fill="#1E2530"/>
-    <polygon points="55.3,-40.1 55.3,-52.1 60.6,-55.0 60.6,-43.0" fill="#1E2530"/>
+    <!-- Dual Round Rearview Mirrors on Slender Stalks -->
+    <!-- Near Right A-Pillar Mirror -->
+    <line x1="-5.2" y1="-12" x2="-2.6" y2="-9.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="-2.2" cy="-9.0" r="2.2" fill="#1E293B"/>
+    <circle cx="-2.2" cy="-9.0" r="1.5" fill="#CBD5E1"/>
+    <!-- Far Left A-Pillar Mirror -->
+    <line x1="-33.0" y1="-28.0" x2="-36.0" y2="-26.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="-36.5" cy="-26.0" r="2.2" fill="#1E293B"/>
+    <circle cx="-36.5" cy="-26.0" r="1.5" fill="#475569"/>
+
+    <!-- 14. Passenger Side Window Grille Aperture -->
+    <polygon points="26.0,-25.0 26.0,-37.0 29.6,-38.9 29.6,-26.9" fill="#16202B"/>
+    <polygon points="55.3,-40.1 55.3,-52.1 60.6,-55.0 60.6,-43.0" fill="#16202B"/>
     <!-- Rear side open window aperture -->
-    <polygon points="29.6,-26.9 55.3,-40.1 55.3,-51.1 29.6,-37.9" fill="#161B20" opacity="0.65"/>
-    <line x1="29.7" y1="-30.8" x2="55.3" y2="-44" stroke="#CBD5E1" stroke-width="1.2"/>
-    <line x1="29.7" y1="-34.8" x2="55.3" y2="-48" stroke="#CBD5E1" stroke-width="1.2"/>
-    <!-- Rear Drop Curtain -->
-    <polygon points="60.6,-55.0 25.1,-75.5 25.1,-63.5 60.6,-43.0" fill="#14171A"/>
+    <polygon points="29.6,-26.9 55.3,-40.1 55.3,-51.1 29.6,-37.9" fill="#0C131B" opacity="0.80"/>
+    <!-- Dark horizontal grille slats -->
+    <line x1="29.7" y1="-30.8" x2="55.3" y2="-44.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="29.7" y1="-34.8" x2="55.3" y2="-48.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="29.7" y1="-38.8" x2="55.3" y2="-52.0" stroke="#334155" stroke-width="1.0"/>
+    <!-- Rear Drop Curtain (#062E1E Deep Hunter Green Canvas) -->
+    <polygon points="60.6,-55.0 25.1,-75.5 25.1,-63.5 60.6,-43.0" fill="#062E1E"/>
 
-    <!-- 15. Signature Low-Profile Canopy Roof Deck -->
-    <polygon points="-21.7,-43.5 4.3,-28.5 6.1,-34.5 -18.2,-48.5" fill="#161B20"/>
-    <polygon points="6.1,-34.5 58.9,-58.0 58.9,-55.0 6.1,-31.5" fill="#1E2530"/>
-    <polygon points="6.5,-36.2 57.6,-58.7 53.3,-66.2 6.9,-45.0" fill="#242C37"/>
-    <polygon points="-18.2,-48.5 6.1,-34.5 6.9,-45.0 -13.9,-57.0" fill="#1C232C"/>
-    <!-- Flat Top Roof Deck -->
-    <polygon points="-13.9,-57.0 6.9,-45.0 53.3,-66.2 22.9,-83.7" fill="#2A3441"/>
-    <!-- Highlight Ribbons -->
-    <polygon points="-10.4,-57.1 6.9,-47.1 20.8,-53.1 0.0,-65.1" fill="#3A4858" opacity="0.85"/>
-    <polygon points="7.8,-70.6 30.3,-57.6 40.7,-61.6 14.7,-76.6" fill="#333F4D" opacity="0.6"/>
+    <!-- 15. Authentic Deep Hunter Green Canvas Roof Canopy (#0B4228 / #062E1E) -->
+    <!-- Roof Underside Shadow -->
+    <polygon points="-21.7,-43.5 4.3,-28.5 6.1,-34.5 -18.2,-48.5" fill="#052417"/>
+    <!-- Side Overhang Valance / Brow (#083B27) -->
+    <polygon points="6.1,-34.5 58.9,-58.0 58.9,-55.0 6.1,-31.5" fill="#083B27"/>
+    <polygon points="6.5,-36.2 57.6,-58.7 53.3,-66.2 6.9,-45.0" fill="#0B482E"/>
+    <!-- Front Canopy Brow / Peak over Windshield -->
+    <polygon points="-18.2,-48.5 6.1,-34.5 6.9,-45.0 -13.9,-57.0" fill="#093C27"/>
+    <!-- Flat Top Roof Deck (#0E5A39 Hunter Green Canvas) -->
+    <polygon points="-13.9,-57.0 6.9,-45.0 53.3,-66.2 22.9,-83.7" fill="#0E5A39"/>
+    <!-- Canvas Highlight Ribbons & Seams -->
+    <polygon points="-10.4,-57.1 6.9,-47.1 20.8,-53.1 0.0,-65.1" fill="#147249" opacity="0.85"/>
+    <polygon points="7.8,-70.6 30.3,-57.6 40.7,-61.6 14.7,-76.6" fill="#10633F" opacity="0.6"/>
     <!-- Center Stiffener Rib -->
-    <line x1="1.7" y1="-68.2" x2="26" y2="-54.2" stroke="#1E2530" stroke-width="1.4"/>
+    <line x1="1.7" y1="-68.2" x2="26" y2="-54.2" stroke="#062E1E" stroke-width="1.5"/>
+  
   </g>
   
     </g>
@@ -384,7 +417,7 @@
     <!-- 2. Far Rear Right Wheel (Occluded behind rear chassis) -->
     <g id="farWheelDR">
       <ellipse cx="-8.7" cy="-36" rx="6" ry="11" fill="#1C1F22" transform="rotate(15 -8.7 -36)"/>
-      <ellipse cx="-8.7" cy="-36" rx="3.5" ry="7" fill="#475569" transform="rotate(15 -8.7 -36)"/>
+      <ellipse cx="-8.7" cy="-36" rx="3.5" ry="7" fill="#64748B" transform="rotate(15 -8.7 -36)"/>
       <circle cx="-8.7" cy="-36" r="1.8" fill="#CBD5E1"/>
     </g>
 
@@ -394,17 +427,17 @@
     <polygon points="8.7,12.0 -56.3,-18.5 -56.3,-21.5 8.7,9.0" fill="#080C14"/>
 
     <!-- 4. Far Interior Cabin Wall & Through-Cabin Negative Space -->
-    <polygon points="32.9,-7.0 -21.7,-43.5 -21.7,-75.5 19.9,-45.5 32.9,-25.0" fill="#111822"/>
-    <!-- Far window opening / daylight cutout -->
-    <polygon points="7.4,-44.2 -20.4,-60.2 -20.4,-73.2 7.4,-57.2" fill="#1E293B" opacity="0.9"/>
+    <polygon points="29.7,-7.0 -21.7,-43.5 -21.7,-75.5 19.9,-45.5 29.7,-25.0" fill="#0A1017"/>
+    <!-- Far window opening / daylight cutout with subtle mesh tone -->
+    <polygon points="7.4,-44.2 -20.4,-60.2 -20.4,-73.2 7.4,-57.2" fill="#131E2B" opacity="0.95"/>
     <!-- Footwell floorboard -->
-    <polygon points="29.4,-7.0 5.2,7.0 -24.2,-6.0 6.9,-24.0" fill="#0F172A"/>
+    <polygon points="27.0,-7.0 5.2,7.0 -24.2,-6.0 6.9,-24.0" fill="#0F172A"/>
 
-    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #334155) -->
-    <polygon points="3.5,-26.0 -27.7,-8.0 -27.7,-14.0 3.5,-32.0" fill="#1E2530"/>
-    <polygon points="3.5,-32.0 -27.7,-14.0 -47.6,-24.5 -14.7,-43.5" fill="#334155"/>
-    <polygon points="-27.7,-14.0 -47.6,-24.5 -47.6,-21.5 -27.7,-11.0" fill="#1E293B"/>
-    <polygon points="-14.7,-43.5 -47.6,-24.5 -49.4,-38.5 -16.5,-57.5" fill="#263140"/>
+    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #1E2530) -->
+    <polygon points="3.5,-26.0 -27.7,-8.0 -27.7,-14.0 3.5,-32.0" fill="#18202A"/>
+    <polygon points="3.5,-32.0 -27.7,-14.0 -47.6,-24.5 -14.7,-43.5" fill="#24303F"/>
+    <polygon points="-27.7,-14.0 -47.6,-24.5 -47.6,-21.5 -27.7,-11.0" fill="#18202A"/>
+    <polygon points="-14.7,-43.5 -47.6,-24.5 -49.4,-38.5 -16.5,-57.5" fill="#1E2835"/>
 
     <!-- Rear Passenger Silhouettes -->
     <polygon points="-14.7,-32.5 -23.4,-27.5 -22.5,-40.0 -15.6,-44.0" fill="#E11D48"/>
@@ -428,59 +461,67 @@
     <g id="frontAssemblyDR">
       <line x1="35.6" y1="8.4" x2="31.5" y2="-0.5" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
       <line x1="33.4" y1="9.6" x2="30.3" y2="0.2" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
-      <!-- Emerald Green Mudguard wrapping over front tire -->
+      <!-- Curved Emerald Green Mudguard wrapping snugly over front tire -->
       <polygon points="40.9,6.8 36.7,9.2 27.6,-1.0 31.8,-3.4" fill="#10B981"/>
       <polygon points="36.7,9.2 27.6,-1.0 27.6,2.5 36.7,12.7" fill="#059669"/>
-      <!-- Front Wheel -->
+      <!-- Front Wheel (10-inch tire, sits on ground Z=0) -->
       <ellipse cx="34.5" cy="9.0" rx="6.5" ry="12.5" fill="#1C1F22"/>
-      <ellipse cx="34.5" cy="9.0" rx="3.8" ry="7.5" fill="#525B64"/>
-      <circle cx="34.5" cy="9.0" r="2.4" fill="#E2E8F0"/>
+      <ellipse cx="34.5" cy="9.0" rx="3.8" ry="7.5" fill="#CBD5E1"/>
+      <circle cx="34.5" cy="9.0" r="2.2" fill="#475569"/>
       <circle cx="34.5" cy="9.0" r="1.1" fill="#1C1F22"/>
     </g>
 
-    <!-- 8. Front Cowl & Tapered Delta Nose Apron -->
-    <!-- Front Bumper Bar -->
+    <!-- 8. Compact Front Cowl, Signature Black Curved Mask & Headlights -->
+    <!-- Front Bumper Bar (#1E2530) -->
     <polygon points="40.0,6.5 31.5,11.4 30.3,7.9 38.8,3.0" fill="#1E2530"/>
-    <!-- Center Nose Apron Shield (#111822) -->
-    <polygon points="39.7,3.9 31.8,8.5 22.1,-2.7 32.4,-8.6" fill="#111822"/>
-    <!-- Bajaj RE Chrome Plaque -->
-    <rect x="34" y="-1.7000000000000002" width="6.4" height="4.2" rx="0.8" fill="#1E293B" stroke="#CBD5E1" stroke-width="0.7"/>
-    <text x="32.0" y="1.1" font-family="'Rubik', sans-serif" font-size="2.8" font-weight="900" fill="#F8FAFC" text-anchor="middle">RE</text>
-    <!-- Twin Circular Headlights -->
-    <circle cx="35.8" cy="0.6" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="35.8" cy="0.6" r="1.3" fill="#FFFFFF"/>
-    <circle cx="30.8" cy="3.4" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="30.8" cy="3.4" r="1.3" fill="#FFFFFF"/>
-    <!-- Amber Turn Indicators -->
-    <polygon points="39.0,0.8 37.8,1.5 36.6,-1.3 37.8,-2.0" fill="#F59E0B"/>
-    <polygon points="31.2,5.3 30.0,6.0 28.7,3.2 30.0,2.5" fill="#F59E0B"/>
+    
+    <!-- Emerald Green Nose Apron (#059669) -->
+    <polygon points="39.7,3.9 31.8,8.5 22.1,-2.7 32.4,-8.6" fill="#059669"/>
+    
+    <!-- Signature Curved Black Headlight Mask (Horizontal Wrap-Around #141A24) -->
+    <polygon points="38.8,1.2 31.2,5.6 26.0,1.0 33.6,-3.4" fill="#141A24"/>
+    <polygon points="38.8,1.2 31.2,5.6 31.2,7.0 38.8,2.6" fill="#0B0F15"/>
 
-    <!-- Sloping Green Upper Hood -->
+    
+    <!-- Twin Circular Headlights (#FFFFFF with chrome bezel) -->
+    <circle cx="35.8" cy="0.6" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="35.8" cy="0.6" r="1.4" fill="#FEF08A"/>
+    <circle cx="30.8" cy="3.4" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="30.8" cy="3.4" r="1.4" fill="#FEF08A"/>
+
+    <!-- Amber Turn Indicator (#F59E0B) above the black mask -->
+    <polygon points="35.6,-1.8 33.8,-0.8 32.6,-2.4 34.4,-3.4" fill="#F59E0B" stroke="#D97706" stroke-width="0.4"/>
+
+    <!-- Sloping Green Upper Hood (#10B981) -->
     <polygon points="32.4,-8.6 22.1,-2.7 6.9,-10.0 34.6,-26.0" fill="#10B981"/>
     <line x1="27.2" y1="-5.7" x2="20.8" y2="-18" stroke="#34D399" stroke-width="1.2"/>
-    <!-- Left Cheek Panel (Key lit Kelly Green #059669) -->
+    <!-- Left Sloping Cheek Panel (#059669) -->
     <polygon points="31.8,9.9 22.1,-2.7 6.9,-10.0 6.9,4.0 23.0,8.0" fill="#059669"/>
-    <!-- Right Cheek Panel (Ambient shaded Forest Green #047857) -->
+    <!-- Bold White "CNG" Decal on Cheek Panel -->
+    <g transform="translate(18.5, -0.5) matrix(0.866 0.5 0 1 0 0)">
+      <text x="0" y="0" font-family="'Rubik', system-ui, sans-serif" font-size="4.2" font-weight="900" fill="#FFFFFF" letter-spacing="0.4" text-anchor="middle">CNG</text>
+    </g>
+    <!-- Right Cheek Panel (#047857) -->
     <polygon points="39.7,5.3 32.4,-8.6 34.6,-26.0 34.6,-12.0 36.3,-0.5" fill="#047857"/>
 
-    <!-- 9. Lower Chassis Green Metal Tub -->
+    <!-- 9. Lower Chassis Green Metal Tub (#059669) -->
     <!-- Doorway Step-in Rocker Sill Panel -->
     <polygon points="6.9,8.0 -26.0,-7.0 -26.0,-12.0 6.9,3.0" fill="#059669"/>
     <!-- Yellow Regulatory Side Plate (#FACC15) -->
     <polygon points="1.3,4.3 -12.6,-1.7 -12.6,-5.2 1.3,0.8" fill="#FACC15" stroke="#CA8A04" stroke-width="0.5"/>
     <line x1="-0.9" y1="1.7" x2="-10.4" y2="-2.8" stroke="#1E293B" stroke-width="1.1"/>
 
-    <!-- High Sturdy Rear Quarter Panel -->
+    <!-- High Sturdy Rear Quarter Panel (#059669) -->
     <polygon points="-26.0,-7.0 -58.9,-24.0 -60.6,-43.0 -26.0,-25.0" fill="#059669"/>
     <!-- Top Highlight Shoulder Rail (#10B981) -->
     <polygon points="-26.0,-25.0 -60.6,-43.0 -59.8,-44.5 -25.1,-26.5" fill="#10B981"/>
-    <!-- Horizontal Stamped Swage Lines -->
+    <!-- Reinforcing Swage Lines -->
     <line x1="-27.9" y1="-16.9" x2="-57.3" y2="-31.9" stroke="#10B981" stroke-width="1.5"/>
     <line x1="-27.9" y1="-20.9" x2="-57.3" y2="-35.9" stroke="#047857" stroke-width="1.3"/>
-    <!-- Rear Corner Face / Bumper Backing (Forest Green #047857) -->
+    <!-- Rear Corner Face / Bumper Backing -->
     <polygon points="-58.9,-24.0 -25.1,-45.5 -25.1,-63.5 -60.6,-43.0" fill="#047857"/>
-    <!-- Rear Amber Reflector -->
-    <polygon points="-59.8,-35.4 -59.8,-39.4 -57.2,-42.0 -57.2,-38.0" fill="#F59E0B"/>
+    <!-- Rear Red Taillight (#EF4444) -->
+    <polygon points="-59.8,-35.4 -59.8,-39.4 -57.2,-42.0 -57.2,-38.0" fill="#EF4444"/>
 
     <!-- 10. Near Rear Left Wheel & Flared Wheel Arch -->
     <g id="nearWheelDR">
@@ -488,51 +529,76 @@
       <polygon points="-38.2,-11.9 -38.2,-19.9 -50.3,-26.9 -55.5,-21.9" fill="#047857"/>
       <!-- Rear tire -->
       <ellipse cx="-46.8" cy="-14" rx="8.5" ry="15" fill="#1C1F22" transform="rotate(-15 -46.8 -14)"/>
-      <ellipse cx="-46.8" cy="-14" rx="5.2" ry="9.5" fill="#64748B" transform="rotate(-15 -46.8 -14)"/>
-      <circle cx="-46.8" cy="-14" r="2.8" fill="#E2E8F0"/>
+      <ellipse cx="-46.8" cy="-14" rx="5.2" ry="9.5" fill="#CBD5E1" transform="rotate(-15 -46.8 -14)"/>
+      <circle cx="-46.8" cy="-14" r="2.8" fill="#475569"/>
       <circle cx="-46.8" cy="-14" r="1.2" fill="#1C1F22"/>
+      <!-- Rear Mudflap (#1E2530) -->
+      <polygon points="-54.5,-6.0 -58.5,-8.0 -57.5,-14.0 -53.5,-12.0" fill="#1E2530"/>
     </g>
 
-    <!-- 11. Open C-Doorway Cutout & Slender Chrome Safety Rails -->
-    <line x1="-25.1" y1="-12.5" x2="-25.1" y2="-37.5" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="-26.2" y1="-19.9" x2="-0.9" y2="-4.5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 11. Authentic Bangladeshi Security Grille / Vertical Safety Bars -->
+    <g class="tg-cng-security-grille">
+      <!-- 4 Slender Vertical Steel Security Bars (Waist Rail up to Roof Underside) -->
+      <line x1="-4.0" y1="-6.0" x2="-4.0" y2="-34.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-11.0" y1="-9.5" x2="-11.0" y2="-38.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-18.0" y1="-13.0" x2="-18.0" y2="-42.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-25.0" y1="-16.5" x2="-25.0" y2="-46.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Lower chrome safety rail -->
+      <line x1="-0.9" y1="-4.5" x2="-25.5" y2="-17.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
 
     <!-- 12. Structural Cab A-Pillars -->
     <line x1="6.9" y1="-10" x2="-5.2" y2="-31" stroke="#10B981" stroke-width="3.6" stroke-linecap="round"/>
     <line x1="6.9" y1="-10" x2="-5.2" y2="-31" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"/>
     <line x1="34.6" y1="-26" x2="19.1" y2="-45" stroke="#047857" stroke-width="3.2" stroke-linecap="round"/>
 
-    <!-- 13. Raked 45° Flat Safety Glass Windshield -->
-    <polygon points="34.6,-26.0 6.9,-10.0 -5.2,-31.0 19.1,-45.0" fill="#111822"/>
-    <polygon points="32.5,-26.7 7.4,-12.2 -3.0,-30.2 18.6,-42.7" fill="#BAE6FD" fill-opacity="0.88"/>
-    <polygon points="25.1,-25.5 18.2,-21.5 3.5,-32.0 7.8,-34.5" fill="#FFFFFF" fill-opacity="0.60"/>
-    <line x1="22.5" y1="-22" x2="6.9" y2="-25" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-    <!-- Side Rearview Mirror -->
-    <line x1="5.2" y1="-12" x2="2.6" y2="-9.5" stroke="#334155" stroke-width="1.5"/>
-    <ellipse cx="2.6" cy="-9.5" rx="2.0" ry="3.6" fill="#1E2530" transform="rotate(-15 2.6 -9.5)"/>
+    <!-- 13. Windshield Glass, Diagonal Wiper & Dual Round Pillar Mirrors -->
+    <polygon points="34.6,-26.0 6.9,-10.0 -5.2,-31.0 19.1,-45.0" fill="#0F172A"/>
+    <!-- Soft Cyan Pastel Glass (#BAE6FD / #E0F2FE reflection) -->
+    <polygon points="32.5,-26.7 7.4,-12.2 -3.0,-30.2 18.6,-42.7" fill="#C5EEF3" fill-opacity="0.90"/>
+    <!-- Specular highlight streak -->
+    <polygon points="25.1,-25.5 18.2,-21.5 3.5,-32.0 7.8,-34.5" fill="#FFFFFF" fill-opacity="0.65"/>
+    <!-- Diagonal Single Wiper Blade (Pivot at bottom center, angled diagonally) -->
+    <line x1="15.0" y1="-16.0" x2="6.0" y2="-28.0" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
 
-    <!-- 14. Passenger Side Window Opening & Canvas Frame -->
-    <polygon points="-26.0,-25.0 -26.0,-37.0 -29.6,-38.9 -29.6,-26.9" fill="#1E2530"/>
-    <polygon points="-55.3,-40.1 -55.3,-52.1 -60.6,-55.0 -60.6,-43.0" fill="#1E2530"/>
-    <!-- Open Window Aperture -->
-    <polygon points="-29.6,-26.9 -55.3,-40.1 -55.3,-51.1 -29.6,-37.9" fill="#161B20" opacity="0.65"/>
-    <line x1="-29.7" y1="-30.8" x2="-55.3" y2="-44" stroke="#CBD5E1" stroke-width="1.2"/>
-    <line x1="-29.7" y1="-34.8" x2="-55.3" y2="-48" stroke="#CBD5E1" stroke-width="1.2"/>
-    <!-- Rear Drop Curtain -->
-    <polygon points="-60.6,-55.0 -25.1,-75.5 -25.1,-63.5 -60.6,-43.0" fill="#14171A"/>
+    <!-- Dual Round Rearview Mirrors on Slender Stalks -->
+    <!-- Near Left A-Pillar Mirror -->
+    <line x1="5.2" y1="-12" x2="2.6" y2="-9.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="2.2" cy="-9.0" r="2.2" fill="#1E293B"/>
+    <circle cx="2.2" cy="-9.0" r="1.5" fill="#CBD5E1"/>
+    <!-- Far Right A-Pillar Mirror -->
+    <line x1="33.0" y1="-28.0" x2="36.0" y2="-26.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="36.5" cy="-26.0" r="2.2" fill="#1E293B"/>
+    <circle cx="36.5" cy="-26.0" r="1.5" fill="#475569"/>
 
-    <!-- 15. Signature Low-Profile Canopy Roof Deck -->
-    <polygon points="21.7,-43.5 -4.3,-28.5 -6.1,-34.5 18.2,-48.5" fill="#161B20"/>
-    <polygon points="-6.1,-34.5 -58.9,-58.0 -58.9,-55.0 -6.1,-31.5" fill="#1E2530"/>
-    <polygon points="-6.5,-36.2 -57.6,-58.7 -53.3,-66.2 -6.9,-45.0" fill="#242C37"/>
-    <polygon points="18.2,-48.5 -6.1,-34.5 -6.9,-45.0 13.9,-57.0" fill="#1C232C"/>
-    <!-- Flat Top Roof Deck -->
-    <polygon points="13.9,-57.0 -6.9,-45.0 -53.3,-66.2 -22.9,-83.7" fill="#2A3441"/>
-    <!-- Highlight Ribbons -->
-    <polygon points="10.4,-57.1 -6.9,-47.1 -20.8,-53.1 0.0,-65.1" fill="#3A4858" opacity="0.85"/>
-    <polygon points="-7.8,-70.6 -30.3,-57.6 -40.7,-61.6 -14.7,-76.6" fill="#333F4D" opacity="0.6"/>
+    <!-- 14. Passenger Side Window Grille Aperture -->
+    <polygon points="-26.0,-25.0 -26.0,-37.0 -29.6,-38.9 -29.6,-26.9" fill="#16202B"/>
+    <polygon points="-55.3,-40.1 -55.3,-52.1 -60.6,-55.0 -60.6,-43.0" fill="#16202B"/>
+    <!-- Rear side open window aperture -->
+    <polygon points="-29.6,-26.9 -55.3,-40.1 -55.3,-51.1 -29.6,-37.9" fill="#0C131B" opacity="0.80"/>
+    <!-- Dark horizontal grille slats -->
+    <line x1="-29.7" y1="-30.8" x2="-55.3" y2="-44.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="-29.7" y1="-34.8" x2="-55.3" y2="-48.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="-29.7" y1="-38.8" x2="-55.3" y2="-52.0" stroke="#334155" stroke-width="1.0"/>
+    <!-- Rear Drop Curtain (#062E1E Deep Hunter Green Canvas) -->
+    <polygon points="-60.6,-55.0 -25.1,-75.5 -25.1,-63.5 -60.6,-43.0" fill="#062E1E"/>
+
+    <!-- 15. Authentic Deep Hunter Green Canvas Roof Canopy (#0B4228 / #062E1E) -->
+    <!-- Roof Underside Shadow -->
+    <polygon points="21.7,-43.5 -4.3,-28.5 -6.1,-34.5 18.2,-48.5" fill="#052417"/>
+    <!-- Side Overhang Valance / Brow (#083B27) -->
+    <polygon points="-6.1,-34.5 -58.9,-58.0 -58.9,-55.0 -6.1,-31.5" fill="#083B27"/>
+    <polygon points="-6.5,-36.2 -57.6,-58.7 -53.3,-66.2 -6.9,-45.0" fill="#0B482E"/>
+    <!-- Front Canopy Brow / Peak over Windshield -->
+    <polygon points="18.2,-48.5 -6.1,-34.5 -6.9,-45.0 13.9,-57.0" fill="#093C27"/>
+    <!-- Flat Top Roof Deck (#0E5A39 Hunter Green Canvas) -->
+    <polygon points="13.9,-57.0 -6.9,-45.0 -53.3,-66.2 -22.9,-83.7" fill="#0E5A39"/>
+    <!-- Canvas Highlight Ribbons & Seams -->
+    <polygon points="10.4,-57.1 -6.9,-47.1 -20.8,-53.1 -0.0,-65.1" fill="#147249" opacity="0.85"/>
+    <polygon points="-7.8,-70.6 -30.3,-57.6 -40.7,-61.6 -14.7,-76.6" fill="#10633F" opacity="0.6"/>
     <!-- Center Stiffener Rib -->
-    <line x1="-1.7" y1="-68.2" x2="-26" y2="-54.2" stroke="#1E2530" stroke-width="1.4"/>
+    <line x1="-1.7" y1="-68.2" x2="-26" y2="-54.2" stroke="#062E1E" stroke-width="1.5"/>
+  
   </g>
   
     </g>
@@ -552,7 +618,7 @@
     <!-- 2. Far Rear Right Wheel (Occluded behind rear chassis) -->
     <g id="farWheelDR">
       <ellipse cx="-8.7" cy="-36" rx="6" ry="11" fill="#1C1F22" transform="rotate(15 -8.7 -36)"/>
-      <ellipse cx="-8.7" cy="-36" rx="3.5" ry="7" fill="#475569" transform="rotate(15 -8.7 -36)"/>
+      <ellipse cx="-8.7" cy="-36" rx="3.5" ry="7" fill="#64748B" transform="rotate(15 -8.7 -36)"/>
       <circle cx="-8.7" cy="-36" r="1.8" fill="#CBD5E1"/>
     </g>
 
@@ -562,17 +628,17 @@
     <polygon points="8.7,12.0 -56.3,-18.5 -56.3,-21.5 8.7,9.0" fill="#080C14"/>
 
     <!-- 4. Far Interior Cabin Wall & Through-Cabin Negative Space -->
-    <polygon points="32.9,-7.0 -21.7,-43.5 -21.7,-75.5 19.9,-45.5 32.9,-25.0" fill="#111822"/>
-    <!-- Far window opening / daylight cutout -->
-    <polygon points="7.4,-44.2 -20.4,-60.2 -20.4,-73.2 7.4,-57.2" fill="#1E293B" opacity="0.9"/>
+    <polygon points="29.7,-7.0 -21.7,-43.5 -21.7,-75.5 19.9,-45.5 29.7,-25.0" fill="#0A1017"/>
+    <!-- Far window opening / daylight cutout with subtle mesh tone -->
+    <polygon points="7.4,-44.2 -20.4,-60.2 -20.4,-73.2 7.4,-57.2" fill="#131E2B" opacity="0.95"/>
     <!-- Footwell floorboard -->
-    <polygon points="29.4,-7.0 5.2,7.0 -24.2,-6.0 6.9,-24.0" fill="#0F172A"/>
+    <polygon points="27.0,-7.0 5.2,7.0 -24.2,-6.0 6.9,-24.0" fill="#0F172A"/>
 
-    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #334155) -->
-    <polygon points="3.5,-26.0 -27.7,-8.0 -27.7,-14.0 3.5,-32.0" fill="#1E2530"/>
-    <polygon points="3.5,-32.0 -27.7,-14.0 -47.6,-24.5 -14.7,-43.5" fill="#334155"/>
-    <polygon points="-27.7,-14.0 -47.6,-24.5 -47.6,-21.5 -27.7,-11.0" fill="#1E293B"/>
-    <polygon points="-14.7,-43.5 -47.6,-24.5 -49.4,-38.5 -16.5,-57.5" fill="#263140"/>
+    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #1E2530) -->
+    <polygon points="3.5,-26.0 -27.7,-8.0 -27.7,-14.0 3.5,-32.0" fill="#18202A"/>
+    <polygon points="3.5,-32.0 -27.7,-14.0 -47.6,-24.5 -14.7,-43.5" fill="#24303F"/>
+    <polygon points="-27.7,-14.0 -47.6,-24.5 -47.6,-21.5 -27.7,-11.0" fill="#18202A"/>
+    <polygon points="-14.7,-43.5 -47.6,-24.5 -49.4,-38.5 -16.5,-57.5" fill="#1E2835"/>
 
     <!-- Rear Passenger Silhouettes -->
     <polygon points="-14.7,-32.5 -23.4,-27.5 -22.5,-40.0 -15.6,-44.0" fill="#E11D48"/>
@@ -596,59 +662,67 @@
     <g id="frontAssemblyDR">
       <line x1="35.6" y1="8.4" x2="31.5" y2="-0.5" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
       <line x1="33.4" y1="9.6" x2="30.3" y2="0.2" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
-      <!-- Emerald Green Mudguard wrapping over front tire -->
+      <!-- Curved Emerald Green Mudguard wrapping snugly over front tire -->
       <polygon points="40.9,6.8 36.7,9.2 27.6,-1.0 31.8,-3.4" fill="#10B981"/>
       <polygon points="36.7,9.2 27.6,-1.0 27.6,2.5 36.7,12.7" fill="#059669"/>
-      <!-- Front Wheel -->
+      <!-- Front Wheel (10-inch tire, sits on ground Z=0) -->
       <ellipse cx="34.5" cy="9.0" rx="6.5" ry="12.5" fill="#1C1F22"/>
-      <ellipse cx="34.5" cy="9.0" rx="3.8" ry="7.5" fill="#525B64"/>
-      <circle cx="34.5" cy="9.0" r="2.4" fill="#E2E8F0"/>
+      <ellipse cx="34.5" cy="9.0" rx="3.8" ry="7.5" fill="#CBD5E1"/>
+      <circle cx="34.5" cy="9.0" r="2.2" fill="#475569"/>
       <circle cx="34.5" cy="9.0" r="1.1" fill="#1C1F22"/>
     </g>
 
-    <!-- 8. Front Cowl & Tapered Delta Nose Apron -->
-    <!-- Front Bumper Bar -->
+    <!-- 8. Compact Front Cowl, Signature Black Curved Mask & Headlights -->
+    <!-- Front Bumper Bar (#1E2530) -->
     <polygon points="40.0,6.5 31.5,11.4 30.3,7.9 38.8,3.0" fill="#1E2530"/>
-    <!-- Center Nose Apron Shield (#111822) -->
-    <polygon points="39.7,3.9 31.8,8.5 22.1,-2.7 32.4,-8.6" fill="#111822"/>
-    <!-- Bajaj RE Chrome Plaque -->
-    <rect x="34" y="-1.7000000000000002" width="6.4" height="4.2" rx="0.8" fill="#1E293B" stroke="#CBD5E1" stroke-width="0.7"/>
-    <text x="32.0" y="1.1" font-family="'Rubik', sans-serif" font-size="2.8" font-weight="900" fill="#F8FAFC" text-anchor="middle">RE</text>
-    <!-- Twin Circular Headlights -->
-    <circle cx="35.8" cy="0.6" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="35.8" cy="0.6" r="1.3" fill="#FFFFFF"/>
-    <circle cx="30.8" cy="3.4" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="30.8" cy="3.4" r="1.3" fill="#FFFFFF"/>
-    <!-- Amber Turn Indicators -->
-    <polygon points="39.0,0.8 37.8,1.5 36.6,-1.3 37.8,-2.0" fill="#F59E0B"/>
-    <polygon points="31.2,5.3 30.0,6.0 28.7,3.2 30.0,2.5" fill="#F59E0B"/>
+    
+    <!-- Emerald Green Nose Apron (#059669) -->
+    <polygon points="39.7,3.9 31.8,8.5 22.1,-2.7 32.4,-8.6" fill="#059669"/>
+    
+    <!-- Signature Curved Black Headlight Mask (Horizontal Wrap-Around #141A24) -->
+    <polygon points="38.8,1.2 31.2,5.6 26.0,1.0 33.6,-3.4" fill="#141A24"/>
+    <polygon points="38.8,1.2 31.2,5.6 31.2,7.0 38.8,2.6" fill="#0B0F15"/>
 
-    <!-- Sloping Green Upper Hood -->
+    
+    <!-- Twin Circular Headlights (#FFFFFF with chrome bezel) -->
+    <circle cx="35.8" cy="0.6" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="35.8" cy="0.6" r="1.4" fill="#FEF08A"/>
+    <circle cx="30.8" cy="3.4" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="30.8" cy="3.4" r="1.4" fill="#FEF08A"/>
+
+    <!-- Amber Turn Indicator (#F59E0B) above the black mask -->
+    <polygon points="35.6,-1.8 33.8,-0.8 32.6,-2.4 34.4,-3.4" fill="#F59E0B" stroke="#D97706" stroke-width="0.4"/>
+
+    <!-- Sloping Green Upper Hood (#10B981) -->
     <polygon points="32.4,-8.6 22.1,-2.7 6.9,-10.0 34.6,-26.0" fill="#10B981"/>
     <line x1="27.2" y1="-5.7" x2="20.8" y2="-18" stroke="#34D399" stroke-width="1.2"/>
-    <!-- Left Cheek Panel (Key lit Kelly Green #059669) -->
+    <!-- Left Sloping Cheek Panel (#059669) -->
     <polygon points="31.8,9.9 22.1,-2.7 6.9,-10.0 6.9,4.0 23.0,8.0" fill="#059669"/>
-    <!-- Right Cheek Panel (Ambient shaded Forest Green #047857) -->
+    <!-- Bold White "CNG" Decal on Cheek Panel -->
+    <g transform="translate(18.5, -0.5) matrix(0.866 0.5 0 1 0 0)">
+      <text x="0" y="0" font-family="'Rubik', system-ui, sans-serif" font-size="4.2" font-weight="900" fill="#FFFFFF" letter-spacing="0.4" text-anchor="middle">CNG</text>
+    </g>
+    <!-- Right Cheek Panel (#047857) -->
     <polygon points="39.7,5.3 32.4,-8.6 34.6,-26.0 34.6,-12.0 36.3,-0.5" fill="#047857"/>
 
-    <!-- 9. Lower Chassis Green Metal Tub -->
+    <!-- 9. Lower Chassis Green Metal Tub (#059669) -->
     <!-- Doorway Step-in Rocker Sill Panel -->
     <polygon points="6.9,8.0 -26.0,-7.0 -26.0,-12.0 6.9,3.0" fill="#059669"/>
     <!-- Yellow Regulatory Side Plate (#FACC15) -->
     <polygon points="1.3,4.3 -12.6,-1.7 -12.6,-5.2 1.3,0.8" fill="#FACC15" stroke="#CA8A04" stroke-width="0.5"/>
     <line x1="-0.9" y1="1.7" x2="-10.4" y2="-2.8" stroke="#1E293B" stroke-width="1.1"/>
 
-    <!-- High Sturdy Rear Quarter Panel -->
+    <!-- High Sturdy Rear Quarter Panel (#059669) -->
     <polygon points="-26.0,-7.0 -58.9,-24.0 -60.6,-43.0 -26.0,-25.0" fill="#059669"/>
     <!-- Top Highlight Shoulder Rail (#10B981) -->
     <polygon points="-26.0,-25.0 -60.6,-43.0 -59.8,-44.5 -25.1,-26.5" fill="#10B981"/>
-    <!-- Horizontal Stamped Swage Lines -->
+    <!-- Reinforcing Swage Lines -->
     <line x1="-27.9" y1="-16.9" x2="-57.3" y2="-31.9" stroke="#10B981" stroke-width="1.5"/>
     <line x1="-27.9" y1="-20.9" x2="-57.3" y2="-35.9" stroke="#047857" stroke-width="1.3"/>
-    <!-- Rear Corner Face / Bumper Backing (Forest Green #047857) -->
+    <!-- Rear Corner Face / Bumper Backing -->
     <polygon points="-58.9,-24.0 -25.1,-45.5 -25.1,-63.5 -60.6,-43.0" fill="#047857"/>
-    <!-- Rear Amber Reflector -->
-    <polygon points="-59.8,-35.4 -59.8,-39.4 -57.2,-42.0 -57.2,-38.0" fill="#F59E0B"/>
+    <!-- Rear Red Taillight (#EF4444) -->
+    <polygon points="-59.8,-35.4 -59.8,-39.4 -57.2,-42.0 -57.2,-38.0" fill="#EF4444"/>
 
     <!-- 10. Near Rear Left Wheel & Flared Wheel Arch -->
     <g id="nearWheelDR">
@@ -656,51 +730,76 @@
       <polygon points="-38.2,-11.9 -38.2,-19.9 -50.3,-26.9 -55.5,-21.9" fill="#047857"/>
       <!-- Rear tire -->
       <ellipse cx="-46.8" cy="-14" rx="8.5" ry="15" fill="#1C1F22" transform="rotate(-15 -46.8 -14)"/>
-      <ellipse cx="-46.8" cy="-14" rx="5.2" ry="9.5" fill="#64748B" transform="rotate(-15 -46.8 -14)"/>
-      <circle cx="-46.8" cy="-14" r="2.8" fill="#E2E8F0"/>
+      <ellipse cx="-46.8" cy="-14" rx="5.2" ry="9.5" fill="#CBD5E1" transform="rotate(-15 -46.8 -14)"/>
+      <circle cx="-46.8" cy="-14" r="2.8" fill="#475569"/>
       <circle cx="-46.8" cy="-14" r="1.2" fill="#1C1F22"/>
+      <!-- Rear Mudflap (#1E2530) -->
+      <polygon points="-54.5,-6.0 -58.5,-8.0 -57.5,-14.0 -53.5,-12.0" fill="#1E2530"/>
     </g>
 
-    <!-- 11. Open C-Doorway Cutout & Slender Chrome Safety Rails -->
-    <line x1="-25.1" y1="-12.5" x2="-25.1" y2="-37.5" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="-26.2" y1="-19.9" x2="-0.9" y2="-4.5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 11. Authentic Bangladeshi Security Grille / Vertical Safety Bars -->
+    <g class="tg-cng-security-grille">
+      <!-- 4 Slender Vertical Steel Security Bars (Waist Rail up to Roof Underside) -->
+      <line x1="-4.0" y1="-6.0" x2="-4.0" y2="-34.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-11.0" y1="-9.5" x2="-11.0" y2="-38.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-18.0" y1="-13.0" x2="-18.0" y2="-42.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="-25.0" y1="-16.5" x2="-25.0" y2="-46.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Lower chrome safety rail -->
+      <line x1="-0.9" y1="-4.5" x2="-25.5" y2="-17.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
 
     <!-- 12. Structural Cab A-Pillars -->
     <line x1="6.9" y1="-10" x2="-5.2" y2="-31" stroke="#10B981" stroke-width="3.6" stroke-linecap="round"/>
     <line x1="6.9" y1="-10" x2="-5.2" y2="-31" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"/>
     <line x1="34.6" y1="-26" x2="19.1" y2="-45" stroke="#047857" stroke-width="3.2" stroke-linecap="round"/>
 
-    <!-- 13. Raked 45° Flat Safety Glass Windshield -->
-    <polygon points="34.6,-26.0 6.9,-10.0 -5.2,-31.0 19.1,-45.0" fill="#111822"/>
-    <polygon points="32.5,-26.7 7.4,-12.2 -3.0,-30.2 18.6,-42.7" fill="#BAE6FD" fill-opacity="0.88"/>
-    <polygon points="25.1,-25.5 18.2,-21.5 3.5,-32.0 7.8,-34.5" fill="#FFFFFF" fill-opacity="0.60"/>
-    <line x1="22.5" y1="-22" x2="6.9" y2="-25" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-    <!-- Side Rearview Mirror -->
-    <line x1="5.2" y1="-12" x2="2.6" y2="-9.5" stroke="#334155" stroke-width="1.5"/>
-    <ellipse cx="2.6" cy="-9.5" rx="2.0" ry="3.6" fill="#1E2530" transform="rotate(-15 2.6 -9.5)"/>
+    <!-- 13. Windshield Glass, Diagonal Wiper & Dual Round Pillar Mirrors -->
+    <polygon points="34.6,-26.0 6.9,-10.0 -5.2,-31.0 19.1,-45.0" fill="#0F172A"/>
+    <!-- Soft Cyan Pastel Glass (#BAE6FD / #E0F2FE reflection) -->
+    <polygon points="32.5,-26.7 7.4,-12.2 -3.0,-30.2 18.6,-42.7" fill="#C5EEF3" fill-opacity="0.90"/>
+    <!-- Specular highlight streak -->
+    <polygon points="25.1,-25.5 18.2,-21.5 3.5,-32.0 7.8,-34.5" fill="#FFFFFF" fill-opacity="0.65"/>
+    <!-- Diagonal Single Wiper Blade (Pivot at bottom center, angled diagonally) -->
+    <line x1="15.0" y1="-16.0" x2="6.0" y2="-28.0" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
 
-    <!-- 14. Passenger Side Window Opening & Canvas Frame -->
-    <polygon points="-26.0,-25.0 -26.0,-37.0 -29.6,-38.9 -29.6,-26.9" fill="#1E2530"/>
-    <polygon points="-55.3,-40.1 -55.3,-52.1 -60.6,-55.0 -60.6,-43.0" fill="#1E2530"/>
-    <!-- Open Window Aperture -->
-    <polygon points="-29.6,-26.9 -55.3,-40.1 -55.3,-51.1 -29.6,-37.9" fill="#161B20" opacity="0.65"/>
-    <line x1="-29.7" y1="-30.8" x2="-55.3" y2="-44" stroke="#CBD5E1" stroke-width="1.2"/>
-    <line x1="-29.7" y1="-34.8" x2="-55.3" y2="-48" stroke="#CBD5E1" stroke-width="1.2"/>
-    <!-- Rear Drop Curtain -->
-    <polygon points="-60.6,-55.0 -25.1,-75.5 -25.1,-63.5 -60.6,-43.0" fill="#14171A"/>
+    <!-- Dual Round Rearview Mirrors on Slender Stalks -->
+    <!-- Near Left A-Pillar Mirror -->
+    <line x1="5.2" y1="-12" x2="2.6" y2="-9.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="2.2" cy="-9.0" r="2.2" fill="#1E293B"/>
+    <circle cx="2.2" cy="-9.0" r="1.5" fill="#CBD5E1"/>
+    <!-- Far Right A-Pillar Mirror -->
+    <line x1="33.0" y1="-28.0" x2="36.0" y2="-26.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="36.5" cy="-26.0" r="2.2" fill="#1E293B"/>
+    <circle cx="36.5" cy="-26.0" r="1.5" fill="#475569"/>
 
-    <!-- 15. Signature Low-Profile Canopy Roof Deck -->
-    <polygon points="21.7,-43.5 -4.3,-28.5 -6.1,-34.5 18.2,-48.5" fill="#161B20"/>
-    <polygon points="-6.1,-34.5 -58.9,-58.0 -58.9,-55.0 -6.1,-31.5" fill="#1E2530"/>
-    <polygon points="-6.5,-36.2 -57.6,-58.7 -53.3,-66.2 -6.9,-45.0" fill="#242C37"/>
-    <polygon points="18.2,-48.5 -6.1,-34.5 -6.9,-45.0 13.9,-57.0" fill="#1C232C"/>
-    <!-- Flat Top Roof Deck -->
-    <polygon points="13.9,-57.0 -6.9,-45.0 -53.3,-66.2 -22.9,-83.7" fill="#2A3441"/>
-    <!-- Highlight Ribbons -->
-    <polygon points="10.4,-57.1 -6.9,-47.1 -20.8,-53.1 0.0,-65.1" fill="#3A4858" opacity="0.85"/>
-    <polygon points="-7.8,-70.6 -30.3,-57.6 -40.7,-61.6 -14.7,-76.6" fill="#333F4D" opacity="0.6"/>
+    <!-- 14. Passenger Side Window Grille Aperture -->
+    <polygon points="-26.0,-25.0 -26.0,-37.0 -29.6,-38.9 -29.6,-26.9" fill="#16202B"/>
+    <polygon points="-55.3,-40.1 -55.3,-52.1 -60.6,-55.0 -60.6,-43.0" fill="#16202B"/>
+    <!-- Rear side open window aperture -->
+    <polygon points="-29.6,-26.9 -55.3,-40.1 -55.3,-51.1 -29.6,-37.9" fill="#0C131B" opacity="0.80"/>
+    <!-- Dark horizontal grille slats -->
+    <line x1="-29.7" y1="-30.8" x2="-55.3" y2="-44.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="-29.7" y1="-34.8" x2="-55.3" y2="-48.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="-29.7" y1="-38.8" x2="-55.3" y2="-52.0" stroke="#334155" stroke-width="1.0"/>
+    <!-- Rear Drop Curtain (#062E1E Deep Hunter Green Canvas) -->
+    <polygon points="-60.6,-55.0 -25.1,-75.5 -25.1,-63.5 -60.6,-43.0" fill="#062E1E"/>
+
+    <!-- 15. Authentic Deep Hunter Green Canvas Roof Canopy (#0B4228 / #062E1E) -->
+    <!-- Roof Underside Shadow -->
+    <polygon points="21.7,-43.5 -4.3,-28.5 -6.1,-34.5 18.2,-48.5" fill="#052417"/>
+    <!-- Side Overhang Valance / Brow (#083B27) -->
+    <polygon points="-6.1,-34.5 -58.9,-58.0 -58.9,-55.0 -6.1,-31.5" fill="#083B27"/>
+    <polygon points="-6.5,-36.2 -57.6,-58.7 -53.3,-66.2 -6.9,-45.0" fill="#0B482E"/>
+    <!-- Front Canopy Brow / Peak over Windshield -->
+    <polygon points="18.2,-48.5 -6.1,-34.5 -6.9,-45.0 13.9,-57.0" fill="#093C27"/>
+    <!-- Flat Top Roof Deck (#0E5A39 Hunter Green Canvas) -->
+    <polygon points="13.9,-57.0 -6.9,-45.0 -53.3,-66.2 -22.9,-83.7" fill="#0E5A39"/>
+    <!-- Canvas Highlight Ribbons & Seams -->
+    <polygon points="10.4,-57.1 -6.9,-47.1 -20.8,-53.1 -0.0,-65.1" fill="#147249" opacity="0.85"/>
+    <polygon points="-7.8,-70.6 -30.3,-57.6 -40.7,-61.6 -14.7,-76.6" fill="#10633F" opacity="0.6"/>
     <!-- Center Stiffener Rib -->
-    <line x1="-1.7" y1="-68.2" x2="-26" y2="-54.2" stroke="#1E2530" stroke-width="1.4"/>
+    <line x1="-1.7" y1="-68.2" x2="-26" y2="-54.2" stroke="#062E1E" stroke-width="1.5"/>
+  
   </g>
   
     </g>
@@ -815,37 +914,37 @@
     <!-- 2. Far Rear Left Wheel (Occluded behind rear chassis) -->
     <g id="farWheelDL">
       <ellipse cx="8.7" cy="-36" rx="6" ry="11" fill="#1C1F22" transform="rotate(-15 8.7 -36)"/>
-      <ellipse cx="8.7" cy="-36" rx="3.5" ry="7" fill="#475569" transform="rotate(-15 8.7 -36)"/>
+      <ellipse cx="8.7" cy="-36" rx="3.5" ry="7" fill="#64748B" transform="rotate(-15 8.7 -36)"/>
       <circle cx="8.7" cy="-36" r="1.8" fill="#CBD5E1"/>
     </g>
 
-    <!-- 3. Chassis Floorpan & Battery Bay (Dark slate #0F172A) -->
+    <!-- 3. Chassis Floorpan & Structural Sub-frame (Dark slate #0F172A) -->
     <polygon points="-29.7,-3.6 -8.7,10.0 56.3,-20.5 58.0,-23.5 25.1,-42.5 19.9,-41.5" fill="#0F172A"/>
     <!-- Structural under-rail -->
     <polygon points="-8.7,12.0 56.3,-18.5 56.3,-21.5 -8.7,9.0" fill="#080C14"/>
 
-    <!-- 4. Far Interior Cabin Wall & Through-Cabin Negative Space -->
-    <polygon points="-32.9,-7.0 21.7,-43.5 21.7,-75.5 -19.9,-45.5 -32.9,-25.0" fill="#111822"/>
-    <!-- Far passenger window opening / daylight cutout -->
-    <polygon points="-7.4,-44.2 20.4,-60.2 20.4,-73.2 -7.4,-57.2" fill="#1E293B" opacity="0.9"/>
+    <!-- 4. Far Interior Cabin Wall & Negative Space -->
+    <polygon points="-29.7,-7.0 21.7,-43.5 21.7,-75.5 -19.9,-45.5 -29.7,-25.0" fill="#0A1017"/>
+    <!-- Far passenger window opening / daylight cutout with subtle mesh tone -->
+    <polygon points="-7.4,-44.2 20.4,-60.2 20.4,-73.2 -7.4,-57.2" fill="#131E2B" opacity="0.95"/>
     <!-- Dark slate footwell floor -->
-    <polygon points="-29.4,-7.0 -5.2,7.0 24.2,-6.0 -6.9,-24.0" fill="#0F172A"/>
+    <polygon points="-27.0,-7.0 -5.2,7.0 24.2,-6.0 -6.9,-24.0" fill="#0F172A"/>
 
-    <!-- 5. Rear Passenger Bench (Deep Vinyl-Charcoal #334155) -->
-    <polygon points="-3.5,-26.0 27.7,-8.0 27.7,-14.0 -3.5,-32.0" fill="#1E2530"/>
+    <!-- 5. Rear Passenger Bench (Deep Charcoal Vinyl #1E2530) -->
+    <polygon points="-3.5,-26.0 27.7,-8.0 27.7,-14.0 -3.5,-32.0" fill="#18202A"/>
     <!-- Cushion top surface -->
-    <polygon points="-3.5,-32.0 27.7,-14.0 47.6,-24.5 14.7,-43.5" fill="#334155"/>
-    <polygon points="27.7,-14.0 47.6,-24.5 47.6,-21.5 27.7,-11.0" fill="#1E293B"/>
+    <polygon points="-3.5,-32.0 27.7,-14.0 47.6,-24.5 14.7,-43.5" fill="#24303F"/>
+    <polygon points="27.7,-14.0 47.6,-24.5 47.6,-21.5 27.7,-11.0" fill="#18202A"/>
     <!-- Cushion backrest -->
-    <polygon points="14.7,-43.5 47.6,-24.5 49.4,-38.5 16.5,-57.5" fill="#263140"/>
+    <polygon points="14.7,-43.5 47.6,-24.5 49.4,-38.5 16.5,-57.5" fill="#1E2835"/>
 
-    <!-- Rear Passenger Silhouettes (Authentic local commuters) -->
+    <!-- Rear Passenger Silhouettes (Commuters) -->
     <polygon points="14.7,-32.5 23.4,-27.5 22.5,-40.0 15.6,-44.0" fill="#E11D48"/>
     <circle cx="19.1" cy="-46" r="3.5" fill="#78350F"/>
     <polygon points="23.4,-25.5 32.0,-20.5 31.2,-32.0 24.2,-36.0" fill="#0D9488"/>
     <circle cx="27.7" cy="-38" r="3.4" fill="#543621"/>
 
-    <!-- 6. Driver Figure (Tan shirt #C4AF95, dark cap #1E293B) -->
+    <!-- 6. Driver Figure (Seated at handlebars) -->
     <polygon points="-12.1,-9.0 -1.7,-3.0 8.7,-13.0 -1.7,-19.0" fill="#1E2530"/>
     <polygon points="-7.8,-13.5 -0.9,-9.5 4.3,-25.5 -2.6,-29.5" fill="#C4AF95"/>
     <polygon points="-0.9,-9.5 4.3,-12.5 4.3,-25.5 -0.9,-22.5" fill="#A89078"/>
@@ -857,42 +956,50 @@
     <line x1="-13.9" y1="-3" x2="-12.1" y2="-13" stroke="#334155" stroke-width="2.8" stroke-linecap="round"/>
     <line x1="-16.9" y1="-15.7" x2="-7.4" y2="-10.2" stroke="#1E293B" stroke-width="2.8" stroke-linecap="round"/>
 
-    <!-- 7. Front Steering Fork & Single Front Wheel Assembly -->
+    <!-- 7. Front Steering Fork & Exposed Single Front Wheel Assembly -->
     <g id="frontAssemblyDL">
       <line x1="-35.6" y1="8.4" x2="-31.5" y2="-0.5" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
       <line x1="-33.4" y1="9.6" x2="-30.3" y2="0.2" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
-      <!-- Emerald Green Mudguard wrapping over front tire -->
+      <!-- Curved Emerald Green Mudguard wrapping snugly over front tire -->
       <polygon points="-40.9,6.8 -36.7,9.2 -27.6,-1.0 -31.8,-3.4" fill="#10B981"/>
       <polygon points="-36.7,9.2 -27.6,-1.0 -27.6,2.5 -36.7,12.7" fill="#059669"/>
       <!-- Front Wheel (10-inch tire, sits on ground Z=0) -->
       <ellipse cx="-34.5" cy="9.0" rx="6.5" ry="12.5" fill="#1C1F22"/>
-      <ellipse cx="-34.5" cy="9.0" rx="3.8" ry="7.5" fill="#525B64"/>
-      <circle cx="-34.5" cy="9.0" r="2.4" fill="#E2E8F0"/>
+      <ellipse cx="-34.5" cy="9.0" rx="3.8" ry="7.5" fill="#CBD5E1"/>
+      <circle cx="-34.5" cy="9.0" r="2.2" fill="#475569"/>
       <circle cx="-34.5" cy="9.0" r="1.1" fill="#1C1F22"/>
     </g>
 
-    <!-- 8. Front Cowl & Tapered Delta Nose Apron -->
+    <!-- 8. Compact Front Cowl, Signature Black Curved Mask & Headlights -->
     <!-- Front Bumper Bar (#1E2530) -->
     <polygon points="-40.0,6.5 -31.5,11.4 -30.3,7.9 -38.8,3.0" fill="#1E2530"/>
-    <!-- Center Nose Apron Shield (#111822) -->
-    <polygon points="-39.7,3.9 -31.8,8.5 -22.1,-2.7 -32.4,-8.6" fill="#111822"/>
-    <!-- Bajaj RE Chrome Plaque -->
-    <rect x="-35.0" y="-1.9" width="6.0" height="4.0" rx="0.8" fill="#1E293B" stroke="#CBD5E1" stroke-width="0.7"/>
-    <text x="-32.0" y="1.1" font-family="'Rubik', sans-serif" font-size="2.8" font-weight="900" fill="#F8FAFC" text-anchor="middle">RE</text>
-    <!-- Twin Circular Headlights (#F8FAFC with chrome bezel) -->
-    <circle cx="-35.8" cy="0.6" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="-35.8" cy="0.6" r="1.3" fill="#FFFFFF"/>
-    <circle cx="-30.8" cy="3.4" r="2.8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
-    <circle cx="-30.8" cy="3.4" r="1.3" fill="#FFFFFF"/>
-    <!-- Amber Turn Indicators (#F59E0B) -->
-    <polygon points="-39.0,0.8 -37.8,1.5 -36.6,-1.3 -37.8,-2.0" fill="#F59E0B"/>
-    <polygon points="-31.2,5.3 -30.0,6.0 -28.7,3.2 -30.0,2.5" fill="#F59E0B"/>
+    
+    <!-- Emerald Green Nose Apron (#059669) -->
+    <polygon points="-39.7,3.9 -31.8,8.5 -22.1,-2.7 -32.4,-8.6" fill="#059669"/>
+    
+    <!-- Signature Curved Black Headlight Mask (Horizontal Wrap-Around #141A24) -->
+    <polygon points="-38.8,1.2 -31.2,5.6 -26.0,1.0 -33.6,-3.4" fill="#141A24"/>
+    <polygon points="-38.8,1.2 -31.2,5.6 -31.2,7.0 -38.8,2.6" fill="#0B0F15"/>
+
+    
+    <!-- Twin Circular Headlights (#FFFFFF with chrome bezel) -->
+    <circle cx="-35.8" cy="0.6" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="-35.8" cy="0.6" r="1.4" fill="#FEF08A"/>
+    <circle cx="-30.8" cy="3.4" r="2.7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8"/>
+    <circle cx="-30.8" cy="3.4" r="1.4" fill="#FEF08A"/>
+
+    <!-- Amber Turn Indicator (#F59E0B) above the black mask -->
+    <polygon points="-35.6,-1.8 -33.8,-0.8 -32.6,-2.4 -34.4,-3.4" fill="#F59E0B" stroke="#D97706" stroke-width="0.4"/>
 
     <!-- Sloping Green Upper Hood (Top highlight #10B981) -->
     <polygon points="-32.4,-8.6 -22.1,-2.7 -6.9,-10.0 -34.6,-26.0" fill="#10B981"/>
     <line x1="-27.2" y1="-5.7" x2="-20.8" y2="-18" stroke="#34D399" stroke-width="1.2"/>
     <!-- Right Sloping Cheek Panel (Key lit Kelly Green #059669) -->
     <polygon points="-31.8,9.9 -22.1,-2.7 -6.9,-10.0 -6.9,4.0 -23.0,8.0" fill="#059669"/>
+    <!-- Bold White "CNG" Decal on Cheek Panel -->
+    <g transform="translate(-18.5, -0.5) matrix(0.866 -0.5 0 1 0 0)">
+      <text x="0" y="0" font-family="'Rubik', system-ui, sans-serif" font-size="4.2" font-weight="900" fill="#FFFFFF" letter-spacing="0.4" text-anchor="middle">CNG</text>
+    </g>
     <!-- Left Cheek Panel (Ambient shaded Forest Green #047857) -->
     <polygon points="-39.7,5.3 -32.4,-8.6 -34.6,-26.0 -34.6,-12.0 -36.3,-0.5" fill="#047857"/>
 
@@ -903,7 +1010,7 @@
     <polygon points="-1.3,4.3 12.6,-1.7 12.6,-5.2 -1.3,0.8" fill="#FACC15" stroke="#CA8A04" stroke-width="0.5"/>
     <line x1="0.9" y1="1.7" x2="10.4" y2="-2.8" stroke="#1E293B" stroke-width="1.1"/>
 
-    <!-- High Sturdy Rear Quarter Panel -->
+    <!-- High Sturdy Rear Quarter Panel (#059669) -->
     <polygon points="26.0,-7.0 58.9,-24.0 60.6,-43.0 26.0,-25.0" fill="#059669"/>
     <!-- Top Highlight Shoulder Rail (#10B981) -->
     <polygon points="26.0,-25.0 60.6,-43.0 59.8,-44.5 25.1,-26.5" fill="#10B981"/>
@@ -912,8 +1019,8 @@
     <line x1="27.9" y1="-20.9" x2="57.3" y2="-35.9" stroke="#047857" stroke-width="1.3"/>
     <!-- Rear Corner Face / Bumper Backing -->
     <polygon points="58.9,-24.0 25.1,-45.5 25.1,-63.5 60.6,-43.0" fill="#047857"/>
-    <!-- Rear Amber Reflector -->
-    <polygon points="59.8,-35.4 59.8,-39.4 57.2,-42.0 57.2,-38.0" fill="#F59E0B"/>
+    <!-- Rear Red Taillight (#EF4444) -->
+    <polygon points="59.8,-35.4 59.8,-39.4 57.2,-42.0 57.2,-38.0" fill="#EF4444"/>
 
     <!-- 10. Near Rear Right Wheel & Flared Wheel Arch -->
     <g id="nearWheelDL">
@@ -921,51 +1028,76 @@
       <polygon points="38.2,-11.9 38.2,-19.9 50.3,-26.9 55.5,-21.9" fill="#047857"/>
       <!-- Rear tire -->
       <ellipse cx="46.8" cy="-14" rx="8.5" ry="15" fill="#1C1F22" transform="rotate(15 46.8 -14)"/>
-      <ellipse cx="46.8" cy="-14" rx="5.2" ry="9.5" fill="#64748B" transform="rotate(15 46.8 -14)"/>
-      <circle cx="46.8" cy="-14" r="2.8" fill="#E2E8F0"/>
+      <ellipse cx="46.8" cy="-14" rx="5.2" ry="9.5" fill="#CBD5E1" transform="rotate(15 46.8 -14)"/>
+      <circle cx="46.8" cy="-14" r="2.8" fill="#475569"/>
       <circle cx="46.8" cy="-14" r="1.2" fill="#1C1F22"/>
+      <!-- Rear Mudflap (#1E2530) -->
+      <polygon points="54.5,-6.0 58.5,-8.0 57.5,-14.0 53.5,-12.0" fill="#1E2530"/>
     </g>
 
-    <!-- 11. Open C-Doorway Cutout & Slender Chrome Safety Rails -->
-    <line x1="25.1" y1="-12.5" x2="25.1" y2="-37.5" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="26.2" y1="-19.9" x2="0.9" y2="-4.5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 11. Authentic Bangladeshi Security Grille / Vertical Safety Bars -->
+    <g class="tg-cng-security-grille">
+      <!-- 4 Slender Vertical Steel Security Bars (Waist Rail up to Roof Underside) -->
+      <line x1="4.0" y1="-6.0" x2="4.0" y2="-34.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="11.0" y1="-9.5" x2="11.0" y2="-38.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="18.0" y1="-13.0" x2="18.0" y2="-42.0" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="25.0" y1="-16.5" x2="25.0" y2="-46.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Lower chrome safety rail -->
+      <line x1="0.9" y1="-4.5" x2="25.5" y2="-17.0" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
 
     <!-- 12. Structural Cab A-Pillars -->
     <line x1="-6.9" y1="-10" x2="5.2" y2="-31" stroke="#10B981" stroke-width="3.6" stroke-linecap="round"/>
     <line x1="-6.9" y1="-10" x2="5.2" y2="-31" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"/>
     <line x1="-34.6" y1="-26" x2="-19.1" y2="-45" stroke="#047857" stroke-width="3.2" stroke-linecap="round"/>
 
-    <!-- 13. Raked 45° Flat Safety Glass Windshield -->
-    <polygon points="-34.6,-26.0 -6.9,-10.0 5.2,-31.0 -19.1,-45.0" fill="#111822"/>
-    <polygon points="-32.5,-26.7 -7.4,-12.2 3.0,-30.2 -18.6,-42.7" fill="#BAE6FD" fill-opacity="0.88"/>
-    <polygon points="-25.1,-25.5 -18.2,-21.5 -3.5,-32.0 -7.8,-34.5" fill="#FFFFFF" fill-opacity="0.60"/>
-    <line x1="-22.5" y1="-22" x2="-6.9" y2="-25" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-    <!-- Side Rearview Mirror -->
-    <line x1="-5.2" y1="-12" x2="-2.6" y2="-9.5" stroke="#334155" stroke-width="1.5"/>
-    <ellipse cx="-2.6" cy="-9.5" rx="2.0" ry="3.6" fill="#1E2530" transform="rotate(15 -2.6 -9.5)"/>
+    <!-- 13. Windshield Glass, Diagonal Wiper & Dual Round Pillar Mirrors -->
+    <polygon points="-34.6,-26.0 -6.9,-10.0 5.2,-31.0 -19.1,-45.0" fill="#0F172A"/>
+    <!-- Soft Cyan Pastel Glass (#BAE6FD / #E0F2FE reflection) -->
+    <polygon points="-32.5,-26.7 -7.4,-12.2 3.0,-30.2 -18.6,-42.7" fill="#C5EEF3" fill-opacity="0.90"/>
+    <!-- Specular highlight streak -->
+    <polygon points="-25.1,-25.5 -18.2,-21.5 -3.5,-32.0 -7.8,-34.5" fill="#FFFFFF" fill-opacity="0.65"/>
+    <!-- Diagonal Single Wiper Blade (Pivot at bottom center, angled diagonally) -->
+    <line x1="-15.0" y1="-16.0" x2="-6.0" y2="-28.0" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
 
-    <!-- 14. Passenger Side Window Opening & Canvas Frame -->
-    <polygon points="26.0,-25.0 26.0,-37.0 29.6,-38.9 29.6,-26.9" fill="#1E2530"/>
-    <polygon points="55.3,-40.1 55.3,-52.1 60.6,-55.0 60.6,-43.0" fill="#1E2530"/>
+    <!-- Dual Round Rearview Mirrors on Slender Stalks -->
+    <!-- Near Right A-Pillar Mirror -->
+    <line x1="-5.2" y1="-12" x2="-2.6" y2="-9.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="-2.2" cy="-9.0" r="2.2" fill="#1E293B"/>
+    <circle cx="-2.2" cy="-9.0" r="1.5" fill="#CBD5E1"/>
+    <!-- Far Left A-Pillar Mirror -->
+    <line x1="-33.0" y1="-28.0" x2="-36.0" y2="-26.5" stroke="#1E293B" stroke-width="1.4"/>
+    <circle cx="-36.5" cy="-26.0" r="2.2" fill="#1E293B"/>
+    <circle cx="-36.5" cy="-26.0" r="1.5" fill="#475569"/>
+
+    <!-- 14. Passenger Side Window Grille Aperture -->
+    <polygon points="26.0,-25.0 26.0,-37.0 29.6,-38.9 29.6,-26.9" fill="#16202B"/>
+    <polygon points="55.3,-40.1 55.3,-52.1 60.6,-55.0 60.6,-43.0" fill="#16202B"/>
     <!-- Rear side open window aperture -->
-    <polygon points="29.6,-26.9 55.3,-40.1 55.3,-51.1 29.6,-37.9" fill="#161B20" opacity="0.65"/>
-    <line x1="29.7" y1="-30.8" x2="55.3" y2="-44" stroke="#CBD5E1" stroke-width="1.2"/>
-    <line x1="29.7" y1="-34.8" x2="55.3" y2="-48" stroke="#CBD5E1" stroke-width="1.2"/>
-    <!-- Rear Drop Curtain -->
-    <polygon points="60.6,-55.0 25.1,-75.5 25.1,-63.5 60.6,-43.0" fill="#14171A"/>
+    <polygon points="29.6,-26.9 55.3,-40.1 55.3,-51.1 29.6,-37.9" fill="#0C131B" opacity="0.80"/>
+    <!-- Dark horizontal grille slats -->
+    <line x1="29.7" y1="-30.8" x2="55.3" y2="-44.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="29.7" y1="-34.8" x2="55.3" y2="-48.0" stroke="#475569" stroke-width="1.2"/>
+    <line x1="29.7" y1="-38.8" x2="55.3" y2="-52.0" stroke="#334155" stroke-width="1.0"/>
+    <!-- Rear Drop Curtain (#062E1E Deep Hunter Green Canvas) -->
+    <polygon points="60.6,-55.0 25.1,-75.5 25.1,-63.5 60.6,-43.0" fill="#062E1E"/>
 
-    <!-- 15. Signature Low-Profile Canopy Roof Deck -->
-    <polygon points="-21.7,-43.5 4.3,-28.5 6.1,-34.5 -18.2,-48.5" fill="#161B20"/>
-    <polygon points="6.1,-34.5 58.9,-58.0 58.9,-55.0 6.1,-31.5" fill="#1E2530"/>
-    <polygon points="6.5,-36.2 57.6,-58.7 53.3,-66.2 6.9,-45.0" fill="#242C37"/>
-    <polygon points="-18.2,-48.5 6.1,-34.5 6.9,-45.0 -13.9,-57.0" fill="#1C232C"/>
-    <!-- Flat Top Roof Deck -->
-    <polygon points="-13.9,-57.0 6.9,-45.0 53.3,-66.2 22.9,-83.7" fill="#2A3441"/>
-    <!-- Highlight Ribbons -->
-    <polygon points="-10.4,-57.1 6.9,-47.1 20.8,-53.1 0.0,-65.1" fill="#3A4858" opacity="0.85"/>
-    <polygon points="7.8,-70.6 30.3,-57.6 40.7,-61.6 14.7,-76.6" fill="#333F4D" opacity="0.6"/>
+    <!-- 15. Authentic Deep Hunter Green Canvas Roof Canopy (#0B4228 / #062E1E) -->
+    <!-- Roof Underside Shadow -->
+    <polygon points="-21.7,-43.5 4.3,-28.5 6.1,-34.5 -18.2,-48.5" fill="#052417"/>
+    <!-- Side Overhang Valance / Brow (#083B27) -->
+    <polygon points="6.1,-34.5 58.9,-58.0 58.9,-55.0 6.1,-31.5" fill="#083B27"/>
+    <polygon points="6.5,-36.2 57.6,-58.7 53.3,-66.2 6.9,-45.0" fill="#0B482E"/>
+    <!-- Front Canopy Brow / Peak over Windshield -->
+    <polygon points="-18.2,-48.5 6.1,-34.5 6.9,-45.0 -13.9,-57.0" fill="#093C27"/>
+    <!-- Flat Top Roof Deck (#0E5A39 Hunter Green Canvas) -->
+    <polygon points="-13.9,-57.0 6.9,-45.0 53.3,-66.2 22.9,-83.7" fill="#0E5A39"/>
+    <!-- Canvas Highlight Ribbons & Seams -->
+    <polygon points="-10.4,-57.1 6.9,-47.1 20.8,-53.1 0.0,-65.1" fill="#147249" opacity="0.85"/>
+    <polygon points="7.8,-70.6 30.3,-57.6 40.7,-61.6 14.7,-76.6" fill="#10633F" opacity="0.6"/>
     <!-- Center Stiffener Rib -->
-    <line x1="1.7" y1="-68.2" x2="26" y2="-54.2" stroke="#1E2530" stroke-width="1.4"/>
+    <line x1="1.7" y1="-68.2" x2="26" y2="-54.2" stroke="#062E1E" stroke-width="1.5"/>
+  
   </g>
   
     </g>
