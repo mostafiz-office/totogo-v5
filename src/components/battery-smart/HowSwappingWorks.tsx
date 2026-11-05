@@ -98,8 +98,8 @@ export default function HowSwappingWorks() {
       id="how-swapping-works"
       aria-label="How totooGO works in four steps"
     >
-      <div className="container max-w-[1248px] mx-auto px-6 py-14 md:py-20 lg:py-28">
-        <div className="sss-head-wrap text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+      <div className="container max-w-[1248px] mx-auto px-6 py-8 md:py-20 lg:py-28">
+        <div className="sss-head-wrap text-center mb-8 md:mb-20 max-w-3xl mx-auto">
           <p className="sss-eyebrow">HOW IT WORKS</p>
           <h2 className="sss-heading">
             Own &amp; earn your freedom, buy, swap, earn, in <em>four simple steps</em>
@@ -220,40 +220,45 @@ export default function HowSwappingWorks() {
           .sss-card {
             grid-template-columns: 1fr;
             min-height: 0;
-            padding: 1.25rem 1rem 1rem;
+            padding: 1.75rem 1.5rem;
             gap: 1rem;
             border-radius: 20px;
           }
           .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 0.85rem; }
-          .sss-card-content { gap: 0.65rem; }
-          .sss-card-title { font-size: 1.35rem; }
-          .sss-card-desc { font-size: 0.9rem; line-height: 1.55; }
+          .sss-card-content { gap: 0.75rem; }
+          .sss-card-title { font-size: 1.45rem; }
+          .sss-card-desc { font-size: 0.925rem; line-height: 1.6; }
           .sss-stats {
-            gap: 0.65rem;
+            gap: 0.75rem;
             margin-top: 0.25rem;
-            padding-top: 0.75rem;
+            padding-top: 0.85rem;
           }
-          .sss-stat-value { font-size: 1.05rem; }
-          .sss-stat-label { font-size: 0.75rem; line-height: 1.4; }
+          .sss-stat-value { font-size: 1.15rem; }
+          .sss-stat-label { font-size: 0.78rem; line-height: 1.4; }
           .sss-card-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             min-height: 0;
-            padding-top: 0;
+            height: auto;
+            padding: 0;
+            margin-top: 0.25rem;
           }
           .sss-icon-tile {
             width: 100%;
-            max-width: 320px;
-            height: 120px;
+            max-width: 260px;
+            height: 96px;
             aspect-ratio: auto;
             border-radius: 16px;
             margin: 0 auto;
           }
           .sss-icon {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
           }
           .sss-step-badge {
-            top: 1rem;
-            right: 1rem;
+            top: 1.25rem;
+            right: 1.25rem;
           }
         }
 
@@ -329,9 +334,11 @@ export default function HowSwappingWorks() {
         }
 
 
-        .sss-card-media {
-          display: flex; align-items: center; justify-content: center;
-          min-height: 260px;
+        @media (min-width: 769px) {
+          .sss-card-media {
+            display: flex; align-items: center; justify-content: center;
+            min-height: 260px;
+          }
         }
         .sss-icon-tile {
           position: relative;
