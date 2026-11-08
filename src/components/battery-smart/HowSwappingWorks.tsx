@@ -216,51 +216,6 @@ export default function HowSwappingWorks() {
           overflow: hidden;
           position: relative;
         }
-        @media (max-width: 768px) {
-          .sss-card {
-            grid-template-columns: 1fr;
-            min-height: 0;
-            padding: 1.75rem 1.5rem;
-            gap: 1rem;
-            border-radius: 20px;
-          }
-          .sss-sticky-wrapper { position: relative; top: auto; padding-bottom: 0.85rem; }
-          .sss-card-content { gap: 0.75rem; }
-          .sss-card-title { font-size: 1.45rem; }
-          .sss-card-desc { font-size: 0.925rem; line-height: 1.6; }
-          .sss-stats {
-            gap: 0.75rem;
-            margin-top: 0.25rem;
-            padding-top: 0.85rem;
-          }
-          .sss-stat-value { font-size: 1.15rem; }
-          .sss-stat-label { font-size: 0.78rem; line-height: 1.4; }
-          .sss-card-media {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 0;
-            height: auto;
-            padding: 0;
-            margin-top: 0.25rem;
-          }
-          .sss-icon-tile {
-            width: 100%;
-            max-width: 260px;
-            height: 96px;
-            aspect-ratio: auto;
-            border-radius: 16px;
-            margin: 0 auto;
-          }
-          .sss-icon {
-            width: 42px;
-            height: 42px;
-          }
-          .sss-step-badge {
-            top: 1.25rem;
-            right: 1.25rem;
-          }
-        }
 
         .sss-card[data-step="2"] {
           --c-bg: #DFF4EA;
@@ -299,8 +254,8 @@ export default function HowSwappingWorks() {
           line-height: 1.2;
           font-weight: 700;
           margin: 0;
+          color: var(--c-text);
         }
-        .sss-card-title { color: var(--c-text); }
 
         .sss-card-desc {
           font-size: 0.95rem;
@@ -333,17 +288,13 @@ export default function HowSwappingWorks() {
           color: hsl(150 25% 12%);
         }
 
-
-        @media (min-width: 769px) {
-          .sss-card-media {
-            display: flex; align-items: center; justify-content: center;
-            min-height: 260px;
-          }
+        /* Base Tile and Media */
+        .sss-card-media {
+          display: flex; align-items: center; justify-content: center;
         }
         .sss-icon-tile {
           position: relative;
           width: 100%;
-          aspect-ratio: 1.35 / 1;
           border-radius: 20px;
           background:
             radial-gradient(120% 80% at 0% 0%, hsl(0 0% 100% / 0.18) 0%, transparent 55%),
@@ -361,6 +312,79 @@ export default function HowSwappingWorks() {
           font-family: 'Ubuntu', system-ui, sans-serif;
           font-size: 1rem; font-weight: 700; letter-spacing: 0.1em;
           color: var(--c-faint);
+        }
+
+        /* Desktop Breakpoint */
+        @media (min-width: 769px) {
+          .sss-card-media {
+            min-height: 260px;
+          }
+          .sss-icon-tile {
+            aspect-ratio: 1.35 / 1;
+            border-radius: 20px;
+          }
+        }
+
+        /* Mobile Breakpoint - Final Cascade Overrides */
+        @media (max-width: 768px) {
+          .sss-card {
+            grid-template-columns: 1fr;
+            min-height: 0;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 0;
+            padding: 1.75rem 1.5rem;
+            gap: 1rem;
+            border-radius: 20px;
+          }
+          .sss-sticky-wrapper {
+            position: relative;
+            top: auto;
+            width: 100%;
+            margin-top: 0;
+            padding-bottom: 0.85rem;
+          }
+          .sss-card-content {
+            gap: 0.75rem;
+            align-self: stretch;
+            width: 100%;
+          }
+          .sss-card-title { font-size: 1.45rem; }
+          .sss-card-desc { font-size: 0.925rem; line-height: 1.6; }
+          .sss-stats {
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+            padding-top: 0.85rem;
+          }
+          .sss-stat-value { font-size: 1.15rem; }
+          .sss-stat-label { font-size: 0.78rem; line-height: 1.4; }
+          .sss-card-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            min-height: 0;
+            height: auto;
+            padding: 0;
+            margin-top: 0;
+          }
+          .sss-icon-tile {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 1.85 / 1;
+            height: auto;
+            border-radius: 18px;
+            margin: 0;
+          }
+          .sss-icon {
+            width: 48px;
+            height: 48px;
+          }
+          .sss-step-badge {
+            top: 1.25rem;
+            right: 1.25rem;
+          }
         }
 
         @media (prefers-reduced-motion: reduce) {
