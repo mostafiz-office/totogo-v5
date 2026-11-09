@@ -90,7 +90,7 @@ const CTASection = () => {
                 ))}
               </ul>
 
-              <Button asChild className="home-brand-cta__button group h-auto w-full rounded-full px-6 py-4 text-base font-semibold sm:w-auto sm:px-8">
+              <Button asChild className="home-brand-cta__button !text-[hsl(var(--c-ink))] hover:!text-[hsl(var(--c-ink))] group h-auto w-full rounded-full px-6 py-4 text-base font-semibold sm:w-auto sm:px-8">
                 <a href="#">
                   Join our waitlist
                   <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />

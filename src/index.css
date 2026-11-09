@@ -215,8 +215,8 @@
   .home-brand-cta__icon-svg { color: hsl(var(--c-green)); }
   .home-brand-cta__bullet-title { color: hsl(var(--c-ink)); }
   .home-brand-cta__bullet-body { color: hsl(var(--c-ink) / 0.72); }
-  .home-brand-cta__button { background: hsl(var(--c-green)); color: hsl(var(--c-ink)); }
-  .home-brand-cta__button:hover { background: hsl(var(--c-green-deep)); }
+  .home-brand-cta__button { background: hsl(var(--c-green)); color: hsl(var(--c-ink)) !important; }
+  .home-brand-cta__button:hover { background: hsl(var(--c-green-deep)); color: hsl(var(--c-ink)) !important; }
   .home-brand-cta__image-fade { background: linear-gradient(90deg, hsl(var(--c-green-soft)), hsl(var(--c-green-soft) / 0.4) 25%, transparent 60%); }
   .home-brand-cta__line { background: linear-gradient(90deg, hsl(var(--c-green)), hsl(var(--c-navy)), hsl(var(--c-green))); }
 

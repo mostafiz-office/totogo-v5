@@ -43,7 +43,7 @@
 }
 .site-nav-item:hover,
 .site-nav-item[data-open="true"] {
-  color: hsl(var(--primary));
+  color: hsl(var(--foreground));
   background-color: hsl(var(--secondary));
 }
 .site-nav-item[data-active="true"] { color: hsl(var(--primary)); }
@@ -131,7 +131,7 @@
 }
 .site-mega-popular-link:hover {
   background-color: hsl(var(--secondary));
-  color: hsl(var(--primary));
+  color: hsl(var(--foreground));
 }
 .site-mega-footer {
   display: flex;

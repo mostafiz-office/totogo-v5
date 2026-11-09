@@ -1,5 +1,5 @@
 import { Facebook, Linkedin, Youtube, Instagram, Phone, Mail, MapPin } from "lucide-react";
-import logoSrc from "@/assets/totoogo-logo.png";
+import logoSrc from "@/assets/totoogo-logo-footer.png";
 import { XIcon, TikTokIcon } from "./social-icons";
 import "./footer.css";
 
