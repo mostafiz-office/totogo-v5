@@ -194,20 +194,20 @@ export default function HowSwappingWorks() {
           padding-bottom: 1.25rem;
         }
         .sss-card {
-          --c-bg: #D4EFE2;
-          --c-text: #001B48;
-          --c-mute: hsl(220 100% 20% / 0.8);
-          --c-faint: hsl(220 100% 20% / 0.6);
-          --c-border: hsl(220 100% 20% / 0.18);
-          --c-hover: #00CE7E;
-          --c-tile-bg: #002366;
+          --c-bg: #FFF9E6;
+          --c-text: #1C1917;
+          --c-mute: hsl(24 10% 12% / 0.85);
+          --c-faint: hsl(24 10% 12% / 0.7);
+          --c-border: hsl(38 90% 45% / 0.25);
+          --c-hover: #D97706;
+          --c-tile-bg: #F59E0B;
           --c-tile-icon: #ffffff;
 
           background: var(--c-bg);
           color: var(--c-text);
           border-radius: 24px;
           border: 1px solid var(--c-border);
-          box-shadow: 0 18px 40px -24px hsl(150 30% 12% / 0.35);
+          box-shadow: 0 18px 40px -24px hsl(28 35% 15% / 0.22);
           min-height: clamp(420px, 58vh, 540px);
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -218,25 +218,34 @@ export default function HowSwappingWorks() {
         }
 
         .sss-card[data-step="2"] {
-          --c-bg: #A6E4C6;
-          --c-tile-bg: #00A866;
+          --c-bg: #FDE68A;
+          --c-text: #1C1917;
+          --c-mute: hsl(24 10% 12% / 0.85);
+          --c-faint: hsl(24 10% 12% / 0.7);
+          --c-border: hsl(38 85% 38% / 0.28);
+          --c-tile-bg: #D97706;
           --c-tile-icon: #ffffff;
         }
+
         .sss-card[data-step="3"] {
-          --c-bg: #6DCE9E;
-          --c-tile-bg: #001845;
+          --c-bg: #F59E0B;
+          --c-text: #0F172A;
+          --c-mute: hsl(222 47% 11% / 0.88);
+          --c-faint: hsl(222 47% 11% / 0.72);
+          --c-border: hsl(25 85% 25% / 0.32);
+          --c-tile-bg: #1E1B18;
           --c-tile-icon: #ffffff;
         }
 
         .sss-card[data-step="4"] {
-          --c-bg: #001845;
+          --c-bg: #78350F;
           --c-text: #ffffff;
-          --c-mute: hsl(0 0% 100% / 0.82);
-          --c-faint: hsl(0 0% 100% / 0.6);
+          --c-mute: hsl(0 0% 100% / 0.88);
+          --c-faint: hsl(0 0% 100% / 0.68);
           --c-border: hsl(0 0% 100% / 0.25);
-          --c-hover: #00CE7E;
-          --c-tile-bg: #F8FBF9;
-          --c-tile-icon: #001845;
+          --c-hover: #FBBF24;
+          --c-tile-bg: #FEF3C7;
+          --c-tile-icon: #78350F;
         }
 
         .sss-card-content { display: flex; flex-direction: column; gap: 1rem; align-self: center; }
