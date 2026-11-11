@@ -19,7 +19,7 @@ const CARDS: Card[] = [
   {
     step: 1,
     category: "CHOOSE",
-    eyebrow: "01 —— CHOOSE 01",
+    eyebrow: "01 —— CHOOSE",
     Icon: ListChecks,
     title: "Choose your E3W, Start your ELECTRIC journey!",
     body: "Select a totooGO electric three-wheeler built for affordable, efficient everyday driving.",
@@ -39,7 +39,7 @@ const CARDS: Card[] = [
   {
     step: 2,
     category: "BUY",
-    eyebrow: "02 —— OWNERSHIP 02",
+    eyebrow: "02 —— OWNERSHIP",
     Icon: Wallet,
     title: "Own your vehicle! Own Your Future!",
     body: "Get your TOTOOGO E3W with easy, pocket-friendly financing and start building your own asset!",
@@ -59,7 +59,7 @@ const CARDS: Card[] = [
   {
     step: 3,
     category: "SWAP",
-    eyebrow: "03 —— SWAP NETWORK 03",
+    eyebrow: "03 —— SWAP NETWORK",
     Icon: BatteryCharging,
     title: "Swap & Drive, No Expensive Battery Replacement!",
     body: "With totooGO, you don't pay for costly battery replacement—only a simple subscription that keeps you on the road.",
@@ -82,7 +82,7 @@ const CARDS: Card[] = [
   {
     step: 4,
     category: "EARN",
-    eyebrow: "04 —— EARNINGS 04",
+    eyebrow: "04 —— EARNINGS",
     Icon: TrendingUp,
     title: "Drive More. Earn More. Build Your Freedom!",
     body: "With lower running costs and more time on the road, totooGO helps you keep more of what you earn and build towards financial freedom.",
@@ -258,19 +258,19 @@ export default function HowSwappingWorks() {
 
         /* --- CARD PALETTE & ARCHITECTURE (Progressive Green Deck) --- */
         .sss-card {
-          /* Default Step 1: Light Crisp Mint Green */
+          /* Default Step 1: Light Crisp Mint Green with Solid Black Text */
           --c-bg: #F0FDF4;
-          --c-text: #064E3B;
-          --c-mute: #166534;
-          --c-faint: #15803D;
+          --c-text: #000000;
+          --c-mute: #111827;
+          --c-faint: #374151;
           --c-check: #059669;
-          --c-border: rgba(5, 150, 105, 0.20);
+          --c-border: rgba(5, 150, 105, 0.22);
           --c-tile-bg: #DCFCE7;
-          --c-tile-border: rgba(5, 150, 105, 0.16);
+          --c-tile-border: rgba(5, 150, 105, 0.18);
           --c-tile-icon: #065F46;
-          --c-tile-shadow: rgba(6, 78, 59, 0.12);
-          --c-icon-shadow: rgba(6, 78, 59, 0.16);
-          --c-link: #065F46;
+          --c-tile-shadow: rgba(0, 0, 0, 0.10);
+          --c-icon-shadow: rgba(0, 0, 0, 0.14);
+          --c-link: #000000;
 
           background: var(--c-bg);
           color: var(--c-text);
@@ -288,20 +288,20 @@ export default function HowSwappingWorks() {
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Step 2: Fresh Soft Pastel Leaf Green */
+        /* Step 2: Fresh Soft Pastel Leaf Green with Solid Black Text */
         .sss-card[data-step="2"] {
           --c-bg: #DCFCE7;
-          --c-text: #022C22;
-          --c-mute: #14532D;
-          --c-faint: #166534;
+          --c-text: #000000;
+          --c-mute: #111827;
+          --c-faint: #374151;
           --c-check: #047857;
-          --c-border: rgba(4, 120, 87, 0.24);
+          --c-border: rgba(4, 120, 87, 0.25);
           --c-tile-bg: #BBF7D0;
-          --c-tile-border: rgba(4, 120, 87, 0.18);
+          --c-tile-border: rgba(4, 120, 87, 0.20);
           --c-tile-icon: #064E3B;
-          --c-tile-shadow: rgba(2, 44, 34, 0.14);
-          --c-icon-shadow: rgba(2, 44, 34, 0.18);
-          --c-link: #064E3B;
+          --c-tile-shadow: rgba(0, 0, 0, 0.12);
+          --c-icon-shadow: rgba(0, 0, 0, 0.16);
+          --c-link: #000000;
           box-shadow: 0 20px 48px -24px rgba(4, 120, 87, 0.22);
         }
 
