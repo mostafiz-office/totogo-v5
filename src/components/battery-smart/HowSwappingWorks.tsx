@@ -75,7 +75,7 @@ const CARDS: Card[] = [
       { value: "24/7 On Road", label: "Keep driving anytime with uninterrupted battery access." },
       {
         value: "30-Second Quick Swap",
-        label: "Swap your battery in seconds and get back to earning. Stay moving and pay only for what you use.",
+        label: "Swap your battery in seconds. Stay moving and pay only for what you use.",
       },
     ],
   },
@@ -164,7 +164,6 @@ export default function HowSwappingWorks() {
                 <div className="sss-card-content">
                   <div className="sss-card-header">
                     <span className="sss-card-eyebrow">{c.eyebrow}</span>
-                    <span className="sss-step-badge">0{c.step}</span>
                   </div>
 
                   <h3 className="sss-card-title">{c.title}</h3>
@@ -199,7 +198,6 @@ export default function HowSwappingWorks() {
 
                 <div className="sss-card-media" aria-hidden="true">
                   <div className="sss-icon-tile">
-                    <div className="sss-ribs-texture" aria-hidden="true" />
                     <c.Icon className="sss-icon" />
                   </div>
                 </div>
@@ -258,108 +256,102 @@ export default function HowSwappingWorks() {
           scroll-margin-top: 90px;
         }
 
-        /* --- CARD PALETTE & ARCHITECTURE (Progressive Blue-and-White Deck) --- */
+        /* --- CARD PALETTE & ARCHITECTURE (Progressive Green Deck) --- */
         .sss-card {
-          --c-bg: #F8FAFC;
-          --c-text: #002366;
-          --c-mute: #334155;
-          --c-faint: #64748B;
-          --c-check: #2563EB;
-          --c-border: rgba(0, 35, 102, 0.12);
-          --c-tile-bg: #E3EDF9;
-          --c-tile-border: rgba(0, 35, 102, 0.12);
-          --c-tile-icon: #002366;
-          --c-tile-shadow: rgba(0, 35, 102, 0.14);
-          --c-icon-shadow: rgba(0, 35, 102, 0.18);
-          --c-link: #002366;
-          --c-ribs-light: rgba(255, 255, 255, 0.65);
-          --c-ribs-dark: rgba(0, 35, 102, 0.05);
+          /* Default Step 1: Light Crisp Mint Green */
+          --c-bg: #F0FDF4;
+          --c-text: #064E3B;
+          --c-mute: #166534;
+          --c-faint: #15803D;
+          --c-check: #059669;
+          --c-border: rgba(5, 150, 105, 0.20);
+          --c-tile-bg: #DCFCE7;
+          --c-tile-border: rgba(5, 150, 105, 0.16);
+          --c-tile-icon: #065F46;
+          --c-tile-shadow: rgba(6, 78, 59, 0.12);
+          --c-icon-shadow: rgba(6, 78, 59, 0.16);
+          --c-link: #065F46;
 
           background: var(--c-bg);
           color: var(--c-text);
           border-radius: 28px;
           border: 1px solid var(--c-border);
-          box-shadow: 0 20px 48px -24px rgba(0, 35, 102, 0.18);
-          min-height: clamp(440px, 60vh, 560px);
+          box-shadow: 0 20px 48px -24px rgba(6, 78, 59, 0.18);
+          min-height: clamp(480px, 62vh, 600px);
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
           gap: 2.5rem;
           padding: clamp(2rem, 3.2vw, 3rem);
-          overflow: hidden;
+          align-items: center;
           position: relative;
+          box-sizing: border-box;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Step 2: Soft Sky Slate Blue */
+        /* Step 2: Fresh Soft Pastel Leaf Green */
         .sss-card[data-step="2"] {
-          --c-bg: #E6F0FA;
-          --c-text: #002366;
-          --c-mute: #1E293B;
-          --c-faint: #475569;
-          --c-check: #1D4ED8;
-          --c-border: rgba(0, 35, 102, 0.16);
-          --c-tile-bg: #C5DCF6;
-          --c-tile-border: rgba(0, 35, 102, 0.15);
-          --c-tile-icon: #002366;
-          --c-tile-shadow: rgba(0, 35, 102, 0.18);
-          --c-icon-shadow: rgba(0, 35, 102, 0.22);
-          --c-link: #002366;
-          --c-ribs-light: rgba(255, 255, 255, 0.6);
-          --c-ribs-dark: rgba(0, 35, 102, 0.07);
-          box-shadow: 0 20px 48px -24px rgba(0, 35, 102, 0.22);
+          --c-bg: #DCFCE7;
+          --c-text: #022C22;
+          --c-mute: #14532D;
+          --c-faint: #166534;
+          --c-check: #047857;
+          --c-border: rgba(4, 120, 87, 0.24);
+          --c-tile-bg: #BBF7D0;
+          --c-tile-border: rgba(4, 120, 87, 0.18);
+          --c-tile-icon: #064E3B;
+          --c-tile-shadow: rgba(2, 44, 34, 0.14);
+          --c-icon-shadow: rgba(2, 44, 34, 0.18);
+          --c-link: #064E3B;
+          box-shadow: 0 20px 48px -24px rgba(4, 120, 87, 0.22);
         }
 
-        /* Step 3: Vibrant Royal / Indigo Periwinkle Blue */
+        /* Step 3: Vibrant Rich Emerald Green */
         .sss-card[data-step="3"] {
-          --c-bg: #3B6FD8;
+          --c-bg: #059669;
           --c-text: #FFFFFF;
-          --c-mute: rgba(255, 255, 255, 0.92);
-          --c-faint: rgba(255, 255, 255, 0.78);
-          --c-check: #93C5FD;
-          --c-border: rgba(255, 255, 255, 0.24);
-          --c-tile-bg: #2554B8;
-          --c-tile-border: rgba(255, 255, 255, 0.2);
+          --c-mute: rgba(255, 255, 255, 0.94);
+          --c-faint: rgba(255, 255, 255, 0.82);
+          --c-check: #A7F3D0;
+          --c-border: rgba(255, 255, 255, 0.25);
+          --c-tile-bg: #047857;
+          --c-tile-border: rgba(255, 255, 255, 0.22);
           --c-tile-icon: #FFFFFF;
-          --c-tile-shadow: rgba(0, 20, 60, 0.35);
-          --c-icon-shadow: rgba(0, 10, 40, 0.4);
+          --c-tile-shadow: rgba(2, 44, 34, 0.28);
+          --c-icon-shadow: rgba(2, 44, 34, 0.32);
           --c-link: #FFFFFF;
-          --c-ribs-light: rgba(255, 255, 255, 0.16);
-          --c-ribs-dark: rgba(0, 15, 50, 0.2);
-          box-shadow: 0 20px 48px -24px rgba(0, 20, 60, 0.35);
+          box-shadow: 0 20px 48px -24px rgba(5, 150, 105, 0.35);
         }
 
-        /* Step 4: Deep TotooGo Signature Navy */
+        /* Step 4: Deep Signature Forest Green */
         .sss-card[data-step="4"] {
-          --c-bg: #002366;
+          --c-bg: #064E3B;
           --c-text: #FFFFFF;
-          --c-mute: rgba(255, 255, 255, 0.92);
-          --c-faint: rgba(255, 255, 255, 0.74);
-          --c-check: #60A5FA;
-          --c-border: rgba(255, 255, 255, 0.20);
-          --c-tile-bg: #001744;
-          --c-tile-border: rgba(255, 255, 255, 0.16);
-          --c-tile-icon: #FFFFFF;
-          --c-tile-shadow: rgba(0, 10, 40, 0.45);
-          --c-icon-shadow: rgba(0, 5, 20, 0.5);
+          --c-mute: rgba(255, 255, 255, 0.94);
+          --c-faint: rgba(255, 255, 255, 0.80);
+          --c-check: #6EE7B7;
+          --c-border: rgba(255, 255, 255, 0.22);
+          --c-tile-bg: #022C22;
+          --c-tile-border: rgba(255, 255, 255, 0.18);
+          --c-tile-icon: #6EE7B7;
+          --c-tile-shadow: rgba(0, 20, 15, 0.45);
+          --c-icon-shadow: rgba(0, 20, 15, 0.5);
           --c-link: #FFFFFF;
-          --c-ribs-light: rgba(255, 255, 255, 0.10);
-          --c-ribs-dark: rgba(0, 0, 0, 0.28);
-          box-shadow: 0 24px 52px -24px rgba(0, 10, 40, 0.45);
+          box-shadow: 0 24px 52px -24px rgba(2, 44, 34, 0.45);
         }
 
         .sss-card-content {
           display: flex;
           flex-direction: column;
-          gap: 0.9rem;
+          gap: 0.75rem;
           justify-content: center;
+          min-width: 0;
         }
 
         .sss-card-header {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           width: 100%;
-          margin-bottom: 0.15rem;
+          margin-bottom: 0.1rem;
         }
         .sss-card-eyebrow {
           font-family: 'Ubuntu', monospace, sans-serif;
@@ -367,13 +359,6 @@ export default function HowSwappingWorks() {
           font-weight: 600;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: var(--c-faint);
-        }
-        .sss-step-badge {
-          font-family: 'Ubuntu', sans-serif;
-          font-size: 0.95rem;
-          font-weight: 700;
-          letter-spacing: 0.08em;
           color: var(--c-faint);
         }
 
@@ -398,24 +383,24 @@ export default function HowSwappingWorks() {
         .sss-checkpoints {
           list-style: none;
           padding: 0;
-          margin: 0.35rem 0 0.5rem 0;
+          margin: 0.2rem 0 0.35rem 0;
           display: flex;
           flex-direction: column;
-          gap: 0.55rem;
+          gap: 0.45rem;
         }
         .sss-checkpoint-item {
           display: flex;
           align-items: flex-start;
           gap: 0.65rem;
           font-size: 0.92rem;
-          line-height: 1.5;
+          line-height: 1.45;
           color: var(--c-mute);
         }
         .sss-check-icon {
           width: 1.15rem;
           height: 1.15rem;
           flex-shrink: 0;
-          margin-top: 0.15rem;
+          margin-top: 0.12rem;
           color: var(--c-check);
         }
 
@@ -423,9 +408,9 @@ export default function HowSwappingWorks() {
         .sss-stats {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 1.25rem 2rem;
-          margin-top: 0.25rem;
-          padding-top: 1rem;
+          gap: 1rem 1.75rem;
+          margin-top: 0.2rem;
+          padding-top: 0.85rem;
           border-top: 1px solid var(--c-border);
         }
         @media (max-width: 520px) {
@@ -434,12 +419,12 @@ export default function HowSwappingWorks() {
         .sss-stat {
           display: flex;
           flex-direction: column;
-          gap: 0.25rem;
+          gap: 0.2rem;
           min-width: 0;
         }
         .sss-stat-value {
           font-family: 'Ubuntu', system-ui, sans-serif;
-          font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+          font-size: clamp(1.05rem, 1.4vw, 1.28rem);
           font-weight: 700;
           color: var(--c-text);
           line-height: 1.2;
@@ -447,14 +432,14 @@ export default function HowSwappingWorks() {
         }
         .sss-stat-label {
           font-size: 0.76rem;
-          line-height: 1.45;
+          line-height: 1.4;
           color: var(--c-faint);
         }
 
-        /* --- Footer Metadata & Action Link --- */
+        /* --- Footer Metadata & Action Link (Always Fully Visible) --- */
         .sss-card-footer {
-          margin-top: 0.5rem;
-          padding-top: 0.95rem;
+          margin-top: 0.4rem;
+          padding-top: 0.85rem;
           border-top: 1px solid var(--c-border);
           display: flex;
           align-items: center;
@@ -491,44 +476,35 @@ export default function HowSwappingWorks() {
           height: 1rem;
         }
 
-        /* --- Media Tile with Vertical Ribbed Texture --- */
+        /* --- Media Tile: Clean Solid / Soft Glow Background, No Stripes --- */
         .sss-card-media {
           display: flex;
-          align-items: stretch;
+          align-items: center;
           justify-content: center;
+          width: 100%;
+          height: 100%;
         }
         .sss-icon-tile {
           position: relative;
           width: 100%;
-          min-height: 320px;
+          aspect-ratio: 1.3 / 1;
+          max-height: 380px;
+          min-height: 260px;
           border-radius: 24px;
           background-color: var(--c-tile-bg);
-          box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 20px 45px -20px var(--c-tile-shadow);
+          box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0 16px 36px -18px var(--c-tile-shadow);
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           border: 1px solid var(--c-tile-border);
-        }
-        .sss-ribs-texture {
-          position: absolute;
-          inset: 0;
-          background-image: repeating-linear-gradient(
-            90deg,
-            var(--c-ribs-light) 0px,
-            var(--c-ribs-light) 14px,
-            var(--c-ribs-dark) 14px,
-            var(--c-ribs-dark) 28px
-          );
-          mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 50%, transparent 100%);
-          -webkit-mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 50%, transparent 100%);
-          pointer-events: none;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .sss-icon-tile::after {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+          background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.28) 0%, transparent 70%);
           pointer-events: none;
         }
         .sss-icon {
@@ -538,7 +514,7 @@ export default function HowSwappingWorks() {
           height: 96px;
           color: var(--c-tile-icon);
           stroke-width: 1.6;
-          filter: drop-shadow(0 12px 24px var(--c-icon-shadow));
+          filter: drop-shadow(0 10px 20px var(--c-icon-shadow));
           transition: transform 0.3s ease;
         }
         .sss-card:hover .sss-icon {
@@ -561,7 +537,6 @@ export default function HowSwappingWorks() {
           }
           .sss-icon-tile {
             aspect-ratio: 1.3 / 1;
-            height: 100%;
           }
         }
 
@@ -573,7 +548,7 @@ export default function HowSwappingWorks() {
             width: 100%;
             max-width: 100%;
             margin-top: 0;
-            padding: 2rem 1.35rem 1.6rem;
+            padding: 2rem 1.35rem 1.75rem;
             gap: 1.5rem;
             border-radius: 20px;
           }
@@ -591,7 +566,7 @@ export default function HowSwappingWorks() {
           }
           .sss-card-title { font-size: 1.4rem; }
           .sss-card-desc { font-size: 0.9rem; line-height: 1.6; }
-          .sss-checkpoints { gap: 0.5rem; }
+          .sss-checkpoints { gap: 0.45rem; }
           .sss-checkpoint-item { font-size: 0.88rem; }
           .sss-stats {
             gap: 0.75rem;
@@ -619,6 +594,7 @@ export default function HowSwappingWorks() {
             max-width: 100%;
             aspect-ratio: 1.85 / 1;
             min-height: 180px;
+            max-height: 240px;
             height: auto;
             border-radius: 18px;
             margin: 0;
