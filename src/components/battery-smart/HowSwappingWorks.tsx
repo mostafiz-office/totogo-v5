@@ -542,15 +542,22 @@ export default function HowSwappingWorks() {
 
         /* Mobile Breakpoint */
         @media (max-width: 768px) {
+          .sss-section.totoogo .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
           .sss-card {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             min-height: 0;
             width: 100%;
             max-width: 100%;
             margin-top: 0;
-            padding: 2rem 1.35rem 1.75rem;
-            gap: 1.5rem;
+            padding: 1.75rem 1.35rem;
+            gap: 1.35rem;
             border-radius: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
           }
           .sss-sticky-wrapper {
             position: relative;
@@ -563,15 +570,35 @@ export default function HowSwappingWorks() {
             gap: 0.75rem;
             align-self: stretch;
             width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
           }
-          .sss-card-title { font-size: 1.4rem; }
-          .sss-card-desc { font-size: 0.9rem; line-height: 1.6; }
-          .sss-checkpoints { gap: 0.45rem; }
-          .sss-checkpoint-item { font-size: 0.88rem; }
+          .sss-card-title {
+            font-size: 1.35rem;
+            line-height: 1.25;
+            word-break: break-word;
+          }
+          .sss-card-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+          }
+          .sss-checkpoints {
+            gap: 0.45rem;
+            width: 100%;
+            box-sizing: border-box;
+          }
+          .sss-checkpoint-item {
+            font-size: 0.88rem;
+            line-height: 1.45;
+          }
           .sss-stats {
+            grid-template-columns: 1fr;
             gap: 0.75rem;
             margin-top: 0.25rem;
             padding-top: 0.85rem;
+            width: 100%;
+            box-sizing: border-box;
           }
           .sss-stat-value { font-size: 1.15rem; }
           .sss-stat-label { font-size: 0.78rem; line-height: 1.4; }
@@ -580,28 +607,36 @@ export default function HowSwappingWorks() {
             align-items: flex-start;
             gap: 0.65rem;
             padding-top: 0.85rem;
+            width: 100%;
+            box-sizing: border-box;
           }
           .sss-card-media {
             width: 100%;
             max-width: 100%;
-            min-height: 0;
+            min-width: 0;
             height: auto;
             padding: 0;
-            margin-top: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
           }
           .sss-icon-tile {
             width: 100%;
             max-width: 100%;
-            aspect-ratio: 1.85 / 1;
-            min-height: 180px;
-            max-height: 240px;
-            height: auto;
+            min-width: 0;
+            aspect-ratio: auto;
+            min-height: 0;
+            height: clamp(140px, 38vw, 175px);
+            max-height: 180px;
             border-radius: 18px;
             margin: 0;
+            box-sizing: border-box;
           }
           .sss-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
           }
         }
 
