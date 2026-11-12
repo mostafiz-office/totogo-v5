@@ -315,16 +315,49 @@ html:has(.site-mobile-panel) {
   border-bottom: 1px solid hsl(var(--border));
   border-radius: 0;
   text-align: left;
-  transition: color 200ms var(--ease-out), padding 200ms var(--ease-out);
+  transition: color 200ms var(--ease-out), background-color 200ms var(--ease-out), padding 200ms var(--ease-out);
 }
-.site-mobile-nav .site-mobile-link:hover,
-.site-mobile-nav .site-mobile-link[data-open="true"] {
+.site-mobile-nav a.site-mobile-link:hover {
   color: hsl(var(--primary));
   padding-inline: 8px;
 }
-.site-mobile-nav .site-mobile-link[data-active="true"] { color: hsl(var(--primary)); }
+.site-mobile-nav a.site-mobile-link[data-active="true"] { color: hsl(var(--primary)); }
 .site-mobile-nav .site-mobile-link svg { transition: transform 250ms var(--ease-out); }
 .site-mobile-nav .site-mobile-link[data-open="true"] svg.chev { transform: rotate(180deg); }
+
+/* When dropdown toggle button is open, hovered, focused, or active: high-contrast pure white over green */
+.site-mobile-nav button.site-mobile-link[data-open="true"],
+.site-mobile-nav button.site-mobile-link:hover,
+.site-mobile-nav button.site-mobile-link:focus,
+.site-mobile-nav button.site-mobile-link:focus-visible,
+.site-mobile-nav button.site-mobile-link:active {
+  background-color: hsl(var(--c-green)) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius, 8px) !important;
+  padding-inline: 14px !important;
+  border-bottom-color: transparent !important;
+}
+
+.site-mobile-nav button.site-mobile-link[data-open="true"] {
+  margin-bottom: 6px;
+}
+
+.site-mobile-nav button.site-mobile-link[data-open="true"] *,
+.site-mobile-nav button.site-mobile-link:hover *,
+.site-mobile-nav button.site-mobile-link:focus *,
+.site-mobile-nav button.site-mobile-link:focus-visible *,
+.site-mobile-nav button.site-mobile-link:active * {
+  color: #ffffff !important;
+}
+
+.site-mobile-nav button.site-mobile-link[data-open="true"] svg.chev,
+.site-mobile-nav button.site-mobile-link:hover svg.chev,
+.site-mobile-nav button.site-mobile-link:focus svg.chev,
+.site-mobile-nav button.site-mobile-link:focus-visible svg.chev,
+.site-mobile-nav button.site-mobile-link:active svg.chev {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
 
 .site-mobile-children {
   padding: 10px 0;
